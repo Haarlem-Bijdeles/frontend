@@ -1,0 +1,11 @@
+$screen-s: 	35em;
+$screen-m: 	55em;
+$screen-l: 	62em;
+$screen-xl: 78em;
+
+$breakpoints: (
+  s: $screen-s,
+  m: $screen-m,
+  l: $screen-l,
+  xl: $screen-xl
+);

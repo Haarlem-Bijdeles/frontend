@@ -1,0 +1,9 @@
+@for $i from 1 through 6 {
+	h#{$i} {
+		@extend %h#{$i};
+	}
+}
+
+strong {
+	font-weight: bold;
+}

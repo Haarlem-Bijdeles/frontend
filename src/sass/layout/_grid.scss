@@ -1,0 +1,38 @@
+.wrapper {
+
+}
+
+@supports (display: grid) {
+	.layout {
+		min-height: 100vh;
+	  display: grid;
+	  align-content: start;
+  	align-items: start;
+		grid-template-rows: auto auto auto;
+
+	  grid-template-areas: "header"
+                       "content"
+                       "footer";
+	}
+
+	.layout > * {
+		border: 1px solid #f0f;
+	}
+
+	.header {
+	  grid-area: header;
+		align-self: start;
+	}
+
+	.content {
+	  grid-area: content;
+		align-self: start;
+
+	}
+	.footer {
+		align-self: stretch;
+	  grid-area: footer;
+	  grid-row-start: 3;
+  	grid-row-end: 4;
+	}
+}
