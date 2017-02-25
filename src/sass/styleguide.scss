@@ -1,0 +1,12 @@
+@import "settings/base";
+@import "tools/base";
+
+@import "styleguide/buttons";
+
+.content {
+	margin-top: 150px;
+}
+
+.styleguide-wrapper {
+	@include center();
+}

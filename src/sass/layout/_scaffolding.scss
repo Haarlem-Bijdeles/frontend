@@ -6,9 +6,19 @@
 	box-sizing: border-box;
 }
 
+::selection {
+	background: $color-primary;
+	color: $white;
+}
+
+::-moz-selection {
+	background: $color-primary;
+	color: $white;
+}
+
 html {
 	min-height: 100vh;
-	font-size: 10px;
+	font-size: $font-size-base;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -16,7 +26,6 @@ html {
 
 body {
 	font-family: $font-family-base;
-	font-size: $font-size-base;
 	line-height: $line-height-base;
 	color: $text-color;
 	background-color: $body-bg;

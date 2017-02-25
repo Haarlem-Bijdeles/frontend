@@ -1,7 +1,12 @@
-$color-primary: #f85909;
-$color-action: #06b226;
+$color-primary: 			#f85909;
+$color-primary-dark: 	darken($color-primary, 5%);
+$color-action: 				#06b226;
+$color-action-dark: 	darken($color-action, 5%);;
 
 $white: #fff;
+$black: #000;
 
 $body-bg: $white;
 
+$grey: #bfbfbf;
+$grey-dark: #333;

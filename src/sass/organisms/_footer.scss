@@ -1,4 +1,10 @@
 .footer {
+	@include clearfix();
 	background: $color-primary;
 	color: $white;
+	@include block-padding();
+
+	&__wrapper {
+		@include center();
+	}
 }

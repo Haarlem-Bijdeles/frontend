@@ -1,0 +1,27 @@
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul {
+	margin: 0 0 1em;
+	padding: 0;
+	> li {
+		position: relative;
+		padding-left: 1.5em;
+		&:before {
+			position: absolute;
+			left: 0;
+			top: .5em;
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 43.57 43.85' preserveAspectRatio='xMidYMid meet'><path d='M25,16.34A2.81,2.81,0,0,1,28.4,16L36,21.21l3.73,2.52L58.43,36.25a1.4,1.4,0,0,1,0,2.5L39.68,51.27,36,53.79,28.4,59A2.82,2.82,0,0,1,25,58.66L16.29,50a2.25,2.25,0,0,1,0-3.18L24,39.1a2.26,2.26,0,0,0,0-3.18l-7.73-7.73a2.26,2.26,0,0,1,0-3.18Z' transform='translate(-15.63 -15.58)'/></svg>");
+			background-repeat: no-repeat;
+			content: '';
+			width: 1em;
+			height: 1em;
+			display:block;
+			background-size: 1em 1em;
+		}
+	}
+}

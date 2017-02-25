@@ -12,7 +12,7 @@ module.exports = {
       port: 9999,
       files: [
         './**/*.php',
-        './style.css'
+        './**/*.css'
       ]
     }
   },

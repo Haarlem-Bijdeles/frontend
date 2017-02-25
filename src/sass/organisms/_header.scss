@@ -1,0 +1,10 @@
+.header {
+	display: flex;
+	@include center();
+	font-size: 1.15em;
+	height: 6em;
+
+	&__logo {
+		margin-right: 5em;
+	}
+}
