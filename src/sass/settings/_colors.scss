@@ -6,7 +6,8 @@ $color-action-dark: 	darken($color-action, 5%);;
 $white: #fff;
 $black: #000;
 
-$body-bg: $white;
-
+$grey-light: #f9f9f9;
 $grey: #bfbfbf;
 $grey-dark: #333;
+
+$body-bg: $grey-light;

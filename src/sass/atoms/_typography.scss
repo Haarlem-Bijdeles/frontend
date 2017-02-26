@@ -1,3 +1,18 @@
+html {
+	font-size: $font-size-base;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: $font-family-base;
+	line-height: $line-height-base;
+	color: $text-color;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	hypens: auto;
+}
+
 @for $i from 1 through 6 {
 	h#{$i} {
 		@extend %h#{$i};
