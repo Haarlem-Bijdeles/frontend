@@ -1,9 +1,9 @@
-	</div>
+	</main>
 
 	<footer class="footer">
 		<div class="footer__wrapper">
-			<div class="quick-links">
-				<h2>Contact</h2>
+			<nav class="quick-links" aria-labelledby="footer-nav-heading">
+				<h2 id="footer-nav-heading">Contact</h2>
 					<ul>
 					<li>Werkwijze</li>
 					<li>Huiswerkbegeleiding</li>
@@ -13,7 +13,7 @@
 					<li>Blog</li>
 					<li>Contact</li>
 				</ul>
-			</div>
+			</nav>
 			<div class="address">
 				<h2>Contact</h2>
 				Bijlesstraat 17<br>

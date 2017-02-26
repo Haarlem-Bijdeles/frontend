@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main">
+<article>
 	<?php while ( have_posts() ) : the_post(); ?>
 			<div class="hero-image">
 				<?php the_post_thumbnail('post-thumbnail', [
@@ -20,7 +20,7 @@
 				<?php the_content(); ?>
 			</div>
 	<?php endwhile; ?>
-</main>
+</article>
 
 <ul class="testimonials">
 <?php for ($i = 0; $i < 3; $i++) : ?>
@@ -34,6 +34,5 @@
 	</li>
 <?php endfor; ?>
 </ul>
-
 
 <?php get_footer(); ?>
