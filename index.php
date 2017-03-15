@@ -20,6 +20,17 @@
 				<?php the_content(); ?>
 			</div>
 	<?php endwhile; ?>
+
+<ul>
+				<li class="active">Werkwijze</li>
+				<li>Huiswerkbegeleiding</li>
+				<li>Bijles</li>
+				<li>Eindexamens</li>
+				<li>Wie zijn wij</li>
+				<li>Blog</li>
+				<li>Contact</li>
+			</ul>
+
 </article>
 
 <ul class="testimonials">

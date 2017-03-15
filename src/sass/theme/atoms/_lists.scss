@@ -1,0 +1,14 @@
+ol,
+ul {
+	margin: 0 0 1em;
+	padding: 0;
+	list-style: none;
+}
+
+
+
+ul {
+	.content & {
+		@include list-with-icons();
+	}
+}

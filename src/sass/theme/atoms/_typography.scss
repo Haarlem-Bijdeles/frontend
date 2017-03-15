@@ -1,0 +1,13 @@
+@for $i from 1 through 6 {
+	h#{$i} {
+		@extend %h#{$i};
+	}
+}
+
+.lead {
+	font-weight: 700;
+}
+
+p {
+	margin: 0 0 1em;
+}

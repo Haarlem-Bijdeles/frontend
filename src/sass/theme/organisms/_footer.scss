@@ -7,4 +7,9 @@
 	&__wrapper {
 		@include center();
 	}
+
+	&__row {
+		@extend %row;
+	}
+
 }
