@@ -1,0 +1,3 @@
+- blocken in usps nog niet uitgekaart
+- afbeeldingen als stroke optioneel, kijken of illustraties voldoen
+- svg
