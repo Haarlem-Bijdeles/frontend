@@ -5,10 +5,6 @@ ul {
 	list-style: none;
 }
 
-
-
-ul {
-	.content & {
-		@include list-with-icons();
-	}
+.content ul {
+	@include list-with-icons();
 }

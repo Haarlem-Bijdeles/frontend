@@ -27,5 +27,9 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2"
   },
-  "browserslist": "> 1%, last 2 versions, Firefox ESR"
+  "browserslist": "> 1%, last 2 versions, Firefox ESR",
+  "dependencies": {
+    "gumshoe": "^0.2.1",
+    "object-fit": "^0.4.3"
+  }
 }

@@ -1,5 +1,4 @@
 .footer {
-	@include clearfix();
 	background: $color-primary;
 	color: $white;
 	@include block-padding();
@@ -10,6 +9,11 @@
 
 	&__row {
 		@extend %row;
+		@include breakpoint(md) {
+			@include grid-equal-columns(2);
+		}
+		@include breakpoint(lg) {
+			@include grid-equal-columns(4);
+		}
 	}
-
 }

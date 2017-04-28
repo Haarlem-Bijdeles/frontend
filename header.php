@@ -1,21 +1,26 @@
 <?php wp_head(); ?>
 
-<div class="layout">
 	<header class="header" role="banner">
-		<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="header__logo">
-			<img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" style="display: block">
-		</a>
-		<nav class="menu__list" aria-label="contents">
-			<ul class="menu">
-				<li class="active">Werkwijze</li>
-				<li>Huiswerkbegeleiding</li>
-				<li>Bijles</li>
-				<li>Eindexamens</li>
-				<li>Wie zijn wij</li>
-				<li>Blog</li>
-				<li>Contact</li>
-			</ul>
-		</nav>
+		<div class="header__wrapper">
+			<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="header__logo">
+			</a>
+
+			<nav aria-label="site" class="menu">
+				<button class="menu__trigger" aria-expanded="false">
+					<svg class="menu__icon">
+						<use xlink:href="#icon-menu"></use>
+					</svg>
+					Menu
+				</button>
+
+				<?php wp_nav_menu( array(
+							'theme_location'  => 'header-menu',
+							'container' 			=> false,
+							'menu_class'      => 'menu__list'
+						) ); ?>
+			</nav>
+		</div>
 	</header>
 
-	<main id="main" class="content">
+
+	<main id="main" class="main">

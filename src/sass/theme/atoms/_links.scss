@@ -2,6 +2,38 @@ a,
 button {
 	color: inherit;
 }
+
+
+@mixin link-decoration($border-height){
+	text-decoration: none;
+	transition: all .2s;
+  text-shadow: ($border-height / 2) 0 0 $body-bg, -($border-height / 2) 0 0 $body-bg,
+  							0 ($border-height / 2) 0 $body-bg, 0 -($border-height / 2) 0 $body-bg,
+  							$border-height 0 0 $body-bg, -$border-height 0 0 $body-bg,
+  							0 $border-height 0 $body-bg, 0 -$border-height 0 $body-bg;
+	background-position: bottom $border-height center;
+	background-repeat: repeat-x;
+	background-size: 100% $border-height;
+	background-image: linear-gradient(to right, currentColor 0%,  currentColor 100%);
+
+  &:hover {
+	  background-size: 100% $border-height * 2;
+
+	 }
+  &:focus {
+  	outline: none;
+  	background-color: lighten($color-primary, 20%);
+  	text-shadow: none;
+  }
+}
+
 a {
 	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+	.content &  {
+		@include link-decoration(.1em);
+	}
 }
+

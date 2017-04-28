@@ -1,0 +1,17 @@
+.hero {
+	@extend %hero;
+  height: 20rem;
+
+	&__image {
+		@extend %hero__image;
+	}
+
+	&__text {
+		@extend %hero__content;
+	}
+
+	&__title {
+		@extend %hero__title;
+		color: $white;
+	}
+}

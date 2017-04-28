@@ -1,19 +1,87 @@
+
 .menu {
-	@include list-unstyled();
-	display: flex;
-	flex: 1 1 auto;
-	justify-content: flex-start;
-	align-items: flex-end;
-	margin: 0 -1em;
+	flex: 0 1 auto;
+	@include breakpoint(lg) {
+		align-self: flex-end;
+		flex: 1 1 auto;
+	}
 
-	> li {
+	&__trigger {
+		border: 1px solid #fff;
+		color: #fff;
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+
+	&__icon {
+		@extend %icon;
+		width: 1.5em;
+		height: 1.5em;
+	}
+
+	&__list {
+		@include list-unstyled();
+		display: flex;
+		@include breakpoint-max(md) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: #fff;
+			display: none;
+			z-index: 9;
+			overflow-x: hidden;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+			&.is-active {
+				display: block;
+			}
+		}
+
+		@include breakpoint(md) {
+			justify-content: space-around;
+			margin: 0 -1rem;
+		}
+		@include breakpoint(xlg) {
+			justify-content: flex-start;
+		}
+
+		> li {
+			margin: 0 1rem;
+			position: relative;
+		}
+
+	}
+	.current_page_ancestor,
+	.current_page_item a {
+		border-bottom-color: $black;
+		font-weight: $font-weight-bold;
+	}
+
+	a {
+		border-bottom: 3px solid transparent;
 		padding: .5em 0;
-		margin: 0 1em;
+		display: inline-block;
+	}
+}
+
+.sub-menu {
+	font-size: .9em;
+	@include list-unstyled();
+	@include breakpoint-max(md) {
+		padding-left: 1em;
 	}
 
-	.active {
-		border-bottom: 3px solid $black;
-		font-weight: 700;
+	@include breakpoint(md) {
+		display: none;
+		position: absolute;
 	}
+	li:hover & {
+		display: block;
+	}
+}
 
+.body {
+	overflow: hidden;
 }

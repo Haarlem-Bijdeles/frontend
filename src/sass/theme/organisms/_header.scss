@@ -1,10 +1,44 @@
 .header {
-	display: flex;
-	@include center();
 	font-size: 1.15em;
-	height: 6em;
+	z-index: 9;
+	position: relative;
+	padding: .5rem 0;
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		@include center();
+	}
+
+	@include breakpoint-max(md) {
+		align-items: center;
+	}
+
+	@include breakpoint-max(md) {
+		background: $color-primary;
+	}
+
+	@include breakpoint-min-max(md, lg) {
+		flex-direction: column;
+	}
+	@include breakpoint(lg) {
+		align-items: flex-start;
+	}
+	@include breakpoint(lg) {
+		height: 6em;
+	}
 
 	&__logo {
-		margin-right: 5em;
+		z-index: 9;
+		display: none;
+		background: url('images/logo-sm.png') no-repeat;
+		@include breakpoint(sm) {
+	 	}
+		@include breakpoint(lg) {
+			background: url('images/logo.png') no-repeat;
+			width: 150px;
+			height: 150px;
+			margin-right: 3rem;
+		}
 	}
 }

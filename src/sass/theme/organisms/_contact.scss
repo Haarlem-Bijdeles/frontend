@@ -1,0 +1,12 @@
+.contact {
+	@include center();
+	@include block-padding();
+	&__row {
+		@extend %row;
+		@include grid-equal-columns(3);
+	}
+	&__iframe {
+		height: 20em;
+	}
+}
+

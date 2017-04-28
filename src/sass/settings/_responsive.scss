@@ -1,4 +1,4 @@
-$gutter: 1rem;
+$gutter: 2rem;
 
 $center: 78rem;
 
@@ -9,13 +9,13 @@ $centers: (
 );
 
 $screen-s: 	35em;
-$screen-m: 	55em;
+$screen-m: 	50em;
 $screen-l: 	62em;
 $screen-xl: 78em;
 
 $breakpoints: (
-  s: $screen-s,
-  m: $screen-m,
-  l: $screen-l,
-  xl: $screen-xl
+  sm: $screen-s,
+  md: $screen-m,
+  lg: $screen-l,
+  xlg: $screen-xl
 );

@@ -1,3 +1,57 @@
+.testimonials {
+	@include center();
+	@include block-padding();
+}
+
+.testimonials__list {
+	@extend %row;
+	@include breakpoint(md) {
+		@include grid-equal-columns(3);
+	}
+}
+
 .testimonial {
 	display: flex;
+	margin-bottom: 2em;
+	@include breakpoint(md) {
+		display: block;
+		text-align: center;
+	}
+	@include breakpoint(lg) {
+		display: flex;
+		text-align: left;
+	}
+	@include breakpoint-max(md) {
+		&:nth-child(2n) {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.quote__image {
+	border-radius: 50%;
+	width: 8em;
+	height: 8em;
+	object-fit: cover;
+	margin: 0 1em 0 0;
+	@include breakpoint-max(md) {
+		.testimonial:nth-child(2n) & {
+			margin: 0 0 0 1em;
+		}
+	}
+}
+
+.user-meta {
+	line-height: 1.3;
+	margin-bottom: .5em;
+}
+
+.user-name {
+	display: block;
+	font-weight: $font-weight-bold;
+}
+
+.user-class {
+	display: block;
+	color: $color-primary;
 }
