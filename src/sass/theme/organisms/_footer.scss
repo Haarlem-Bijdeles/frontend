@@ -16,4 +16,7 @@
 			@include grid-equal-columns(4);
 		}
 	}
+	&__icon {
+		@include icon(2em);
+	}
 }

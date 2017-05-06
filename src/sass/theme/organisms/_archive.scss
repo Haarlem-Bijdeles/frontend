@@ -50,12 +50,12 @@
 		display: flex;
 	}
 	&__image-wrapper {
-		@extend %col-md-4;
+		@include col($md: 4);
 		.archive__item:nth-child(2n) & {
 			order: 2;
 		}
 	}
 	&__text {
-		@extend %col-md-8;
+		@include col($md: 8);
 	}
 }

@@ -2,8 +2,7 @@
 
 	<header class="header" role="banner">
 		<div class="header__wrapper">
-			<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="header__logo">
-			</a>
+			<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="header__logo"></a>
 
 			<nav aria-label="site" class="menu">
 				<button class="menu__trigger" aria-expanded="false">

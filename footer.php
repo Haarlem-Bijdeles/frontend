@@ -27,12 +27,12 @@
 					<h2>Social media</h2>
 					<p>Volg ons op</p>
 					<a href="#">
-						<svg class="icon-menu" width="26px" height="26px">
+						<svg class="footer__icon" width="26px" height="26px">
 							<use xlink:href="#icon-facebook"></use>
 						</svg>
 					</a>
 					<a href="#">
-						<svg class="icon-menu" width="26px" height="26px">
+						<svg class="footer__icon" width="26px" height="26px">
 							<use xlink:href="#icon-twitter"></use>
 						</svg>
 					</a>
