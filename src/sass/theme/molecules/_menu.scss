@@ -2,7 +2,7 @@
 .menu {
 	flex: 0 1 auto;
 	@include breakpoint(lg) {
-		align-self: flex-end;
+		margin-top: 3em;
 		flex: 1 1 auto;
 	}
 

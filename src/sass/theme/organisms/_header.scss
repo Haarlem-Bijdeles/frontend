@@ -2,12 +2,17 @@
 	font-size: 1.15em;
 	z-index: 9;
 	position: relative;
-	padding: .5rem 0;
 
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
 		@include center();
+		@include breakpoint-max(md) {
+			align-items: center;
+		}
+		@include breakpoint-range(md, lg) {
+			flex-direction: column;
+		}
 	}
 
 	@include breakpoint-max(md) {
@@ -18,15 +23,13 @@
 		background: $color-primary;
 	}
 
-	@include breakpoint-min-max(md, lg) {
+	@include breakpoint-range(md, lg) {
 		flex-direction: column;
 	}
 	@include breakpoint(lg) {
 		align-items: flex-start;
 	}
-	@include breakpoint(lg) {
-		height: 6em;
-	}
+
 
 	&__logo {
 		display: block;
@@ -42,5 +45,17 @@
 			height: 150px;
 			margin-right: 3rem;
 		}
+		@include breakpoint-range(md, lg) {
+			background-position: center center;
+			background-size: auto;
+			width: auto;
+			background: $color-primary;
+		}
+	}
+}
+
+.main {
+	@include breakpoint(lg) {
+		margin-top: -4em;
 	}
 }

@@ -15,8 +15,12 @@
 		@include breakpoint(lg) {
 			@include grid-equal-columns(4);
 		}
+		> * {
+			margin-bottom: 1em;
+		}
 	}
 	&__icon {
 		@include icon(2em);
+		margin-right: .5em;
 	}
 }

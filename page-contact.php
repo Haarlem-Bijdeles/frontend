@@ -22,7 +22,7 @@
 							KvK-nummer:57774374
 					</p>
 				</address>
-				<form class="contact__form" method="post" action="<?php the_permalink(); ?>" class="js-contact-form">
+				<form class="contact__form js-contact-form" method="post" action="<?php the_permalink(); ?>">
 					<p class="message" id="feedback"></p>
 
 					<input type="hidden" name="action" value="post_form">
@@ -38,7 +38,7 @@
 					</div>
 					<div class="form-group">
 						<label for="message">Bericht</label>
-						<textarea type="email" id="message" name="message" rows="3" required class="js-message"></textarea>
+						<textarea id="message" name="message" rows="3" required class="js-message"></textarea>
 					</div>
 					<input type="submit" name="">
 				</form>
@@ -47,6 +47,6 @@
 	<?php endwhile; ?>
 </article>
 
-s<?php get_template_part('partials/testimonials'); ?>
+<?php get_template_part('partials/testimonials'); ?>
 
 <?php get_footer(); ?>

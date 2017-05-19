@@ -2,6 +2,10 @@
 	@extend %hero;
   height: 20rem;
 
+  &--front-page {
+  	height: 30rem;
+  }
+
 	&__image {
 		@extend %hero__image;
 	}
@@ -10,8 +14,12 @@
 		@extend %hero__content;
 	}
 
+	&__wrapper {
+		@extend %hero__wrapper;
+	}
+
 	&__title {
-		@extend %hero__title;
 		color: $white;
+		text-shadow: 1px 1px 1px #000;
 	}
 }
