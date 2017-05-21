@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<article class="content">
 
-	<?php while ( have_posts() ) : the_post(); ?>
-		<?php get_template_part('partials/hero'); ?>
-		<div class="about">
+<?php while ( have_posts() ) : the_post(); ?>
+	<?php get_template_part('partials/hero'); ?>
+	<div class="about">
+		<div class="about__row">
 			<div class="usps">
 				<div class="teaser__usps">
 					<h2 class="teaser__title">Waarom haarlembijdeles?</h2>
@@ -18,7 +18,7 @@
 						<li>Lange termijn resultaten</li>
 					</ul>
 				</div>
-				<div class="teaser__products">
+				<div class="teaser__usps">
 					<h2 class="teaser__title">Ons aanbod</h2>
 					<ul class="teaser__list">
 						<li>Persoonlijke aandacht</li>
@@ -31,17 +31,27 @@
 					</ul>
 				</div>
 			</div>
+			<div class="prices">
+				<h2 class="prices__title">Ons aanbod</h2>
+				<ul class="prices__list">
+					<li>Huiswerkbegeleiding vanaf &euro; 200,- per maand</li>
+					<li>Individuele bijles &euro; 25,- per uur</li>
+				</ul>
+				<a class="prices__btn-cta">Maak direct een afspraak</a>
+				<a class="prices__btn-call">Of bel met 06 28 32 57 33</a>
+			</div>
 		</div>
-
-		<div class="text">
-			<h2></h2>
-			<p class="lead">
-				Op zoek naar huiswerkbegeleiding in Haarlem? Huiswerkbegeleiding van Haarlem Bijdeles is vooral gericht op persoonlijke aandacht, een prettige sfeer, structuur, planning en motivatie. Leerlingen die thuis teveel afgeleid zijn, kunnen op de huiswerkbegeleiding gestructureerd aan school werken. Hierbij is ook veel aandacht voor Leren Leren.
-			</p>
-			<?php the_content(); ?>
-		</div>
-	<?php endwhile; ?>
-</article>
+	</div>
+	<article class="content">
+			<div class="text">
+				<h2></h2>
+				<p class="lead">
+					Op zoek naar huiswerkbegeleiding in Haarlem? Huiswerkbegeleiding van Haarlem Bijdeles is vooral gericht op persoonlijke aandacht, een prettige sfeer, structuur, planning en motivatie. Leerlingen die thuis teveel afgeleid zijn, kunnen op de huiswerkbegeleiding gestructureerd aan school werken. Hierbij is ook veel aandacht voor Leren Leren.
+				</p>
+				<?php the_content(); ?>
+			</div>
+	</article>
+<?php endwhile; ?>
 
 <?php get_template_part('partials/testimonials'); ?>
 

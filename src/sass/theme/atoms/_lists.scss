@@ -6,5 +6,5 @@ ul {
 }
 
 .content ul {
-	@include list-with-icons();
+	@include list-with-icons(black);
 }

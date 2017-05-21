@@ -1,0 +1,51 @@
+.about {
+	@include center;
+	margin-top: -5rem;
+	position: relative;
+}
+
+.about__row {
+	@extend %row;
+	grid-template-columns: 2fr 1fr;
+}
+
+.usps,
+.prices {
+	padding: 1rem;
+}
+
+.teaser {
+	&__list {
+		@include list-with-icons(white);
+	}
+}
+
+.prices {
+	background: linear-gradient($white, #e0fbe5);
+	&__list {
+		@include list-with-icons();
+	}
+	&__btn-cta {
+		@extend %btn--action;
+		@extend %btn--block;
+		margin-bottom: 1rem;
+	}
+	&__btn-call {
+		@extend %btn--outline;
+		@extend %btn--block;
+	}
+}
+
+.usps {
+	background: $color-primary;
+	color: $white;
+	@extend %row;
+	@include grid-equal-columns(2);
+}
+
+.teaser__usps {
+}
+
+.teaser__products {
+
+}
