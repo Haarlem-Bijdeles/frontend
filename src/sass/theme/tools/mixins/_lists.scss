@@ -17,8 +17,6 @@
 	}
 }
 
-
-
 @mixin list-with-icons($color: black) {
 	@extend %list-with-icons;
 	content: $color;

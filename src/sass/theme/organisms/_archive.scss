@@ -1,61 +1,65 @@
 .archive {
 	position: relative;
-
-	nav {
-		position: sticky;
-		top: 0;
-		background: #fff;
-		padding: 1em 0;
-		ul {
-			@include center(m);
-			display: flex;
-			justify-content: center;
-			@include list-unstyled;
-		}
-		li {
-			margin-right: 1em;
-			padding-left: 0;
-			border: 1px solid #7f7f7f;
-			padding: .25em .5em;
-			border-radius: .25em;
-			font-weight: 400;
-			&:before {
-				background: none;
-			}
-			&.is-active {
-				background: $color-action;
-				border-color: $color-action;
-				a {
-					text-shadow: none;
-					background: none;
-					color: #fff;
-				}
-			}
-		}
-		a {
-			text-shadow: none;
-			background: none;
-		}
-	}
+	padding-top: 3rem;
+		@include center();
 
 	&__wrapper {
-		@include center(m);
-		@include block-padding;
+		padding-bottom: 3rem;
+		&--small {
+			padding-bottom: 1rem;
+		}
 	}
-	&__item {
-		background: linear-gradient(to top, $grey-light 0, $white 20rem);
-	}
+
 	&__body {
 		@extend %row;
 		display: flex;
 	}
 	&__image-wrapper {
 		@include col($md: 4);
-		.archive__item:nth-child(2n) & {
-			order: 2;
-		}
 	}
 	&__text {
 		@include col($md: 8);
 	}
+	&__title {
+		a {
+
+		}
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		border: 5px #fff solid;
+		box-shadow: 0 0 3px #999;
+	}
+	&__meta {
+		font-size: .9em;
+		margin-bottom: .5em;
+	}
+	&__link {
+		@extend %link-decoration;
+	}
+}
+
+.paging {
+	@include center();
+	@include clearfix();
+	padding-bottom: 3rem;
+	&__previous {
+		float: left;
+	}
+	&__next {
+		float: right;
+	}
+	a {
+		@extend %btn--outline;
+	}
+}
+
+.social {
+	font-size: .9em;
+}
+
+.archive__icon {
+	@include icon(1.5em);
+	margin-right: .25em;
 }

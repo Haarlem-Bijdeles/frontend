@@ -44,11 +44,9 @@
 	</div>
 	<article class="content">
 			<div class="text">
-				<h2></h2>
-				<p class="lead">
-					Op zoek naar huiswerkbegeleiding in Haarlem? Huiswerkbegeleiding van Haarlem Bijdeles is vooral gericht op persoonlijke aandacht, een prettige sfeer, structuur, planning en motivatie. Leerlingen die thuis teveel afgeleid zijn, kunnen op de huiswerkbegeleiding gestructureerd aan school werken. Hierbij is ook veel aandacht voor Leren Leren.
-				</p>
-				<?php the_content(); ?>
+				<div class="lead">
+					<?php the_content(); ?>
+				</div>
 			</div>
 	</article>
 <?php endwhile; ?>

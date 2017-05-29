@@ -25,7 +25,7 @@
 				?>
 				</div>
 
-				<div class="archive">
+				<div class="way-we-work">
 					<nav>
 						<ul>
 							<?php foreach( $children as $post ) : ?>
@@ -34,20 +34,20 @@
 						</ul>
 					</nav>
 
-					<div class="archive__list">
+					<div class="way-we-work__list">
 						<?php foreach( $children as $post ) : ?>
-							<div class="archive__item">
-								<div class="archive__wrapper">
+							<div class="way-we-work__item">
+								<div class="way-we-work__wrapper">
 									<?php setup_postdata( $post ); ?>
-										<div class="archive__body" id="werkwijze-<?php echo the_ID(); ?>">
-										<div class="archive__image-wrapper">
+									<div class="way-we-work__body" id="werkwijze-<?php echo the_ID(); ?>">
+										<div class="way-we-work__image-wrapper">
 											<?php the_post_thumbnail('medium', [
-												'class' => 'archive__image',
+												'class' => 'way-we-work__image',
 												'title' => get_the_title(),
 												'alt' => get_the_title()
 												]); ?>
 										</div>
-										<div class="archive__text">
+										<div class="way-we-work__text">
 											<h2><?php the_title(); ?></h2>
 											<?php the_content(); ?>
 										</div>

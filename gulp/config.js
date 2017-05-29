@@ -3,6 +3,7 @@
 var wordpress         = './';
 var src               = './src/';
 var url               = 'http://localhost/wordpress/'
+var srcIcons          = src + 'icons/';
 
 module.exports = {
   browsersync: {
@@ -34,7 +35,15 @@ module.exports = {
     includeContent: false,
     sourceRoot: src + 'scss'
   },
+  svg: {
+    icons: [
+      srcIcons + 'bootstrap/facebook.svg',
+      srcIcons + 'bootstrap/twitter.svg',
+      srcIcons + 'menu.svg'
+    ]
+  },
   watch: {
-    sass:  src + 'sass/**/*.s+(a|c)ss'
+    sass:  src + 'sass/**/*.s+(a|c)ss',
+    svg: srcIcons + '/**/*.svg'
   }
 }
