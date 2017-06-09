@@ -21,7 +21,9 @@ gulp.task('svg', function () {
             }]
         }
     }))
-		.pipe(rename({prefix: 'icon-'}))
+		.pipe(rename({
+			prefix: 'icon-'
+		}))
     .pipe(svgstore({
     	inlineSvg: true
     }));

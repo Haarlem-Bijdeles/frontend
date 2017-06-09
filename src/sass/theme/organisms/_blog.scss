@@ -1,0 +1,31 @@
+.blog {
+	&__wrapper {
+		@extend %archive__wrapper;
+	}
+	&__item {
+		@extend %archive__item;
+	}
+	&__body {
+		@extend %archive__body;
+	}
+	&__image {
+		@extend %archive__image;
+	}
+	&__meta {
+		font-size: .9em;
+		margin-bottom: .5em;
+	}
+	&__text a,
+	&__link {
+		@include link-decoration;
+	}
+}
+
+.social {
+	font-size: .9em;
+}
+
+.archive__icon {
+	@include icon(1.5em);
+	margin-right: .25em;
+}

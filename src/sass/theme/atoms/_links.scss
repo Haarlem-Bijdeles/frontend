@@ -1,38 +1,11 @@
-a,
-button {
-	color: inherit;
-}
-
-
-%link-decoration {
-	transition: all .2s;
-  text-shadow: (1px / 2) 0 0 $body-bg, -(1px / 2) 0 0 $body-bg,
-  							0 (1px / 2) 0 $body-bg, 0 -(1px / 2) 0 $body-bg,
-  							1px 0 0 $body-bg, -1px 0 0 $body-bg,
-  							0 1px 0 $body-bg, 0 -1px 0 $body-bg;
-	background-position: bottom 1px center;
-	background-repeat: repeat-x;
-	background-size: 100% 1px;
-	background-image: linear-gradient(to right, currentColor 0%,  currentColor 100%);
-
-  &:hover {
-	  background-size: 100% 1px * 2;
-
-	 }
-  &:focus {
-  	outline: none;
-  	background-color: lighten($color-primary, 20%);
-  	text-shadow: none;
-  }
-}
-
 a {
+	color: currentColor;
 	text-decoration: none;
 	&:hover {
 		text-decoration: none;
 	}
 	.content & {
-		@extend %link-decoration;
+		text-decoration-skip: ink;
+		text-decoration: underline;
 	}
 }
-

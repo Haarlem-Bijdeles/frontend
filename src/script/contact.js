@@ -23,7 +23,7 @@ const ContactForm = function() {
 		var el = this;
 		setTimeout(function(){
 			el.style.cssText = 'height:auto;';
-			el.style.cssText = 'height:' + el.scrollHeight + 'px';
+			el.style.cssText = 'height:' + (el.scrollHeight  + 5 ) + 'px';
 		},0);
 	}
 

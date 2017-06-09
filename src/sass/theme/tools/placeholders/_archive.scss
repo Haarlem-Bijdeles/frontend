@@ -1,0 +1,29 @@
+%archive {
+	&__wrapper {
+		@include center(m);
+		@include block-padding;
+	}
+	&__item {
+		background: linear-gradient(to top, $grey-light 0, $white 20rem);
+	}
+	&__body {
+		@extend %row;
+		grid-template-columns: 1fr 2fr;
+		&--switch {
+			%archive__item:nth-child(2n) & {
+				grid-template-columns: 2fr 1fr;
+			}
+		}
+	}
+	&__image-wrapper--switch {
+		%archive__item:nth-child(2n) & {
+			order: 2;
+		}
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		border: 5px #fff solid;
+		box-shadow: 0 0 3px #999;
+	}
+}

@@ -1,0 +1,18 @@
+.about-us {
+	&__wrapper {
+		@extend %archive__wrapper;
+	}
+	&__item {
+		@extend %archive__item;
+	}
+	&__body {
+		@extend %archive__body;
+		@extend %archive__body--switch;
+	}
+	&__image-wrapper {
+		@extend %archive__image-wrapper--switch;
+	}
+	&__image {
+		@extend %archive__image;
+	}
+}

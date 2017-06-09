@@ -2,7 +2,82 @@
 @import "footer";
 @import "hero";
 
-@import "archive";
+@import "paging";
 @import "way-we-work";
 @import "contact";
 @import "usps";
+@import "about-us";
+@import "blog";
+
+
+.highlights {
+	@include center();
+	&__wrapper {
+		@extend %row;
+		@include grid-equal-columns(2);
+		grid-column-gap: 0;
+	}
+}
+
+.highlight {
+	margin-bottom: 3em;
+	background: #06b326;
+	color: #fff;
+	padding: 2em 2em;
+	&:last-child {
+		background: #b5e8bd;
+		color: $text-color;
+	}
+}
+
+.prices2 {
+	@extend %hero;
+	height: 30rem;
+
+	&__image {
+		@extend %hero__image;
+	}
+
+	&__text {
+		@extend %hero__content;
+	}
+
+	&__wrapper {
+		@extend %hero__wrapper;
+	}
+
+	&__label {
+		font-weight: 700;
+		font-size: 1.75em;
+	}
+
+	&__value {
+		font-size: 2em;
+		line-height: 1.2;
+	}
+
+	&__title {
+		margin-bottom: 1.5em;
+		@extend %hero__title;
+	}
+
+	ul {
+		@extend %row;
+		@include grid-equal-columns(4);
+	}
+	li {
+		padding: 1.5em 1em 2em;
+		background: $color-primary;
+		color: $white;
+		position: relative;
+	}
+	&__icon {
+		font-size: 1.25em;
+		position: absolute;
+		left: .5em;
+		top: 50%;
+		@include icon(2em);
+		background: #06b326;
+		border-radius: 50%;
+	}
+}

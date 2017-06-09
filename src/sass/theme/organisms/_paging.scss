@@ -1,0 +1,15 @@
+.paging {
+	@include center();
+	@include clearfix();
+	padding-bottom: 3rem;
+	&__previous {
+		float: left;
+	}
+	&__next {
+		float: right;
+	}
+	a {
+		@extend %btn--outline;
+	}
+}
+

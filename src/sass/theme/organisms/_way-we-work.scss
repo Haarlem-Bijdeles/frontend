@@ -39,29 +39,19 @@
 	}
 
 	&__wrapper {
-		@include center(m);
-		@include block-padding;
+		@extend %archive__wrapper;
 	}
 	&__item {
-		background: linear-gradient(to top, $grey-light 0, $white 20rem);
+		@extend %archive__item;
 	}
 	&__body {
-		@extend %row;
-		display: flex;
+		@extend %archive__body;
+		@extend %archive__body--switch;
 	}
 	&__image-wrapper {
-		@include col($md: 4);
-		.way-we-work__item:nth-child(2n) & {
-			order: 2;
-		}
+		@extend %archive__image-wrapper--switch;
 	}
 	&__image {
-		display: block;
-		width: 100%;
-		border: 5px #fff solid;
-		box-shadow: 0 0 3px #999;
-	}
-	&__text {
-		@include col($md: 8);
+		@extend %archive__image;
 	}
 }

@@ -39,7 +39,8 @@ module.exports = {
     icons: [
       srcIcons + 'bootstrap/facebook.svg',
       srcIcons + 'bootstrap/twitter.svg',
-      srcIcons + 'menu.svg'
+      srcIcons + 'menu.svg',
+      srcIcons + 'check-rounded.svg'
     ]
   },
   watch: {
