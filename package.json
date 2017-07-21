@@ -1,10 +1,36 @@
 {
   "name": "haarlembijdeles",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "haarlem bij de les",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-svgstore": "^6.1.0",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -15,25 +41,5 @@
   "bugs": {
     "url": "https://github.com/michielkoning/haarlembijdeles/issues"
   },
-  "homepage": "https://github.com/michielkoning/haarlembijdeles#readme",
-  "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-filter": "^5.0.0",
-    "gulp-inject": "^4.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-svgmin": "^1.2.4",
-    "gulp-svgstore": "^6.1.0",
-    "require-dir": "^0.3.2",
-    "run-sequence": "^1.2.2"
-  },
-  "browserslist": "> 1%, last 2 versions, Firefox ESR",
-  "dependencies": {
-    "gumshoe": "^0.2.1",
-    "object-fit": "^0.4.3"
-  }
+  "homepage": "https://github.com/michielkoning/haarlembijdeles#readme"
 }
