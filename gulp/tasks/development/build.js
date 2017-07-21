@@ -8,7 +8,8 @@ gulp.task('build', function(callback) {
   runSequence(
   [
   	'sass',
-  	'svg'
+  	'svg',
+    'scripts',
   ],
   callback);
 });

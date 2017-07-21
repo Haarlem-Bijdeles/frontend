@@ -7,20 +7,20 @@
   const nameInput = form.querySelector('.js-name');
   const messageElement = document.querySelector('#feedback');
 
-  commentArea.addEventListener('invalid', function (e) {
+  commentArea.addEventListener('invalid', (e) => {
     e.target.setCustomValidity('');
     if (!e.target.validity.valid) {
       e.target.setCustomValidity('Vul een bericht in.');
     }
   });
 
-  commentArea.addEventListener('input', function (e) {
+  commentArea.addEventListener('input', (e) => {
     e.target.setCustomValidity('');
   });
 
-  function autosize(){
-    var el = this;
-    setTimeout(function(){
+  const autosize = () => {
+    const el = this;
+    setTimeout(() => {
       el.style.cssText = 'height:auto;';
       el.style.cssText = 'height:' + (el.scrollHeight  + 5 ) + 'px';
     },0);

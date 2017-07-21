@@ -10,4 +10,3 @@
     body.classList.toggle('is-active', !expanded);
   });
 })();
-

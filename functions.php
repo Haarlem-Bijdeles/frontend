@@ -34,12 +34,55 @@ add_action( 'init', 'register_menus' );
 
 
 function add_default_scripts() {
-  wp_enqueue_script( 'ajax-script', get_template_directory_uri() . '/src/script/contact.js', null, false, true);
-  wp_enqueue_script( 'menu', get_template_directory_uri() . '/src/script/menu.js', null, false, true);
+  wp_enqueue_script( 'functions', get_template_directory_uri() . '/scripts/functions.js', null, false, true);
 
-  wp_localize_script( 'ajax-script', 'site', array(
+  wp_localize_script( 'functions', 'site', array(
     'ajaxurl' => admin_url( 'admin-ajax.php' )
   ));
 }
 
 add_action( 'wp_enqueue_scripts', 'add_default_scripts' );
+
+
+
+function register_testimonials() {
+
+  $labels_testimonials = array(
+    'name'               => 'Testimonials',
+    'singular_name'      => 'Testimonial',
+    'add_new'            => 'Nieuwe testimonial',
+    'add_new_item'       => 'Nieuwe testimonial toevoegen',
+    'edit_item'          => 'Testimonial bewerken',
+    'new_item'           => 'Nieuwe testimonial',
+    'view_item'          => 'Testimonial bekijken',
+    'search_items'       => 'Zoeken in testimonials',
+    'not_found'          => 'Geen testimonial gevonden',
+    'not_found_in_trash' => 'Geen testimonial gevonden in de prullenbak',
+    'parent_item_colon'  => 'Bovenliggende testimonial:',
+    'menu_name'          => 'Testimonials'
+  );
+
+  register_post_type(
+    'testimonial', array(
+      'labels'               => $labels_testimonials,
+      'menu_icon'            => 'dashicons-format-quote',
+      'hierarchical'         => false,
+      'description'          => 'Testimonials',
+      'supports'             => array( 'title', 'thumbnail'),
+      'public'               => false,
+      'show_ui'              => true,
+      'show_in_menu'         => true,
+      'menu_position'        => 25,
+      'show_in_nav_menus'    => false,
+      'publicly_queryable'   => true,
+      'exclude_from_search'  => false,
+      'has_archive'          => true,
+      'query_var'            => true,
+      'can_export'           => true,
+      'rewrite'              => array( 'slug' => 'posters' ),
+      'capability_type'      => 'post'
+    )
+  );
+}
+
+add_action( 'init', 'register_testimonials', 0 );

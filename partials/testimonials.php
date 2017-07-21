@@ -1,17 +1,27 @@
-
-<div class="testimonials">
-	<ul class="testimonials__list">
-	<?php for ($i = 0; $i < 3; $i++) : ?>
-		<li class="testimonial">
-			<img src="<?php bloginfo('template_url'); ?>/images/quote.jpg" class="quote__image">
-			<div class="testimonial__text">
-				<div class="user-meta">
-					<span class="user-name">Mieke de Vries</span>
-					<span class="user-class">VWO 4</span>
+<?php
+$testimonials = new WP_Query( array(
+		'post_type' => 'testimonial',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	));
+?>
+<?php if ( $testimonials->have_posts() ) : ?>
+	<div class="testimonials">
+		<ul class="testimonials__list">
+			<?php while ( $testimonials->have_posts() ) : $testimonials->the_post(); ?>
+			<li class="testimonial">
+				<?php if ( has_post_thumbnail() ) : ?>
+					<?php the_post_thumbnail('thumbnail', array('class' => 'quote__image')); ?>
+				<?php endif; ?>
+				<div class="testimonial__text">
+					<div class="user-meta">
+						<span class="user-name"><?php the_title(); ?></span>
+						<span class="user-class"><?php the_field('class'); ?></span>
+					</div>
+					<blockquote class="quote"><?php the_field('quote'); ?></blockquote>
 				</div>
-				<blockquote class="quote">Ik heb enorm veel geleerd bij Haarlembijdeles. Waarom het voor mij werkt is de persoonlijke aanpak.</blockquote>
-			</div>
-		</li>
-	<?php endfor; ?>
-	</ul>
-</div>
+			</li>
+			<?php endwhile; ?>
+		</ul>
+	</div>
+<?php endif; ?>
