@@ -1,7 +1,7 @@
 {
-  "name": "haarlembijdeles",
+  "name": "Haarlem bij de les",
   "version": "1.0.0",
-  "description": "haarlem bij de les",
+  "description": "Dé studiebegeleider van Haarlem",
   "main": "gulpfile.js",
   "dependencies": {
     "object-fit": "^0.4.3"
@@ -22,6 +22,7 @@
     "gulp-filter": "^5.0.0",
     "gulp-inject": "^4.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-real-favicon": "^0.2.2",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",

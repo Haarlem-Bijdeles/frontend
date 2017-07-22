@@ -3,46 +3,50 @@
 	<footer class="footer">
 		<div class="footer__wrapper">
 			<div class="footer__row">
-				<div></div>
+				<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="footer__logo"></a>
+
 				<nav class="quick-links" aria-labelledby="footer-nav-heading">
-					<h2 id="footer-nav-heading">Contact</h2>
-						<ul>
-						<li>Werkwijze</li>
-						<li>Huiswerkbegeleiding</li>
-						<li>Bijles</li>
-						<li>Eindexamens</li>
-						<li>Wie zijn wij</li>
-						<li>Blog</li>
-						<li>Contact</li>
-					</ul>
+					<h2 id="footer-nav-heading">Handige links</h2>
+						<?php wp_nav_menu( array(
+							'theme_location'  => 'footer-menu',
+							'container' 			=> false,
+							'menu_class'      => 'footer__list'
+						) ); ?>
 				</nav>
 				<div class="address">
 					<h2>Contact</h2>
-					Bijlesstraat 17<br>
-					1234 AB Haarlem<br>
-					06 1234 5678<br>
-					info@haarlembijdeles.nl<br>
+					<?php get_template_part('partials/address'); ?>
 				</div>
 				<div class="social-media">
 					<h2>Social media</h2>
 					<p>Volg ons op</p>
-					<a href="#">
-						<svg class="footer__icon" width="26px" height="26px">
-							<use xlink:href="#icon-facebook"></use>
-						</svg>
-					</a>
-					<a href="#">
-						<svg class="footer__icon" width="26px" height="26px">
-							<use xlink:href="#icon-twitter"></use>
-						</svg>
-					</a>
+					<?php if (get_field('facebook', 'option')) : ?>
+						<a href="<?php the_field('facebook', 'option'); ?>" class="archive__link" title="Volg Haarlem Bij de Les op Facebook" rel="noopener" target="_blank">
+							<svg class="footer__icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook-rounded"></use>
+							</svg>
+						</a>
+					<?php endif; ?>
+					<?php if (get_field('twitter', 'option')) : ?>
+						<a href="<?php the_field('twitter', 'option'); ?>" class="archive__link" title="Volg Haarlem Bij de Les op Twitter" rel="noopener" target="_blank">
+							<svg class="footer__icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter-rounded"></use>
+							</svg>
+						</a>
+					<?php endif; ?>
+					<?php if (get_field('linkedin', 'option')) : ?>
+						<a href="<?php the_field('linkedin', 'option'); ?>" class="archive__link" title="Volg Haarlem Bij de Les op LinkedIn" rel="noopener" target="_blank">
+							<svg class="footer__icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin-rounded"></use>
+							</svg>
+						</a>
+					<?php endif; ?>
+
 				</div>
 			</div>
 		</div>
 	</footer>
 
-
 <?php get_template_part('partials/icons'); ?>
-
 
 <?php wp_footer(); ?>

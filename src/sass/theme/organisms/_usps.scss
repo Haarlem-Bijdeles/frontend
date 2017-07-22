@@ -6,6 +6,7 @@
 
 .about__row {
 	@extend %row;
+	grid-column-gap: $gutter;
 	grid-template-columns: 2fr 1fr;
 }
 

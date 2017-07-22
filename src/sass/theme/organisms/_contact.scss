@@ -6,7 +6,11 @@
 		@include breakpoint(md) {
 			@include grid-equal-columns(3);
 		}
+	}
 
+	&__map {
+		grid-column-start: 1;
+		grid-column-end: 3;
 	}
 	&__iframe {
 		height: 20em;

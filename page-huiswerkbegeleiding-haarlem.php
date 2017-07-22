@@ -2,40 +2,34 @@
 
 <article class="content">
 	<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part('partials/hero'); ?>
-
 			<div class="text">
 				<?php the_content(); ?>
 			</div>
 	<?php endwhile; ?>
 </article>
 
-<div class="highlights">
-	<div class="highlights__wrapper">
-		<div class="highlight">
-			<h2>Voor de leerling:</h2>
-			<ul>
-				<li>Persoonlijke aandacht van betrokken docenten</li>
-				<li>Een vrije en ontspannen sfeer waar rustig gewerkt kan worden</li>
-				<li>Inhoudelijke hulp bij alle vakken</li>
-				<li>Ondersteuning bij het maken van een planning</li>
-				<li>Overhoringen en SO’s voor proefwerken</li>
-				<li>Een Cursus Leren Leren, meerdere keren per jaar</li>
-			</ul>
-		</div>
-		<div class="highlight">
-			<h2>Voor de ouders:</h2>
-			<ul>
-				<li>Gratis en vrijblijvend kennismakingsgesprek</li>
-				<li>Geen opzegtermijn</li>
-				<li>Leerlingenvolgprogramma Studyassist</li>
-				<li>Maandelijks verslag van de vorderingen</li>
-				<li>Betere resultaten op school en een gemotiveerder kind</li>
-				<li>Thuis stress wegnemen</li>
-			</ul>
+<?php if( have_rows('student') && have_rows('parents') ) : ?>
+	<div class="highlights">
+		<div class="highlights__wrapper">
+				<div class="highlight">
+					<h2>Voor de leerling:</h2>
+					<ul>
+						<?php while ( have_rows('student') ) : the_row(); ?>
+							<li><?php the_sub_field('text'); ?></li>
+						<?php endwhile; ?>
+					</ul>
+				</div>
+			<div class="highlight">
+				<h2>Voor de ouders:</h2>
+				<ul>
+					<?php while ( have_rows('parents') ) : the_row(); ?>
+						<li><?php the_sub_field('text'); ?></li>
+					<?php endwhile; ?>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
 
 <div class="prices2">
 		<?php the_post_thumbnail('large', [

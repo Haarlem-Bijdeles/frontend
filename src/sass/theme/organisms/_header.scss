@@ -1,9 +1,9 @@
 .header {
 	font-size: 1.15em;
 	z-index: 9;
-	position: relative;
 
 	&__wrapper {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		@include center();
@@ -33,6 +33,9 @@
 
 	&__logo {
 		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
 		background: url('images/logo-sm.png') no-repeat;
 		background-size: cover;
 		height: 50px;
@@ -51,11 +54,5 @@
 			width: auto;
 			background: $color-primary;
 		}
-	}
-}
-
-.main {
-	@include breakpoint(lg) {
-		margin-top: -4em;
 	}
 }

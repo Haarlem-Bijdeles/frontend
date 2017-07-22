@@ -23,3 +23,5 @@
 
 
 	<main id="main" class="main">
+
+		<?php get_template_part('partials/hero'); ?>

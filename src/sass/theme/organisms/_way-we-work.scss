@@ -1,11 +1,19 @@
 .way-we-work {
 	position: relative;
+	background: #fff;
 
 	nav {
+
+		@include breakpoint-max(sm) {
+			display: none;
+		}
+
+		@include center;
 		position: sticky;
 		top: 0;
 		background: #fff;
-		padding: 1em 0;
+		padding-top: 1em;
+		padding-bottom: 1em;
 		ul {
 			@include center(m);
 			display: flex;
@@ -31,10 +39,14 @@
 					color: #fff;
 				}
 			}
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 		a {
 			text-shadow: none;
 			background: none;
+			text-decoration: none;
 		}
 	}
 

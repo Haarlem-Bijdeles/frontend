@@ -1,5 +1,5 @@
 .paging {
-	@include center();
+	@include center(m);
 	@include clearfix();
 	padding-bottom: 3rem;
 	&__previous {

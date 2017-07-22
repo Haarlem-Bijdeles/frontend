@@ -1,6 +1,10 @@
 .hero {
 	@extend %hero;
-  height: 20rem;
+
+  height: 8rem;
+  @include breakpoint(sm) {
+    height: 20rem;
+  }
 
   &--front-page {
   	height: 30rem;

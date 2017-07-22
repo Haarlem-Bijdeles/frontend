@@ -1,5 +1,6 @@
 (() => {
 
+
   if (!document.querySelector('.js-contact-form')) return;
 
   const form = document.querySelector('.js-contact-form');
@@ -14,51 +15,65 @@
     }
   });
 
-  commentArea.addEventListener('input', (e) => {
+  commentArea.addEventListener('input', function(e) {
     e.target.setCustomValidity('');
   });
 
-  const autosize = () => {
-    const el = this;
-    setTimeout(() => {
-      el.style.cssText = 'height:auto;';
-      el.style.cssText = 'height:' + (el.scrollHeight  + 5 ) + 'px';
-    },0);
-  }
-
-  commentArea.addEventListener('keydown', autosize);
 
   // send form data with JavaScript
-  if (window.FormData) {
-    form.addEventListener('submit', (event) => {
-      var formData = new FormData(form);
+  form.addEventListener('submit', function(event) {
+    let formData = {};
 
-      const commentValue = commentArea.value;
-      const nameValue = nameInput.value;
+    if (window.FormData && false) {
+      formData = new FormData(form);
+    } else {
+      formData = ({
+        action: 'submit_ajax_form',
+        formkey: form.querySelector('[name=formkey]').value,
+        security: form.querySelector('[name=security]').value,
+        name: form.querySelector('[name=name]').value,
+        email: form.querySelector('[name=email]').value,
+        message: form.querySelector('[name=message]').value,
+      });
 
-      var xhr = new XMLHttpRequest();
-      // save the comment in the database
-      xhr.open('POST', site.ajaxurl, true);
-      xhr.onload = function () {
+      let str = '';
+      for (let key in formData) {
+          if (str != '') {
+              str += '&';
+          }
+          str += key + "=" + encodeURIComponent(formData[key]);
+      }
+      formData = str;
+    }
 
-      };
 
-      xhr.onerror = function (error) {
-        messageElement.className = 'message error';
-        messageElement.textContent = 'There was an error posting the comment. Please try again.';
-      };
-      xhr.onprogress = function (evt) {
-        messageElement.textContent = 'Uploading: ' + evt.loaded / evt.total * 100;
-      };
-      xhr.onloadend = function (evt) {
-        messageElement.className = 'message success';
-        messageElement.textContent = 'Your comment was posted sucessfully.';
-      };
+    const xhr = new XMLHttpRequest();
 
-      xhr.send(formData);
+    // save the comment in the database
+    xhr.open('POST', site.ajaxurl, true);
+    //xhr.setRequestHeader("Content-Type", "application/json");
 
-      // always call preventDefault at the end, see: http://molily.de/javascript-failure/
-      event.preventDefault();
-    });
-  };
+    xhr.onload = function () {
+
+    };
+
+    xhr.onerror = function (error) {
+      messageElement.className = 'message error';
+      messageElement.innerHTML = 'There was an error posting the comment. Please try again.';
+    };
+    xhr.onprogress = function (evt) {
+      messageElement.innerHTML = 'Uploading: ' + evt.loaded / evt.total * 100;
+    };
+    xhr.onloadend = function (evt) {
+      if (xhr.readyState === 4) {
+        form.className = 'message success';
+        form.innerHTML = xhr.response;
+      }
+    };
+
+    xhr.send(formData);
+
+    // always call preventDefault at the end, see: http://molily.de/javascript-failure/
+    event.preventDefault();
+  });
 })();

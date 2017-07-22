@@ -1,0 +1,17 @@
+.videos {
+  @include center();
+  @include block-padding();
+  &__wrapper {
+    @extend %row;
+    @include breakpoint(md) {
+      @include grid-equal-columns(2);
+    }
+  }
+}
+
+.video {
+  @include video;
+  &__col {
+    @include col;
+  }
+}

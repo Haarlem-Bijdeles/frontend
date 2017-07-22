@@ -8,6 +8,7 @@
 @import "usps";
 @import "about-us";
 @import "blog";
+@import "videos";
 
 
 .highlights {
@@ -63,6 +64,7 @@
 
 	ul {
 		@extend %row;
+		grid-column-gap: $gutter;
 		@include grid-equal-columns(4);
 	}
 	li {
@@ -80,4 +82,9 @@
 		background: #06b326;
 		border-radius: 50%;
 	}
+}
+
+.contact__submit {
+	@extend %btn;
+	@extend %btn--primary;
 }

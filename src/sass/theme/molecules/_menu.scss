@@ -4,6 +4,7 @@
 	@include breakpoint(lg) {
 		margin-top: 3em;
 		flex: 1 1 auto;
+		margin-left: 12rem;
 	}
 
 	&__trigger {
@@ -48,15 +49,10 @@
 		}
 
 		> li {
-			margin: 0 1rem;
+			margin: 0 2rem;
 			position: relative;
 		}
 
-	}
-	.current_page_ancestor,
-	.current_page_item a {
-		border-bottom-color: $black;
-		font-weight: $font-weight-bold;
 	}
 
 	a {
@@ -64,24 +60,41 @@
 		padding: .5em 0;
 		display: inline-block;
 	}
+
+	.current_page_ancestor,
+	.current_page_item {
+		> a {
+			border-bottom-color: $black;
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	li:hover > a {
+		border-bottom-color: $black;
+	}
 }
 
 .sub-menu {
+	display: none;
 	font-size: .9em;
+	line-height: 1.2;
+	background: $grey-light;
 	@include list-unstyled();
 	@include breakpoint-max(md) {
 		padding-left: 1em;
 	}
 
+	a {
+		border-bottom-width: 2px;
+	}
+
 	@include breakpoint(md) {
-		display: none;
 		position: absolute;
+		left: -1em;
+		padding: 0.5em 1em;
+		top: 100%;
 	}
 	li:hover & {
 		display: block;
 	}
-}
-
-.body {
-	overflow: hidden;
 }

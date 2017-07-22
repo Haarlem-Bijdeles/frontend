@@ -2,7 +2,6 @@
 
 <article class="content">
 	<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part('partials/hero'); ?>
 
 			<div class="text">
 <!-- 				<p class="lead">

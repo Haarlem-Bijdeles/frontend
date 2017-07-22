@@ -1,7 +1,17 @@
 const wordpress = './';
-const src = './src/';
+const assets = './assets/';
+const src = `${assets}/src/`;
 const url = 'http://localhost/wordpress/';
+const liveUrl = 'https://haarlembijdeles.michielkoning.nl/';
+const assetsUrl = `${liveUrl}/wp-content/themes/haarlembijdeles/assets/`;
 const srcIcons = `${src}icons/`;
+const packageSettings = './package.json';
+
+const site = {
+  name: 'Haarlem bij de les',
+  color: '#da532c',
+  description: '',
+}
 
 module.exports = {
   browsersync: {
@@ -36,15 +46,35 @@ module.exports = {
   },
   svg: {
     icons: [
-      `${srcIcons}bootstrap/facebook.svg`,
-      `${srcIcons}bootstrap/twitter.svg`,
+      `${srcIcons}facebook-rounded.svg`,
+      `${srcIcons}twitter-rounded.svg`,
+      `${srcIcons}linkedin-rounded.svg`,
       `${srcIcons}menu.svg`,
       `${srcIcons}check-rounded.svg`,
     ],
+  },
+  favicons: {
+    icon: `${src}favicons/favicon.png`,
+    jsonFile: `${src}favicons/faviconData.json`,
+    dest: './assets/favicons/',
+    path: `${assetsUrl}favicons/`,
+    name: site.name,
+    color: site.color,
+    colorWindows: '#f85909',
+    templateSrc: `${src}favicons/template/favicons.php`,
+    templateDest: './partials',
   },
   watch: {
     scripts: `${src}scripts/**/*.js`,
     sass: `${src}sass/**/*.s+(a|c)ss`,
     svg: `${srcIcons}/**/*.svg`,
+  },
+  manifest: {
+    lang: 'nl',
+    shortName: site.name,
+    name: site.name,
+    description: site.description,
+    theme_color: site.color,
+    iconsPath: `${assetsUrl}favicons/`,
   },
 };
