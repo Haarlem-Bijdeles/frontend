@@ -9,8 +9,8 @@
 
 	&__row {
 		@extend %row;
-		@include breakpoint(md) {
-			@include grid-equal-columns(2);
+		@include breakpoint(sm) {
+			@include grid-equal-columns(3);
 		}
 		@include breakpoint(lg) {
 			@include grid-equal-columns(4);
@@ -24,8 +24,11 @@
 		margin-right: .5em;
 	}
 	&__logo {
-		display: block;
-		background: url('images/logo-footer.png') no-repeat;
+		display: none;
+		@include breakpoint(lg) {
+			display: block;
+		}
+		background: url('../images/logo-footer.png') no-repeat;
 		background-size: cover;
 		height: 106px;
 		width: 106px;

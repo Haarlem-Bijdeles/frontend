@@ -1,12 +1,18 @@
 (() => {
 
-
   if (!document.querySelector('.js-contact-form')) return;
 
   const form = document.querySelector('.js-contact-form');
   const commentArea = form.querySelector('.js-message');
   const nameInput = form.querySelector('.js-name');
   const messageElement = document.querySelector('#feedback');
+
+  nameInput.addEventListener('invalid', (e) => {
+    e.target.setCustomValidity('');
+    if (!e.target.validity.valid) {
+      e.target.setCustomValidity('Vul je naam in.');
+    }
+  });
 
   commentArea.addEventListener('invalid', (e) => {
     e.target.setCustomValidity('');
@@ -19,39 +25,22 @@
     e.target.setCustomValidity('');
   });
 
-
   // send form data with JavaScript
   form.addEventListener('submit', function(event) {
-    let formData = {};
 
-    if (window.FormData && false) {
-      formData = new FormData(form);
-    } else {
-      formData = ({
-        action: 'submit_ajax_form',
-        formkey: form.querySelector('[name=formkey]').value,
-        security: form.querySelector('[name=security]').value,
-        name: form.querySelector('[name=name]').value,
-        email: form.querySelector('[name=email]').value,
-        message: form.querySelector('[name=message]').value,
-      });
-
-      let str = '';
-      for (let key in formData) {
-          if (str != '') {
-              str += '&';
-          }
-          str += key + "=" + encodeURIComponent(formData[key]);
-      }
-      formData = str;
-    }
+    const formData = new FormData();
+    formData.append('action', 'submit_ajax_form');
+    formData.append('formkey', form.querySelector('[name=formkey]').value);
+    formData.append('security', form.querySelector('[name=security]').value);
+    formData.append('name', form.querySelector('[name=name]').value);
+    formData.append('email', form.querySelector('[name=email]').value);
+    formData.append('message', form.querySelector('[name=message]').value);
 
 
     const xhr = new XMLHttpRequest();
 
     // save the comment in the database
     xhr.open('POST', site.ajaxurl, true);
-    //xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function () {
 
@@ -60,9 +49,6 @@
     xhr.onerror = function (error) {
       messageElement.className = 'message error';
       messageElement.innerHTML = 'There was an error posting the comment. Please try again.';
-    };
-    xhr.onprogress = function (evt) {
-      messageElement.innerHTML = 'Uploading: ' + evt.loaded / evt.total * 100;
     };
     xhr.onloadend = function (evt) {
       if (xhr.readyState === 4) {

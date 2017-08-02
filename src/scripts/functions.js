@@ -1,4 +1,4 @@
-// import objectFit from 'object-fit';
+// import { objectFit } from 'object-fit';
 
 // objectFit.polyfill({
 //   selector: '.hero__image', // this can be any CSS selector

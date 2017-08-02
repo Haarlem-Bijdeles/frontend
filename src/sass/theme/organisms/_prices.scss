@@ -1,0 +1,96 @@
+.prices2 {
+  background: $color-primary;
+  text-align: center;
+
+  &__title {
+    color: $white;
+    @extend %h1;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 1em;
+    position: relative;
+  }
+
+  &__wrapper {
+    @include center();
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  &__label {
+    font-weight: 700;
+    font-size: 1.75em;
+  }
+
+  &__value {
+    position: relative;
+    font-size: 2em;
+    line-height: 1.2;
+  }
+
+  &__title {
+    margin-bottom: 1.5em;
+  }
+
+  &__list {
+    grid-column-gap: $gutter;
+    @include breakpoint(sm) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  &__list-item {
+    flex-direction: column;
+    border: ($gutter / 2) solid $color-primary;
+    @include breakpoint(sm) {
+      flex: 0 0 50%;
+    }
+    @include breakpoint(lg) {
+      flex: 1 0 auto;
+    }
+    padding: .5em 1em 1em;
+    background: $white;
+    position: relative;
+    ul {
+      flex: 1 1 auto;
+      margin-bottom: 1.5em;
+    }
+  }
+  &__usp {
+    padding: 0 0 .5em;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+    @include icon(2em);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #06b326;
+    fill: #fff;
+    border-radius: 50%;
+  }
+  &__btn {
+    @extend %btn;
+    @extend %btn--small;
+    @extend %btn--outline;
+  }
+}
+
+
+
+.prices__btn-contact {
+  @extend %btn;
+  @extend %btn--outline;
+  color: #fff;
+  border-color: #fff;
+  &:hover {
+    background: $color-primary-dark;
+  }
+}

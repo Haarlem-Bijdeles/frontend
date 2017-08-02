@@ -9,79 +9,57 @@
 @import "about-us";
 @import "blog";
 @import "videos";
-
+@import "prices";
 
 .highlights {
 	@include center();
 	&__wrapper {
-		@extend %row;
+		position: relative;
+		display: block;
+    @include breakpoint(md) {
+      display: flex;
+		  &:after,
+		  &:before {
+		    top: 100%;
+		    border: 0 solid transparent;
+		    content: " ";
+		    height: 0;
+		    width: 0;
+		    position: absolute;
+		    pointer-events: none;
+		    border-top-color: #88b7d5;
+		    border-top-width: 30px;
+		  }
+		  &:before {
+		    border-left-width: 30px;
+		    right: 50%;
+		    border-top-color: #06b326;
+		  }
+		  &:after {
+		    border-right-width: 30px;
+		    left: 50%;
+		    border-top-color: #b5e8bd;
+		  }
+    }
 		@include grid-equal-columns(2);
 		grid-column-gap: 0;
 	}
 }
 
 .highlight {
-	margin-bottom: 3em;
 	background: #06b326;
 	color: #fff;
 	padding: 2em 2em;
+	flex: 0 0 50%;
 	&:last-child {
 		background: #b5e8bd;
 		color: $text-color;
 	}
-}
-
-.prices2 {
-	@extend %hero;
-	height: 30rem;
-
-	&__image {
-		@extend %hero__image;
-	}
-
-	&__text {
-		@extend %hero__content;
-	}
-
-	&__wrapper {
-		@extend %hero__wrapper;
-	}
-
-	&__label {
-		font-weight: 700;
-		font-size: 1.75em;
-	}
-
-	&__value {
-		font-size: 2em;
-		line-height: 1.2;
-	}
-
-	&__title {
-		margin-bottom: 1.5em;
-		@extend %hero__title;
-	}
-
-	ul {
-		@extend %row;
-		grid-column-gap: $gutter;
-		@include grid-equal-columns(4);
-	}
 	li {
-		padding: 1.5em 1em 2em;
-		background: $color-primary;
-		color: $white;
-		position: relative;
+    padding: 0 0 .5em;
+
 	}
-	&__icon {
-		font-size: 1.25em;
-		position: absolute;
-		left: .5em;
-		top: 50%;
-		@include icon(2em);
-		background: #06b326;
-		border-radius: 50%;
-	}
+
 }
 
 .contact__submit {

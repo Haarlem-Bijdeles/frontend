@@ -6,10 +6,12 @@ const runSequence = require('run-sequence');
  */
 gulp.task('build', function(callback) {
   runSequence(
+    'delete',
     [
       'sass',
       'svg',
       'scripts',
+      'images',
     ],
     [
       'generate-favicons',

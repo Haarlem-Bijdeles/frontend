@@ -33,26 +33,29 @@
 
 	&__logo {
 		display: block;
-		position: absolute;
-		left: 0;
+		left: $gutter;
 		top: 0;
-		background: url('images/logo-sm.png') no-repeat;
+		background-image: url('../images/logo-sm.png');
+		background-repeat: no-repeat;
 		background-size: cover;
 		height: 50px;
 		width: 200px;
-		@include breakpoint(sm) {
+		@include breakpoint(md) {
 	 	}
 		@include breakpoint(lg) {
-			background: url('images/logo.png') no-repeat;
+			position: absolute;
+			background-image: url('../images/logo.png');
 			width: 150px;
 			height: 150px;
 			margin-right: 3rem;
 		}
 		@include breakpoint-range(md, lg) {
 			background-position: center center;
-			background-size: auto;
-			width: auto;
-			background: $color-primary;
+			background-size: 200px 50px ;
+			width: 100%;
+			height: 70px;
+			margin: 0 ($gutter * -1);
+			background-color: $color-primary;
 		}
 	}
 }

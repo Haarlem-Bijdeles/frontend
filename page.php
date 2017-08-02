@@ -13,7 +13,6 @@
 	<?php endwhile; ?>
 </article>
 
-
 <?php get_template_part('partials/testimonials'); ?>
 
 <?php get_footer(); ?>

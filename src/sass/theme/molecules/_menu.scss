@@ -1,100 +1,106 @@
-
 .menu {
-	flex: 0 1 auto;
-	@include breakpoint(lg) {
-		margin-top: 3em;
-		flex: 1 1 auto;
-		margin-left: 12rem;
-	}
+  flex: 0 1 auto;
 
-	&__trigger {
-		border: 1px solid #fff;
-		color: #fff;
-		@include breakpoint(md) {
-			display: none;
-		}
-	}
+  @include breakpoint(lg) {
+    flex: 1 1 auto;
+    margin-left: 12rem;
+    margin-top: 3em;
+  }
 
-	&__icon {
-		@extend %icon;
-		width: 1.5em;
-		height: 1.5em;
-	}
+  &__trigger {
+    border: 1px solid $white;
+    color: $white;
 
-	&__list {
-		@include list-unstyled();
-		display: flex;
-		@include breakpoint-max(md) {
-			position: absolute;
-			top: 100%;
-			left: 0;
-			right: 0;
-			background: #fff;
-			display: none;
-			z-index: 9;
-			overflow-x: hidden;
-			overflow-y: auto;
-			-webkit-overflow-scrolling: touch;
-			&.is-active {
-				display: block;
-			}
-		}
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
 
-		@include breakpoint(md) {
-			justify-content: space-around;
-			margin: 0 -1rem;
-		}
-		@include breakpoint(xlg) {
-			justify-content: flex-start;
-		}
+  &__icon {
+    @extend %icon;
+    height: 1.5em;
+    width: 1.5em;
+  }
 
-		> li {
-			margin: 0 2rem;
-			position: relative;
-		}
+  &__list {
+    @include list-unstyled();
+    background: $white;
+    display: flex;
 
-	}
+    @include breakpoint-max(sm) {
+      display: none;
+      left: 0;
+      overflow-scrolling: touch;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      z-index: 9;
 
-	a {
-		border-bottom: 3px solid transparent;
-		padding: .5em 0;
-		display: inline-block;
-	}
+      &.is-active {
+        display: block;
+      }
+    }
 
-	.current_page_ancestor,
-	.current_page_item {
-		> a {
-			border-bottom-color: $black;
-			font-weight: $font-weight-bold;
-		}
-	}
+    @include breakpoint(md) {
+      justify-content: space-around;
+      margin: 0 -1rem;
+    }
 
-	li:hover > a {
-		border-bottom-color: $black;
-	}
+    @include breakpoint(xlg) {
+      justify-content: flex-start;
+    }
+
+    > li {
+      margin: 0 2rem;
+      position: relative;
+    }
+  }
+
+  a {
+    border-bottom: 3px solid transparent;
+    display: inline-block;
+    padding: .5em 0;
+  }
+
+  .current_page_parent,
+  .current_page_ancestor,
+  .current_page_item {
+    > a {
+      border-bottom-color: $black;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  li:hover > a {
+    border-bottom-color: $black;
+  }
 }
 
 .sub-menu {
-	display: none;
-	font-size: .9em;
-	line-height: 1.2;
-	background: $grey-light;
-	@include list-unstyled();
-	@include breakpoint-max(md) {
-		padding-left: 1em;
-	}
+  @include list-unstyled();
+  font-size: .9em;
+  line-height: 1.2;
 
-	a {
-		border-bottom-width: 2px;
-	}
+  @include breakpoint-max(md) {
+    padding-left: 1em;
+  }
 
-	@include breakpoint(md) {
-		position: absolute;
-		left: -1em;
-		padding: 0.5em 1em;
-		top: 100%;
-	}
-	li:hover & {
-		display: block;
-	}
+  @include breakpoint(md) {
+    background: $grey-light;
+    display: none;
+    left: -1em;
+    padding: .5em 1em;
+    position: absolute;
+    top: 100%;
+  }
+
+  a {
+    border-bottom-width: 2px;
+  }
+
+  li:hover & {
+    display: block;
+  }
 }

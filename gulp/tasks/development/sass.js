@@ -1,42 +1,29 @@
-var gulp         = require('gulp');
-var plumber      = require('gulp-plumber');
-var browsersync  = require('browser-sync');
-var sass         = require('gulp-sass');
-var gulpFilter   = require('gulp-filter');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps   = require('gulp-sourcemaps');
-var config       = require('../../config');
+/* eslint-disable import/no-extraneous-dependencies */
 
-/**
- * Generate CSS from SCSS
- * Build sourcemaps
-//  */
-// gulp.task('sass', function() {
-//   var sassConfig = config.sass.options;
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const util = require('gulp-util');
+const csso = require('gulp-csso');
+const size = require('gulp-size');
+const config = require('../../config');
+const notify = require('gulp-notify');
 
-//   sassConfig.onError = browsersync.notify;
+const isProduction = !!util.env.production;
 
-//   // Don’t write sourcemaps of sourcemaps
-//   var filter = gulpFilter(['*.css', '!*.map'], { restore: true });
-
-//   browsersync.notify('Compiling Sass');
-
-//   return sass(config.sass.src, sassConfig)
-//    // .pipe(plumber())
-//    // .pipe(sourcemaps.init())
-//    // .pipe(autoprefixer(config.autoprefixer))
-//    // .pipe(filter) // Don’t write sourcemaps of sourcemaps
-//    // .pipe(sourcemaps.write('.', config.sourcemaps))
-//    // .pipe(filter.restore) // Restore original files
-//     .pipe(gulp.dest(config.sass.dest));
-// });
-
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return gulp.src(config.sass.src)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    //.pipe(autoprefixer(config.autoprefixer))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.sass.dest));
+    .pipe(sass().on('error', (err) => {
+      notify().write(err);
+    }))
+    .pipe(!isProduction ? sourcemaps.write() : util.noop())
+    .pipe(autoprefixer(config.autoprefixer))
+    .pipe(isProduction ? csso() : util.noop())
+    .pipe(gulp.dest(config.sass.dest))
+    .pipe(size())
+    .pipe(notify({ message: 'Styles task complete' }));
 });

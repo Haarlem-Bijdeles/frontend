@@ -33,9 +33,9 @@
 								<?php setup_postdata( $post ); ?>
 								<div class="way-we-work__body" id="werkwijze-<?php echo $index; ?>">
 									<div class="way-we-work__image-wrapper">
-										<?php $image = get_sub_field('image'); ?>
-										<?php if( !empty($image) ): ?>
-											<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="way-we-work__image">
+										<?php $image_ID = get_sub_field('image'); ?>
+										<?php if( !empty($image_ID) ): ?>
+											<?php echo wp_get_attachment_image($image_ID, 'medium', false, array('class' => 'way-we-work__image')); ?>
 										<?php endif; ?>
 									</div>
 									<div class="way-we-work__text">
