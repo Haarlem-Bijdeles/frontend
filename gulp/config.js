@@ -2,7 +2,7 @@ const src = './src/';
 const assets = './assets/';
 const url = 'http://localhost/wordpress/';
 const liveUrl = 'https://haarlembijdeles.michielkoning.nl/';
-const assetsUrl = `${liveUrl}/wp-content/themes/haarlembijdeles/assets/`;
+const assetsUrl = `${liveUrl}wp-content/themes/haarlembijdeles/assets/`;
 const srcIcons = `${src}icons/`;
 
 const site = {
@@ -18,8 +18,8 @@ module.exports = {
       open: false,
       port: 9999,
       files: [
-        `${assets}scripts/functions.js`,
-        `${assets}css/style.css`,
+        `${assets}scripts/**/*.js`,
+        './style.css',
         './**/*.php',
       ],
     },
@@ -28,12 +28,21 @@ module.exports = {
     src: assets,
   },
   scripts: {
-    src: `${src}scripts/**/*.js`,
+    src: [
+      `${src}scripts/functions.js`,
+      `${src}scripts/contact.js`,
+      `${src}scripts/sticky-nav.js`,
+    ],
+    webpackEntry: {
+      functions: `${src}scripts/functions.js`,
+      contact: `${src}scripts/contact.js`,
+      'sticky-nav': `${src}scripts/sticky-nav.js`,
+    },
     dest: `${assets}scripts`,
   },
   sass: {
     src: `${src}sass/**/*.s+(a|c)ss`,
-    dest: `${assets}css`,
+    dest: './',
     options: {
       noCache: true,
       compass: false,
@@ -61,13 +70,14 @@ module.exports = {
       `${srcIcons}linkedin-rounded.svg`,
       `${srcIcons}menu.svg`,
       `${srcIcons}check-rounded.svg`,
+      `${src}images/logo.svg`,
     ],
   },
   favicons: {
-    icon: `${src}favicons/favicon.png`,
+    icon: `${src}images/logo.svg`,
     jsonFile: `${src}favicons/faviconData.json`,
-    dest: `${assets}favicons/`,
-    path: `${assetsUrl}favicons/`,
+    dest: `${src}images/favicons/`,
+    path: `${assetsUrl}images/favicons/`,
     name: site.name,
     color: site.color,
     colorWindows: '#f85909',
@@ -107,6 +117,6 @@ module.exports = {
       recursive: true,
       clean: true,
       include: [],
-    }
+    },
   },
 };

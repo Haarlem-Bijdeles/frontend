@@ -1,12 +1,17 @@
-- responsive menu
-- javscript bundelen
 - grid?
 - onze diensten dynamisch
 - vimeo op mobile
 - yoast is in het engels?
-- svg
+- svg logo
+- service worker
+- versie beheer css
+- manifest
+- lint
+- pijltje achter submenu
 
 gedaan
+- responsive menu
+- javscript bundelen
 - email
 - geen afbeeldingen bij page 2 op blog
 - contactform

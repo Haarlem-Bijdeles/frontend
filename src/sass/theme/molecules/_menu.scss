@@ -3,8 +3,7 @@
 
   @include breakpoint(lg) {
     flex: 1 1 auto;
-    margin-left: 12rem;
-    margin-top: 3em;
+    margin-left: 11em;
   }
 
   &__trigger {
@@ -27,12 +26,11 @@
     background: $white;
     display: flex;
 
-    @include breakpoint-max(sm) {
+    @include breakpoint-max(md) {
+      box-shadow: 2px 0 .5em $grey;
       display: none;
       left: 0;
-      overflow-scrolling: touch;
-      overflow-x: hidden;
-      overflow-y: auto;
+      padding: 0 $gutter;
       position: absolute;
       right: 0;
       top: 100%;
@@ -43,18 +41,17 @@
       }
     }
 
-    @include breakpoint(md) {
+    @include breakpoint-range(md, lg) {
       justify-content: space-around;
-      margin: 0 -1rem;
-    }
-
-    @include breakpoint(xlg) {
-      justify-content: flex-start;
     }
 
     > li {
-      margin: 0 2rem;
       position: relative;
+
+      @include breakpoint(lg) {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
     }
   }
 
@@ -102,5 +99,28 @@
 
   li:hover & {
     display: block;
+  }
+}
+
+.menu-icon__bar {
+  transition: transform 0.15s ease-out, opacity 0.1s ease-out;
+  transform-origin: 100% 50%;
+}
+
+.menu-icon__bar--1 {
+  [aria-expanded=true] & {
+    transform: rotate(-45deg);
+  }
+}
+
+.menu-icon__bar--2 {
+  [aria-expanded=true] & {
+    opacity: 0;
+  }
+}
+
+.menu-icon__bar--3 {
+  [aria-expanded=true] & {
+    transform: rotate(45deg);
   }
 }

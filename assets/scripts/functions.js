@@ -1,87 +1,828 @@
-'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-(function () {
+	'use strict';
+	
+	__webpack_require__(1);
+	
+	__webpack_require__(2);
 
-  if (!document.querySelector('.js-contact-form')) return;
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
 
-  var form = document.querySelector('.js-contact-form');
-  var commentArea = form.querySelector('.js-message');
-  var nameInput = form.querySelector('.js-name');
-  var messageElement = document.querySelector('#feedback');
+	'use strict';
+	
+	var toggleMenu = function toggleMenu() {
+	  var button = document.querySelector('.menu__trigger');
+	  var menu = document.querySelector('.menu__list');
+	  var body = document.querySelector('body');
+	
+	  var expanded = button.getAttribute('aria-expanded') === 'true';
+	  button.setAttribute('aria-expanded', String(!expanded));
+	  menu.classList.toggle('is-active', !expanded);
+	  body.classList.toggle('is-active', !expanded);
+	};
+	
+	(function () {
+	  var button = document.querySelector('.menu__trigger');
+	  button.addEventListener('click', toggleMenu);
+	})();
 
-  nameInput.addEventListener('invalid', function (e) {
-    e.target.setCustomValidity('');
-    if (!e.target.validity.valid) {
-      e.target.setCustomValidity('Vul je naam in.');
-    }
-  });
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  commentArea.addEventListener('invalid', function (e) {
-    e.target.setCustomValidity('');
-    if (!e.target.validity.valid) {
-      e.target.setCustomValidity('Vul een bericht in.');
-    }
-  });
+	'use strict';
+	
+	var _objectFit = __webpack_require__(3);
+	
+	var _objectFit2 = _interopRequireDefault(_objectFit);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	_objectFit2.default.polyfill({
+	  selector: '.hero__image', // this can be any CSS selector
+	  fittype: 'cover' // either contain, cover, fill or none
+	});
 
-  commentArea.addEventListener('input', function (e) {
-    e.target.setCustomValidity('');
-  });
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  // send form data with JavaScript
-  form.addEventListener('submit', function (event) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {(function (ELEMENT) {
+		ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector || function matches(selector) {
+			var
+			element = this,
+			elements = (element.document || element.ownerDocument).querySelectorAll(selector),
+			index = 0;
+	
+			while (elements[index] && elements[index] !== element) {
+				++index;
+			}
+	
+			return elements[index] ? true : false;
+		};
+	
+		ELEMENT.closest = ELEMENT.closest || function closest(selector) {
+			var element = this;
+	
+			while (element) {
+				if (element.matches(selector)) {
+					break;
+				}
+	
+				element = element.parentElement;
+			}
+	
+			return element;
+		};
+	}(Element.prototype));
+	
+	/*!
+	 * A polyfill for Webkit's window.getMatchedCSSRules, based on
+	 * https://gist.github.com/ydaniv/3033012
+	 *
+	 * @author: Yehonatan Daniv
+	 * @author: ssafejava
+	 * @author: Christian "Schepp" Schaefer <schaepp@gmx.de>
+	 *
+	 */
+	
+	'use strict';
+	
+	(function () {
+		// polyfill window.getMatchedCSSRules() in FireFox 6+
+		if (typeof window.getMatchedCSSRules === 'function') {
+			return;
+		}
+	
+		var ELEMENT_RE = /[\w-]+/g,
+			ID_RE = /#[\w-]+/g,
+			CLASS_RE = /\.[\w-]+/g,
+			ATTR_RE = /\[[^\]]+\]/g,
+			// :not() pseudo-class does not add to specificity, but its content does as if it was outside it
+			PSEUDO_CLASSES_RE = /\:(?!not)[\w-]+(\(.*\))?/g,
+			PSEUDO_ELEMENTS_RE = /\:\:?(after|before|first-letter|first-line|selection)/g;
+	
+		// convert an array-like object to array
+		var toArray = function (list) {
+			var items = [];
+			var i = 0;
+			var listLength = list.length;
+	
+			for (; i < listLength; i++) {
+				items.push(list[i]);
+			}
+	
+			return items;
+		};
+	
+		// get host of stylesheet
+		var getCSSHost = function (href) {
+			var fakeLinkOfSheet = document.createElement('a');
+	
+			fakeLinkOfSheet.href = href;
+	
+			return fakeLinkOfSheet.host;
+		};
+	
+		// handles extraction of `cssRules` as an `Array` from a stylesheet or something that behaves the same
+		var getSheetRules = function (stylesheet) {
+			var sheetMedia = stylesheet.media && stylesheet.media.mediaText;
+			var sheetHost;
+	
+			// if this sheet is cross-origin and option is set skip it
+			if (objectFit.disableCrossDomain == 'true') {
+				sheetHost = getCSSHost(stylesheet.href);
+	
+				if ((sheetHost !== window.location.host)) {
+					return [];
+				}
+			}
+	
+	
+			// if this sheet is disabled skip it
+			if (stylesheet.disabled) {
+				return [];
+			}
+	
+			if (!window.matchMedia) {
+				if (sheetMedia && sheetMedia.length) {
+					return [];
+				}
+			}
+			// if this sheet's media is specified and doesn't match the viewport then skip it
+			else if (sheetMedia && sheetMedia.length && ! window.matchMedia(sheetMedia).matches) {
+				return [];
+			}
+	
+			// get the style rules of this sheet
+			return toArray(stylesheet.cssRules);
+		};
+	
+		var _find = function (string, re) {
+			var matches = string.match(re);
+	
+			return re ? re.length : 0;
+		};
+	
+		// calculates the specificity of a given `selector`
+		var calculateScore = function (selector) {
+			var score = [0, 0, 0];
+			var parts = selector.split(' ');
+			var part;
+			var match;
+	
+			//TODO: clean the ':not' part since the last ELEMENT_RE will pick it up
+			while (part = parts.shift(), typeof part === 'string') {
+				// find all pseudo-elements
+				match = _find(part, PSEUDO_ELEMENTS_RE);
+				score[2] = match;
+				// and remove them
+				match && (part = part.replace(PSEUDO_ELEMENTS_RE, ''));
+				// find all pseudo-classes
+				match = _find(part, PSEUDO_CLASSES_RE);
+				score[1] = match;
+				// and remove them
+				match && (part = part.replace(PSEUDO_CLASSES_RE, ''));
+				// find all attributes
+				match = _find(part, ATTR_RE);
+				score[1] += match;
+				// and remove them
+				match && (part = part.replace(ATTR_RE, ''));
+				// find all IDs
+				match = _find(part, ID_RE);
+				score[0] = match;
+				// and remove them
+				match && (part = part.replace(ID_RE, ''));
+				// find all classes
+				match = _find(part, CLASS_RE);
+				score[1] += match;
+				// and remove them
+				match && (part = part.replace(CLASS_RE, ''));
+				// find all elements
+				score[2] += _find(part, ELEMENT_RE);
+			}
+	
+			return parseInt(score.join(''), 10);
+		};
+	
+		// returns the heights possible specificity score an element can get from a give rule's selectorText
+		var getSpecificityScore = function (element, selectorText) {
+			var selectors = selectorText.split(','),
+				selector, score, result = 0;
+	
+			while (selector = selectors.shift()) {
+				if (element.closest(selector)) {
+					score = calculateScore(selector);
+					result = score > result ? score : result;
+				}
+			}
+	
+			return result;
+		};
+	
+		var sortBySpecificity = function (element, rules) {
+			// comparing function that sorts CSSStyleRules according to specificity of their `selectorText`
+			var compareSpecificity = function (a, b) {
+				return getSpecificityScore(element, b.selectorText) - getSpecificityScore(element, a.selectorText);
+			};
+	
+			return rules.sort(compareSpecificity);
+		};
+	
+		//TODO: not supporting 2nd argument for selecting pseudo elements
+		//TODO: not supporting 3rd argument for checking author style sheets only
+		window.getMatchedCSSRules = function (element) {  /*, pseudo, author_only*/
+			var styleSheets;
+			var result = [];
+			var sheet;
+			var rules;
+			var rule;
+	
+			// get stylesheets and convert to a regular Array
+			styleSheets = toArray(window.document.styleSheets);
+	
+			// assuming the browser hands us stylesheets in order of appearance
+			// we iterate them from the beginning to follow proper cascade order
+			while (sheet = styleSheets.shift()) {
+				// get the style rules of this sheet
+				rules = getSheetRules(sheet);
+	
+				// loop the rules in order of appearance
+				while (rule = rules.shift()) {
+					// if this is an @import rule
+					if (rule.styleSheet) {
+						// insert the imported stylesheet's rules at the beginning of this stylesheet's rules
+						rules = getSheetRules(rule.styleSheet).concat(rules);
+						// and skip this rule
+						continue;
+					}
+					// if there's no stylesheet attribute BUT there IS a media attribute it's a media rule
+					else if (rule.media) {
+						// insert the contained rules of this media rule to the beginning of this stylesheet's rules
+						rules = getSheetRules(rule).concat(rules);
+						// and skip it
+						continue;
+					}
+	
+					// check if this element matches this rule's selector
+					if (element.closest(rule.selectorText)) {
+						// push the rule to the results set
+						result.push(rule);
+					}
+				}
+			}
+			// sort according to specificity
+			return sortBySpecificity(element, result);
+		};
+	}());
+	
+	/*
+	 * raf.js
+	 * https://github.com/ngryman/raf.js
+	 *
+	 * original requestAnimationFrame polyfill by Erik Möller
+	 * inspired from paul_irish gist and post
+	 *
+	 * Copyright (c) 2013 ngryman
+	 * Licensed under the MIT license.
+	 */
+	
+	(function(window) {
+		var lastTime = 0,
+			vendors = ['webkit', 'moz'],
+			requestAnimationFrame = window.requestAnimationFrame,
+			cancelAnimationFrame = window.cancelAnimationFrame,
+			i = vendors.length;
+	
+		// try to un-prefix existing raf
+		while (--i >= 0 && !requestAnimationFrame) {
+			requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame'];
+			cancelAnimationFrame = window[vendors[i] + 'CancelAnimationFrame'];
+		}
+	
+		// polyfill with setTimeout fallback
+		// heavily inspired from @darius gist mod: https://gist.github.com/paulirish/1579671#comment-837945
+		if (!requestAnimationFrame || !cancelAnimationFrame) {
+			requestAnimationFrame = function(callback) {
+				var now = +new Date(), nextTime = Math.max(lastTime + 16, now);
+				return setTimeout(function() {
+					callback(lastTime = nextTime);
+				}, nextTime - now);
+			};
+	
+			cancelAnimationFrame = clearTimeout;
+		}
+	
+		// export to window
+		window.requestAnimationFrame = requestAnimationFrame;
+		window.cancelAnimationFrame = cancelAnimationFrame;
+	}(window));
+	
+	/*!
+	 * Polyfill CSS object-fit
+	 * http://helloanselm.com/object-fit
+	 *
+	 * @author: Anselm Hannemann <hello@anselm-hannemann.com>
+	 * @author: Christian "Schepp" Schaefer <schaepp@gmx.de>
+	 * @version: 0.3.4
+	 *
+	 */
+	
+	(function (global) {
+	
+		'use strict';
+	
+		// Storage variable
+		var objectFit = {};
+	
+		objectFit._debug = false;
+	
+		objectFit.observer = null;
+	
+		objectFit.disableCrossDomain = 'false';
+	
+		objectFit.getComputedStyle = function(element, context) {
+			context = context || window;
+	
+			if (context.getComputedStyle) {
+				return context.getComputedStyle(element, null);
+			}
+			else {
+				return element.currentStyle;
+			}
+		};
+	
+		objectFit.getDefaultComputedStyle = function(element){
+			var newelement = element.cloneNode(true);
+			var styles = {};
+			var iframe = document.createElement('iframe');
+			document.body.appendChild(iframe);
+			iframe.contentWindow.document.open();
+			iframe.contentWindow.document.write('<body></body>');
+			iframe.contentWindow.document.body.appendChild(newelement);
+			iframe.contentWindow.document.close();
+	
+			var defaultElement = iframe.contentWindow.document.querySelectorAll(element.nodeName.toLowerCase())[0];
+			var defaultComputedStyle = this.getComputedStyle(defaultElement, iframe.contentWindow);
+			var value;
+			var property;
+	
+			for (property in defaultComputedStyle) {
+				if (defaultComputedStyle.getPropertyValue === true) {
+					value = defaultComputedStyle.getPropertyValue(property);
+				} else {
+					value = defaultComputedStyle[property];
+				}
+	
+				if (value !== null) {
+					switch (property) {
+						default:
+							styles[property] = value;
+						break;
+	
+						case 'width':
+						case 'height':
+						case 'minWidth':
+						case 'minHeight':
+						case 'maxWidth':
+						case 'maxHeight':
+						break;
+					}
+				}
+			}
+	
+			document.body.removeChild(iframe);
+	
+			return styles;
+		};
+	
+		objectFit.getMatchedStyle = function(element, property){
+			// element property has highest priority
+			var val = null;
+			var inlineval = null;
+	
+			if (element.style.getPropertyValue) {
+				inlineval = element.style.getPropertyValue(property);
+			} else if (element.currentStyle) {
+				inlineval = element.currentStyle[property];
+			}
+	
+			// get matched rules
+			var rules = window.getMatchedCSSRules(element);
+			var i = rules.length;
+			var r;
+			var important;
+	
+			if (i) {
+				// iterate the rules backwards
+				// rules are ordered by priority, highest last
+				for (; i --> 0;) {
+					r = rules[i];
+					important = r.style.getPropertyPriority(property);
+	
+					// if set, only reset if important
+					if (val === null || important) {
+						val = r.style.getPropertyValue(property);
+	
+						// done if important
+						if (important) {
+							break;
+						}
+					}
+				}
+			}
+	
+			// if it's important, we are done
+			if (!val && inlineval !== null) {
+				val = inlineval;
+			}
+	
+			return val;
+		};
+	
+		// Detects orientation
+		objectFit.orientation = function(replacedElement) {
+			if (replacedElement.parentNode && replacedElement.parentNode.nodeName.toLowerCase() === 'x-object-fit') {
+				var width = replacedElement.naturalWidth || replacedElement.clientWidth;
+				var height = replacedElement.naturalHeight || replacedElement.clientHeight;
+				var parentWidth = replacedElement.parentNode.clientWidth;
+				var parentHeight = replacedElement.parentNode.clientHeight;
+	
+				if (!height || width / height > parentWidth / parentHeight) {
+					if (replacedElement.getAttribute('data-x-object-relation') !== 'wider') {
+						replacedElement.setAttribute('data-x-object-relation','wider');
+						replacedElement.className += ' x-object-fit-wider';
+	
+						if (this._debug && window.console) {
+							console.log('x-object-fit-wider');
+						}
+					}
+				} else {
+					if (replacedElement.getAttribute('data-x-object-relation') !== 'taller') {
+						replacedElement.setAttribute('data-x-object-relation','taller');
+						replacedElement.className += ' x-object-fit-taller';
+	
+						if (this._debug && window.console) {
+							console.log('x-object-fit-taller');
+						}
+					}
+				}
+			}
+		};
+	
+		objectFit.process = function(args) {
+			if (!args.selector || !args.replacedElements) {
+				return;
+			}
+	
+			// Set option objectFit.disableCrossDomain
+			objectFit.disableCrossDomain = args.disableCrossDomain || 'false';
+	
+			// Set option fit-type
+			args.fittype = args.fittype || 'none';
+	
+			switch (args.fittype) {
+				default:
+					return;
+	
+				case 'none':
+				case 'fill':
+				case 'contain':
+				case 'cover':
+				break;
+			}
+	
+			// Set option replacedElements
+			var replacedElements = args.replacedElements;
+	
+			if(!replacedElements.length) {
+				return;
+			}
+	
+			for (var i = 0, replacedElementsLength = replacedElements.length; i < replacedElementsLength; i++) {
+				this.processElement(replacedElements[i], args);
+			}
+		};
+	
+		objectFit.processElement = function(replacedElement, args) {
+			var property;
+			var value;
+			var replacedElementStyles = objectFit.getComputedStyle(replacedElement);
+			var replacedElementDefaultStyles = objectFit.getDefaultComputedStyle(replacedElement);
+			var wrapperElement = document.createElement('x-object-fit');
+	
+			if (objectFit._debug && window.console) {
+				console.log('Applying to WRAPPER-------------------------------------------------------');
+			}
+	
+			for (property in replacedElementStyles) {
+				switch (property) {
+					default:
+						value = objectFit.getMatchedStyle(replacedElement, property);
+	
+						if (value !== null && value !== '') {
+							if (objectFit._debug && window.console) {
+								console.log(property + ': ' + value);
+							}
+	
+							wrapperElement.style[property] = value;
+						}
+					break;
+	
+					case 'length':
+					case 'parentRule':
+					break;
+				}
+			}
+	
+			if (objectFit._debug && window.console) {
+				console.log('Applying to REPLACED ELEMENT-------------------------------------------------------');
+			}
+			for (property in replacedElementDefaultStyles) {
+				switch (property) {
+					default:
+						value = replacedElementDefaultStyles[property];
+	
+						if (objectFit._debug && window.console && value !== '') {
+							console.log(property + ': ' + value);
+	
+							if (replacedElement.style[property] === undefined) {
+								console.log('Indexed style properties (`' + property + '`) not supported in: ' + window.navigator.userAgent);
+							}
+						}
+	
+						if (replacedElement.style[property]) {
+							replacedElement.style[property] = value; // should work in Firefox 35+ and all other browsers
+						} else {
+							replacedElement.style.property = value;
+						}
+					break;
+	
+					case 'length':
+					case 'parentRule':
+					break;
+				}
+			}
+	
+			wrapperElement.setAttribute('class','x-object-fit-' + args.fittype);
+			replacedElement.parentNode.insertBefore(wrapperElement, replacedElement);
+			wrapperElement.appendChild(replacedElement);
+	
+			objectFit.orientation(replacedElement);
+	
+			var resizeTimer = null;
+			var resizeAction = function () {
+				if (resizeTimer !== null) {
+					window.cancelAnimationFrame(resizeTimer);
+				}
+				resizeTimer = window.requestAnimationFrame(function(){
+					objectFit.orientation(replacedElement);
+				});
+			};
+	
+			switch (args.fittype) {
+				default:
+				break;
+	
+				case 'contain':
+				case 'cover':
+					if (window.addEventListener) {
+						replacedElement.addEventListener('load', resizeAction, false);
+						window.addEventListener('resize', resizeAction, false);
+						window.addEventListener('orientationchange', resizeAction, false);
+					} else {
+						replacedElement.attachEvent('onload', resizeAction);
+						window.attachEvent('onresize', resizeAction);
+					}
+				break;
+			}
+		};
+	
+		objectFit.listen = function (args) {
+			var domInsertedAction = function (element){
+				var i = 0;
+				var argsLength = args.length;
+	
+				for (; i < argsLength; i++) {
+					if ((element.mozMatchesSelector && element.mozMatchesSelector(args[i].selector)) ||
+						(element.msMatchesSelector && element.msMatchesSelector(args[i].selector)) ||
+						(element.oMatchesSelector && element.oMatchesSelector(args[i].selector)) ||
+						(element.webkitMatchesSelector && element.webkitMatchesSelector(args[i].selector))
+					) {
+						args[i].replacedElements = [element];
+						objectFit.process(args[i]);
+	
+						if (objectFit._debug && window.console) {
+							console.log('Matching node inserted: ' + element.nodeName);
+						}
+					}
+				}
+			};
+	
+			var domInsertedObserverFunction = function (element) {
+				objectFit.observer.disconnect();
+				domInsertedAction(element);
+				objectFit.observer.observe(document.documentElement, {
+					childList: true,
+					subtree: true
+				});
+			};
+	
+			var domInsertedEventFunction = function (event) {
+				window.removeEventListener('DOMNodeInserted', domInsertedEventFunction, false);
+				domInsertedAction(event.target);
+				window.addEventListener('DOMNodeInserted', domInsertedEventFunction, false);
+			};
+	
+			var domRemovedAction = function (element) {
+				if (element.nodeName.toLowerCase() === 'x-object-fit') {
+					element.parentNode.removeChild(element);
+	
+					if (objectFit._debug && window.console) {
+						console.log('Matching node removed: ' + element.nodeName);
+					}
+				}
+			};
+	
+			var domRemovedObserverFunction = function (element) {
+				objectFit.observer.disconnect();
+				domRemovedAction(element);
+				objectFit.observer.observe(document.documentElement, {
+					childList: true,
+					subtree: true
+				});
+			};
+	
+			var domRemovedEventFunction = function (event) {
+				window.removeEventListener('DOMNodeRemoved', domRemovedEventFunction, false);
+				domRemovedAction(event.target.parentNode);
+				window.addEventListener('DOMNodeRemoved', domRemovedEventFunction, false);
+			};
+	
+			if (window.MutationObserver) {
+				if (objectFit._debug && window.console) {
+					console.log('DOM MutationObserver');
+				}
+	
+				this.observer = new MutationObserver(function(mutations) {
+					mutations.forEach(function(mutation) {
+						if (mutation.addedNodes && mutation.addedNodes.length) {
+							var nodes = mutation.addedNodes;
+							for (var i = 0, nodesLength = nodes.length; i < nodesLength; i++) {
+								domInsertedObserverFunction(nodes[i]);
+							}
+						}
+						if (mutation.removedNodes && mutation.removedNodes.length) {
+							domRemovedObserverFunction(mutation.target);
+						}
+					});
+				});
+	
+				this.observer.observe(document.documentElement, {
+					childList: true,
+					subtree: true
+				});
+			} else if (window.addEventListener) {
+				if (objectFit._debug && window.console) {
+					console.log('DOM Mutation Events');
+				}
+	
+				window.addEventListener('DOMNodeInserted', domInsertedEventFunction, false);
+				window.addEventListener('DOMNodeRemoved', domRemovedEventFunction, false);
+			}
+		};
+	
+		objectFit.init = function (args) {
+			if (!args) {
+				return;
+			}
+	
+			if (!(args instanceof Array)) {
+				args = [args];
+			}
+	
+			var i = 0;
+			var argsLength = args.length;
+	
+			for (; i < argsLength; i++) {
+				args[i].replacedElements = document.querySelectorAll(args[i].selector);
+				this.process(args[i]);
+			}
+	
+			this.listen(args);
+		};
+	
+		objectFit.polyfill = function (args) {
+			if('objectFit' in document.documentElement.style === false) {
+				if (objectFit._debug && window.console) {
+					console.log('object-fit not natively supported');
+				}
+	
+				// If the library is loaded after document onload event
+				if (document.readyState === 'complete') {
+					objectFit.init(args);
+				} else {
+					// Otherwise attach event listeners
+					if (window.addEventListener) {
+						window.addEventListener('load', function(){
+							objectFit.init(args);
+						}, false);
+					} else {
+						window.attachEvent('onload', function(){
+							objectFit.init(args);
+						});
+					}
+				}
+			} else {
+				if (objectFit._debug && window.console) {
+					console.log('object-fit natively supported');
+				}
+			}
+		};
+	
+		/*
+		 * AMD, module loader, global registration
+		 */
+	
+		// Expose modal for loaders that implement the Node module pattern.
+		if (typeof module === 'object' && module && typeof module.exports === 'object') {
+			module.exports = objectFit;
+	
+		// Register as an AMD module
+		} else if (true) {
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () { return objectFit; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	
+		// Export into global space
+		} else if (typeof global === 'object' && typeof global.document === 'object') {
+			global.objectFit = objectFit;
+		}
+	
+	}(window));
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
-    var formData = new FormData();
-    formData.append('action', 'submit_ajax_form');
-    formData.append('formkey', form.querySelector('[name=formkey]').value);
-    formData.append('security', form.querySelector('[name=security]').value);
-    formData.append('name', form.querySelector('[name=name]').value);
-    formData.append('email', form.querySelector('[name=email]').value);
-    formData.append('message', form.querySelector('[name=message]').value);
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
 
-    var xhr = new XMLHttpRequest();
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
 
-    // save the comment in the database
-    xhr.open('POST', site.ajaxurl, true);
 
-    xhr.onload = function () {};
-
-    xhr.onerror = function (error) {
-      messageElement.className = 'message error';
-      messageElement.innerHTML = 'There was an error posting the comment. Please try again.';
-    };
-    xhr.onloadend = function (evt) {
-      if (xhr.readyState === 4) {
-        form.className = 'message success';
-        form.innerHTML = xhr.response;
-      }
-    };
-
-    xhr.send(formData);
-
-    // always call preventDefault at the end, see: http://molily.de/javascript-failure/
-    event.preventDefault();
-  });
-})();
-
-// import { objectFit } from 'object-fit';
-
-// objectFit.polyfill({
-//   selector: '.hero__image', // this can be any CSS selector
-//   fittype: 'cover', // either contain, cover, fill or none
-// });
-
-(function () {
-  var button = document.querySelector('.menu__trigger');
-  var menu = document.querySelector('.menu__list');
-  var body = document.querySelector('body');
-
-  function toggleMenu() {
-    var expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('is-active', !expanded);
-    body.classList.toggle('is-active', !expanded);
-  }
-
-  button.addEventListener('click', toggleMenu);
-})();
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QuanMiLCJmdW5jdGlvbnMuanMiLCJtZW51LmpzIl0sIm5hbWVzIjpbImRvY3VtZW50IiwicXVlcnlTZWxlY3RvciIsImZvcm0iLCJjb21tZW50QXJlYSIsIm5hbWVJbnB1dCIsIm1lc3NhZ2VFbGVtZW50IiwiYWRkRXZlbnRMaXN0ZW5lciIsImUiLCJ0YXJnZXQiLCJzZXRDdXN0b21WYWxpZGl0eSIsInZhbGlkaXR5IiwidmFsaWQiLCJldmVudCIsImZvcm1EYXRhIiwiRm9ybURhdGEiLCJhcHBlbmQiLCJ2YWx1ZSIsInhociIsIlhNTEh0dHBSZXF1ZXN0Iiwib3BlbiIsInNpdGUiLCJhamF4dXJsIiwib25sb2FkIiwib25lcnJvciIsImVycm9yIiwiY2xhc3NOYW1lIiwiaW5uZXJIVE1MIiwib25sb2FkZW5kIiwiZXZ0IiwicmVhZHlTdGF0ZSIsInJlc3BvbnNlIiwic2VuZCIsInByZXZlbnREZWZhdWx0IiwiYnV0dG9uIiwibWVudSIsImJvZHkiLCJ0b2dnbGVNZW51IiwiZXhwYW5kZWQiLCJnZXRBdHRyaWJ1dGUiLCJzZXRBdHRyaWJ1dGUiLCJTdHJpbmciLCJjbGFzc0xpc3QiLCJ0b2dnbGUiXSwibWFwcGluZ3MiOiI7O0FBQUEsQ0FBQSxZQUFBOztBQUVBLE1BQUEsQ0FBQUEsU0FBQUMsYUFBQSxDQUFBLGtCQUFBLENBQUEsRUFBQTs7QUFFQSxNQUFBQyxPQUFBRixTQUFBQyxhQUFBLENBQUEsa0JBQUEsQ0FBQTtBQUNBLE1BQUFFLGNBQUFELEtBQUFELGFBQUEsQ0FBQSxhQUFBLENBQUE7QUFDQSxNQUFBRyxZQUFBRixLQUFBRCxhQUFBLENBQUEsVUFBQSxDQUFBO0FBQ0EsTUFBQUksaUJBQUFMLFNBQUFDLGFBQUEsQ0FBQSxXQUFBLENBQUE7O0FBRUFHLFlBQUFFLGdCQUFBLENBQUEsU0FBQSxFQUFBLFVBQUFDLENBQUEsRUFBQTtBQUNBQSxNQUFBQyxNQUFBLENBQUFDLGlCQUFBLENBQUEsRUFBQTtBQUNBLFFBQUEsQ0FBQUYsRUFB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anMiLCJzb3VyY2VzQ29udGVudCI6WyIoKCkgPT4ge1xuXG4gIGlmICghZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmpzLWNvbnRhY3QtZm9ybScpKSByZXR1cm47XG5cbiAgY29uc3QgZm9ybSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5qcy1jb250YWN0LWZvcm0nKTtcbiAgY29uc3QgY29tbWVudEFyZWEgPSBmb3JtLnF1ZXJ5U2VsZWN0b3IoJy5qcy1tZXNzYWdlJyk7XG4gIGNvbnN0IG5hbWVJbnB1dCA9IGZvcm0ucXVlcnlTZWxlY3RvcignLmpzLW5hbWUnKTtcbiAgY29uc3QgbWVzc2FnZUVsZW1lbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjZmVlZGJhY2snKTtcblxuICBuYW1lSW5wdXQuYWRkRXZlbnRMaXN0ZW5lcignaW52YWxpZCcsIChlKSA9PiB7XG4gICAgZS50YXJnZXQuc2V0Q3VzdG9tVmFsaWRpdHkoJycpO1xuICAgIGlmICghZS50YXJnZXQudmFsaWRpdHkudmFsaWQpIHtcbiAgICAgIGUudGFyZ2V0LnNldEN1c3RvbVZhbGlkaXR5KCdWdWwgamUgbmFhbSBpbi4nKTtcbiAgICB9XG4gIH0pO1xuXG4gIGNvbW1lbnRBcmVhLmFkZEV2ZW50TGlzdGVuZXIoJ2ludmFsaWQnLCAoZSkgPT4ge1xuICAgIGUudGFyZ2V0LnNldEN1c3RvbVZhbGlkaXR5KCcnKTtcbiAgICBpZiAoIWUudGFyZ2V0LnZhbGlkaXR5LnZhbGlkKSB7XG4gICAgICBlLnRhcmdldC5zZXRDdXN0b21WYWxpZGl0eSgnVnVsIGVlbiBiZXJpY2h0IGluLicpO1xuICAgIH1cbiAgfSk7XG5cbiAgY29tbWVudEFyZWEuYWRkRXZlbnRMaXN0ZW5lcignaW5wdXQnLCBmdW5jdGlvbihlKSB7XG4gICAgZS50YXJnZXQuc2V0Q3VzdG9tVmFsaWRpdHkoJycpO1xuICB9KTtcblxuICAvLyBzZW5kIGZvcm0gZGF0YSB3aXRoIEphdmFTY3JpcHRcbiAgZm9ybS5hZGRFdmVudExpc3RlbmVyKCdzdWJtaXQnLCBmdW5jdGlvbihldmVudCkge1xuXG4gICAgY29uc3QgZm9ybURhdGEgPSBuZXcgRm9ybURhdGEoKTtcbiAgICBmb3JtRGF0YS5hcHBlbmQoJ2FjdGlvbicsICdzdWJtaXRfYWpheF9mb3JtJyk7XG4gICAgZm9ybURhdGEuYXBwZW5kKCdmb3Jta2V5JywgZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1mb3Jta2V5XScpLnZhbHVlKTtcbiAgICBmb3JtRGF0YS5hcHBlbmQoJ3NlY3VyaXR5JywgZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1zZWN1cml0eV0nKS52YWx1ZSk7XG4gICAgZm9ybURhdGEuYXBwZW5kKCduYW1lJywgZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1uYW1lXScpLnZhbHVlKTtcbiAgICBmb3JtRGF0YS5hcHBlbmQoJ2VtYWlsJywgZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1lbWFpbF0nKS52YWx1ZSk7XG4gICAgZm9ybURhdGEuYXBwZW5kKCdtZXNzYWdlJywgZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1tZXNzYWdlXScpLnZhbHVlKTtcblxuXG4gICAgY29uc3QgeGhyID0gbmV3IFhNTEh0dHBSZXF1ZXN0KCk7XG5cbiAgICAvLyBzYXZlIHRoZSBjb21tZW50IGluIHRoZSBkYXRhYmFzZVxuICAgIHhoci5vcGVuKCdQT1NUJywgc2l0ZS5hamF4dXJsLCB0cnVlKTtcblxuICAgIHhoci5vbmxvYWQgPSBmdW5jdGlvbiAoKSB7XG5cbiAgICB9O1xuXG4gICAgeGhyLm9uZXJyb3IgPSBmdW5jdGlvbiAoZXJyb3IpIHtcbiAgICAgIG1lc3NhZ2VFbGVtZW50LmNsYXNzTmFtZSA9ICdtZXNzYWdlIGVycm9yJztcbiAgICAgIG1lc3NhZ2VFbGVtZW50LmlubmVySFRNTCA9ICdUaGVyZSB3YXMgYW4gZXJyb3IgcG9zdGluZyB0aGUgY29tbWVudC4gUGxlYXNlIHRyeSBhZ2Fpbi4nO1xuICAgIH07XG4gICAgeGhyLm9ubG9hZGVuZCA9IGZ1bmN0aW9uIChldnQpIHtcbiAgICAgIGlmICh4aHIucmVhZHlTdGF0ZSA9PT0gNCkge1xuICAgICAgICBmb3JtLmNsYXNzTmFtZSA9ICdtZXNzYWdlIHN1Y2Nlc3MnO1xuICAgICAgICBmb3JtLmlubmVySFRNTCA9IHhoci5yZXNwb25zZTtcbiAgICAgIH1cbiAgICB9O1xuXG4gICAgeGhyLnNlbmQoZm9ybURhdGEpO1xuXG4gICAgLy8gYWx3YXlzIGNhbGwgcHJldmVudERlZmF1bHQgYXQgdGhlIGVuZCwgc2VlOiBodHRwOi8vbW9saWx5LmRlL2phdmFzY3JpcHQtZmFpbHVyZS9cbiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpO1xuICB9KTtcbn0pKCk7XG4iLCIvLyBpbXBvcnQgeyBvYmplY3RGaXQgfSBmcm9tICdvYmplY3QtZml0JztcblxuLy8gb2JqZWN0Rml0LnBvbHlmaWxsKHtcbi8vICAgc2VsZWN0b3I6ICcuaGVyb19faW1hZ2UnLCAvLyB0aGlzIGNhbiBiZSBhbnkgQ1NTIHNlbGVjdG9yXG4vLyAgIGZpdHR5cGU6ICdjb3ZlcicsIC8vIGVpdGhlciBjb250YWluLCBjb3ZlciwgZmlsbCBvciBub25lXG4vLyB9KTtcbiIsIigoKSA9PiB7XG4gIGNvbnN0IGJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5tZW51X190cmlnZ2VyJyk7XG4gIGNvbnN0IG1lbnUgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcubWVudV9fbGlzdCcpO1xuICBjb25zdCBib2R5ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignYm9keScpO1xuXG4gIGZ1bmN0aW9uIHRvZ2dsZU1lbnUoKSB7XG4gICAgY29uc3QgZXhwYW5kZWQgPSB0aGlzLmdldEF0dHJpYnV0ZSgnYXJpYS1leHBhbmRlZCcpID09PSAndHJ1ZSc7XG4gICAgdGhpcy5zZXRBdHRyaWJ1dGUoJ2FyaWEtZXhwYW5kZWQnLCBTdHJpbmcoIWV4cGFuZGVkKSk7XG4gICAgbWVudS5jbGFzc0xpc3QudG9nZ2xlKCdpcy1hY3RpdmUnLCAhZXhwYW5kZWQpO1xuICAgIGJvZHkuY2xhc3NMaXN0LnRvZ2dsZSgnaXMtYWN0aXZlJywgIWV4cGFuZGVkKTtcbiAgfVxuXG4gIGJ1dHRvbi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIHRvZ2dsZU1lbnUpO1xufSkoKTtcbiJdfQ==
+/***/ })
+/******/ ]);
+//# sourceMappingURL=functions.js.map

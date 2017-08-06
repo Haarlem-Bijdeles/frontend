@@ -3,6 +3,16 @@
 add_action( 'wp_ajax_submit_ajax_form', 'submit_ajax_form' );
 add_action( 'wp_ajax_nopriv_submit_ajax_form', 'submit_ajax_form' );
 
+function checkRequiredFields($fields) {
+  $verified = TRUE;
+  foreach($fields as $field) {
+    if(!isset($_POST[$field]) || empty($_POST[$field])) {
+      $verified = FALSE;
+    }
+  }
+  return $verified;
+}
+
 //Indien in frontend, roep de function update_newsletter op, zodra post[newsletter] gevuld is
 function submit_ajax_form() {
 
@@ -10,6 +20,10 @@ function submit_ajax_form() {
 
   $fullName = $_POST['name'];
   $type = $_POST['formkey'];
+
+  //server validatie
+  $requiredFields = array('name', 'email', 'message', 'formkey');
+  if (!checkRequiredFields($requiredFields)) die('verzenden mislukt');
 
   $fields  = array();
   $fields[] = array(

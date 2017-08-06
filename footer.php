@@ -3,7 +3,12 @@
 	<footer class="footer">
 		<div class="footer__wrapper">
 			<div class="footer__row">
-				<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="footer__logo"></a>
+
+				<a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="footer__logo">
+					<svg class="footer__logo-icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use>
+					</svg>
+				</a>
 
 				<nav class="quick-links" aria-labelledby="footer-nav-heading">
 					<h2 id="footer-nav-heading">Handige links</h2>

@@ -1,61 +1,56 @@
 .header {
-	font-size: 1.15em;
-	z-index: 9;
+  font-size: 1.1em;
+  z-index: 9;
 
-	&__wrapper {
-		position: relative;
-		display: flex;
-		justify-content: space-between;
-		@include center();
-		@include breakpoint-max(md) {
-			align-items: center;
-		}
-		@include breakpoint-range(md, lg) {
-			flex-direction: column;
-		}
-	}
+  @include breakpoint-max(md) {
+    background: $color-primary;
+  }
 
-	@include breakpoint-max(md) {
-		align-items: center;
-	}
+  @include breakpoint(lg) {
+    font-size: 1.2em;
+  }
 
-	@include breakpoint-max(md) {
-		background: $color-primary;
-	}
+  &__wrapper {
+    @include center();
+    position: relative;
 
-	@include breakpoint-range(md, lg) {
-		flex-direction: column;
-	}
-	@include breakpoint(lg) {
-		align-items: flex-start;
-	}
+    @include breakpoint-max(md) {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: .5em;
+      padding-top: .5em;
+    }
 
+    @include breakpoint(lg) {
+      padding-top: 3em;
+    }
+  }
 
-	&__logo {
-		display: block;
-		left: $gutter;
-		top: 0;
-		background-image: url('../images/logo-sm.png');
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 50px;
-		width: 200px;
-		@include breakpoint(md) {
-	 	}
-		@include breakpoint(lg) {
-			position: absolute;
-			background-image: url('../images/logo.png');
-			width: 150px;
-			height: 150px;
-			margin-right: 3rem;
-		}
-		@include breakpoint-range(md, lg) {
-			background-position: center center;
-			background-size: 200px 50px ;
-			width: 100%;
-			height: 70px;
-			margin: 0 ($gutter * -1);
-			background-color: $color-primary;
-		}
-	}
+  &__logo {
+    @include breakpoint-range(md, lg) {
+      background: $color-primary;
+      display: flex;
+      justify-content: center;
+      margin-left: $gutter * -1;
+      margin-right: $gutter * -1;
+      padding-bottom: .5em;
+      padding-top: .5em;
+    }
+
+    @include breakpoint(lg) {
+      left: $gutter;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &__logo-icon {
+    height: 3em;
+    width: 3em;
+
+    @include breakpoint(lg) {
+      height: 9em;
+      width: 9em;
+    }
+  }
 }

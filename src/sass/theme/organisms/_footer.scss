@@ -1,36 +1,40 @@
 .footer {
-	background: $color-primary;
-	color: $white;
-	@include block-padding();
+  background: $color-primary;
+  color: $white;
+  @include block-padding();
 
-	&__wrapper {
-		@include center();
-	}
+  &__wrapper {
+    @include center();
+  }
 
-	&__row {
-		@extend %row;
-		@include breakpoint(sm) {
-			@include grid-equal-columns(3);
-		}
-		@include breakpoint(lg) {
-			@include grid-equal-columns(4);
-		}
-		> * {
-			margin-bottom: 1em;
-		}
-	}
-	&__icon {
-		@include icon(2em);
-		margin-right: .5em;
-	}
-	&__logo {
-		display: none;
-		@include breakpoint(lg) {
-			display: block;
-		}
-		background: url('../images/logo-footer.png') no-repeat;
-		background-size: cover;
-		height: 106px;
-		width: 106px;
-	}
+  &__row {
+    @extend %row;
+    @include breakpoint(sm) {
+      @include grid-equal-columns(3);
+    }
+    @include breakpoint(lg) {
+      @include grid-equal-columns(4);
+    }
+
+    > * {
+      margin-bottom: 1em;
+    }
+  }
+
+  &__icon {
+    @include icon(2em);
+    margin-right: .5em;
+  }
+
+  &__logo {
+    display: none;
+    @include breakpoint(lg) {
+      display: block;
+    }
+    width: 106px;
+  }
+
+  &__logo-icon {
+    width: 100%;
+  }
 }
