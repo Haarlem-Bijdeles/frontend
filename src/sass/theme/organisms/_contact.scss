@@ -6,14 +6,7 @@
     @extend %row;
 
     @include breakpoint(md) {
-      @include grid-equal-columns(3);
-    }
-  }
-
-  &__map {
-    @include breakpoint(md) {
-      grid-column-end: 3;
-      grid-column-start: 1;
+      grid-template-columns: 2fr 1fr;
     }
   }
 

@@ -1,17 +1,17 @@
 .videos {
   @include center();
   @include block-padding();
+
   &__wrapper {
     @extend %row;
+    grid-template-columns: 1fr;
+
     @include breakpoint(md) {
-      @include grid-equal-columns(2);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
 
 .video {
   @include video;
-  &__col {
-    @include col;
-  }
 }

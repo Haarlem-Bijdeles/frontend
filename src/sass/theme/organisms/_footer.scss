@@ -1,7 +1,7 @@
 .footer {
+  @include block-padding();
   background: $color-primary;
   color: $white;
-  @include block-padding();
 
   &__wrapper {
     @include center();
@@ -9,15 +9,13 @@
 
   &__row {
     @extend %row;
+
     @include breakpoint(sm) {
-      @include grid-equal-columns(3);
-    }
-    @include breakpoint(lg) {
-      @include grid-equal-columns(4);
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    > * {
-      margin-bottom: 1em;
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -28,10 +26,11 @@
 
   &__logo {
     display: none;
+    width: 106px;
+
     @include breakpoint(lg) {
       display: block;
     }
-    width: 106px;
   }
 
   &__logo-icon {

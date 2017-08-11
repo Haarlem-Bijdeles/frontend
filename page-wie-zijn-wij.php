@@ -6,15 +6,11 @@
 
 	<div class="videos">
 		<div class="videos__wrapper">
-			<div class="video__col">
-				<div class="video">
-					<iframe src="//player.vimeo.com/video/<?php the_field('video_1'); ?>" allowfullscreen="allowfullscreen"></iframe>
-				</div>
+			<div class="video">
+				<iframe src="//player.vimeo.com/video/<?php the_field('video_1'); ?>" allowfullscreen="allowfullscreen"></iframe>
 			</div>
-			<div class="video__col">
-				<div class="video">
-					<iframe src="//player.vimeo.com/video/<?php the_field('video_2'); ?>" allowfullscreen="allowfullscreen"></iframe>
-				</div>
+			<div class="video">
+				<iframe src="//player.vimeo.com/video/<?php the_field('video_2'); ?>" allowfullscreen="allowfullscreen"></iframe>
 			</div>
 		</div>
 	</div>
