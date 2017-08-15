@@ -5,9 +5,6 @@
 
   &__wrapper {
     @include center();
-  }
-
-  &__row {
     @extend %row;
 
     @include breakpoint(sm) {
@@ -26,7 +23,6 @@
 
   &__logo {
     display: none;
-    width: 106px;
 
     @include breakpoint(lg) {
       display: block;
@@ -34,6 +30,6 @@
   }
 
   &__logo-icon {
-    width: 100%;
+    width: 8em;
   }
 }

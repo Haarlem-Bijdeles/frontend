@@ -30,7 +30,7 @@
 						<label for="message">Bericht</label>
 						<textarea id="message" name="message" rows="3" required class="js-message"></textarea>
 					</div>
-					<input type="submit" class="contact__submit">
+					<button type="submit" class="contact__submit">Verzenden</button>
 				</form>
 			</div>
 		</div>

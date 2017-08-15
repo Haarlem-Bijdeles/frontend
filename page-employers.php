@@ -1,19 +1,10 @@
+<?php /* Template Name: Onze mensen */ ?>
+
 <?php get_header(); ?>
 
 <article class="content">
 
 	<?php get_template_part('partials/intro'); ?>
-
-	<div class="videos">
-		<div class="videos__wrapper">
-			<div class="video">
-				<iframe src="//player.vimeo.com/video/<?php the_field('video_1'); ?>" allowfullscreen="allowfullscreen"></iframe>
-			</div>
-			<div class="video">
-				<iframe src="//player.vimeo.com/video/<?php the_field('video_2'); ?>" allowfullscreen="allowfullscreen"></iframe>
-			</div>
-		</div>
-	</div>
 
 	<?php if( have_rows('employers') ) : ?>
 		<div class="about-us">
@@ -62,6 +53,17 @@
 			</div>
 		</div>
 	<?php endif; ?>
+
+	<div class="videos">
+		<div class="videos__wrapper">
+			<div class="video">
+				<iframe src="//player.vimeo.com/video/<?php the_field('video_1'); ?>" allowfullscreen="allowfullscreen"></iframe>
+			</div>
+			<div class="video">
+				<iframe src="//player.vimeo.com/video/<?php the_field('video_2'); ?>" allowfullscreen="allowfullscreen"></iframe>
+			</div>
+		</div>
+	</div>
 </article>
 
 <?php //get_template_part('partials/testimonials'); ?>

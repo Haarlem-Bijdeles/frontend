@@ -26,16 +26,20 @@
 				<?php endif; ?>
 			</div>
 			<div class="prices">
-				<?php if( have_rows('prices') ) : ?>
-					<h2 class="prices__title">Tarieven</h2>
-					<ul class="prices__list">
-						<?php while ( have_rows('prices') ) : the_row(); ?>
-							<li><?php the_sub_field('text'); ?></li>
-						<?php endwhile; ?>
-					</ul>
-				<?php endif; ?>
-				<a class="prices__btn-cta" href="<?php echo site_url(); ?>/contact">Maak direct een afspraak</a>
-				<a href="tel:<?php the_field('phonenumber', 'option'); ?>" class="prices__btn-call">Of bel met <?php the_field('phonenumber', 'option'); ?></a>
+				<div class="prices__col">
+					<?php if( have_rows('prices') ) : ?>
+						<h2 class="prices__title">Tarieven</h2>
+						<ul class="prices__list">
+							<?php while ( have_rows('prices') ) : the_row(); ?>
+								<li><?php the_sub_field('text'); ?></li>
+							<?php endwhile; ?>
+						</ul>
+					<?php endif; ?>
+				</div>
+				<div class="prices__col">
+					<a class="prices__btn-cta" href="<?php echo site_url(); ?>/contact">Maak direct een afspraak</a>
+					<a href="tel:<?php echo esc_url(get_field('phonenumber', 'option')); ?>" class="prices__btn-call">Of bel met <?php the_field('phonenumber', 'option'); ?></a>
+				</div>
 			</div>
 		</div>
 	</div>

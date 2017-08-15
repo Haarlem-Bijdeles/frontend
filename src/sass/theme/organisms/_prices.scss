@@ -36,12 +36,19 @@
 
   &__list {
     grid-column-gap: $gutter;
+    margin-left: $gutter / -2;
+    margin-right: $gutter / -2;
     @include breakpoint(sm) {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
+    @include breakpoint(lg) {
+      margin-left: $gutter / -1;
+      margin-right: $gutter / -1;
+    }
   }
+
   &__list-item {
     flex-direction: column;
     border: ($gutter / 2) solid $color-primary;
@@ -49,18 +56,22 @@
       flex: 0 0 50%;
     }
     @include breakpoint(lg) {
+      border-width: $gutter;
       flex: 1 0 auto;
     }
     padding: .5em 1em 1em;
     background: $white;
     position: relative;
+
     ul {
       flex: 1 1 auto;
       margin-bottom: 1.5em;
     }
   }
+
   &__usp {
     padding: 0 0 .5em;
+
     &:last-child {
       padding-bottom: 0;
     }
@@ -76,6 +87,7 @@
     fill: #fff;
     border-radius: 50%;
   }
+
   &__btn {
     @extend %btn;
     @extend %btn--small;
@@ -83,13 +95,12 @@
   }
 }
 
-
-
 .prices__btn-contact {
   @extend %btn;
   @extend %btn--outline;
-  color: #fff;
-  border-color: #fff;
+  color: $white;
+  border-color: $white;
+
   &:hover {
     background: $color-primary-dark;
   }

@@ -10,18 +10,22 @@
 
   &__body {
     @extend %row;
-    grid-template-columns: 1fr 2fr;
+    @include breakpoint(md) {
+      grid-template-columns: 1fr 2fr;
 
-    &--switch {
-      %archive__item:nth-child(2n) & {
-        grid-template-columns: 2fr 1fr;
+      &--switch {
+        %archive__item:nth-child(2n) & {
+          grid-template-columns: 2fr 1fr;
+        }
       }
     }
   }
 
   &__image-wrapper--switch {
-    %archive__item:nth-child(2n) & {
-      order: 2;
+    @include breakpoint(md) {
+      %archive__item:nth-child(2n) & {
+        order: 2;
+      }
     }
   }
 
@@ -30,5 +34,11 @@
     width: 100%;
     border: 5px #fff solid;
     box-shadow: 0 0 3px #999;
+    @include breakpoint-max(sm) {
+      margin: 0 auto;
+    }
+    @include breakpoint-max(md) {
+      max-width: 15em;
+    }
   }
 }

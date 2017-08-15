@@ -49,8 +49,8 @@
       position: relative;
 
       @include breakpoint(lg) {
-        margin-left: 2rem;
-        margin-right: 2rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
       }
     }
   }
@@ -70,6 +70,27 @@
     }
   }
 
+  @include breakpoint(md) {
+    &-item-has-children {
+      padding-right: 1.25em;
+      position: relative;
+
+      &:before {
+        background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12, 17.24a1, 1, 0, 0, 1-.71-.29L2.81, 8.46A1, 1, 0, 1, 1, 4.22, 7.05L12, 14.83l7.78-7.78a1, 1, 0, 1, 1, 1.41, 1.41l-8.49, 8.49A1, 1, 0, 0, 1, 12, 17.24Z"/></svg>');
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -.375em;
+        background-repeat: no-repeat;
+        content: '';
+        width: .75em;
+        height: .75em;
+        display: block;
+        background-size: .75em .75em;
+      }
+    }
+  }
+
   li:hover > a {
     border-bottom-color: $black;
   }
@@ -85,6 +106,7 @@
   }
 
   @include breakpoint(md) {
+    min-width: 10rem;
     background: $grey-light;
     display: none;
     left: -1em;

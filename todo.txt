@@ -1,15 +1,20 @@
-- grid?
 - onze diensten dynamisch
-- vimeo op mobile
-- yoast is in het engels?
 - svg logo
-- service worker
+- split css by mq
+
+later
 - versie beheer css
-- manifest
 - lint
-- pijltje achter submenu
+- manifest
+- service worker
+- critical css
 
 gedaan
+- contact button
+- grid
+- pijltje achter submenu
+- yoast is in het engels?
+- vimeo op mobile
 - responsive menu
 - javscript bundelen
 - email

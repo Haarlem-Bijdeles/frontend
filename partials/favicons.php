@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="https://haarlembijdeles.michielkoning.nl/wp-content/themes/haarlembijdeles/assets/images/favicons/favicon.ico">
 <meta name="apple-mobile-web-app-title" content="Haarlem bij de les">
 <meta name="application-name" content="Haarlem bij de les">
-<meta name="msapplication-TileColor" content="#f85909">
+<meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="https://haarlembijdeles.michielkoning.nl/wp-content/themes/haarlembijdeles/assets/images/favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="https://haarlembijdeles.michielkoning.nl/wp-content/themes/haarlembijdeles/assets/images/favicons/browserconfig.xml">
 <meta name="theme-color" content="#da532c">

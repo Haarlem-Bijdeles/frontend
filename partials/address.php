@@ -7,7 +7,7 @@
   </p>
 
   <p>
-    <a href="tel:<?php the_field('phonenumber', 'option'); ?>" itemprop="telephone"><?php the_field('phonenumber', 'option'); ?></a><br>
+    <a href="tel:<?php echo esc_url(get_field('phonenumber', 'option')); ?>" itemprop="telephone"><?php the_field('phonenumber', 'option'); ?></a><br>
     <a href="mailto:<?php the_field('email', 'option'); ?>" itemprop="email"><?php the_field('email', 'option'); ?></a><br>
   </p>
   <p>

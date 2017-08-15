@@ -4,8 +4,7 @@ function theme_style() {
   wp_enqueue_style( 'haarlem-bij-de-les', get_stylesheet_uri(), false);
   wp_enqueue_style( 'haarlem-bij-de-les-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 }
-add_action( 'wp_enqueue_scripts', 'theme_style' );
-
+add_action( 'wp_enqueue_scripts', 'theme_style', 10 );
 
 function add_default_scripts() {
   wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/functions.js', null, false, true);
@@ -21,3 +20,14 @@ function add_default_scripts() {
   ));
 }
 add_action( 'wp_enqueue_scripts', 'add_default_scripts' );
+
+function criticalCSS() {
+  if(is_front_page()) {
+    wp_dequeue_style('haarlem-bij-de-les');
+    wp_dequeue_style('haarlem-bij-de-les-fonts');
+    get_template_part('partials/critical');
+  }
+
+}
+
+//add_action('wp_head', 'criticalCSS', 15);
