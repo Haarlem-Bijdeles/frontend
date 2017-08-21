@@ -1,0 +1,6 @@
+[submodule "src/gulp"]
+	path = src/gulp
+	url = https://michielkoning@github.com/michielkoning/gulp.git
+[submodule "src/sass/defaults"]
+	path = src/sass/defaults
+	url = https://michielkoning@github.com/michielkoning/default-sass.git
