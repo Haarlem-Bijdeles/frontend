@@ -1,6 +1,0 @@
-[submodule "src/sass/defaults"]
-	path = src/sass/defaults
-	url = https://michielkoning@github.com/michielkoning/default-sass.git
-[submodule "gulp"]
-	path = gulp
-	url = https://michielkoning@github.com/michielkoning/gulp.git
