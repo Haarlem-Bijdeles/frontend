@@ -1,0 +1,18 @@
+<address itemscope itemtype="http://schema.org/Organization">
+  <span itemprop="name"><?php bloginfo('name'); ?></span>
+  <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">{{options.street}}</span><br>
+    <span itemprop="locality">{{options.city}}</span>,
+    <span itemprop="postal-code">{{options.zipcode}}</span>
+  </p>
+
+  <p>
+    <a href="tel:{{options.phonenumber|url_encode}}" itemprop="telephone">{{options.phonenumber}}</a><br>
+    <a href="mailto:{{options.email}}" itemprop="email">{{options.email}}</a><br>
+  </p>
+  <p>
+  {% if options.kvk %}
+    KVK: {{options.kvk}}
+  {% endif %}
+  </p>
+</address>

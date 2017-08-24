@@ -1,5 +1,11 @@
-<?php get_header(); ?>
+<?php
 
+$context = Timber::get_context();
+$post = Timber::query_post();
+$context['post'] = $post;
+Timber::render(array( 'single-' . $post->post_type . '.twig', 'single.twig' ), $context);
+
+?>
 <div class="blog">
 	<ul class="blog__list">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -74,10 +80,5 @@
 	<a href="<?php the_permalink(get_option("page_for_posts")); ?>">Bekijk alle berichten</a>
 </div>
 
-<?php wp_reset_query(); ?>
-
-
-
-<?php //get_template_part('partials/testimonials'); ?>
 
 <?php get_footer(); ?>

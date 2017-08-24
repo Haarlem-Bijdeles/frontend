@@ -1,6 +1,6 @@
 const toggleMenu = () => {
-  const button = document.querySelector('.menu__trigger');
-  const menu = document.querySelector('.menu__list');
+  const button = document.querySelector('.js-trigger-menu');
+  const menu = document.querySelector('.js-menu');
   const body = document.querySelector('body');
 
   const expanded = button.getAttribute('aria-expanded') === 'true';
@@ -11,6 +11,6 @@ const toggleMenu = () => {
 
 
 (() => {
-  const button = document.querySelector('.menu__trigger');
+  const button = document.querySelector('.js-trigger-menu');
   button.addEventListener('click', toggleMenu);
 })();

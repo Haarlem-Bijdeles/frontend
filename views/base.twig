@@ -1,0 +1,78 @@
+{{function('wp_head')}}
+
+<header class="header" role="banner">
+  <div class="header__wrapper">
+    <a href="{{ site.url }}" title="{{ site.name }}" class="header__logo">
+      {% include 'partials/svg.twig' with {'icon': 'logo', 'class': 'header__logo-icon' } %}
+    </a>
+
+    <a href="#main-menu" class="skip-link">Naar hoofdnavigatiemenu</a>
+    <a href="#main-content" class="skip-link">Naar hoofdinhoud</a>
+
+    <button class="menu-trigger js-trigger-menu" aria-expanded="false">
+      <svg class="menu-trigger__icon" viewBox="0 0 24 24">
+        <title>menu</title>
+        <path class="menu-trigger__bar menu-trigger__bar--1" d="M19,7H4A1,1,0,0,1,4,5H19a1,1,0,0,1,0,2Z"/>
+        <path class="menu-trigger__bar menu-trigger__bar--2" d="M19,13H4a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"/>
+        <path class="menu-trigger__bar menu-trigger__bar--3" d="M19,19H4a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"/>
+      </svg>
+      Menu
+    </button>
+
+    <div id="main-menu"></div>
+
+    {% include 'partials/menu.twig' with {'class': 'header', 'js_class': 'js-menu', 'menu': menu, 'label': 'site' } %}
+
+  </div>
+</header>
+
+<div id="main-content"></div>
+<main id="main" class="main">
+  {% include 'partials/hero.twig' %}
+
+  {% block content %}
+
+  {% endblock %}
+
+</main>
+
+<footer class="footer">
+  <div class="footer__wrapper">
+    <a href="{{ site.url }}" title="{{ site.name }}" class="footer__logo">
+      {% include 'partials/svg.twig' with {'icon': 'logo', 'class': 'footer__logo-icon' } %}
+    </a>
+
+    <div class="quick-links">
+      <h2 id="footer-nav-heading">Handige links</h2>
+      {% include 'partials/menu.twig' with {'class': 'footer', 'menu': footer_menu, 'label': 'footer-nav-heading' } %}
+    </div>
+    <div class="address">
+      <h2>Contact</h2>
+      {% include 'partials/address.twig' %}
+    </div>
+    <div class="social-media">
+      <h2>Social media</h2>
+      <p>Volg ons op</p>
+      {% if options.facebook %}
+        <a href="{{options.facebook}}" class="archive__link" title="Volg Haarlem Bij de Les op Facebook" rel="noopener" target="_blank">
+         {% include 'partials/svg.twig' with {'icon': 'facebook-rounded', 'class': 'footer__icon' } %}
+        </a>
+      {% endif %}
+      {% if options.twitter %}
+        <a href="{{options.twitter}}" class="archive__link" title="Volg Haarlem Bij de Les op Twitter" rel="noopener" target="_blank">
+         {% include 'partials/svg.twig' with {'icon': 'twitter-rounded', 'class': 'footer__icon' } %}
+        </a>
+      {% endif %}
+      {% if options.linkedin %}
+        <a href="{{options.linkedin}}" class="archive__link" title="Volg Haarlem Bij de Les op LinkedIn" rel="noopener" target="_blank">
+         {% include 'partials/svg.twig' with {'icon': 'linkedin-rounded', 'class': 'footer__icon' } %}
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+</footer>
+
+{% include 'partials/icons.twig' %}
+
+{{function('wp_footer')}}
