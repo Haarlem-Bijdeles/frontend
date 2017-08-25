@@ -3,6 +3,10 @@
   background: $color-primary;
   color: $white;
 
+  a {
+    color: currentColor;
+  }
+
   &__wrapper {
     @include center();
     @extend %row;
@@ -16,10 +20,6 @@
     }
   }
 
-  &__icon {
-    @include icon(2em);
-    margin-right: .5em;
-  }
 
   &__logo {
     display: none;
@@ -31,5 +31,18 @@
 
   &__logo-icon {
     width: 8em;
+  }
+}
+
+
+.social {
+
+  &__link {
+    @include reset-link;
+  }
+
+  &__icon {
+    @include icon(2em);
+    margin-right: .5em;
   }
 }

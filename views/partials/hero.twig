@@ -1,17 +1,15 @@
-{% if post.thumbnail %}
-  <div class="hero">
-    <img src="{{post.get_thumbnail.src|resize(800)}}"
-         alt="{{post.post_title}}" class="hero__image"
-         srcset="
-          {{post.get_thumbnail.src|resize(1400)}} 1400w,
-          {{post.get_thumbnail.src|resize(1140)}} 1140w,
-          {{post.get_thumbnail.src|resize(800)}} 800w,
-          {{post.get_thumbnail.src|resize(640)}} 640w"
-         sizes="(min-width: 1140px) 1140px, 100vw">
-    <div class="hero__wrapper">
-      <div class="hero__text">
-        <h1 class="hero__title">{{ post.title }}</h1>
-      </div>
+<div class="hero{% if hero.is_front_page %} hero--front-page{% endif %}">
+  <img src="{{TimberImage(hero.image).src|resize(800)}}"
+       alt="{{hero.image.post_title}}" class="hero__image"
+       srcset="
+        {{TimberImage(hero.image).src|resize(1400)}} 1400w,
+        {{TimberImage(hero.image).src|resize(1140)}} 1140w,
+        {{TimberImage(hero.image).src|resize(800)}} 800w,
+        {{TimberImage(hero.image).src|resize(640)}} 640w"
+       sizes="(min-width: 1140px) 1140px, 100vw">
+  <div class="hero__wrapper">
+    <div class="hero__text">
+      <h1 class="hero__title js-skip-content" id="content">{{ hero.title }}</h1>
     </div>
   </div>
-{% endif %}
+</div>

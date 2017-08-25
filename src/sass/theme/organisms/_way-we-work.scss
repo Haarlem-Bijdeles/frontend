@@ -38,10 +38,6 @@
         border-color: $color-action;
 
         a {
-          text-align: center;
-          text-shadow: none;
-          background: none;
-          display: block;
           color: #fff;
         }
       }
@@ -52,9 +48,9 @@
     }
 
     a {
-      text-shadow: none;
-      background: none;
-      text-decoration: none;
+      display: block;
+      text-align: center;
+      @include reset-link;
     }
   }
 

@@ -1,0 +1,72 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<article class="content">
+
+  {% include 'partials/intro.twig' %}
+
+  {% if post.get_field('employers') %}
+    <div class="about-us">
+      <div class="about-us__list">
+        {% for employer in post.get_field('employers') %}
+          <div class="about-us__item">
+            <div class="about-us__wrapper">
+              <div class="about-us__body">
+                <div class="about-us__image-wrapper">
+                  {% if employer.image %}
+                    <img src="{{TimberImage(employer.image).src|resize(250)}}"
+                       alt="{{ TimberImage(post.image).post_title }}" class="way-we-work__image"
+                       srcset="
+                        {{TimberImage(employer.image).src|resize(250)|retina(1)}} 1x,
+                        {{TimberImage(employer.image).src|resize(500)|retina(2)}} 2x">
+                  {% endif %}
+                </div>
+                <div class="about-us__text">
+                  <h2>{{employer.name}}</h2>
+                  {{employer.bio}}
+                  <p class="social">
+                    {% if employer.facebook %}
+                      <a href="{{employer.facebook}}); ?>" class="social__link" title="Volg {{employer.name}} op Facebook" rel="noopener">
+                       {% include 'partials/defaults/svg.twig' with {'icon': 'facebook-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op Facebook' } %}
+                      </a>
+                    {% endif %}
+                    {% if employer.twitter %}
+                      <a href="{{employer.twitter}}; ?>" class="social__link" title="Volg {{employer.name}} op Twitter" rel="noopener">
+                       {% include 'partials/defaults/svg.twig' with {'icon': 'twitter-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op Twitter' } %}
+                      </a>
+                    {% endif %}
+                    {% if employer.linkedin %}
+                      <a href="{{employer.linkedin}}); ?>" class="social__link" title="Volg {{employer.name}} op LinkedIn" rel="noopener">
+                       {% include 'partials/defaults/svg.twig' with {'icon': 'linkedin-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op LinkedIn' } %}
+                      </a>
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if post.video1 or post.video2 %}
+  <div class="videos">
+    <div class="videos__wrapper">
+      {% if post.video2 %}
+        <div class="video">
+          <iframe src="//player.vimeo.com/video/{{post.video_1}}" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+      {% endif %}
+      {% if post.video2 %}
+        <div class="video">
+          <iframe src="//player.vimeo.com/video/{{post.video_2}}" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</article>
+
+{% endblock %}

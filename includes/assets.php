@@ -31,3 +31,10 @@ function criticalCSS() {
 }
 
 //add_action('wp_head', 'criticalCSS', 15);
+
+function addFavicons() {
+  Timber::render('views/partials/favicons.twig');
+}
+
+add_action('wp_head', 'addFavicons', 15);
+

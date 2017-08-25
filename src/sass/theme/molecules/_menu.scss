@@ -1,14 +1,17 @@
 %menu-link {
+  @include reset-link;
   border-bottom: solid transparent;
   display: inline-block;
   padding: .5em 0;
 
   &:hover,
-  &.is-active {
+  &.current-menu-item,
+  &.current_page_parent {
     border-bottom-color: $black;
   }
 
-  &.is-active {
+  &.current-menu-item,
+  &.current_page_parent {
     font-weight: $font-weight-bold;
   }
 }
@@ -78,7 +81,7 @@
     border-bottom-width: 3px;
 
     @include breakpoint(md) {
-      &.has-children {
+      &.menu-item-has-children {
         padding-right: 1.25em;
         position: relative;
       }
@@ -122,6 +125,8 @@
 }
 
 .menu-trigger {
+  @extend %btn;
+  padding: .25em;
   border: 1px solid $white;
   color: $white;
 

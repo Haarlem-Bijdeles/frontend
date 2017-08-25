@@ -15,6 +15,7 @@
     position: relative;
 
     @include breakpoint-max(md) {
+      align-items: center;
       display: flex;
       justify-content: space-between;
       padding-bottom: .5em;

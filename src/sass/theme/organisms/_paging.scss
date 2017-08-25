@@ -2,14 +2,20 @@
 	@include center(m);
 	@include clearfix();
 	padding-bottom: 3rem;
+
+	&__view-all,
+	&__next,
+	&__previous {
+		@extend %btn--outline;
+	}
+
 	&__previous {
 		float: left;
 	}
+
+	&__view-all,
 	&__next {
 		float: right;
-	}
-	a {
-		@extend %btn--outline;
 	}
 }
 

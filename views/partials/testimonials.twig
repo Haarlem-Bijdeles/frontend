@@ -1,0 +1,25 @@
+{% if testimonials %}
+
+  <div class="testimonials">
+    <ul class="testimonials__list">
+      {% for testimonial in testimonials %}
+      <li class="testimonial">
+        {% if testimonial.thumbnail %}
+          <img src="{{ testimonial.thumbnail.src }}"
+              class="quote__image" alt="{{ testimonial.thumbnail.title }}"
+              srcset="
+                {{ testimonial.thumbnail.src|resize(120)|retina(1) }} 1x,
+                {{ testimonial.thumbnail.src|resize(240)|retina(2) }} 2x">
+        {% endif %}
+        <div class="testimonial__text">
+          <div class="user-meta">
+            <span class="user-name">{{testimonial.title}}</span>
+            <span class="user-class">{{testimonial.group}}</span>
+          </div>
+          <blockquote class="quote">{{testimonial.quote}}</blockquote>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
