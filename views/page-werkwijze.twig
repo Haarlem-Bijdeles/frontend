@@ -23,11 +23,11 @@
               <div class="way-we-work__body" id="werkwijze-{{loop.index}}">
                 <div class="way-we-work__image-wrapper">
                   {% if item.image %}
-                    <img src="{{TimberImage(item.image).src|resize(250)}}"
+                    <img src="{{TimberImage(item.image).src|tojpg|resize(280)}}"
                        alt="{{ TimberImage(post.hero_image).post_title }}" class="way-we-work__image"
                        srcset="
-                        {{TimberImage(item.image).src|resize(250)|retina(1)}} 1x,
-                        {{TimberImage(item.image).src|resize(500)|retina(2)}} 2x">
+                        {{TimberImage(item.image).src|tojpg|resize(280)}} 1x,
+                        {{TimberImage(item.image).src|tojpg|resize(560)}} 2x">
                   {% endif %}
                 </div>
                 <div class="way-we-work__text">

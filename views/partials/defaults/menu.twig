@@ -4,7 +4,7 @@
     <ul class="{{selector}}-menu__list">
       {% for item in menu.get_items %}
         <li class="{{selector}}-menu__item">
-          <a class="{{selector}}-menu__link {{item.classes | join(' ')}}"  href="{{ item.link }}" title="{{ item.title }}" target="{{ item.target }}">{{ item.title }}</a>
+          <a class="{{selector}}-menu__link {{item.classes | join(' ')}}"  href="{{ item.link }}" title="{{ item.title }}"{% if item.target %} target="{{ item.target }}"{% endif %}>{{ item.title }}</a>
           {% if item.children %}
           {{item.find_parent_item_in_menu|print_r}}
             {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-down', 'class': selector ~ '-menu__icon' } %}

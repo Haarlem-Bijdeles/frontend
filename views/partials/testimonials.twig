@@ -5,11 +5,11 @@
       {% for testimonial in testimonials %}
       <li class="testimonial">
         {% if testimonial.thumbnail %}
-          <img src="{{ testimonial.thumbnail.src }}"
+          <img src="{{ testimonial.thumbnail.src|tojpg|resize(120) }}"
               class="quote__image" alt="{{ testimonial.thumbnail.title }}"
               srcset="
-                {{ testimonial.thumbnail.src|resize(120)|retina(1) }} 1x,
-                {{ testimonial.thumbnail.src|resize(240)|retina(2) }} 2x">
+                {{ testimonial.thumbnail.src|tojpg|resize(120) }} 1x,
+                {{ testimonial.thumbnail.src|tojpg|resize(240) }} 2x">
         {% endif %}
         <div class="testimonial__text">
           <div class="user-meta">

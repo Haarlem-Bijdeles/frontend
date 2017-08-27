@@ -10,7 +10,10 @@
             <h2 class="teaser__title">Waarom haarlembijdeles?</h2>
             <ul class="teaser__list">
               {% for item in post.get_field('usps') %}
-                <li>{{item.text}}</li>
+                <li>
+                  {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-right', 'class': 'teaser__icon' } %}
+                  {{item.text}}
+                </li>
               {% endfor %}
             </ul>
           </div>
@@ -20,7 +23,10 @@
             <h2 class="teaser__title">Ons aanbod</h2>
             <ul class="teaser__list">
               {% for item in post.get_field('offers') %}
-                <li>{{item.text}}</li>
+                <li>
+                  {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-right', 'class': 'teaser__icon' } %}
+                  {{item.text}}
+                </li>
               {% endfor %}
             </ul>
           </div>
@@ -32,7 +38,10 @@
             <h2 class="prices__title">Tarieven</h2>
             <ul class="prices__list">
               {% for item in post.get_field('prices') %}
-                <li>{{item.text}}</li>
+                <li>
+                  {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-right', 'class': 'prices__icon' } %}
+                  {{item.text}}
+                </li>
               {% endfor %}
             </ul>
           {% endif %}

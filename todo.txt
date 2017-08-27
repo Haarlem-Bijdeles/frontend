@@ -1,15 +1,17 @@
 - onze diensten dynamisch
 - svg logo
-- split css by mq
 
 later
 - versie beheer css
+- webp
 - lint
 - manifest
 - service worker
-- critical css
+- promises babel polyfill
 
 gedaan
+- split css by mq
+- critical css
 - contact button
 - grid
 - pijltje achter submenu

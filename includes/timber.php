@@ -20,7 +20,7 @@ function add_to_context($data){
 
   $data['hero'] = array(
     'title' => $hero_title,
-    'image' => (isset($hero_image)) ? $hero_image : get_field('hero', 'option'),
+    'image' => new Timber\Image(isset($hero_image) ? $hero_image : get_field('hero', 'option')),
     'is_front_page' => is_front_page()
   );
 

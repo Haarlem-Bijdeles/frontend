@@ -14,14 +14,29 @@
   }
 }
 
+.teaser,
 .usps,
 .prices {
+  font-weight: $font-weight-bold;
   padding: 1.5rem;
+  &__icon {
+    @include icon(1em);
+    position: absolute;
+    left: 0;
+    top: .5em;
+  }
+  li {
+    position: relative;
+    padding-left: 1.5em;
+
+  }
 }
 
 .teaser {
   &__list {
-    @include list-with-icons(white);
+  }
+  &__icon {
+    @include icon(1em);
   }
 }
 
@@ -33,7 +48,6 @@
   }
 
   &__list {
-    @include list-with-icons();
   }
 
   &__btn-cta {

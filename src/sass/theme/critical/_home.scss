@@ -1,7 +1,17 @@
 @import '../tools/base';
 @import '../layout/base';
-@import '../atoms/base';
-@import '../molecules/base';
+
+@import '../atoms/lists';
+@import '../atoms/typography';
+@import '../atoms/user-details';
+@import '../atoms/quote';
+
+@import '../molecules/menu';
+@import '../molecules/testimonial';
+@import '../molecules/text';
+
 @import '../organisms/hero';
+@import '../organisms/prices';
 @import '../organisms/header';
+@import '../organisms/footer';
 @import '../organisms/usps';
