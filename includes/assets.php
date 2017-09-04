@@ -1,6 +1,6 @@
 <?php
 
-define( 'VERSION', 2.1 );
+define( 'VERSION', 2.2 );
 
 function theme_style() {
   // Theme stylesheet.
@@ -15,13 +15,13 @@ function theme_style() {
 add_action( 'wp_enqueue_scripts', 'theme_style', 10 );
 
 function add_default_scripts() {
-  wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/functions.js', null, VERSION, true);
+  wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/functions.js', null, VERSION);
 
   if (is_page('werkwijze'))
-    wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/scripts/sticky-nav.js', null, VERSION, true);
+    wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/scripts/sticky-nav.js', null, VERSION);
 
   if (is_page('contact'))
-    wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/scripts/contact.js', null, VERSION, true);
+    wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/scripts/contact.js', null, VERSION);
 
   wp_localize_script( 'functions', 'site', array(
     'ajaxurl' => admin_url( 'admin-ajax.php' )

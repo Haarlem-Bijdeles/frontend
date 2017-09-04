@@ -1,10 +1,74 @@
+$banner-height: 2em;
+$darken-amount: 5;
+$tail-v-offset: .5em;
+$tail-h-offset: 0;
+
 .prices2 {
   background: $color-primary;
   text-align: center;
+  position: relative;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include breakpoint-max(lg) {
+      display: none;
+    }
+  }
+
+  &__badge {
+    background: $color-action;
+    line-height: $banner-height;
+    position: absolute;
+    top: -1.5em;
+    padding: 0;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    z-index: 9;
+    left: 2em;
+    right: 2em;
+
+    @include breakpoint(sm) {
+      left: 50%;
+      margin-left: -5em;
+      width: 10em;
+    }
+
+    &:before,
+    &:after {
+      z-index: 1;
+      content: "";
+      display: block;
+      top: .25em;
+      position: absolute;
+      border-top: ($banner-height / 2) solid darken($color-action, $darken-amount);
+      border-bottom: ($banner-height / 2) solid darken($color-action, $darken-amount);
+    }
+
+     &:before {
+      right: 100%;
+      margin-right: $tail-h-offset;
+      border-right: ($banner-height / 2) solid darken($color-action, $darken-amount);
+      border-left: 5px solid transparent;
+    }
+     &:after {
+      left: 100%;
+      margin-left: $tail-h-offset;
+      border-left: ($banner-height / 2) solid darken($color-action, $darken-amount);
+      border-right: 5px solid transparent;
+    }
+  }
 
   &__title {
     color: $white;
     @extend %h1;
+    text-shadow: 1px 1px 1px #000;
   }
 
   &__header {
@@ -15,6 +79,7 @@
 
   &__wrapper {
     @include center();
+    position: relative;
     padding-top: 5rem;
     padding-bottom: 3rem;
   }
@@ -34,8 +99,7 @@
     margin-bottom: 1.5em;
   }
 
-  &__list {
-    grid-column-gap: $gutter;
+  &__row {
     margin-left: $gutter / -2;
     margin-right: $gutter / -2;
     @include breakpoint(sm) {
@@ -49,19 +113,31 @@
     }
   }
 
-  &__list-item {
-    flex-direction: column;
-    border: ($gutter / 2) solid $color-primary;
+  &__column {
+    padding: ($gutter / 2);
+    display: flex;
     @include breakpoint(sm) {
       flex: 0 0 50%;
+      padding: $gutter;
     }
     @include breakpoint(lg) {
-      border-width: $gutter;
-      flex: 1 0 auto;
+      flex: 0 0 percentage(1 / 3);
     }
+  }
+
+  &__item {
+    flex-direction: column;
     padding: .5em 1em 1em;
     background: $white;
     position: relative;
+    display: flex;
+    flex: 1 0 auto;
+
+    &--recommended {
+      @include breakpoint-max(sm) {
+        margin-top: 1em;
+      }
+    }
 
     ul {
       flex: 1 1 auto;
@@ -92,6 +168,8 @@
     @extend %btn;
     @extend %btn--small;
     @extend %btn--outline;
+    align-self: center;
+
   }
 }
 
@@ -100,8 +178,9 @@
   @extend %btn--outline;
   color: $white;
   border-color: $white;
+  text-shadow: 1px 1px 1px #000;
 
   &:hover {
-    background: $color-primary-dark;
+    background: $color-action;
   }
 }

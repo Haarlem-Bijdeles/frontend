@@ -22,7 +22,7 @@ function register_testimonials() {
       'menu_icon'            => 'dashicons-format-quote',
       'hierarchical'         => false,
       'description'          => 'Testimonials',
-      'supports'             => array( 'title', 'thumbnail'),
+      'supports'             => array( 'title'),
       'public'               => false,
       'show_ui'              => true,
       'show_in_menu'         => true,

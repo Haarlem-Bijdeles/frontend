@@ -1,5 +1,10 @@
-- onze diensten dynamisch
 - svg logo
+- css opschonen (prices2, kleuren)
+- babel met polyfill for promises
+- objectfit werkt niet in ie11
+- 2 addressen
+- google maps met 2 markers tonen
+- favicona
 
 later
 - versie beheer css
@@ -10,6 +15,7 @@ later
 - promises babel polyfill
 
 gedaan
+- onze diensten dynamisch
 - split css by mq
 - critical css
 - contact button

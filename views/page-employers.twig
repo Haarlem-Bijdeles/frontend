@@ -51,15 +51,15 @@
     </div>
   {% endif %}
 
-  {% if post.video1 or post.video2 %}
+  {% if post.video_1 or post.video_2 %}
   <div class="videos">
     <div class="videos__wrapper">
-      {% if post.video2 %}
+      {% if post.video_1 %}
         <div class="video">
           <iframe src="//player.vimeo.com/video/{{post.video_1}}" allowfullscreen="allowfullscreen"></iframe>
         </div>
       {% endif %}
-      {% if post.video2 %}
+      {% if post.video_2 %}
         <div class="video">
           <iframe src="//player.vimeo.com/video/{{post.video_2}}" allowfullscreen="allowfullscreen"></iframe>
         </div>
