@@ -1,6 +1,6 @@
-import './menu';
-import './object-fit-polyfill';
-import './accessibility';
-import './body-class';
-import './fonts';
 // import './service-worker';
+import './modules/accessibility';
+import './modules/body-class';
+import './modules/fonts';
+import './modules/menu';
+import './modules/object-fit-polyfill';

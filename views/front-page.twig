@@ -72,22 +72,20 @@
       <div class="prices2__wrapper">
         <div class="prices2__text">
           <h2 class="prices2__title">{{ post.services_title }}</h2>
-          <ul class="prices2__row">
+          <ul class="prices2__row prices2__row--{{ post.get_field('services')|length }}-items">
             {% for service in post.get_field('services') %}
-              <li class="prices2__column">
-                <div class="prices2__item">
-                  <div class="prices2__header">
-                    <div class="prices2__label">{{ service.title }}</div>
-                  </div>
-                  <ul>
-                      {% for usp in service.usps %}
-                        <li class="prices2__usp">{{ usp.text }}</li>
-                      {% endfor %}
-                  </ul>
-                  {% if service.link %}
-                    <a href="{{ service.link }}" class="prices2__btn">Meer informatie</a>
-                  {% endif %}
+              <li class="prices2__item{% if post.services_image %} prices2__item--transparent{% endif %}">
+                <div class="prices2__header">
+                  <div class="prices2__label">{{ service.title }}</div>
                 </div>
+                <ul>
+                    {% for usp in service.usps %}
+                      <li class="prices2__usp">{{ usp.text }}</li>
+                    {% endfor %}
+                </ul>
+                {% if service.link %}
+                  <a href="{{ service.link }}" class="prices2__btn">Meer informatie <span class="sr-only">over {{ service.title }}</span></a>
+                {% endif %}
               </li>
             {% endfor %}
           </ul>

@@ -2,15 +2,40 @@
   @include center();
   @include block-padding();
 
+  &__btn-route {
+    margin-top: .5em;
+    @extend %btn;
+    @extend %btn--small;
+    @extend %btn--outline;
+  }
+
+  &__image {
+    @extend %archive__image;
+    margin-bottom: .5em;
+    height: 12em;
+    object-fit: cover;
+  }
+
+  &__addresses {
+    display: grid;
+    grid-column-gap: $gutter * 3;
+
+    @include breakpoint(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__details {
+    margin-bottom: 1em;
+  }
+
   &__row {
-    @extend %row;
+    display: grid;
+    grid-column-gap: $gutter * 3;
+    align-items: start;
 
     @include breakpoint(md) {
       grid-template-columns: 2fr 1fr;
     }
-  }
-
-  &__iframe {
-    height: 20em;
   }
 }

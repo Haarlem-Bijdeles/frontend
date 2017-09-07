@@ -100,28 +100,20 @@ $tail-h-offset: 0;
   }
 
   &__row {
-    margin-left: $gutter / -2;
-    margin-right: $gutter / -2;
-    @include breakpoint(sm) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    @include breakpoint(lg) {
-      margin-left: $gutter / -1;
-      margin-right: $gutter / -1;
-    }
-  }
+    @extend %row;
 
-  &__column {
-    padding: ($gutter / 2);
-    display: flex;
     @include breakpoint(sm) {
-      flex: 0 0 50%;
-      padding: $gutter;
+      &--4-items {
+        grid-template-columns: repeat(2,1fr);
+      }
     }
     @include breakpoint(lg) {
-      flex: 0 0 percentage(1 / 3);
+      &--3-items {
+        grid-template-columns: repeat(3,1fr);
+      }
+      &--4-items {
+        grid-template-columns: repeat(4,1fr);
+      }
     }
   }
 
@@ -132,6 +124,12 @@ $tail-h-offset: 0;
     position: relative;
     display: flex;
     flex: 1 0 auto;
+
+    @include breakpoint(lg) {
+      &--transparent {
+        background: rgba($white, .9);
+      }
+    }
 
     &--recommended {
       @include breakpoint-max(sm) {
@@ -175,7 +173,7 @@ $tail-h-offset: 0;
 
 .prices__btn-contact {
   @extend %btn;
-  @extend %btn--outline;
+  @extend %btn--action;
   color: $white;
   border-color: $white;
   text-shadow: 1px 1px 1px #000;

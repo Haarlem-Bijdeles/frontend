@@ -63,7 +63,7 @@
 }
 
 .usps {
-  background: $color-primary;
+  background: linear-gradient(rgba($color-primary, .7) 0%,rgba($color-primary, .7) 5rem, $color-primary 5rem, $color-primary 100%);
   color: $white;
   @extend %row;
   @include breakpoint(sm) {

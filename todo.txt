@@ -4,7 +4,6 @@
 - objectfit werkt niet in ie11
 - 2 addressen
 - google maps met 2 markers tonen
-- favicona
 
 later
 - versie beheer css
@@ -15,6 +14,7 @@ later
 - promises babel polyfill
 
 gedaan
+- favicons
 - onze diensten dynamisch
 - split css by mq
 - critical css

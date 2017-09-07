@@ -1,10 +1,12 @@
 <address itemscope itemtype="http://schema.org/Organization">
-  <span itemprop="name">{{site.name}}</span>
+  <p itemprop="name">{{site.name}}</p>
+  {% for address in options.addresses %}
   <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    <span itemprop="streetAddress">{{options.street}}</span><br>
-    <span itemprop="locality">{{options.city}}</span>,
-    <span itemprop="postal-code">{{options.zipcode}}</span>
+    <span itemprop="streetAddress">{{ address.street }}</span><br>
+    <span itemprop="locality">{{ address.city }}</span>,
+    <span itemprop="postal-code">{{ address.zipcode }}</span>
   </p>
+  {% endfor %}
 
   <p>
     <a href="tel:{{options.phonenumber|url_encode}}" itemprop="telephone">{{options.phonenumber}}</a><br>

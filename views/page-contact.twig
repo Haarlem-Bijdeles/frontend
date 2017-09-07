@@ -6,13 +6,44 @@
 
   <div class="contact">
     <div class="contact__row">
-      <div class="contact__map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9741.199788363134!2d4.6378296139902115!3d52.38311264804979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef6c2277441b%3A0x44db6c2d89893d5c!2sJansstraat+33%2C+2011+RT+Haarlem!5e0!3m2!1snl!2snl!4v1415027846084" class="contact__iframe"></iframe>
-        <div class="contact__address">
-          {% include 'partials/address.twig' %}
+      <div class="contact__column">
+        <h2>Adressen</h2>
+        <div class="contact__addresses">
+          {% for address in options.addresses %}
+            <div class="contact__details">
+              <p>
+
+                {% if address.image %}
+                  <img src="{{TimberImage(address.image).src|tojpg|resize(280)}}"
+                     alt="{{ TimberImage(post.image).post_title }}" class="contact__image"
+                     srcset="
+                      {{TimberImage(address.image).src|tojpg|resize(280)}} 1x,
+                      {{TimberImage(address.image).src|tojpg|resize(560)}} 2x">
+                {% endif %}
+                <strong>{{ address.street}}</strong><br>
+                {{ address.zipcode}}, {{ address.city }}<br>
+                <a href="https://www.google.com/maps?daddr={{ (address.street ~ address.city)|url_encode }}" target="_blank" rel="noopener" class="contact__btn-route">Routebeschrijving</a>
+              </p>
+            </div>
+          {% endfor %}
+
+          <div class="contact__details">
+            <p>
+              <a href="tel:{{options.phonenumber|url_encode}}" itemprop="telephone">{{options.phonenumber}}</a><br>
+              <a href="mailto:{{options.email}}" itemprop="email">{{options.email}}</a><br>
+            </p>
+            <p>
+            {% if options.kvk %}
+              KVK: {{options.kvk}}
+            {% endif %}
+            </p>
+          </div>
         </div>
       </div>
+
       <form class="contact__form js-contact-form" method="post" action="{{post.link}}">
+        <h2>Neem contact met ons op</h2>
+        {{post.content}}
         <p class="message" id="feedback"></p>
 
         <input type="hidden" name="action" value="submit_ajax_form">
@@ -37,5 +68,7 @@
   </div>
 
 </article>
+
+ <div id="map" style="height: 400px;"></div>
 
 {% endblock %}

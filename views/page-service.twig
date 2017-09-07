@@ -43,29 +43,27 @@
     <div class="prices2__wrapper">
       <div class="prices2__text">
         <h2 class="prices2__title">Kies het pakket dat bij uw kind past:</h2>
-        <ul class="prices2__row">
+        <ul class="prices2__row prices2__row--{{ post.get_field('prices')|length }}-items">
          {% for price in post.get_field('prices') %}
-            <li class="prices2__column">
-              <div class="prices2__item{% if price.recommended %} prices2__item--recommended{% endif %}">
-                {% if price.recommended %}
-                  <div class="prices2__badge">Meest gekozen</div>
-                {% endif %}
-                <div class="prices2__header">
-                  <div class="prices2__label">{{price.title}}</div>
-                  <div class="prices2__value">
-                    {% include 'partials/defaults/svg.twig' with {'icon': 'check-rounded', 'class': 'prices2__icon' } %}
-                    {{price.price}}
-                  </div>
+            <li class="prices2__item{% if price.recommended %} prices2__item--recommended{% endif %}{% if post.prices_image %} prices2__item--transparent{% endif %}">
+              {% if price.recommended %}
+                <div class="prices2__badge">Meest gekozen</div>
+              {% endif %}
+              <div class="prices2__header">
+                <div class="prices2__label">{{price.title}}</div>
+                <div class="prices2__value">
+                  {% include 'partials/defaults/svg.twig' with {'icon': 'check-rounded', 'class': 'prices2__icon' } %}
+                  {{price.price}}
                 </div>
-
-                {% if price.usps %}
-                  <ul>
-                    {% for usp in price.usps %}
-                      <li class="prices2__usp">{{usp.text}}</li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
               </div>
+
+              {% if price.usps %}
+                <ul>
+                  {% for usp in price.usps %}
+                    <li class="prices2__usp">{{usp.text}}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </li>
           {% endfor %}
 
