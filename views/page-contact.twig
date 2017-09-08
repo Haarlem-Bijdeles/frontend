@@ -22,7 +22,7 @@
                 {% endif %}
                 <strong>{{ address.street}}</strong><br>
                 {{ address.zipcode}}, {{ address.city }}<br>
-                <a href="https://www.google.com/maps?daddr={{ (address.street ~ address.city)|url_encode }}" target="_blank" rel="noopener" class="contact__btn-route">Routebeschrijving</a>
+                <a href="https://www.google.com/maps?daddr={{ (address.street ~ ' ' ~  address.city)|url_encode }}" target="_blank" rel="noopener" class="contact__btn-route">Routebeschrijving</a>
               </p>
             </div>
           {% endfor %}

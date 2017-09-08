@@ -15,6 +15,7 @@ function theme_style() {
 add_action( 'wp_enqueue_scripts', 'theme_style', 10 );
 
 function add_default_scripts() {
+  $inlineVars = array();
   wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/functions.js', null, VERSION);
 
   if (is_page('werkwijze'))
@@ -22,7 +23,7 @@ function add_default_scripts() {
 
   if (is_page('contact')) {
     wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/scripts/contact.js', null, VERSION);
-    wp_enqueue_script( 'google-maps', 'http://maps.google.com/maps/api/js?sensor=false&amp;callback=initMap', 'contact', VERSION, true);
+    wp_enqueue_script( 'google-maps', 'https://maps.google.com/maps/api/js?key=AIzaSyCttaWlvuphdfRceepAAyp_1KkmQWyMnek&callback=initMap', 'contact', VERSION, true);
 
     $addresses = array();
     while (have_rows('addresses', 'options')) : the_row();
@@ -39,14 +40,14 @@ function add_default_scripts() {
       }
     endwhile;
 
-    wp_localize_script( 'functions', 'locations', $addresses);
-    wp_localize_script( 'functions', 'site', array(
-      'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    wp_localize_script( 'contact', 'locations', $addresses);
+    wp_localize_script( 'contact', 'site', array(
+      'ajax_url' => admin_url( 'admin-ajax.php' ),
       'theme_url' => get_bloginfo('template_url')
     ));
   }
 
-
+  wp_localize_script( 'functions', 'ga_tracking_id', get_field('analytics', 'option'));
 }
 add_action( 'wp_enqueue_scripts', 'add_default_scripts' );
 

@@ -40,7 +40,7 @@
     const xhr = new XMLHttpRequest();
 
     // save the comment in the database
-    xhr.open('POST', site.ajaxurl, true);
+    xhr.open('POST', site.ajax_url, true);
 
     xhr.onload = function () {
 
