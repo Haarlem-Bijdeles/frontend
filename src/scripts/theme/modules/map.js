@@ -1,6 +1,5 @@
 window.initMap = () => {
-
-  const map = new window.google.maps.Map(document.getElementById('map'), {
+  const map = new window.google.maps.Map(document.querySelector('.map'), {
     mapTypeId: window.google.maps.MapTypeId.ROADMAP,
   });
 
@@ -8,9 +7,9 @@ window.initMap = () => {
   const bounds = new window.window.google.maps.LatLngBounds();
 
   const icon = {
-    url: `${site.theme_url}/assets/images/marker.png`,
-    size: new google.maps.Size(30, 30),
-    scaledSize: new google.maps.Size(30, 30),
+    url: `${window.site.theme_url}/assets/images/marker.png`,
+    size: new window.google.maps.Size(30, 30),
+    scaledSize: new window.google.maps.Size(30, 30),
   };
 
   let marker;

@@ -37,6 +37,11 @@ function submit_ajax_form() {
   );
 
   $fields[] = array(
+    'label' => 'Telefoonnumer',
+    'value' =>  $_POST['phone']
+  );
+
+  $fields[] = array(
     'label' => 'Opmerkingen',
     'value' =>  $_POST['message']
   );
@@ -55,7 +60,7 @@ function submit_ajax_form() {
   <table width="100%">';
 
     foreach ($fields as $field) {
-      $message .= '<tr><td width="150">' . $field['label'] . '</td><td>' . $field['value'] . '</td></tr>';
+      $message .= '<tr><td width="150">' . $field['label'] . ':</td><td>' . $field['value'] . '</td></tr>';
     }
     $message .= '<tr><td colspan="2">&nbsp;</td></tr>
   </table>';

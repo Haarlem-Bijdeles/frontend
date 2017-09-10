@@ -29,13 +29,12 @@
   form.addEventListener('submit', function(event) {
 
     const formData = new FormData();
-    formData.append('action', 'submit_ajax_form');
-    formData.append('formkey', form.querySelector('[name=formkey]').value);
-    formData.append('security', form.querySelector('[name=security]').value);
-    formData.append('name', form.querySelector('[name=name]').value);
-    formData.append('email', form.querySelector('[name=email]').value);
-    formData.append('message', form.querySelector('[name=message]').value);
-
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach((input) => {
+      const name = input.getAttribute('name');
+      const value = input.value;
+      formData.append(name, value);
+    });
 
     const xhr = new XMLHttpRequest();
 
