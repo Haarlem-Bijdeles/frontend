@@ -17,11 +17,27 @@
   }
 
   &__addresses {
+    display: flex;
+    flex-wrap: wrap;
     display: grid;
     grid-column-gap: $gutter * 3;
-
     @include breakpoint(sm) {
       grid-template-columns: repeat(2, 1fr);
+      > * {
+        flex: 0 0 50%;
+      }
+    }
+  }
+
+  &__column {
+    @include breakpoint(md) {
+      flex: 0 0 percentage(2 / 3);
+    }
+  }
+
+  &__form {
+    @include breakpoint(md) {
+      flex: 0 0 percentage(1 / 3);
     }
   }
 
@@ -30,7 +46,9 @@
   }
 
   &__row {
+    display: flex;
     display: grid;
+    flex-wrap: wrap;
     grid-column-gap: $gutter * 3;
     align-items: start;
 

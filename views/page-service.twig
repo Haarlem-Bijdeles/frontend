@@ -69,7 +69,9 @@
 
         </ul>
       </div>
-      <a href="{{ site.url }}/contact" class="prices__btn-contact">Neem contact met ons op</a>
+
+      <a href="{{ site.url }}/contact" class="prices2__btn-cta">{{ options.label_btn_contactpage }}</a>
+      <a href="tel:{{options.phonenumber|url_encode}}" class="prices2__btn-call">{{ options.label_btn_call }} {{options.phonenumber}}</a>
     </div>
   </div>
 {% endif %}

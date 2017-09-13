@@ -11,6 +11,12 @@
 	&__image {
 		@extend %archive__image;
 	}
+	&__image-wrapper {
+		@extend %archive__image-wrapper;
+	}
+	&__text {
+		@extend %archive__text;
+	}
 	&__meta {
 		font-size: .9em;
 		margin-bottom: .5em;

@@ -1,6 +1,6 @@
 <?php
 
-define( 'VERSION', 2.3 );
+define( 'VERSION', 2.5 );
 
 function theme_style() {
   // Theme stylesheet.
@@ -23,7 +23,6 @@ function add_default_scripts() {
 
   if (is_page('contact')) {
     wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/scripts/contact.js', null, VERSION);
-    wp_enqueue_script( 'google-maps', 'https://maps.google.com/maps/api/js?key=AIzaSyCttaWlvuphdfRceepAAyp_1KkmQWyMnek&callback=initMap', 'contact', VERSION, true);
 
     $addresses = array();
     while (have_rows('addresses', 'options')) : the_row();

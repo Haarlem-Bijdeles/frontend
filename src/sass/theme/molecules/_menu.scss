@@ -41,7 +41,7 @@
 
   @include breakpoint(lg) {
     flex: 1 1 auto;
-    margin-left: 11em;
+    margin-left: 12em;
   }
 
   &__list {
@@ -127,6 +127,11 @@
   padding: .25em;
   border: 1px solid $white;
   color: $white;
+  margin-bottom: 0;
+
+  &:hover {
+    color: $white;
+  }
 
   @include breakpoint(md) {
     display: none;

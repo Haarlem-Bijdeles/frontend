@@ -15,4 +15,7 @@
 	&__image {
 		@extend %archive__image;
 	}
+	&__text {
+		@extend %archive__text;
+	}
 }

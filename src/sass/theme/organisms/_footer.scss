@@ -13,10 +13,16 @@
 
     @include breakpoint(sm) {
       grid-template-columns: repeat(3, 1fr);
+      > * {
+        flex: 0 0 percentage(1 / 3);
+      }
     }
 
     @include breakpoint(lg) {
       grid-template-columns: repeat(4, 1fr);
+      > * {
+        flex: 0 0 25%;
+      }
     }
   }
 
@@ -30,8 +36,8 @@
   }
 
   &__logo-icon {
-    width: 8em;
-    height: 8em;
+    width: 9em;
+    height: 9em;
     border: 1px solid rgba($white, .5);
   }
 }

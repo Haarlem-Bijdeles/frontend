@@ -7,6 +7,9 @@
 	@extend %row;
 	@include breakpoint(md) {
 		@include grid-equal-columns(3);
+		> * {
+			flex: 0 0 percentage(1 / 3);
+		}
 	}
 }
 
@@ -23,9 +26,4 @@
 .user-name {
 	display: block;
 	font-weight: $font-weight-bold;
-}
-
-.user-class {
-	display: block;
-	color: $color-primary;
 }

@@ -3,7 +3,8 @@
 <header class="header" role="banner">
   <div class="header__wrapper">
     <a href="{{ site.url }}" title="{{ site.name }}" class="header__logo">
-      {% include 'partials/defaults/svg.twig' with {'icon': 'logo', 'class': 'header__logo-icon', 'title': site.name } %}
+      {% include 'partials/defaults/svg.twig' with {'icon': 'logo', 'class': 'header__logo-icon header__logo-icon--large', 'title': site.name } %}
+      {% include 'partials/defaults/svg.twig' with {'icon': 'logo-small', 'class': 'header__logo-icon header__logo-icon--small' } %}
     </a>
 
     <a href="#header-menu" class="skip-link">Naar hoofdnavigatiemenu</a>

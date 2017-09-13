@@ -41,13 +41,23 @@
 }
 
 .prices {
-  background: linear-gradient($white, #e0fbe5);
   @extend %row;
+  background: linear-gradient($white, #e0fbe5);
+  flex: 0 0 100%;
+
   @include breakpoint-range(sm, md) {
     @include grid-equal-columns(2);
   }
 
-  &__list {
+  @include breakpoint(md) {
+    flex: 0 0 percentage(1 / 3);
+  }
+
+  &__col {
+    flex: 0 0 100%;
+    @include breakpoint-range(sm, md) {
+      flex: 0 0 50%;
+    }
   }
 
   &__btn-cta {
@@ -63,15 +73,23 @@
 }
 
 .usps {
+  flex: 0 0 100%;
   background: $color-primary;
   color: $white;
   @extend %row;
   @include breakpoint(sm) {
     @include grid-equal-columns(2);
   }
+  @include breakpoint(md) {
+    flex: 0 0 percentage(2 / 3);
+  }
 }
 
 .teaser__usps {
+  flex: 0 0 100%;
+  @include breakpoint(sm) {
+    flex: 0 0 50%;
+  }
 }
 
 .teaser__products {

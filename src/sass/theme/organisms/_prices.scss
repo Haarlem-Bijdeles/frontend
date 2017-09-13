@@ -101,6 +101,7 @@ $tail-h-offset: 0;
 
   &__row {
     @extend %row;
+    margin-bottom: 2em;
 
     @include breakpoint(sm) {
       &--4-items {
@@ -108,11 +109,19 @@ $tail-h-offset: 0;
       }
     }
     @include breakpoint(lg) {
+      flex-wrap: nowrap;
       &--3-items {
         grid-template-columns: repeat(3,1fr);
+        > * {
+          flex: 0 0 percentage(1 / 3);
+        }
+
       }
       &--4-items {
         grid-template-columns: repeat(4,1fr);
+        > * {
+          flex: 0 0 25%;
+        }
       }
     }
   }
@@ -169,16 +178,19 @@ $tail-h-offset: 0;
     align-self: center;
 
   }
-}
+  &__btn-cta,
+  &__btn-call {
+    @extend %btn;
+    margin: 0 .5em .5em;
+  }
 
-.prices__btn-contact {
-  @extend %btn;
-  @extend %btn--action;
-  color: $white;
-  border-color: $white;
-  text-shadow: 1px 1px 1px #000;
+  &__btn-cta {
+    @extend %btn--action;
+  }
 
-  &:hover {
-    background: $color-action;
+  &__btn-call {
+    @extend %btn--outline;
+    background: $white;
   }
 }
+

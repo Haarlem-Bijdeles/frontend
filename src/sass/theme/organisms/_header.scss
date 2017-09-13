@@ -29,29 +29,40 @@
 
   &__logo {
     @include breakpoint-range(md, lg) {
-      background: $color-primary;
       display: flex;
+      background: $color-primary;
       justify-content: center;
       margin-left: $gutter * -1;
       margin-right: $gutter * -1;
       padding-bottom: .5em;
       padding-top: .5em;
+
     }
 
     @include breakpoint(lg) {
-      left: $gutter;
+      left: $gutter * 2;
       position: absolute;
       top: 0;
     }
   }
 
   &__logo-icon {
-    height: 3em;
-    width: 3em;
+    display: block;
 
-    @include breakpoint(lg) {
+    &--small {
+      height: 3em;
+      width: 10em;
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
+
+    &--large {
       height: 9em;
       width: 9em;
+      @include breakpoint-max(lg) {
+        display: none;
+      }
     }
   }
 }
