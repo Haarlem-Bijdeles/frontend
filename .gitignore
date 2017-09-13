@@ -1,4 +1,4 @@
-temp/
+src/temp/
 node_modules/
 assets/
 .DS_Store
