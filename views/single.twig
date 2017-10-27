@@ -9,11 +9,11 @@
         <div class="blog__body">
           <div class="blog__image-wrapper">
             {% if post.thumbnail %}
-              <img src="{{ post.thumbnail.src|tojpg|resize(120) }}"
+              <img src="{{ post.thumbnail.src|tojpg|resize(280) }}"
                   class="blog__image" alt="{{ post.thumbnail.title }}"
                   srcset="
-                    {{ post.thumbnail.src|tojpg|resize(120) }} 1x,
-                    {{ post.thumbnail.src|tojpg|resize(240) }} 2x">
+                    {{ post.thumbnail.src|tojpg|resize(280) }} 1x,
+                    {{ post.thumbnail.src|tojpg|resize(560) }} 2x">
             {% endif %}
           </div>
           <div class="blog__text">

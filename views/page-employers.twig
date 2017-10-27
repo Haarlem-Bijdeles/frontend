@@ -27,17 +27,17 @@
                   {{employer.bio}}
                   <p class="social">
                     {% if employer.facebook %}
-                      <a href="{{employer.facebook}});" class="social__link" title="Volg {{employer.name}} op Facebook" rel="noopener">
+                      <a href="{{employer.facebook}}" class="social__link" title="Volg {{employer.name}} op Facebook" rel="noopener" target="_blank">
                        {% include 'partials/defaults/svg.twig' with {'icon': 'facebook-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op Facebook' } %}
                       </a>
                     {% endif %}
                     {% if employer.twitter %}
-                      <a href="{{employer.twitter}};" class="social__link" title="Volg {{employer.name}} op Twitter" rel="noopener">
+                      <a href="{{employer.twitter}}" class="social__link" title="Volg {{employer.name}} op Twitter" rel="noopener" target="_blank">
                        {% include 'partials/defaults/svg.twig' with {'icon': 'twitter-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op Twitter' } %}
                       </a>
                     {% endif %}
                     {% if employer.linkedin %}
-                      <a href="{{employer.linkedin}});" class="social__link" title="Volg {{employer.name}} op LinkedIn" rel="noopener">
+                      <a href="{{employer.linkedin}}" class="social__link" title="Volg {{employer.name}} op LinkedIn" rel="noopener" target="_blank">
                        {% include 'partials/defaults/svg.twig' with {'icon': 'linkedin-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ employer.name ~ ' op LinkedIn' } %}
                       </a>
                     {% endif %}

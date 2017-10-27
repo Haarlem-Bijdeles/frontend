@@ -1,5 +1,7 @@
 {{function('wp_head')}}
 
+{% include 'partials/icons.twig' %}
+
 <header class="header" role="banner">
   <div class="header__wrapper">
     <a href="{{ site.url }}" title="{{ site.name }}" class="header__logo">
@@ -11,12 +13,11 @@
     <a href="#content" class="skip-link">Naar hoofdinhoud</a>
 
     <button class="menu-trigger js-trigger-menu" aria-expanded="false">
-      <svg class="menu-trigger__icon" viewBox="0 0 24 24">
-        <title>menu</title>
-        <path class="menu-trigger__bar menu-trigger__bar--1" d="M19,7H4A1,1,0,0,1,4,5H19a1,1,0,0,1,0,2Z"/>
-        <path class="menu-trigger__bar menu-trigger__bar--2" d="M19,13H4a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"/>
-        <path class="menu-trigger__bar menu-trigger__bar--3" d="M19,19H4a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"/>
-      </svg>
+      <div class="menu-trigger__icon">
+        <div class="menu-trigger__bar menu-trigger__bar--1"></div>
+        <div class="menu-trigger__bar menu-trigger__bar--2"></div>
+        <div class="menu-trigger__bar menu-trigger__bar--3"></div>
+      </div>
       Menu
     </button>
 
@@ -72,6 +73,5 @@
   </div>
 </footer>
 
-{% include 'partials/icons.twig' %}
 
 {{function('wp_footer')}}

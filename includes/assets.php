@@ -1,6 +1,6 @@
 <?php
 
-define( 'VERSION', 2.5 );
+define( 'VERSION', 2.6 );
 
 function theme_style() {
   // Theme stylesheet.

@@ -40,8 +40,8 @@ $tail-h-offset: 0;
       width: 10em;
     }
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       z-index: 1;
       content: "";
       display: block;
@@ -51,13 +51,13 @@ $tail-h-offset: 0;
       border-bottom: ($banner-height / 2) solid darken($color-action, $darken-amount);
     }
 
-     &:before {
+     &::before {
       right: 100%;
       margin-right: $tail-h-offset;
       border-right: ($banner-height / 2) solid darken($color-action, $darken-amount);
       border-left: 5px solid transparent;
     }
-     &:after {
+     &::after {
       left: 100%;
       margin-left: $tail-h-offset;
       border-left: ($banner-height / 2) solid darken($color-action, $darken-amount);

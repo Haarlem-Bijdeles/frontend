@@ -8,5 +8,5 @@
 
   window.ga('create', window.ga_tracking_id, 'auto');
   window.ga('send', 'pageview');
-  window.ga('set', 'anonymizeIp', true);
+  //window.ga('set', 'anonymizeIp', true);
 })();
