@@ -1,6 +1,6 @@
 {
   "name": "Haarlem bij de les",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dé studiebegeleider van Haarlem",
   "main": "gulpfile.js",
   "dependencies": {
