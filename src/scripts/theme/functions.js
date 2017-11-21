@@ -1,4 +1,3 @@
-// import './service-worker';
 import './modules/ga';
 import './modules/accessibility';
 import './modules/body-class';
