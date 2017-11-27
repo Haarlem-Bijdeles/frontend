@@ -3,7 +3,7 @@
   @include block-padding();
 
   &__wrapper {
-    @extend %row;
+   @extend %row;
     grid-template-columns: 1fr;
 
     @include breakpoint(md) {
@@ -12,6 +12,6 @@
   }
 }
 
-.video {
+.player {
   @include video;
 }

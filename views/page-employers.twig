@@ -56,12 +56,16 @@
     <div class="videos__wrapper">
       {% if post.video_1 %}
         <div class="video">
-          <iframe src="//player.vimeo.com/video/{{post.video_1}}" allowfullscreen="allowfullscreen"></iframe>
+          <div class="player">
+            <iframe src="//player.vimeo.com/video/{{post.video_1}}" allowfullscreen="allowfullscreen"></iframe>
+          </div>
         </div>
       {% endif %}
       {% if post.video_2 %}
         <div class="video">
-          <iframe src="//player.vimeo.com/video/{{post.video_2}}" allowfullscreen="allowfullscreen"></iframe>
+          <div class="player">
+            <iframe src="//player.vimeo.com/video/{{post.video_2}}" allowfullscreen="allowfullscreen"></iframe>
+          </div>
         </div>
       {% endif %}
     </div>
