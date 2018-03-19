@@ -27,7 +27,7 @@ GoogleMapsLoader.load((google) => {
     });
     bounds.extend(position);
 
-    google.maps.event.addListener(marker, 'click', ((marker) => {
+    google.maps.event.addListener(marker, 'click', (marker => {
       return () => {
         infowindow.setContent(`<strong>${location.street}</strong><br>${location.zipcode}, ${location.city}`);
         infowindow.open(map, marker);

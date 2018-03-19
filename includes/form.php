@@ -13,6 +13,21 @@ function checkRequiredFields($fields) {
   return $verified;
 }
 
+function getLabel($field) {
+  $label = array(
+    'email'   => 'E-mailadres',
+    'name'    => 'Naam',
+    'address' => 'Adres',
+    'phone'   => 'Telefoonnumer',
+    'message' => 'Bericht',
+    'remarks' => 'Opmerkingen',
+    'city'    => 'Plaats',
+    'country' => 'Land',
+    'zipcode' => 'Postcode',
+  );
+  return $label[$field];
+}
+
 //Indien in frontend, roep de function update_newsletter op, zodra post[newsletter] gevuld is
 function submit_ajax_form() {
 
@@ -22,34 +37,23 @@ function submit_ajax_form() {
   $type = $_POST['formkey'];
 
   //server validatie
-  $requiredFields = array('name', 'email', 'message', 'formkey');
-  if (!checkRequiredFields($requiredFields)) die('verzenden mislukt');
+  $formFields = array();
+  $requiredFields = array();
 
-  $fields  = array();
-  $fields[] = array(
-    'label' => 'Naam',
-    'value' => $fullName
-  );
+  switch ($type) {
+    case 'contact' :
+      $formFields = array('name', 'email', 'phone', 'message');
+      $requiredFields = array('name', 'email', 'message');
+    break;
+  }
 
-  $fields[] = array(
-    'label' => 'E-mail',
-    'value' =>  $_POST['email']
-  );
+  if (empty($formFields)) wp_send_json_error('Verzenden mislukt');
+  if (!checkRequiredFields($requiredFields)) wp_send_json_error('Niet alle verplichte velden zijn ingevuld.');
 
-  $fields[] = array(
-    'label' => 'Telefoonnumer',
-    'value' =>  $_POST['phone']
-  );
-
-  $fields[] = array(
-    'label' => 'Opmerkingen',
-    'value' =>  $_POST['message']
-  );
-
-  $fields[] = array(
-    'label' => 'Formulier',
-    'value' =>  $type
-  );
+  $formData = array();
+  foreach ($formFields as $field) {
+    $formData[getLabel($field)] = $_POST[$field];
+  }
 
   $subject = 'Reactie via website ' . get_bloginfo('url');
 
@@ -59,8 +63,8 @@ function submit_ajax_form() {
   <br /><br />
   <table width="100%">';
 
-    foreach ($fields as $field) {
-      $message .= '<tr><td width="150">' . $field['label'] . ':</td><td>' . $field['value'] . '</td></tr>';
+  foreach ($formData as $label => $value) {
+      $message .= '<tr><td width="150">' . $label . ':</td><td>' . $value . '</td></tr>';
     }
     $message .= '<tr><td colspan="2">&nbsp;</td></tr>
   </table>';
@@ -69,5 +73,5 @@ function submit_ajax_form() {
     contact__send_mail($message, $subject, $type, $fullName);
   }
 
-  die('Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.');
+  wp_send_json_success('Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.');
 }

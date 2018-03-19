@@ -1,0 +1,19 @@
+{% macro input(label, name, required) %}
+
+  {% set maxlength = varargs[0].maxlength %}
+  {% set type = varargs[0].type %}
+  {% set value = varargs[0].value %}
+  {% set classes = varargs[0].classes %}
+
+  <div class="form-group">
+    <label for="{{ name }}">{{ label }}: {% if required %}<span class="required">*</span>{% endif %}</label>
+    <div class="form-group__field">
+      <input type="{{ type|default('text') }}" name="{{ name }}" id="{{ name }}"
+        maxlength="{{ maxlength|default(50) }}" class="input-field js-{{ name }} {{classes}}"
+        {% if value %} value="{{ value|e }}"{% endif %}
+        {% if required %} required{% endif %}
+        data-label="{{ label }}"
+      >
+    </div>
+  </div>
+{% endmacro %}
