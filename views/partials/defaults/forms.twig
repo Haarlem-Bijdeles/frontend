@@ -9,7 +9,7 @@
     <label for="{{ name }}">{{ label }}: {% if required %}<span class="required">*</span>{% endif %}</label>
     <div class="form-group__field">
       <input type="{{ type|default('text') }}" name="{{ name }}" id="{{ name }}"
-        maxlength="{{ maxlength|default(50) }}" class="input-field js-{{ name }} {{classes}}"
+        maxlength="{{ maxlength|default(50) }}" class="form-control js-{{ name }} {{classes}}"
         {% if value %} value="{{ value|e }}"{% endif %}
         {% if required %} required{% endif %}
         data-label="{{ label }}"

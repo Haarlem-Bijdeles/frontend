@@ -16,7 +16,6 @@ export const submitAjaxForm = function(event) {
   xhr.open('POST', window.site.ajax_url, true);
   xhr.responseType = 'json';
   xhr.onload = () => {
-      console.log(xhr.response);
     if (xhr.readyState === 4 && xhr.status === 200) {
       if (xhr.response.success) {
         this.classList.add('form--success');
@@ -30,7 +29,6 @@ export const submitAjaxForm = function(event) {
   };
 
   xhr.onerror = error => {
-      console.log(xhr.response);
     showFormError(this, 'Er ging iets mis bij het verzenden van het formulier. Probeer het nog eens.');
   };
 

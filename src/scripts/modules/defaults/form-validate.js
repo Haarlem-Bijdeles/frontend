@@ -16,7 +16,7 @@ const hasError = field => {
   // If not the right type
   if (validity.typeMismatch) {
     // Email
-    if (field.type === 'email') return 'Please enter an email address.';
+    if (field.type === 'email') return 'Vul een geldig e-mailadres in';
 
     // URL
     if (field.type === 'url') return 'Please enter a URL.';

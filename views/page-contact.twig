@@ -45,21 +45,23 @@
 
       <div class="contact__form">
         <h2>Neem contact met ons op</h2>
+        {{post.content}}
         <form class="js-ajax-form" method="post" action="{{post.link}}">
-          {{post.content}}
+          <legend>Contact</legend>
+          <fieldset>
 
-          <input type="hidden" name="action" value="submit_ajax_form">
-          <input type="hidden" name="formkey" value="contact">
-          <input type="hidden" name="security" value="{{nounce}}">
+            <input type="hidden" name="action" value="submit_ajax_form">
+            <input type="hidden" name="formkey" value="contact">
+            <input type="hidden" name="security" value="{{nounce}}">
 
-          {{ forms.input('Naam', 'name', true)}}
-          {{ forms.input('E-mailadres', 'email', true, { 'type': 'email' })}}
-          {{ forms.input('Telefoonnummer', 'phone', true, { 'type': 'tel' })}}
-
-          <div class="form-group">
-            <label for="message">Bericht: <span class="required">*</span></label>
-            <textarea id="message" name="message" rows="3" required class="js-message" data-label="Bericht"></textarea>
-          </div>
+            {{ forms.input('Naam', 'name', true)}}
+            {{ forms.input('E-mailadres', 'email', true, { 'type': 'email' })}}
+            {{ forms.input('Telefoonnummer', 'phone', true, { 'type': 'tel' })}}
+            <div class="form-group">
+              <label for="message">Bericht: <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="3" required class="form-control js-message" data-label="Bericht"></textarea>
+            </div>
+          </fieldset>
           <button type="submit" class="contact__submit">Verzenden</button>
           <p>Velden gemarkeerd met <span class="required">*</span> zijn verplicht.</p>
         </form>
