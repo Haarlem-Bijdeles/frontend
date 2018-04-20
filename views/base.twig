@@ -68,7 +68,11 @@
          {% include 'partials/defaults/svg.twig' with {'icon': 'linkedin-rounded', 'class': 'social__icon', 'title': 'Volg ' ~ site.name ~ ' op LinkedIn' } %}
         </a>
       {% endif %}
-
+      {% if options.instagram %}
+        <a href="{{options.instagram}}" class="social__link" title="Volg {{site.name}} op Instagram" rel="noopener" target="_blank">
+         {% include 'partials/defaults/svg.twig' with {'icon': 'instagram', 'class': 'social__icon', 'title': 'Volg ' ~ site.name ~ ' op Instagram' } %}
+        </a>
+      {% endif %}
     </div>
   </div>
 </footer>
