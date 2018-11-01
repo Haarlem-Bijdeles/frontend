@@ -1,0 +1,48 @@
+.skip-link {
+  @extend %btn--outline;
+
+  background-color: $white;
+  display: block;
+  font-size: 1rem;
+  left: -9999em;
+  position: fixed;
+  z-index: 10;
+
+  &:focus,
+  &:active {
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+  }
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+*:focus {
+  outline: 2px dotted $color-primary;
+}
+
+.user-is-tabbing {
+  *:focus {
+    outline: 2px dotted $color-primary;
+  }
+}
+
+.visuallyhidden {
+  display: none;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media screen and (inverted-colors: inverted) {
+  img {
+    filter: invert(100%);
+  }
+}

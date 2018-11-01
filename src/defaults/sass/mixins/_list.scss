@@ -1,0 +1,9 @@
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+@mixin list-reset {
+  @include list-unstyled;
+}

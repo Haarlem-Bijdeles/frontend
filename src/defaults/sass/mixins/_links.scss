@@ -1,0 +1,13 @@
+@mixin link-decoration {
+  text-decoration-skip: ink;
+  text-decoration: underline;
+}
+
+@mixin reset-link {
+  color: currentColor;
+
+  &:hover {
+    text-decoration: none;
+    color: currentColor;
+  }
+}

@@ -1,0 +1,63 @@
+table {
+  width: calc(100% + 1em);
+  margin: 0 -0.5em;
+  border-collapse: separate;
+  margin-bottom: 1rem;
+}
+
+td,
+th {
+  border: 0;
+  padding: 0.25em 0.5em;
+}
+
+tbody td,
+td {
+  vertical-align: top;
+}
+
+th {
+  font-weight: 700;
+  text-align: left;
+}
+
+thead th {
+  vertical-align: bottom;
+}
+
+
+tr:nth-child(odd) td {
+  background: #eee;
+}
+
+.table-responsive {
+  @include breakpoint-max(sm) {
+    colgroup {
+      display: none;
+    }
+
+    &,
+    tr,
+    td,
+    th,
+    tbody,
+    thead {
+      display: block;
+    }
+
+    tr:nth-child(odd) td {
+      background: transparent;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+
+    td,
+    th {
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}

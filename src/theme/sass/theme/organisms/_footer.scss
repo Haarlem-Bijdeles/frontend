@@ -1,0 +1,56 @@
+.footer {
+  @include block-padding();
+  background: $color-primary;
+  color: $white;
+
+  a {
+    color: currentColor;
+  }
+
+  &__wrapper {
+    @include center();
+    @extend %row;
+
+    @include breakpoint(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      > * {
+        flex: 0 0 percentage(1 / 3);
+      }
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      > * {
+        flex: 0 0 25%;
+      }
+    }
+  }
+
+
+  &__logo {
+    display: none;
+
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+
+  &__logo-icon {
+    width: 9em;
+    height: 9em;
+    border: 1px solid rgba($white, .5);
+  }
+}
+
+
+.social {
+
+  &__link {
+    @include reset-link;
+  }
+
+  &__icon {
+    @include icon(2em);
+    margin-right: .5em;
+  }
+}

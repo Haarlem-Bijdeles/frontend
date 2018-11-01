@@ -1,0 +1,19 @@
+@mixin critical-font($heading: true) {
+  @if ($heading) {
+    font-family: $font-family-headings-fallback;
+    .fonts-stage-1 & {
+      font-family: $font-family-headings-stage-1;
+    }
+    .fonts-stage-2 & {
+      font-family: $font-family-headings-stage-2;
+    }
+  } @else {
+    font-family: $font-family-base-fallback;
+    .fonts-stage-1 & {
+      font-family: $font-family-base-stage-1;
+    }
+    .fonts-stage-2 & {
+      font-family: $font-family-base-stage-2;
+    }
+  }
+}

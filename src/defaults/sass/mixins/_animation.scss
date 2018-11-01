@@ -1,0 +1,13 @@
+@mixin fade {
+  display: none;
+  transition: all .15s linear;
+  opacity: 0;
+
+  &.is-active {
+    display: block;
+  }
+
+  &.is-open {
+    opacity: 1;
+  }
+}

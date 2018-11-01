@@ -1,0 +1,84 @@
+%button {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-align: center;
+}
+
+%btn {
+  @include reset-link;
+  @include critical-font();
+
+  display: inline-block;
+  margin-bottom: 0.5em; // For input.btn
+  font-weight: $btn-font-weight;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  touch-action: manipulation;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: $btn-padding-vertical $btn-padding-horizontal;
+  font-size: $btn-font-size;
+  border-radius: $btn-border-radius;
+  transition: background-color 0.3s, border-color 0.3s;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &--small {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    font-size: 0.9em;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--primary {
+    @extend %btn;
+
+    background-color: $btn-primary-bg;
+    color: $btn-primary-color;
+
+    &:hover {
+      background-color: $btn-primary-bg-hover;
+      color: $btn-primary-color;
+    }
+
+    &:focus {
+      outline-color: $btn-primary-bg;
+    }
+  }
+
+  &--action {
+    @extend %btn;
+
+    color: $white;
+    background-color: $btn-action-bg;
+
+    &:hover {
+      background-color: $btn-action-bg-hover;
+      color: $btn-action-color;
+    }
+
+    &:focus {
+      outline-color: $btn-action-bg;
+    }
+  }
+
+  &--outline {
+    @extend %btn;
+
+    color: $btn-outline-color;
+    border: 2px solid $btn-outline-border-color;
+
+    &:hover {
+      background-color: $btn-outline-color-hover;
+      color: $btn-outline-color-hover;
+    }
+  }
+
+}

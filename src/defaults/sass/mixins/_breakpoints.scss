@@ -1,0 +1,80 @@
+@mixin breakpoint($breakpoint) {
+  // Retrieves the value from the key
+  $value: map-get($breakpoints, $breakpoint);
+
+  // If the key exists in the map
+  @if $value != null {
+    // Prints a media query based on the value
+    @media only screen and (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-max($breakpoint) {
+  // Retrieves the value from the key
+  $value: map-get($breakpoints, $breakpoint);
+
+  // If the key exists in the map
+  @if $value != null {
+    // Prints a media query based on the value
+    @media only screen and (max-width: $value - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-range($breakpoint-min, $breakpoint-max) {
+  // Retrieves the value from the key
+  $value-min: map-get($breakpoints, $breakpoint-min);
+  $value-max: map-get($breakpoints, $breakpoint-max);
+
+  // If the key exists in the map
+  @if $value-min != null {
+    // Prints a media query based on the value
+    @media only screen and (min-width: $value-min) and (max-width: $value-max - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin landscape {
+  @media only screen
+    and (max-width: 1024px)
+    and (orientation: landscape) {
+    @content;
+  }
+}
+
+
+@include breakpoint(sm) {
+  /* test */
+}
+
+@include breakpoint(md) {
+  /* test */
+}
+
+@include breakpoint(lg) {
+  /* test */
+}
+
+@include breakpoint(xlg) {
+  /* test */
+}
+
+@include breakpoint-max(xlg) {
+  /* test */
+}
+
+@include breakpoint-max(lg) {
+  /* test */
+}
+
+@include breakpoint-max(md) {
+  /* test */
+}
+
+@include breakpoint-max(sm) {
+  /* test */
+}

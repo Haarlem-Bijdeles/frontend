@@ -1,0 +1,14 @@
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  transition: filter 0.5s ease-out;
+}
+
+.no-js .lazy-load {
+  display: none;
+}
+
+.lazy-load {
+  filter: blur(2px);
+}

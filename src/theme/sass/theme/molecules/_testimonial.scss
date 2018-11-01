@@ -1,0 +1,29 @@
+.testimonials {
+	@include center();
+	@include block-padding();
+}
+
+.testimonials__list {
+	@extend %row;
+	@include breakpoint(md) {
+		@include grid-equal-columns(3);
+		> * {
+			flex: 0 0 percentage(1 / 3);
+		}
+	}
+}
+
+.testimonial {
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+.user-meta {
+	line-height: 1.3;
+	margin-bottom: .5em;
+}
+
+.user-name {
+	display: block;
+	font-weight: $font-weight-bold;
+}

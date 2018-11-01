@@ -1,0 +1,37 @@
+.cookie-wall {
+  @include notch(bottom);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #cecece;
+  background: #424242;
+
+  &__wrapper {
+    @include center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    display: flex;
+    align-items: flex-start;
+    @include breakpoint(md) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    color: currentColor;
+    text-decoration: underline;
+  }
+
+  &__text {
+    @include breakpoint(md) {
+      flex: 1 1 auto;
+    }
+    padding-right: 1em;
+  }
+
+  .btn-primary {
+    margin-bottom: 0;
+  }
+}
