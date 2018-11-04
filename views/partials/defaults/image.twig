@@ -1,0 +1,12 @@
+{% if image.src %}
+
+  {% set sizes = image.sizes ? 'sizes="' ~ image.sizes ~ '"'  : '' %}
+
+  <img src="{{ image.placeholder }}" alt="{{ image.alt }}" class="{{ image.classes }}"
+        data-src="{{ image.src }}" data-srcset="{{ image.srcset|join(',') }}" {{ sizes }}>
+  <noscript>
+    <img src="{{ image.src }}" alt="{{ image.alt }}" class="{{ image.classes }}"
+        srcset="{{ image.srcset|join(',') }}" {{ sizes }}>
+  </noscript>
+
+{% endif %}

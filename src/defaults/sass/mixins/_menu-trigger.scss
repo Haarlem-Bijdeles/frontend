@@ -29,19 +29,19 @@
     transition: transform 0.15s ease-out, opacity 0.1s ease-out;
 
     &--1 {
-      [aria-expanded=true] & {
+      [aria-expanded='true'] & {
         transform: rotate(45deg) translate(4px, 4px);
       }
     }
 
     &--2 {
-      [aria-expanded=true] & {
+      [aria-expanded='true'] & {
         opacity: 0;
       }
     }
 
     &--3 {
-      [aria-expanded=true] & {
+      [aria-expanded='true'] & {
         transform: rotate(-45deg) translate(4px, -4px);
       }
     }

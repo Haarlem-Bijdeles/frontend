@@ -1,3 +1,5 @@
+- menu
+
 - svg logo
 - css opschonen (prices2, kleuren)
 - babel met polyfill for promises

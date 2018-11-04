@@ -12,27 +12,37 @@ export default class Modal {
     this.lastFocused = null;
     this.modalContent = modal.querySelector('.js-modal-content');
 
-    this.closeAfterPressingEscapeKeyHandler = this.closeAfterPressingEscapeKey.bind(this);
+    this.closeAfterPressingEscapeKeyHandler = this.closeAfterPressingEscapeKey.bind(
+      this,
+    );
     this.focusRestrictHandler = this.focusRestrict.bind(this);
 
     this.bindEvents();
   }
 
   bindEvents() {
-    const triggers = document.querySelectorAll(`.js-modal-trigger[data-modal-id=${this.modalId}]`);
-    triggers.forEach(btn => btn.addEventListener('click', (event) => {
-      this.open();
-      event.preventDefault();
-    }));
+    const triggers = document.querySelectorAll(
+      `.js-modal-trigger[data-modal-id=${this.modalId}]`,
+    );
+    triggers.forEach(btn =>
+      btn.addEventListener('click', event => {
+        this.open();
+        event.preventDefault();
+      }),
+    );
 
     const btnClose = this.modal.querySelector('.js-modal-close');
     btnClose.addEventListener('click', () => this.close());
 
-    this.modal.addEventListener('click', (event) => {
-      if (event.currentTarget === event.target) {
-        this.close();
-      }
-    }, false);
+    this.modal.addEventListener(
+      'click',
+      event => {
+        if (event.currentTarget === event.target) {
+          this.close();
+        }
+      },
+      false,
+    );
   }
 
   open(callback) {
@@ -81,12 +91,16 @@ export default class Modal {
   }
 
   focusRestrict() {
-    document.addEventListener('focus', (event) => {
-      if (!this.modalContent.contains(event.target)) {
-        event.stopPropagation();
-        this.modalContent.focus();
-      }
-    }, true);
+    document.addEventListener(
+      'focus',
+      event => {
+        if (!this.modalContent.contains(event.target)) {
+          event.stopPropagation();
+          this.modalContent.focus();
+        }
+      },
+      true,
+    );
   }
 
   closeAfterPressingEscapeKey(event) {
@@ -100,7 +114,9 @@ export default class Modal {
 
   unbindDocumentKeyEvents() {
     window.removeEventListener('keypress', this.focusRestrictHandler);
-    document.removeEventListener('keyup', this.closeAfterPressingEscapeKeyHandler);
+    document.removeEventListener(
+      'keyup',
+      this.closeAfterPressingEscapeKeyHandler,
+    );
   }
 }
-

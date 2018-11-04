@@ -3,9 +3,13 @@ const getTemplate = () => {
 
   return `<div class="cookie-wall__wrapper">
     <div class="cookie-wall__text">${translations.text}
-      <a href="${translations.url}" class="cookie-wall__link">${translations.pageTitle}</a>.
+      <a href="${translations.url}" class="cookie-wall__link">${
+    translations.pageTitle
+  }</a>.
     </div>
-    <button type="button" class="btn-primary btn-small js-approve-privacy">${translations.accept}</button>
+    <button type="button" class="btn-primary btn-small js-approve-privacy">${
+      translations.accept
+    }</button>
   </div>`;
 };
 

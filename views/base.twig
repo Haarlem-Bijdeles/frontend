@@ -44,7 +44,7 @@
 
     <div class="quick-links">
       <h2 id="footer-nav-heading">Handige links</h2>
-      {% include 'partials/defaults/menu.twig' with {'selector': 'footer', 'menu': footer_menu, 'label': 'footer-nav-heading' } %}
+      {% include 'partials/defaults/menu.twig' with {'selector': 'footer-menu', 'menu': footer_menu, 'label': 'footer-nav-heading' } %}
     </div>
     <div class="address">
       <h2>Contact</h2>
@@ -76,6 +76,5 @@
     </div>
   </div>
 </footer>
-
 
 {{function('wp_footer')}}

@@ -13,7 +13,8 @@ export default class Accessibity {
 
       window.removeEventListener('keydown', this.handleFirstTab);
       window.addEventListener('mousedown', subEvent =>
-        this.handleMouseDownOnce(subEvent));
+        this.handleMouseDownOnce(subEvent),
+      );
     }
   }
 
@@ -21,7 +22,8 @@ export default class Accessibity {
     document.body.classList.remove(this.tabClass);
 
     window.removeEventListener('mousedown', subEvent =>
-      this.handleMouseDownOnce(subEvent));
+      this.handleMouseDownOnce(subEvent),
+    );
     window.addEventListener('keydown', this.handleFirstTab);
   }
 

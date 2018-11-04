@@ -1,5 +1,6 @@
 %h-reset {
-  @include critical-font(true);
+  @include critical-font;
+
   margin: 0;
   padding: 0;
   line-height: 1.1;

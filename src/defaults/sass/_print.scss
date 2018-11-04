@@ -4,8 +4,8 @@
     color: currentColor;
   }
 
-  main [href]:not([href^="#"]):after {
-    content: ' ('attr(href)') ';
+  main [href]:not([href^='#']):after {
+    content: ' (' attr(href) ') ';
   }
 
   footer,

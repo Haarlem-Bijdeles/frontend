@@ -28,9 +28,12 @@ export default class LazyLoad {
    * @memberof LazyLoad
    */
   addObserver() {
-    if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
-      const lazyImageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+    if (
+      'IntersectionObserver' in window &&
+      'IntersectionObserverEntry' in window
+    ) {
+      const lazyImageObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             this.updateImage();
             lazyImageObserver.unobserve(this.image);

@@ -9,8 +9,8 @@
 
   &__wrapper {
     @include center;
-    padding-top: .5em;
-    padding-bottom: .5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     display: flex;
     align-items: flex-start;
     @include breakpoint(md) {

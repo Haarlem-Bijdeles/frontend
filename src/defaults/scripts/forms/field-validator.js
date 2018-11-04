@@ -40,7 +40,9 @@ export default class FieldValidator {
       // If the field is a radio button or checkbox, insert error after the label
       let label;
       if (this.field.type === 'radio' || this.field.type === 'checkbox') {
-        label = this.field.form.querySelector(`label[for="${id}"]`) || this.field.parentNode;
+        label =
+          this.field.form.querySelector(`label[for="${id}"]`) ||
+          this.field.parentNode;
         if (label) {
           label.parentNode.insertBefore(message, label.nextSibling);
         }
@@ -55,7 +57,7 @@ export default class FieldValidator {
   }
 
   isValid() {
-    return (this.getErrorMessage() === null);
+    return this.getErrorMessage() === null;
   }
 
   hideErrorMessage() {
@@ -89,14 +91,16 @@ export default class FieldValidator {
     message.innerHTML = '';
   }
 
-
   getErrorMessage() {
     // Don't validate submits, buttons, file and reset inputs, and disabled fields
-    if (this.field.disabled
-      || this.field.type === 'file'
-      || this.field.type === 'reset'
-      || this.field.type === 'submit'
-      || this.field.type === 'button') return null;
+    if (
+      this.field.disabled ||
+      this.field.type === 'file' ||
+      this.field.type === 'reset' ||
+      this.field.type === 'submit' ||
+      this.field.type === 'button'
+    )
+      return null;
 
     // Get validity
     const { validity, value } = this.field;
@@ -116,10 +120,16 @@ export default class FieldValidator {
     }
 
     // If too short
-    if (validity.tooShort) return translations.tooShort.replace('%minLength%', this.field.getAttribute('minLength')).replace('%length%', value.length);
+    if (validity.tooShort)
+      return translations.tooShort
+        .replace('%minLength%', this.field.getAttribute('minLength'))
+        .replace('%length%', value.length);
 
     // If too long
-    if (validity.tooLong) return translations.tooLong.replace('%maxLength%', this.field.getAttribute('maxLength')).replace('%length%', value.length);
+    if (validity.tooLong)
+      return translations.tooLong
+        .replace('%maxLength%', this.field.getAttribute('maxLength'))
+        .replace('%length%', value.length);
 
     // If number input isn't a number
     if (validity.badInput) return translations.badInput;
@@ -128,26 +138,34 @@ export default class FieldValidator {
     if (validity.stepMismatch) return translations.stepMismatc;
 
     // If a number field is over the max
-    if (validity.rangeOverflow) return translations.rangeOverflow.replace('%max%', this.field.getAttribute('max'));
+    if (validity.rangeOverflow)
+      return translations.rangeOverflow.replace(
+        '%max%',
+        this.field.getAttribute('max'),
+      );
 
     // If a number field is below the min
-    if (validity.rangeUnderflow) return translations.rangeUnderflow.replace('%min%', this.field.getAttribute('min'));
+    if (validity.rangeUnderflow)
+      return translations.rangeUnderflow.replace(
+        '%min%',
+        this.field.getAttribute('min'),
+      );
 
     // If pattern doesn't match
     if (validity.patternMismatch) {
       // If pattern info is included, return custom error
-      if (this.field.hasAttribute('title')) return this.field.getAttribute('title');
+      if (this.field.hasAttribute('title'))
+        return this.field.getAttribute('title');
 
       // Otherwise, generic error
       return translations.patternMismatch;
     }
 
     // If field is required and empty
-    if (validity.valueMissing) return translations.valueMissing.replace('%label%', label);
-
+    if (validity.valueMissing)
+      return translations.valueMissing.replace('%label%', label);
 
     // If all else fails, return a generic catchall error
     return translations.invalid;
   }
 }
-

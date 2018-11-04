@@ -1,8 +1,8 @@
 const GoogleMapsLoader = require('google-maps');
 
-GoogleMapsLoader.KEY = 'AIzaSyCttaWlvuphdfRceepAAyp_1KkmQWyMnek';
+GoogleMapsLoader.KEY = 'AIzaSySKz9PNQfIhJD9xuS8z_P1GEOUC2uGGV_s';
 
-GoogleMapsLoader.load((google) => {
+GoogleMapsLoader.load(google => {
   const map = new google.maps.Map(document.querySelector('.map'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
   });
@@ -17,8 +17,11 @@ GoogleMapsLoader.load((google) => {
   };
 
   let marker;
-  window.locations.forEach((location) => {
-    const position = new google.maps.LatLng(location.latitude, location.longitude);
+  window.locations.forEach(location => {
+    const position = new google.maps.LatLng(
+      location.latitude,
+      location.longitude,
+    );
 
     marker = new google.maps.Marker({
       position,
@@ -27,12 +30,20 @@ GoogleMapsLoader.load((google) => {
     });
     bounds.extend(position);
 
-    google.maps.event.addListener(marker, 'click', (marker => {
-      return () => {
-        infowindow.setContent(`<strong>${location.street}</strong><br>${location.zipcode}, ${location.city}`);
-        infowindow.open(map, marker);
-      };
-    })(marker));
+    google.maps.event.addListener(
+      marker,
+      'click',
+      (marker => {
+        return () => {
+          infowindow.setContent(
+            `<strong>${location.street}</strong><br>${location.zipcode}, ${
+              location.city
+            }`,
+          );
+          infowindow.open(map, marker);
+        };
+      })(marker),
+    );
   });
 
   // now fit the map to the newly inclusive bounds

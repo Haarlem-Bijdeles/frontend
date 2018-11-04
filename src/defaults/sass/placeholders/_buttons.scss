@@ -6,7 +6,7 @@
 
 %btn {
   @include reset-link;
-  @include critical-font();
+  @include critical-font;
 
   display: inline-block;
   margin-bottom: 0.5em; // For input.btn
@@ -80,5 +80,4 @@
       color: $btn-outline-color-hover;
     }
   }
-
 }

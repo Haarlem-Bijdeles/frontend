@@ -1,56 +1,35 @@
 <?php
-
-define( 'VERSION', 2.11 );
-
 function theme_style() {
   // Theme stylesheet.
-  if (is_front_page()) {
-    $data['stylesheet'] = sprintf("%s?ver=%s", get_stylesheet_uri(), VERSION);
-    Timber::render('views/partials/critical.twig', $data);
-  } else {
-    wp_enqueue_style( 'haarlem-bij-de-les', get_stylesheet_uri(), false, VERSION);
-  }
+  $version = wp_get_theme()->get('Version');
+  wp_enqueue_style( 'haarlembijdels', get_template_directory_uri() . '/assets/css/style.css', false, $version);
 }
 
-add_action( 'wp_enqueue_scripts', 'theme_style', 10 );
+add_action( 'wp_enqueue_scripts', 'theme_style' );
 
-function add_default_scripts() {
-  $inlineVars = array();
-  wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/functions.js', null, VERSION);
+function add_scripts() {
+  $version = wp_get_theme()->get('Version');
 
-  if (is_page('werkwijze'))
-    wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/scripts/sticky-nav.js', null, VERSION);
-
-  if (is_page('contact')) {
-    wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/scripts/contact.js', null, VERSION);
-
-    $addresses = array();
-    while (have_rows('addresses', 'options')) : the_row();
-      if (get_sub_field('latitude') && get_sub_field('longitude')) {
-        $address = array(
-          'street' => get_sub_field('street'),
-          'zipcode' => get_sub_field('zipcode'),
-          'city' => get_sub_field('city'),
-          'latitude' => get_sub_field('latitude'),
-          'longitude' => get_sub_field('longitude'),
-        );
-
-        array_push($addresses, $address);
-      }
-    endwhile;
-
-    wp_localize_script( 'contact', 'locations', $addresses);
-    wp_localize_script( 'contact', 'site', array(
-      'ajax_url' => admin_url( 'admin-ajax.php' ),
-      'theme_url' => get_bloginfo('template_url')
-    ));
-  }
-
-  wp_localize_script( 'functions', 'ga_tracking_id', get_field('analytics', 'option'));
+  wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/scripts/main.js', null, $version);
 }
-add_action( 'wp_enqueue_scripts', 'add_default_scripts' );
 
-function addFavicons() {
-  Timber::render('views/partials/favicons.twig');
+add_action( 'wp_enqueue_scripts', 'add_scripts' );
+
+function add_favicons() {
+  $context = Timber::get_context();
+  Timber::render('views/partials/favicons.twig', $context);
 }
-add_action('wp_head', 'addFavicons', 15);
+add_action('wp_head', 'add_favicons', 15);
+
+// define the wp_resource_hints callback
+function add_domains_to_dns_prefetch( $urls, $relation_type ) {
+    if ( 'dns-prefetch' === $relation_type ) {
+      $urls[] = 'https://www.google-analytics.com';
+      $urls[] = 'https://www.googletagmanager.com';
+      $urls[] = 'https://www.google.com';
+    }
+    return $urls;
+};
+
+// add the filter
+add_filter( 'wp_resource_hints', 'add_domains_to_dns_prefetch', 10, 2 );

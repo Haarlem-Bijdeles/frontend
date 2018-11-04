@@ -1,21 +1,40 @@
+{% import 'partials/defaults/image.twig' as image %}
+
 {% if menu.get_items %}
-  <nav aria-label="{{label}}" class="{{selector}}-menu{%if js_class %} {{js_class}}{% endif %}">
-    <div id="{{selector}}-menu" class="js-skip-content"></div>
-    <ul class="{{selector}}-menu__list">
+  <nav aria-label="{{label}}" class="{{selector}}{%if js_class %} {{js_class}}{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+
+    <div class="menu__bg"></div>
+
+    <ul class="{{selector}}__list">
       {% for item in menu.get_items %}
-        <li class="{{selector}}-menu__item">
-          <a class="{{selector}}-menu__link {{item.classes | join(' ')}}"  href="{{ item.link }}" title="{{ item.title }}"{% if item.target %} target="{{ item.target }}"{% endif %}>{{ item.title }}</a>
+        <li class="{{selector}}__item">
+          <a class="{{selector}}__link {{item.classes | join(' ')}}"  href="{{ item.link }}" title="{{ item.title }}"{% if item.target %} target="{{ item.target }}"{% endif %}>{{ item.title }}</a>
           {% if item.children %}
-            {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-down', 'class': selector ~ '-menu__icon' } %}
-            <div class="{{selector}}-submenu">
-              <ul class="{{selector}}-submenu__list">
-                {% for subItem in item.children %}
-                <li class="{{selector}}-submenu__item">
-                  <a class="{{selector}}-submenu__link {{subItem.classes | join(' ')}}"  href="{{ subItem.link }}" title="{{ subItem.title }}">{{ subItem.title }}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
+            {% include 'partials/defaults/svg.twig' with {'icon': 'chevron-down', 'class': selector ~ '__icon' } %}
+            <ul class="{{selector}}__submenu {{item.classes | join(' ')}}">
+              {% for subItem in item.children %}
+              <li class="{{selector}}__submenu-item">
+                <a class="{{selector}}__submenu-link {{subItem.classes | join(' ')}}"  href="{{ subItem.link }}" title="{{ subItem.title }}">
+                  <div class="{{selector}}__submenu-image-wrapper">
+                    {% if subItem.thumbnail %}
+                      {% set menuImage = {
+                          src: TimberImage(subItem.thumbnail).src|tojpg|resize(80, 50)|retina(1),
+                          srcset: [
+                              TimberImage(subItem.thumbnail).src|tojpg|resize(80, 50)|retina(1) ~ " 1x",
+                              TimberImage(subItem.thumbnail).src|tojpg|resize(80, 50)|retina(2) ~ " 2x"
+                          ],
+                          placeholder: TimberImage(subItem.thumbnail).src|tojpg|resize(40, 25),
+                          classes: selector ~ "__submenu-image"
+                      } %}
+                      {% include 'partials/defaults/image.twig' with { 'image': menuImage } %}
+
+                    {% endif %}
+                  </div>
+                  {{ subItem.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
           {% endif %}
         </li>
       {% endfor %}

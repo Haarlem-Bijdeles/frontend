@@ -1,22 +1,22 @@
 {
-    "name": "Familiehotel Adler",
-    "short_name": "Adler",
-    "description": "Vakantie met kinderen in Lingenau, Oostenrijk",
-    "icons": [
-        {
-            "src": "https://www.adler-lingenau.com/nl/wp-content/themes/adler/assets/favicons/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "https://www.adler-lingenau.com/nl/wp-content/themes/adler/assets/favicons/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#98012e",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "orientation": "natural",
-    "start_url": "/nl/"
+  "name": "Haarlem Bijdeles",
+  "short_name": "HbdL",
+  "description": "Huiswerkbegeleiding in het centrum van Haarlem",
+  "icons": [
+    {
+      "src": "https://www.haarlembijdeles.nl/wp-content/themes/haarlembijdeles/assets/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.haarlembijdeles.nl/wp-content/themes/haarlembijdeles/assets/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#f85909",
+  "display": "standalone",
+  "orientation": "natural",
+  "start_url": "/"
 }

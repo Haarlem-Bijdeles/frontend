@@ -47,10 +47,18 @@ export default class Carousel {
       direction === 'left' ? 'animate-left' : 'animate-right';
     const thumbList = this.carousel.querySelector('.carousel__thumbs-list');
 
-    const previousSlide = this.carousel.querySelector('.carousel__item.is-active');
-    const previousThumb = this.carousel.querySelector('.carousel__thumb-item.is-active');
-    const nextSlide = this.carousel.querySelector(`.carousel__item[data-slide="${nextSlideIndex}"]`);
-    const nextThumb = this.carousel.querySelector(`.carousel__thumb-item[data-slide="${nextSlideIndex}"]`);
+    const previousSlide = this.carousel.querySelector(
+      '.carousel__item.is-active',
+    );
+    const previousThumb = this.carousel.querySelector(
+      '.carousel__thumb-item.is-active',
+    );
+    const nextSlide = this.carousel.querySelector(
+      `.carousel__item[data-slide="${nextSlideIndex}"]`,
+    );
+    const nextThumb = this.carousel.querySelector(
+      `.carousel__thumb-item[data-slide="${nextSlideIndex}"]`,
+    );
 
     // thumbs
     previousThumb.classList.remove('is-active');
@@ -68,14 +76,14 @@ export default class Carousel {
         offscreenWidth = nextThumb.getBoundingClientRect().x;
       } else {
         offscreenWidth =
-          (nextThumb.getBoundingClientRect().x +
-          nextThumb.getBoundingClientRect().width) -
+          nextThumb.getBoundingClientRect().x +
+          nextThumb.getBoundingClientRect().width -
           this.carousel.getBoundingClientRect().width;
       }
 
       const currentScroll = thumbList.scrollLeft;
       const thumbListPositionLeft = thumbList.getBoundingClientRect().left;
-      const goToScroll = (currentScroll + offscreenWidth) - thumbListPositionLeft;
+      const goToScroll = currentScroll + offscreenWidth - thumbListPositionLeft;
 
       scrollTo(thumbList, goToScroll, 300);
     }
@@ -96,7 +104,9 @@ export default class Carousel {
    * @memberof Carousel
    */
   getCurrentSlideIndex() {
-    const currentSlide = this.carousel.querySelector('.carousel__item.is-active');
+    const currentSlide = this.carousel.querySelector(
+      '.carousel__item.is-active',
+    );
     return parseInt(currentSlide.dataset.slide, 0);
   }
 
@@ -127,13 +137,19 @@ export default class Carousel {
   bindEvents() {
     const thumbs = this.carousel.querySelectorAll('.carousel__thumb-item');
     const images = this.carousel.querySelector('.carousel__images');
-    const btnNavigatePrevious = this.carousel.querySelector('.js-carousel-navigate-previous');
-    const btnNavigateNext = this.carousel.querySelector('.js-carousel-navigate-next');
+    const btnNavigatePrevious = this.carousel.querySelector(
+      '.js-carousel-navigate-previous',
+    );
+    const btnNavigateNext = this.carousel.querySelector(
+      '.js-carousel-navigate-next',
+    );
 
     thumbs.forEach(thumb =>
       thumb.addEventListener('click', () => {
         const nextSlideIndex = parseInt(thumb.dataset.slide, 0);
-        const previousSlide = this.carousel.querySelector('.carousel__item.is-active');
+        const previousSlide = this.carousel.querySelector(
+          '.carousel__item.is-active',
+        );
 
         const previousSlideIndex = parseInt(previousSlide.dataset.slide, 0);
 
@@ -143,11 +159,13 @@ export default class Carousel {
           nextSlideIndex > previousSlideIndex ? 'left' : 'right';
 
         this.gotoSlide(direction, nextSlideIndex);
-      }));
+      }),
+    );
 
-    this.slides.forEach((slide) => {
+    this.slides.forEach(slide => {
       slide.addEventListener('transitionend', event =>
-        this.removeAnimateClasses(event));
+        this.removeAnimateClasses(event),
+      );
     });
 
     const mc = new Hammer(images);
@@ -160,10 +178,11 @@ export default class Carousel {
     mc.on('panright', () => this.gotoPreviousSlide());
 
     btnNavigatePrevious.addEventListener('click', () =>
-      this.gotoPreviousSlide());
+      this.gotoPreviousSlide(),
+    );
     btnNavigateNext.addEventListener('click', () => this.gotoNextSlide());
 
-    document.addEventListener('keyup', (event) => {
+    document.addEventListener('keyup', event => {
       if (event.keyCode === 37) this.gotoPreviousSlide();
       if (event.keyCode === 39) this.gotoNextSlide();
     });

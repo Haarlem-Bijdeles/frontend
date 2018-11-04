@@ -1,0 +1,13 @@
+<div data-modal-id="{{ id }}" class="modal js-modal" tabindex="-1" role="dialog" aria-labelledby="{{ id }}-title" aria-hidden="true">
+  <div class="modal__dialog modal__dialog--{{ size|default('md') }}">
+    <div class="modal__content js-modal-content" role="document">
+      <div class="modal__header">
+        <h2 class="modal__title" id="{{ id }}-title">{{ title }}</h2>
+        <button class="modal__close js-modal-close">
+          {% include 'partials/defaults/svg.twig' with {'icon': 'close', 'class': 'modal__close-icon', 'title': __('Close') } %}
+        </button>
+      </div>
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>

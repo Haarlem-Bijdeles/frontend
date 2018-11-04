@@ -5,13 +5,15 @@ export default class FormValidator {
     this.form = form;
     this.requiredFields = this.form.querySelectorAll('[required]');
     this.formFeedback = null;
-    this.requiredFieldsValiders = Array.from(this.requiredFields).map(field => new FieldValidator(field));
+    this.requiredFieldsValiders = Array.from(this.requiredFields).map(
+      field => new FieldValidator(field),
+    );
     this.form.setAttribute('novalidate', true);
     this.bindFieldEvents();
   }
 
   bindFieldEvents() {
-    this.requiredFields.forEach((field) => {
+    this.requiredFields.forEach(field => {
       field.addEventListener('blur', () => this.removeErrorOnBlurField());
     });
   }
@@ -40,12 +42,16 @@ export default class FormValidator {
     // validate every field of the form
     const isValid = this.requiredFieldsValiders.map(field => field.validate());
     // return false when at least one field is not valid
-    return (!isValid.includes(false));
+    return !isValid.includes(false);
   }
 
   validate() {
     const isValid = this.validateFields();
-    return new Promise((resolve, reject) =>
-      (isValid ? resolve() : reject(Error(window.formTranslations.form.missingFields))));
+    return new Promise(
+      (resolve, reject) =>
+        isValid
+          ? resolve()
+          : reject(Error(window.formTranslations.form.missingFields)),
+    );
   }
 }

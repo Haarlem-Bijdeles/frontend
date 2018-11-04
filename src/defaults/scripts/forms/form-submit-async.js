@@ -8,7 +8,7 @@ export default class FormSubmitAsync extends FormValidator {
   }
 
   activateButtons(enable) {
-    this.buttons.forEach((button) => {
+    this.buttons.forEach(button => {
       if (enable) {
         button.removeAttribute('disabled');
       } else {
@@ -38,10 +38,12 @@ export default class FormSubmitAsync extends FormValidator {
     const formData = new FormData(this.form);
 
     this.validate()
-      .then(() => fetch(url, {
-        body: formData,
-        method: 'POST',
-      }))
+      .then(() =>
+        fetch(url, {
+          body: formData,
+          method: 'POST',
+        }),
+      )
       .then(response => response.text())
       .then(response => this.showFeedback(response))
       .catch(error => this.showError(error.message))

@@ -48,6 +48,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.js$/,
@@ -170,13 +173,13 @@ module.exports = {
     new SpriteLoaderPlugin({
       plainSprite: true,
     }),
-    // new HtmlCriticalPlugin({
-    //   src: 'http://adler.localhost/nl/',
-    //   dest: `${PATHS.assets}/css/critical.css`,
-    //   css: 'https://www.haarlembijdeles.nl/',
-    //   minify: true,
-    //   width: 1920,
-    //   height: 1080,
-    // }),
+    new HtmlCriticalPlugin({
+      src: 'http://localhost:8080/',
+      dest: `${PATHS.assets}/css/critical.css`,
+      css: 'https://www.haarlembijdeles.nl/',
+      minify: true,
+      width: 1920,
+      height: 1080,
+    }),
   ],
 };

@@ -1,5 +1,12 @@
 <?php
 
+function add_form_scripts() {
+  wp_localize_script( 'functions', 'formTranslations', translate_form_errors());
+}
+
+add_action( 'wp_enqueue_scripts', 'add_form_scripts' );
+
+
 add_action( 'wp_ajax_submit_ajax_form', 'submit_ajax_form' );
 add_action( 'wp_ajax_nopriv_submit_ajax_form', 'submit_ajax_form' );
 
@@ -15,15 +22,22 @@ function checkRequiredFields($fields) {
 
 function getLabel($field) {
   $label = array(
-    'email'   => 'E-mailadres',
-    'name'    => 'Naam',
-    'address' => 'Adres',
-    'phone'   => 'Telefoonnumer',
-    'message' => 'Bericht',
-    'remarks' => 'Opmerkingen',
-    'city'    => 'Plaats',
-    'country' => 'Land',
-    'zipcode' => 'Postcode',
+    'url'             => 'Pagina',
+    'email'           => 'E-mailadres',
+    'name'            => 'Naam',
+    'address'         => 'Adres',
+    'phone'           => 'Telefoonnumer',
+    'message'         => 'Bericht',
+    'remarks'         => 'Opmerkingen',
+    'city'            => 'Plaats',
+    'country'         => 'Land',
+    'zipcode'         => 'Postcode',
+    'room'            => 'Aantal kamers',
+    'adults'          => 'Aantal volwassenen',
+    'kids'            => 'Aantal kinderen',
+    'date-arrival'    => 'Aankomstdatum',
+    'date-departure'  => 'Vertrekdatum',
+    'remarks'         => 'Opmerkingen',
   );
   return $label[$field];
 }
