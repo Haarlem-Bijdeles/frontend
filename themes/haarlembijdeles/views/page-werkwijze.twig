@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<article class="content">
+
+  {% include 'partials/intro.twig' %}
+
+  {% if post.get_field('way-we-work') %}
+    <div class="way-we-work">
+      <nav>
+        <ul>
+          {% for item in post.get_field('way-we-work') %}
+            <li><a href="#werkwijze-{{loop.index}}" class="js-scroll">{{item.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="way-we-work__list">
+        {% for item in post.get_field('way-we-work') %}
+          <div class="way-we-work__item">
+            <div class="way-we-work__wrapper">
+              <div class="way-we-work__body" id="werkwijze-{{loop.index}}">
+                <div class="way-we-work__image-wrapper">
+                  {% if item.image %}
+                    <img src="{{TimberImage(item.image).src|tojpg|resize(280)}}"
+                       alt="{{ TimberImage(post.hero_image).post_title }}" class="way-we-work__image"
+                       srcset="
+                        {{TimberImage(item.image).src|tojpg|resize(280)}} 1x,
+                        {{TimberImage(item.image).src|tojpg|resize(560)}} 2x">
+                  {% endif %}
+                </div>
+                <div class="way-we-work__text">
+                  <h2>{{item.title}}</h2>
+                  {{item.text}}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</article>
+
+{% endblock %}

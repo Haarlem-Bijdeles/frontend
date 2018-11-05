@@ -1,0 +1,68 @@
+.header {
+  font-size: 1.1em;
+  z-index: 9;
+
+  @include breakpoint-max(md) {
+    background: $color-primary;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 1.2em;
+  }
+
+  &__wrapper {
+    @include center();
+    position: relative;
+
+    @include breakpoint-max(md) {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: .5em;
+      padding-top: .5em;
+    }
+
+    @include breakpoint(lg) {
+      padding-top: 3em;
+    }
+  }
+
+  &__logo {
+    @include breakpoint-range(md, lg) {
+      display: flex;
+      background: $color-primary;
+      justify-content: center;
+      margin-left: $gutter * -1;
+      margin-right: $gutter * -1;
+      padding-bottom: .5em;
+      padding-top: .5em;
+
+    }
+
+    @include breakpoint(lg) {
+      left: $gutter * 2;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &__logo-icon {
+    display: block;
+
+    &--small {
+      height: 3em;
+      width: 10em;
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
+
+    &--large {
+      height: 9em;
+      width: 9em;
+      @include breakpoint-max(lg) {
+        display: none;
+      }
+    }
+  }
+}

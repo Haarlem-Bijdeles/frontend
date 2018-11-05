@@ -1,0 +1,31 @@
+<div class="blog">
+  <ul class="blog__list">
+      {% for post in posts %}
+        <li class="blog__item">
+          <div class="blog__wrapper">
+
+            <div class="blog__body">
+              <div class="blog__image-wrapper">
+                {% if post.thumbnail %}
+                  <img src="{{post.thumbnail.src|tojpg|resize(280)}}"
+                     alt="{{post.thumbnail.post_title}}" class="blog__image"
+                     srcset="
+                      {{post.thumbnail.src|tojpg|resize(280)}} 1x,
+                      {{post.thumbnail.src|tojpg|resize(560)}} 2x">
+                {% endif %}
+              </div>
+
+              <div class="blog__text">
+
+                <h2 class="blog__title"><a href="{{post.link}}" title="{{post.title}}">{{post.title}}</a></h2>
+                <div class="blog__meta">
+                  {{post.date}}
+                </div>
+                 <p>{{post.get_preview(40, false, 'Lees verder')}}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+  </ul>
+</div>
