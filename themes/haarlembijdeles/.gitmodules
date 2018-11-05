@@ -1,0 +1,3 @@
+[submodule "src/defaults"]
+	path = src/defaults
+	url = https://michielkoning@github.com/michielkoning/default-sass.git

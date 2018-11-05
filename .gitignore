@@ -3,10 +3,11 @@ node_modules/
 assets/
 .DS_Store
 
+/service-workers/
+
 plugins/advanced-custom-fields-pro
 plugins/timber-library
 plugins/wordpress-importer
 plugins/wp-super-cache
 plugins/wordpress-seo
-
 plugins/index.php
