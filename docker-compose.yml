@@ -1,0 +1,31 @@
+version: "3.3"
+
+services:
+  dbhaarlembijdeles:
+    image: mysql:latest
+    volumes:
+      - haarlembijdelesdata:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wphaarlembijdeles:
+    depends_on:
+      - dbhaarlembijdeles
+    image: wordpress:latest
+    volumes:
+      - ./themes/:/var/www/html/wp-content/themes/
+      - ./plugins/:/var/www/html/wp-content/plugins/
+      - ./service-workers/service-worker.js:/var/www/html/service-worker.js
+    ports:
+      - "8080:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: dbhaarlembijdeles:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+volumes:
+    haarlembijdelesdata:
