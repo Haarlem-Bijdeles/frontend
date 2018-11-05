@@ -1,3 +1,6 @@
 [submodule "themes/haarlembijdeles/src/defaults"]
 	path = themes/haarlembijdeles/src/defaults
 	url = https://michielkoning@github.com/michielkoning/default-sass
+[submodule "plugins/default-theme-settings"]
+	path = plugins/default-theme-settings
+	url = https://michielkoning@github.com/michielkoning/default-theme-settings
