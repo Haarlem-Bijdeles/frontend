@@ -4,3 +4,9 @@
 [submodule "plugins/default-theme-settings"]
 	path = plugins/default-theme-settings
 	url = https://michielkoning@github.com/michielkoning/default-theme-settings
+[submodule "plugins/forms"]
+	path = plugins/forms
+	url = https://michielkoning@github.com/michielkoning/forms
+[submodule "plugins/service-workers"]
+	path = plugins/service-workers
+	url = https://michielkoning@github.com/michielkoning/service-workers.git
