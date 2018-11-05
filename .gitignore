@@ -1,6 +1,5 @@
-src/temp/
+temp/
 node_modules/
 assets/
 .DS_Store
-temp/
 plugins/
