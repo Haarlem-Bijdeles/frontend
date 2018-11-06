@@ -36,6 +36,7 @@ function add_scripts_on_contact_page() {
   wp_add_inline_script( 'contact', get_address_data(), 'before');
   wp_add_inline_script( 'contact', get_site_data(), 'before');
 
+  add_form_scripts();
 }
 
 add_action( 'wp_enqueue_scripts', 'add_scripts_on_contact_page' );

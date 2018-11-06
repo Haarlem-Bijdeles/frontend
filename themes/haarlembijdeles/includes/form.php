@@ -1,11 +1,7 @@
 <?php
-
 function add_form_scripts() {
-  wp_localize_script( 'functions', 'formTranslations', translate_form_errors());
+  wp_localize_script( 'contact', 'formTranslations', translate_form_errors());
 }
-
-add_action( 'wp_enqueue_scripts', 'add_form_scripts' );
-
 
 add_action( 'wp_ajax_submit_ajax_form', 'submit_ajax_form' );
 add_action( 'wp_ajax_nopriv_submit_ajax_form', 'submit_ajax_form' );

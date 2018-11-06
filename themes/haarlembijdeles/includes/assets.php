@@ -25,7 +25,7 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 function add_favicons() {
   $context = Timber::get_context();
-  Timber::render('views/partials/favicons.twig', $context);
+  Timber::render('views/partials/defaults/favicons.twig', $context);
 }
 add_action('wp_head', 'add_favicons', 15);
 

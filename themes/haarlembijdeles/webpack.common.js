@@ -23,6 +23,7 @@ module.exports = {
   entry: {
     main: `${PATHS.theme}/scripts/functions.js`,
     contact: `${PATHS.theme}/scripts/contact.js`,
+    procedure: `${PATHS.theme}/scripts/procedure.js`,
     assets: `${PATHS.theme}/scripts/assets.js`,
   },
   resolve: {
@@ -48,6 +49,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        enforce: 'pre',
         options: {
           presets: ['@babel/preset-env'],
         },
@@ -169,6 +171,7 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: './../css/style.css',
+      allChunks: true,
     }),
     new SpriteLoaderPlugin({
       plainSprite: true,

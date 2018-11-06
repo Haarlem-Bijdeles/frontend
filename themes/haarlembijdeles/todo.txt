@@ -1,5 +1,9 @@
-- menu
+- gumshoe lostrekken
+- npm build werkt niet, lege output
+- service workers
+-
 
+- menu
 - svg logo
 - css opschonen (prices2, kleuren)
 - babel met polyfill for promises
