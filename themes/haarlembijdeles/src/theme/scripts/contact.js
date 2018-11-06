@@ -1,2 +1,2 @@
-import './modules/form';
-import './modules/map';
+require('./modules/form');
+require('./modules/map');
