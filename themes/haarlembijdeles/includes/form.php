@@ -41,7 +41,7 @@ function getLabel($field) {
 //Indien in frontend, roep de function update_newsletter op, zodra post[newsletter] gevuld is
 function submit_ajax_form() {
 
-  check_ajax_referer( 'submit-form', 'security' );
+  check_ajax_referer( 'submit-form', 'security', 1 );
 
   $fullName = $_POST['name'];
   $type = $_POST['formkey'];
