@@ -177,7 +177,8 @@ module.exports = {
       plainSprite: true,
     }),
     new HtmlCriticalPlugin({
-      src: 'http://localhost:8080/',
+      base: 'https://www.haarlembijdeles.nl/',
+      src: 'https://www.haarlembijdeles.nl/',
       dest: `${PATHS.assets}/css/critical.css`,
       css: 'https://www.haarlembijdeles.nl/',
       minify: true,

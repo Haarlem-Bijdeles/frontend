@@ -6,5 +6,4 @@ $context['post'] = $post;
 
 $context['testimonials'] = get_testimonials();
 
-Timber::render( 'page-service.twig', $context );
-
+Timber::render('page-service.twig', $context);
