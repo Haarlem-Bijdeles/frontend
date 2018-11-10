@@ -63,8 +63,15 @@ function submit_ajax_form()
     if (empty($formFields)) {
         wp_send_json_error('Verzenden mislukt');
     }
+
     if (!checkRequiredFields($requiredFields)) {
         wp_send_json_error('Niet alle verplichte velden zijn ingevuld.');
+    }
+
+    if (isset($_POST['website']) && !empty($_POST['website'])) {
+        return wp_send_json_success(
+            'Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.'
+        );
     }
 
     $formData = array();
@@ -100,7 +107,7 @@ function submit_ajax_form()
         contact__send_mail($message, $subject, $type, $fullName);
     }
 
-    wp_send_json_success(
+    return wp_send_json_success(
         'Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.'
     );
 }

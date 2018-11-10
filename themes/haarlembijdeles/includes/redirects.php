@@ -1,9 +1,9 @@
 <?php
-//add_action("wp", "redirect_about_us");
+add_action("wp", "redirect_about_us");
 function redirect_about_us()
 {
     if (is_page('wie-zijn-wij')) {
-        wp_redirect('/wie-zijn-wij/onze-mensen/');
+        wp_redirect('/wie-zijn-wij/de-docenten/', 301);
         exit();
     }
 }
