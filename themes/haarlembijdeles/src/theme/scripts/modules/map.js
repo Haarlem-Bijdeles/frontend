@@ -1,6 +1,8 @@
+import settings from '../config';
+
 const GoogleMapsLoader = require('google-maps');
 
-GoogleMapsLoader.KEY = 'AIzaSyC9R-yrMTc9UxeiDRi2so8DhZh6Opf8ywY';
+GoogleMapsLoader.KEY = settings.GOOGLE_MAPS_API;
 GoogleMapsLoader.LANGUAGE = 'nl';
 GoogleMapsLoader.VERSION = 'weekly';
 
