@@ -16,7 +16,7 @@ const PATHS = {
 const settings = {
   host: 'localhost',
   port: 3001,
-  proxy: 'http://haarlembijdeles.localhost/',
+  proxy: 'http://localhost:8080',
 };
 
 module.exports = {
@@ -50,9 +50,6 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         enforce: 'pre',
-        options: {
-          presets: ['@babel/preset-env'],
-        },
       },
       {
         test: /\.js$/,

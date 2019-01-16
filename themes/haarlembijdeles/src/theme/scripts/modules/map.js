@@ -34,11 +34,11 @@ GoogleMapsLoader.load((google) => {
     google.maps.event.addListener(
       marker,
       'click',
-      (marker => () => {
+      (markerEvent => () => {
         infowindow.setContent(
           `<strong>${location.street}</strong><br>${location.zipcode}, ${location.city}`,
         );
-        infowindow.open(map, marker);
+        infowindow.open(map, markerEvent);
       })(marker),
     );
   });

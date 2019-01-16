@@ -68,46 +68,48 @@ function submit_ajax_form()
         wp_send_json_error('Niet alle verplichte velden zijn ingevuld.');
     }
 
-    if (isset($_POST['website']) && !empty($_POST['website'])) {
-        return wp_send_json_success(
-            'Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.'
-        );
+
+    $secret = '6LfUDooUAAAAAEOxbYZTYLnldDLzR4lj1X0SszVQ';
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['recaptcha']);
+    $responseData = json_decode($verifyResponse);
+    if(!$responseData->success) {
+        wp_send_json_error('Verzenden mislukt');
+    } else {
+      $formData = array();
+      foreach ($formFields as $field) {
+          $formData[getLabel($field)] = $_POST[$field];
+      }
+
+      $subject = 'Reactie via website ' . get_bloginfo('url');
+
+      $message =
+          'Er is een reactie binnengekomen op <a href="' .
+          get_bloginfo('url') .
+          '">' .
+          get_bloginfo('url') .
+          '</a>.
+    <br /><br />
+    De volgende gegevens zijn ingevuld:
+    <br /><br />
+    <table width="100%">';
+
+      foreach ($formData as $label => $value) {
+          $message .=
+              '<tr><td width="150">' .
+              $label .
+              ':</td><td>' .
+              $value .
+              '</td></tr>';
+      }
+      $message .= '<tr><td colspan="2">&nbsp;</td></tr>
+    </table>';
+
+      if (contact__add($message, $type, $fullName)) {
+          contact__send_mail($message, $subject, $type, $fullName);
+      }
+
+      return wp_send_json_success(
+          'Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.'
+      );
     }
-
-    $formData = array();
-    foreach ($formFields as $field) {
-        $formData[getLabel($field)] = $_POST[$field];
-    }
-
-    $subject = 'Reactie via website ' . get_bloginfo('url');
-
-    $message =
-        'Er is een reactie binnengekomen op <a href="' .
-        get_bloginfo('url') .
-        '">' .
-        get_bloginfo('url') .
-        '</a>.
-  <br /><br />
-  De volgende gegevens zijn ingevuld:
-  <br /><br />
-  <table width="100%">';
-
-    foreach ($formData as $label => $value) {
-        $message .=
-            '<tr><td width="150">' .
-            $label .
-            ':</td><td>' .
-            $value .
-            '</td></tr>';
-    }
-    $message .= '<tr><td colspan="2">&nbsp;</td></tr>
-  </table>';
-
-    if (contact__add($message, $type, $fullName)) {
-        contact__send_mail($message, $subject, $type, $fullName);
-    }
-
-    return wp_send_json_success(
-        'Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.'
-    );
 }
