@@ -1,0 +1,52 @@
+{
+  "name": "starter-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My sensational Nuxt.js project",
+  "author": "Michiel Koning",
+  "scripts": {
+    "build": "nuxt build",
+    "test": "jest",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "precommit": "npm run lint",
+    "start": "nuxt start"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^2.6.0",
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/sitemap": "^1.2.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-jest": ">=22.3.0",
+    "eslint-plugin-node": ">=8.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "jest": "^24.1.0",
+    "nodemon": "^1.18.9",
+    "nuxt-svg-loader": "^1.0.1",
+    "postcss-mixins": "^6.2.1",
+    "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.16.4",
+    "vue-cli-plugin-i18n": "^0.6.0",
+    "vue-jest": "^3.0.3"
+  }
+}

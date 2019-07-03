@@ -1,0 +1,82 @@
+legend {
+  padding: 0;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.form-item {
+  margin-bottom: 1rem;
+}
+
+textarea,
+input[type='text'],
+input[type='search'],
+input[type='number'],
+input[type='email'],
+input[type='date'],
+input[type='tel'],
+input[type='url'],
+select {
+  appearance: none;
+  border: 0;
+  background: #f2f2f2;
+  border-radius: 0.25em;
+  width: 100%;
+  height: auto;
+  padding: 1.25rem 0.75rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease-out;
+  transition: background-color 0.1s ease-out;
+
+  &:disabled {
+    background-color: var(--color-gray-lightest);
+    color: var(--color-gray-light);
+  }
+
+  &.has-error {
+    border-color: var(--color-danger);
+  }
+
+  &:focus {
+    background: #e4e4e4;
+    outline: none;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea,
+input {
+  &:read-only {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &::placeholder {
+    color: var(--color-gray-dark);
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+
+  .optional {
+    font-weight: var(--font-weight-normal);
+  }
+
+  button {
+    color: currentColor;
+    text-decoration: underline;
+  }
+}

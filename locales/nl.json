@@ -1,0 +1,88 @@
+{
+  "albums": "Albums",
+  "biography": "Biography",
+  "contact": "Contact",
+  "close": "Close",
+  "home": "Home",
+  "latestPosts": "Latest posts",
+  "loadMore": "Load more",
+  "loading": "Loading…",
+  "next": "Next",
+  "noTourDays": "No tour dates confirmed",
+  "pause": "Pause",
+  "play": "Play",
+  "readMore": "Read more",
+  "tour": "Tour",
+  "videos": "Videos",
+  "viewNordgardenOn": "View Nordgarden on",
+  "socialMediaLinks": "Follow us on",
+  "mainNavigation": "Main navigation",
+  "readFullBiography": "Read the full biography",
+  "view": "view",
+  "on": "on",
+  "menu": "Menu",
+  "gallery": "Gallery",
+  "getToKnowUs": "Get to know us",
+  "whatWeDo": "What we do",
+  "reviews": "Reviews",
+  "mobileWorkshop": "Mobile workshop",
+  "form": {
+    "name": "Voornaam",
+    "lastName": "Achternaam",
+    "address": "Adres",
+    "zipcode": "Postcode",
+    "city": "Woonplaats",
+    "phoneNumber": "Telefoonnummer",
+    "email": "E-mailadres",
+    "acceptConditions": {
+      "part1": "Ik ga akkoord met de",
+      "part2": "algemene voorwaarden",
+      "part3": "."
+    },
+    "subscribeToNewsletter": "Ik meld me aan voor de nieuwsbrief",
+    "motivation": {
+      "job": "Omschrijf hier je klus",
+      "cycling": "Waar gaan we heen?"
+    },
+    "error": {
+      "general": {
+        "invalid": "Niet alle velden zijn correct ingevuld.",
+        "submitError": "Er ging iets mis bij het posten.",
+        "selectDateEmpty": "Je hebt nog geen datum geselecteerd.",
+        "motivationEmpty": "Je hebt nog geen motivatie ingevuld.",
+        "required": "Vul je {field} in."
+      },
+      "selectDate": {
+        "required": "Selecteer een datum"
+      },
+      "motivation": {
+        "required": "Vul je omschrijving in.",
+        "isNumeric": "Vul een geldige omschrijving in."
+      },
+      "name": {
+        "isNumeric": "Vul een geldige voornaam in."
+      },
+      "lastName": {
+        "isNumeric": "Vul een geldige achternaam in."
+      },
+      "address": {
+        "isAddress": "Vul een geldige adres in."
+      },
+      "zipcode": {
+        "isZipcode": "Vul een geldige postcode in."
+      },
+      "city": {
+        "isNumeric": "Vul een geldige woonplaats in."
+      },
+      "phoneNumber": {
+        "isPhoneNumber": "Vul een geldige telefoonnummer in."
+      },
+      "email": {
+        "email": "Vul een geldige e-mailadres in."
+      },
+      "acceptConditions": {
+        "required": "Je dient akkoord te gaan met de algemene voorwaarden."
+      }
+    }
+  }
+}
