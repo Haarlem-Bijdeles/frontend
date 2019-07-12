@@ -116,10 +116,6 @@ export default {
   background: linear-gradient(#f9f9f9, #e0fbe5);
 }
 
-.item {
-  padding: 0 0 0.25em;
-}
-
 .highlights {
   @mixin center;
   display: grid;

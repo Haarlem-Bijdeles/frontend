@@ -1,5 +1,7 @@
 <template>
   <div>
+    <student-parent />
+    <prices />
     <article>
       <app-hero
         size="large"
@@ -22,14 +24,18 @@ import AppHero from '@/components/AppHero.vue'
 import Services from '@/components/Services.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import Usps from '@/components/Usps.vue'
+import Prices from '@/components/Prices.vue'
+import StudentParent from '@/components/StudentParent.vue'
 
 export default {
   components: {
+    StudentParent,
     Usps,
     AppHero,
     Services,
     Testimonials,
     Intro,
+    Prices,
   },
 }
 </script>
