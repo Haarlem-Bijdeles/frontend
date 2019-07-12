@@ -7,13 +7,7 @@
           title="Haarlem Bijdeles"
           class="logo"
         >
-          <svg class="logo-icon">
-            <title>Haarlem Bijdeles</title>
-            <use
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              xlink:href="#icon-logo"
-            ></use>
-          </svg>
+          <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
         </a>
 
         <div class="quick-links">
@@ -130,70 +124,7 @@
             </p>
           </address>
         </div>
-        <div class="social">
-          <h2>Social media</h2>
-          <p>Volg ons op</p>
-          <a
-            href="https://www.facebook.com/haarlembijdeles"
-            class="social__link"
-            title="Volg Haarlem Bijdeles op Facebook"
-            rel="noopener"
-            target="_blank"
-          >
-            <svg class="social__icon">
-              <title>Volg Haarlem Bijdeles op Facebook</title>
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#icon-facebook-rounded"
-              ></use>
-            </svg>
-          </a>
-          <a
-            href="https://twitter.com/haarlembijdeles"
-            class="social__link"
-            title="Volg Haarlem Bijdeles op Twitter"
-            rel="noopener"
-            target="_blank"
-          >
-            <svg class="social__icon">
-              <title>Volg Haarlem Bijdeles op Twitter</title>
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#icon-twitter-rounded"
-              ></use>
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/company-beta/5025367/"
-            class="social__link"
-            title="Volg Haarlem Bijdeles op LinkedIn"
-            rel="noopener"
-            target="_blank"
-          >
-            <svg class="social__icon">
-              <title>Volg Haarlem Bijdeles op LinkedIn</title>
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#icon-linkedin-rounded"
-              ></use>
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/haarlembijdeles/"
-            class="social__link"
-            title="Volg Haarlem Bijdeles op Instagram"
-            rel="noopener"
-            target="_blank"
-          >
-            <svg class="social__icon">
-              <title>Volg Haarlem Bijdeles op Instagram</title>
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#icon-instagram"
-              ></use>
-            </svg>
-          </a>
-        </div>
+        <social-media-links />
       </div>
     </notch-wrapper>
   </footer>
@@ -201,10 +132,14 @@
 
 <script>
 import NotchWrapper from '@/components/NotchWrapper.vue'
+import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
+import IconLogo from '@/icons/logo.svg'
 
 export default {
   components: {
     NotchWrapper,
+    SocialMediaLinks,
+    IconLogo,
   },
 }
 </script>
@@ -215,15 +150,21 @@ footer {
 }
 
 .wrapper {
-  @mixin center var(--container-width-lg);
-  padding-top: 3em;
-  padding-bottom: 3em;
+  @mixin center;
+  @mixin block-padding;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   grid-gap: var(--gutter);
+  align-items: start;
+  justify-items: start;
 }
 
 ul {
   @mixin list-reset;
+}
+
+.logo {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: block;
 }
 </style>

@@ -64,10 +64,10 @@ address {
   font-style: normal;
 }
 
-.intro {
-  font-size: 1.2em;
-}
-
 cite {
   font-style: normal;
+}
+
+blockquote {
+  margin: 0;
 }

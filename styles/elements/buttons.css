@@ -37,13 +37,16 @@ a {
   border-radius: 0.25em;
   display: block;
   text-decoration: none;
-  padding: 0.5em 2em;
+  font-size: 1.1em;
+  padding: 0.5em 0.5em;
   font-family: var(--font-family-headings);
   background: var(--color-primary);
-  transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.2s ease-out;
   max-width: 20em;
   color: var(--color-white);
+  box-shadow: none;
   &:hover {
+    box-shadow: none;
     background: var(--color-primary-dark);
   }
 
@@ -70,10 +73,19 @@ a {
     }
   }
 
+  &.btn-action {
+    color: #f9f9f9;
+    background-color: #06b226;
+
+    &:hover {
+      background-color: #059921;
+    }
+  }
+
   &.btn-ghost {
     background: transparent;
-    color: var(--color-white);
-    border: 2px solid var(--color-white);
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
 
     &:hover {
       background: var(--color-white);

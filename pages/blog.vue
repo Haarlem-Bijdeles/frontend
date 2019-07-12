@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <app-hero
+      image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
+      title="Bijdeles Blog"
+    />
+    <ul class="list">
+      <app-post v-for="post in posts" :key="post.slug" :post="post" />
+    </ul>
+  </div>
+</template>
+
+<script>
+import axios from '~/plugins/axios'
+import AppPost from '~/components/AppPost.vue'
+import AppHero from '@/components/AppHero.vue'
+
+export default {
+  components: {
+    AppPost,
+    AppHero,
+  },
+  data() {
+    return {
+      title: this.$t('biography'),
+      posts: [],
+    }
+  },
+
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    async getData() {
+      const response = await axios.get(`wp/v2/posts/`)
+      this.posts = response.data
+    },
+  },
+}
+</script>
+
+<style lang="postcss" scoped>
+.list {
+  @mixin list-reset;
+}
+</style>

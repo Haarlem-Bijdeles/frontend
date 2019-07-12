@@ -1,22 +1,19 @@
 <template>
-  <div class="testimonials">
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title" class="sr-only">Onze waarderingen</h2>
     <ul class="testimonials__list">
       <li class="testimonial">
         <div class="testimonial__text">
-          <div class="user-meta">
-            <span class="user-name">Vader Daaf</span>
-          </div>
           <blockquote class="quote">
+            <cite class="cite">Vader Daaf</cite>
             Dank voor de tomeloze inzet en hulp!
           </blockquote>
         </div>
       </li>
       <li class="testimonial">
         <div class="testimonial__text">
-          <div class="user-meta">
-            <span class="user-name">Ouder Ashfaq</span>
-          </div>
           <blockquote class="quote">
+            <cite class="cite">Ouder Ashfaq</cite>
             Door huiswerkbegeleiding is zoveel meer dan de hulp bij het maken
             van huiswerk. Jullie positieve aanpak en coaching heeft enorm
             geholpen! Niet alleen bij het stimuleren van schoolwerk, maar ook
@@ -26,42 +23,37 @@
       </li>
       <li class="testimonial">
         <div class="testimonial__text">
-          <div class="user-meta">
-            <span class="user-name">Moeder Sem</span>
-          </div>
           <blockquote class="quote">
+            <cite class="cite">Moeder Sem</cite>
             Naast de cijfers die zijn verbeterd is het zelfvertrouwen enorm
             gegroeid.
           </blockquote>
         </div>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <style lang="postcss" scoped>
 .testimonials {
   @mixin center;
-  @include block-padding();
+  @mixin block-padding;
 }
 
 .testimonials__list {
   @mixin list-reset;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  grid-gap: var(--gutter);
 }
 
 .testimonial {
   text-align: center;
-  margin-bottom: 2em;
 }
 
-.user-meta {
+.cite {
   line-height: 1.3;
-  margin-bottom: 0.5em;
-}
-
-.user-name {
+  margin-bottom: 0.25em;
   display: block;
   font-weight: var(--font-weight-bold);
 }

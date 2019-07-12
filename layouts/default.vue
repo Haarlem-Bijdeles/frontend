@@ -2,7 +2,7 @@
   <div class="page">
     <app-header />
     <main>
-      <nuxt class="content" />
+      <nuxt />
     </main>
     <error-handler />
     <app-footer />
@@ -24,20 +24,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-main {
-  padding-top: 3em;
-  @media (--show-full-navigation) {
-    padding-top: 0;
-  }
-}
-
 .page {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-
-.content {
-  flex: 1 0 auto;
 }
 </style>

@@ -13,7 +13,7 @@
     />
     <div class="wrapper">
       <h2 id="services-title" class="title">Dit zijn onze diensten</h2>
-      <ul class="row row--3-items">
+      <ul class="list">
         <li class="item item--transparent">
           <div class="header">
             <h3 class="service-title">Huiswerkbegeleiding</h3>
@@ -34,7 +34,7 @@
           </ul>
           <a
             href="https://www.haarlembijdeles.nl/huiswerkbegeleiding-haarlem/"
-            class="btn"
+            class="btn btn-ghost"
             >Meer informatie
             <span class="sr-only">over Huiswerkbegeleiding</span></a
           >
@@ -51,7 +51,9 @@
             <li class="usp">Ervaren docenten</li>
             <li class="usp">In het centrum van Haarlem</li>
           </ul>
-          <a href="https://www.haarlembijdeles.nl/bijles-haarlem/" class="btn"
+          <a
+            href="https://www.haarlembijdeles.nl/bijles-haarlem/"
+            class="btn btn-ghost"
             >Meer informatie <span class="sr-only">over Bijles</span></a
           >
         </li>
@@ -73,7 +75,7 @@
           </ul>
           <a
             href="https://www.haarlembijdeles.nl/examentraining-haarlem/"
-            class="btn"
+            class="btn btn-ghost"
             >Meer informatie <span class="sr-only">over Examentraining</span></a
           >
         </li>
@@ -178,9 +180,10 @@
   margin-bottom: 1.5em;
 }
 
-.row {
+.list {
+  @mixin list-reset;
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
   margin-bottom: 2em;
   grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
 }
@@ -207,6 +210,8 @@
 }
 
 .usps {
+  @mixin list-reset;
+
   flex: 1 1 auto;
   margin-bottom: 1.5em;
 }

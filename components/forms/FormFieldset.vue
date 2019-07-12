@@ -17,3 +17,10 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+.fields {
+  display: grid;
+  grid-gap: 1em;
+}
+</style>

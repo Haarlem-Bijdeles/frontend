@@ -1,13 +1,18 @@
 import pkg from './package'
-const baseUrl = 'https://turbosolutions.michielkoning.nl/'
+const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 
 export default {
   mode: 'universal',
-
+  env: {
+    baseUrl,
+  },
   /*
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'nl',
+    },
     title: pkg.name,
     titleTemplate: '%s | Turbo Solutions Europe',
     meta: [
@@ -44,7 +49,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/i18n.js', '~/plugins/axios'],
+  plugins: [
+    '~/plugins/i18n.js',
+    '~/plugins/axios',
+    '~/plugins/google-maps',
+    '~/plugins/vuelidate',
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -79,6 +89,8 @@ export default {
         })
       }
     },
+    transpile: [/^vue2-google-maps($|\/)/],
+
     postcss: {
       plugins: {
         'postcss-mixins': {
