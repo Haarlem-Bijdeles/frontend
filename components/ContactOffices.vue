@@ -22,6 +22,8 @@ export default {
 .wrapper {
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: repeat(2, 1fr);
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

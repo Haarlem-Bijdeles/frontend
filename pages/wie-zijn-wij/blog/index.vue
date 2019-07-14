@@ -29,6 +29,11 @@ export default {
       posts: [],
     }
   },
+  head() {
+    return {
+      title: 'Home',
+    }
+  },
 
   mounted() {
     this.getData()

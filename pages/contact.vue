@@ -3,7 +3,7 @@
     <article>
       <app-hero
         image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
-        title="Contact"
+        :title="title"
       />
       <div class="wrapper">
         <contact-offices />
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios'
 import BlockMap from '@/components/BlockMap.vue'
 import AppHero from '@/components/AppHero.vue'
 import ContactOffices from '@/components/ContactOffices.vue'
@@ -36,6 +37,17 @@ export default {
   meta: {
     step: 5,
   },
+  async asyncData({ params }) {
+    const response = await axios.get(`wp/v2/pages/`, {
+      params: {
+        slug: 'contact',
+      },
+    })
+
+    return {
+      title: response.data[0].title.rendered,
+    }
+  },
 }
 </script>
 
@@ -45,6 +57,8 @@ export default {
   @mixin block-padding;
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: 2fr 1fr;
+  @media (--viewport-md) {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 </style>

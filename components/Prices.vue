@@ -198,7 +198,7 @@ export default {
   @mixin list-reset;
   display: grid;
   grid-gap: var(--gutter);
-  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
 }
 
 .item {

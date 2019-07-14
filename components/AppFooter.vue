@@ -1,96 +1,54 @@
 <template>
-  <footer>
+  <footer class="footer">
     <notch-wrapper>
       <div class="wrapper">
-        <a
-          href="https://www.haarlembijdeles.nl"
-          title="Haarlem Bijdeles"
-          class="logo"
-        >
+        <nuxt-link to="/" title="Haarlem Bijdeles" class="logo">
           <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
-        </a>
+        </nuxt-link>
 
         <div class="quick-links">
-          <h2 id="footer-nav-heading">Handige links</h2>
-
-          <nav
-            aria-label="footer-nav-heading"
-            class="footer-menu"
-            tabindex="-1"
-          >
-            <div class="menu__bg"></div>
-
-            <ul class="footer-menu__list">
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1379 current_page_item menu-item-1864"
-                  href="https://www.haarlembijdeles.nl/"
-                  title="Home"
-                  >Home</a
-                >
+          <nav aria-label="footer-nav-heading" class="footer-menu">
+            <h2 id="footer-nav-heading">Handige links</h2>
+            <ul class="menu">
+              <li class="menu-item">
+                <nuxt-link to="/" title="Home">Home</nuxt-link>
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1863"
-                  href="https://www.haarlembijdeles.nl/huiswerkbegeleiding-haarlem/"
+              <li class="menu-item">
+                <nuxt-link
+                  to="/huiswerkbegeleiding-haarlem/"
                   title="Huiswerkbegeleiding"
-                  >Huiswerkbegeleiding</a
+                  >Huiswerkbegeleiding</nuxt-link
                 >
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1862"
-                  href="https://www.haarlembijdeles.nl/bijles-haarlem/"
-                  title="Bijles"
-                  >Bijles</a
+              <li class="menu-item">
+                <nuxt-link to="/bijles-haarlem/" title="Bijles"
+                  >Bijles</nuxt-link
                 >
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1861"
-                  href="https://www.haarlembijdeles.nl/examentraining-haarlem/"
-                  title="Examentraining"
-                  >Examentraining</a
+              <li class="menu-item">
+                <nuxt-link to="/werkwijze/" title="Werkwijze"
+                  >Werkwijze</nuxt-link
                 >
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1868"
-                  href="https://www.haarlembijdeles.nl/werkwijze/"
-                  title="Werkwijze"
-                  >Werkwijze</a
+              <li class="menu-item">
+                <nuxt-link to="/wie-zijn-wij/blog/" title="Bijdeles Blog"
+                  >Bijdeles Blog</nuxt-link
                 >
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1865"
-                  href="https://www.haarlembijdeles.nl/wie-zijn-wij/blog/"
-                  title="Bijdeles Blog"
-                  >Bijdeles Blog</a
+              <li class="menu-item">
+                <nuxt-link to="/wie-zijn-wij/de-docenten/" title="De docenten"
+                  >De docenten</nuxt-link
                 >
               </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1867"
-                  href="https://www.haarlembijdeles.nl/wie-zijn-wij/de-docenten/"
-                  title="De docenten"
-                  >De docenten</a
-                >
-              </li>
-              <li class="footer-menu__item">
-                <a
-                  class="footer-menu__link  menu-item menu-item-type-post_type menu-item-object-page menu-item-1866"
-                  href="https://www.haarlembijdeles.nl/contact/"
-                  title="Contact"
-                  >Contact</a
-                >
+              <li class="menu-item">
+                <nuxt-link to="/contact/" title="Contact">Contact</nuxt-link>
               </li>
             </ul>
           </nav>
         </div>
         <div class="address">
           <h2>Contact</h2>
-          <address itemscope itemtype="http://schema.org/Organization">
+          <nuxt-linkddress itemscope itemtype="http://schema.org/Organization">
             <p itemprop="name">Haarlem Bijdeles</p>
             <p
               itemprop="address"
@@ -122,9 +80,18 @@
             <p>
               KVK: 57774374
             </p>
-          </address>
+          </nuxt-linkddress>
         </div>
-        <social-media-links />
+        <div>
+          <h2>Volg ons op</h2>
+          <social-media-links
+            title="Haarlem bijdeles"
+            facebook-url="https://www.facebook.com/haarlembijdeles"
+            twitter-url="https://twitter.com/haarlembijdeles"
+            linked-in-url="https://www.linkedin.com/company-beta/5025367/"
+            instagram-url="https://www.instagram.com/haarlembijdeles/"
+          />
+        </div>
       </div>
     </notch-wrapper>
   </footer>
@@ -145,7 +112,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-footer {
+.footer {
   @mixin color-negative;
 }
 
@@ -159,7 +126,7 @@ footer {
   justify-items: start;
 }
 
-ul {
+.menu {
   @mixin list-reset;
 }
 
