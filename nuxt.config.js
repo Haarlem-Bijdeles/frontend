@@ -1,3 +1,4 @@
+import axios from 'axios'
 import pkg from './package'
 const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 
@@ -14,7 +15,7 @@ export default {
       lang: 'nl',
     },
     title: pkg.name,
-    titleTemplate: '%s | Turbo Solutions Europe',
+    titleTemplate: '%s | Haarlem bijdeles',
     meta: [
       { charset: 'utf-8' },
       {
@@ -44,7 +45,7 @@ export default {
    */
   css: ['~/styles/base.css'],
   router: {
-    middleware: ['i18n'],
+    middleware: ['i18n', 'steps'],
   },
   /*
    ** Plugins to load before mounting the App
@@ -108,7 +109,22 @@ export default {
       },
     },
   },
+  generate: {
+    async routes() {
+      const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+      const posts = response.data.map(post => post.slug)
+      const urls = ['biography', ...posts]
+
+      return urls
+    },
+  },
   sitemap: {
-    hostname: baseUrl,
+    hostname: 'https://www.haarlembijdeles.nl/',
+    async routes() {
+      const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+      return response.data.map(
+        post => `https://www.haarlembijdeles.nl/${post.slug}`,
+      )
+    },
   },
 }

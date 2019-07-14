@@ -1,7 +1,7 @@
 <template>
   <section class="testimonials" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" class="sr-only">Onze waarderingen</h2>
-    <ul class="testimonials__list">
+    <ul class="list">
       <li class="testimonial">
         <div class="testimonial__text">
           <blockquote class="quote">
@@ -40,7 +40,7 @@
   @mixin block-padding;
 }
 
-.testimonials__list {
+.list {
   @mixin list-reset;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));

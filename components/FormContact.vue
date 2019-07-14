@@ -31,6 +31,7 @@
           title="E-mailaddress"
           :error-message="errorMessageEmail"
         />
+        <form-input-text type="tel" name="phone" title="Telefoonnummer" />
         <form-textarea
           v-model.trim="form.message"
           name="message"
@@ -38,7 +39,7 @@
           type="message"
           title="Bericht"
         />
-        <button type="submit" class="btn">Send</button>
+        <button type="submit" class="btn">Verzenden</button>
       </form-fieldset>
     </form>
   </div>

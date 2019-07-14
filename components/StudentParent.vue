@@ -41,7 +41,7 @@
 </template>
 
 <style lang="postcss" scoped>
-.highlights {
+.student-parent {
   @mixin center;
 }
 
@@ -60,18 +60,18 @@
       position: absolute;
       pointer-events: none;
       border-top-color: #88b7d5;
-      border-top-width: 30px;
+      border-top-width: 2em;
       z-index: 9;
     }
 
     &::before {
-      border-left-width: 30px;
+      border-left-width: 2em;
       right: 50%;
       border-top-color: #06b326;
     }
 
     &::after {
-      border-right-width: 30px;
+      border-right-width: 2em;
       left: 50%;
       border-top-color: #b5e8bd;
     }
@@ -80,12 +80,12 @@
 
 .parent,
 .student {
-  padding: 2em 2em;
+  padding: var(--gutter);
 }
 
 .student {
   background: #06b326;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .parent {

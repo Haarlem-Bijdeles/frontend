@@ -20,6 +20,9 @@ export default {
     AppPost,
     AppHero,
   },
+  meta: {
+    step: 4,
+  },
   data() {
     return {
       title: this.$t('biography'),

@@ -25,6 +25,9 @@ export default {
       title: this.$t('contact'),
     }
   },
+  meta: {
+    step: 5,
+  },
 }
 </script>
 
