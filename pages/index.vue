@@ -12,7 +12,6 @@
     </article>
 
     <services />
-    <testimonials />
   </div>
 </template>
 
@@ -21,7 +20,6 @@ import axios from '~/plugins/axios'
 import Intro from '@/components/Intro.vue'
 import AppHero from '@/components/AppHero.vue'
 import Services from '@/components/Services.vue'
-import Testimonials from '@/components/Testimonials.vue'
 import Usps from '@/components/Usps.vue'
 
 export default {
@@ -30,7 +28,6 @@ export default {
     Usps,
     Intro,
     Services,
-    Testimonials,
   },
   meta: {
     step: 0,
@@ -45,6 +42,11 @@ export default {
     return {
       title: response.data[0].title.rendered,
       text: response.data[0].content.rendered,
+    }
+  },
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

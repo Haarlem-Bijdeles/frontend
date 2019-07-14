@@ -11,7 +11,6 @@
 
     <student-parent />
     <prices />
-    <testimonials />
   </div>
 </template>
 
@@ -19,7 +18,6 @@
 import axios from '~/plugins/axios'
 import Intro from '@/components/Intro.vue'
 import AppHero from '@/components/AppHero.vue'
-import Testimonials from '@/components/Testimonials.vue'
 import Prices from '@/components/Prices.vue'
 import StudentParent from '@/components/StudentParent.vue'
 
@@ -29,7 +27,6 @@ export default {
     Intro,
     StudentParent,
     Prices,
-    Testimonials,
   },
   meta: {
     step: 1,
@@ -44,6 +41,11 @@ export default {
     return {
       title: response.data[0].title.rendered,
       text: response.data[0].content.rendered,
+    }
+  },
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

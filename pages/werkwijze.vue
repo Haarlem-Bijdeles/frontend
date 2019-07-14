@@ -9,8 +9,6 @@
       <intro :text="text" />
     </article>
     <way-we-work />
-
-    <testimonials />
   </div>
 </template>
 
@@ -19,14 +17,12 @@ import axios from '~/plugins/axios'
 
 import AppHero from '@/components/AppHero.vue'
 import Intro from '@/components/Intro.vue'
-import Testimonials from '@/components/Testimonials.vue'
 import WayWeWork from '@/components/WayWeWork.vue'
 
 export default {
   components: {
     AppHero,
     Intro,
-    Testimonials,
     WayWeWork,
   },
   meta: {
@@ -42,6 +38,11 @@ export default {
     return {
       title: response.data[0].title.rendered,
       text: response.data[0].content.rendered,
+    }
+  },
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

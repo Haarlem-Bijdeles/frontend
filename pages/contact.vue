@@ -31,7 +31,7 @@ export default {
 
   head() {
     return {
-      title: this.$t('contact'),
+      title: this.title,
     }
   },
   meta: {

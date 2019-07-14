@@ -9,8 +9,6 @@
 
       <intro :text="text" />
     </article>
-
-    <testimonials />
   </div>
 </template>
 
@@ -18,17 +16,21 @@
 import axios from '~/plugins/axios'
 import AppHero from '@/components/AppHero.vue'
 import Intro from '@/components/Intro.vue'
-import Testimonials from '@/components/Testimonials.vue'
 
 export default {
   components: {
     AppHero,
     Intro,
-    Testimonials,
   },
   meta: {
     step: 2,
   },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
+
   async asyncData({ params }) {
     const response = await axios.get(`wp/v2/pages/`, {
       params: {

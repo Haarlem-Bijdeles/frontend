@@ -16,10 +16,7 @@
         :post="teacher"
       />
     </ul>
-
     <videos />
-
-    <testimonials />
   </div>
 </template>
 
@@ -27,7 +24,6 @@
 import axios from '~/plugins/axios'
 import AppHero from '@/components/AppHero.vue'
 import Intro from '@/components/Intro.vue'
-import Testimonials from '@/components/Testimonials.vue'
 import Teacher from '@/components/Teacher.vue'
 import Videos from '@/components/Videos.vue'
 
@@ -35,7 +31,6 @@ export default {
   components: {
     AppHero,
     Intro,
-    Testimonials,
     Teacher,
     Videos,
   },
@@ -91,9 +86,10 @@ export default {
   },
   head() {
     return {
-      title: 'De docenten',
+      title: this.title,
     }
   },
+
   async asyncData({ params }) {
     const response = await axios.get(`wp/v2/pages/`, {
       params: {
