@@ -88,7 +88,7 @@ header {
   max-height: 100vh;
 
   @media (--show-full-navigation) {
-    padding: 1em var(--gutter) 1em 0;
+    padding: 1em var(--gutter) 0 0;
     flex-direction: column;
     overflow: visible;
     transform: translateY(0);

@@ -140,9 +140,10 @@ nav {
   border-bottom: 1px solid var(--color-white);
 
   @media (--show-full-navigation) {
+    margin-left: var(--gutter);
     display: flex;
     border-bottom: 0;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
@@ -156,6 +157,7 @@ nav {
 
 .title {
   transition: box-shadow 0.1s ease-out;
+  padding: 0.25em 0;
 }
 
 .submenu-link,
@@ -173,12 +175,12 @@ nav {
   &:hover {
     text-decoration: none;
     & .title {
-      box-shadow: 0 3px 0 0 currentColor;
+      box-shadow: 0 2px 0 0 currentColor;
     }
   }
   @media (--show-full-navigation) {
     border-top: 0;
-    padding: 0.25em 0;
+    padding: 0;
   }
 }
 
@@ -192,7 +194,7 @@ nav {
 }
 
 .arrow {
-  height: 2px;
+  height: 3px;
   background: currentColor;
   display: none;
 

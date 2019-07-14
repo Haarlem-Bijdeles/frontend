@@ -1,8 +1,14 @@
 <template>
   <div>
-    <article class="wrapper">
-      <contact-offices />
-      <form-contact />
+    <article>
+      <app-hero
+        image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
+        title="Contact"
+      />
+      <div class="wrapper">
+        <contact-offices />
+        <form-contact />
+      </div>
     </article>
     <block-map />
   </div>
@@ -10,6 +16,7 @@
 
 <script>
 import BlockMap from '@/components/BlockMap.vue'
+import AppHero from '@/components/AppHero.vue'
 import ContactOffices from '@/components/ContactOffices.vue'
 import FormContact from '@/components/FormContact.vue'
 
@@ -18,6 +25,7 @@ export default {
     BlockMap,
     ContactOffices,
     FormContact,
+    AppHero,
   },
 
   head() {

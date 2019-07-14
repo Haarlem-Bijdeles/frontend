@@ -3,9 +3,8 @@
     <article>
       <app-hero
         image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
-        title="Bijles"
+        title="Werkwijze"
       />
-      <usps />
 
       <intro class="content" />
     </article>
