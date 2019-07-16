@@ -18,7 +18,6 @@
 
     <div class="list">
       <archive-wrapper
-        id="werkijze-1"
         image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/08/IMG_4737-280x0-c-default.jpg"
       >
         <template v-slot:title>

@@ -1,20 +1,20 @@
 <template>
   <li class="item">
-    <archive-wrapper :image="post.image">
+    <archive-wrapper :image="teacher.image">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
-        <span v-html="post.title.rendered" />
+        <span v-html="teacher.name" />
       </template>
 
       <!-- eslint-disable-next-line -->
-      <p v-html="post.excerpt.rendered" />
+      <p v-html="teacher.bio" />
 
       <social-media-links
-        :title="post.title.rendered"
-        facebook-url="https://www.facebook.com/haarlembijdeles"
-        twitter-url="https://twitter.com/haarlembijdeles"
-        linked-in-url="https://www.linkedin.com/company-beta/5025367/"
-        instagram-url="https://www.instagram.com/haarlembijdeles/"
+        :title="teacher.name"
+        :facebook-url="teacher.facebook"
+        :twitter-url="teacher.twitter"
+        :linked-in-url="teacher.linkedin"
+        :instagram-url="teacher.instagram"
       />
     </archive-wrapper>
   </li>
@@ -30,7 +30,7 @@ export default {
     SocialMediaLinks,
   },
   props: {
-    post: {
+    teacher: {
       type: Object,
       required: true,
     },

@@ -1,11 +1,7 @@
 <template>
   <div>
     <article>
-      <app-hero
-        size="large"
-        image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
-        :title="title"
-      />
+      <app-hero size="large" :image2="image" :title="title" />
       <usps />
 
       <intro :text="text" />
@@ -36,12 +32,15 @@ export default {
     const response = await axios.get(`wp/v2/pages/`, {
       params: {
         slug: 'welkom-huiswerkbegeleiding-haarlem',
+        _embed: '1',
       },
     })
+    const { data } = response
 
     return {
-      title: response.data[0].title.rendered,
-      text: response.data[0].content.rendered,
+      title: data[0].title.rendered,
+      text: data[0].content.rendered,
+      image: data[0]._embedded['wp:featuredmedia'][0],
     }
   },
   head() {

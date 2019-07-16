@@ -1,8 +1,8 @@
 {
-  "name": "starter-template",
+  "name": "haarlem-bijdeles",
   "version": "1.0.0",
   "private": true,
-  "description": "My sensational Nuxt.js project",
+  "description": " Huiswerkbegeleiding in het centrum van Haarlem ",
   "author": "Michiel Koning",
   "scripts": {
     "build": "nuxt build",

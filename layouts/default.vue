@@ -5,8 +5,8 @@
       <nuxt />
     </main>
     <testimonials />
-    <error-handler />
     <app-footer />
+    <error-handler />
   </div>
 </template>
 

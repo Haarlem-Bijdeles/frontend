@@ -1,10 +1,7 @@
 <template>
   <div>
     <article>
-      <app-hero
-        image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
-        :title="title"
-      />
+      <app-hero :image2="image" :title="title" />
       <usps />
 
       <intro :text="text" />
@@ -12,8 +9,8 @@
     <ul class="list">
       <teacher
         v-for="teacher in teachers"
-        :key="teacher.title.rendered"
-        :post="teacher"
+        :key="teacher.name"
+        :teacher="teacher"
       />
     </ul>
     <videos />
@@ -34,56 +31,6 @@ export default {
     Teacher,
     Videos,
   },
-  data() {
-    return {
-      teachers: [
-        {
-          image:
-            'https://www.haarlembijdeles.nl/wp-content/uploads/2017/08/170208_Bijdeles_08_LR-280x0-c-default.jpg',
-          title: {
-            rendered: 'Tim',
-          },
-          excerpt: {
-            rendered:
-              'Tim Koning heeft vwo Economie & Maatschappij afgerond op de Vrije School in Haarlem. Hij heeft Sport Marketing afgerond aan de Johan Cruyff University en heeft zijn bachelor Psychologie aan de Universiteit van Amsterdam behaald. Tim heeft hierbij als specialisatie de klinische richting gekozen. Daarnaast heeft hij een master behaald in Sport- en Prestatiepsychologie. Deze master heeft veel raakvlakken met het onderwijs, hier gaat het immers ook om presteren. Daarnaast is Tim actief geweest als invaldocent bij het Sancta Maria. Tim is onze rainman, de man van de cijfers. Vakken waarin Tim bijles geeft zijn o.a. Wiskunde, Economie, Natuurkunde, M&O en Scheikunde. ',
-          },
-        },
-        {
-          image:
-            'https://www.haarlembijdeles.nl/wp-content/uploads/2017/08/170208_Bijdeles_11_LR-280x0-c-default.jpg',
-          title: {
-            rendered: 'Michiel',
-          },
-          excerpt: {
-            rendered:
-              'Michiel van Schagen heeft vwo Cultuur & Maatschappij afgerond op de Vrije School in Haarlem. Daarna heeft hij Politicologie gestudeerd aan de Universiteit van Amsterdam. Michiel heeft zijn Master Internationale Betrekking Cum Laude afgerond. Daarna is hij gaan werken als werkgroepdocent op de universiteit, waar hij werkgroepen Public Policy geeft aan studenten. Hij geeft de bijlessen in talen, geschiedenis en aardrijkskunde. Michiel geeft niet alleen bijlessen, hij helpt studenten ook met schrijfopdrachten en scripties.',
-          },
-        },
-        {
-          image:
-            'https://www.haarlembijdeles.nl/wp-content/uploads/2017/08/170208_Bijdeles_08_LR-280x0-c-default.jpg',
-          title: {
-            rendered: 'Tim',
-          },
-          excerpt: {
-            rendered:
-              'Tim Koning heeft vwo Economie & Maatschappij afgerond op de Vrije School in Haarlem. Hij heeft Sport Marketing afgerond aan de Johan Cruyff University en heeft zijn bachelor Psychologie aan de Universiteit van Amsterdam behaald. Tim heeft hierbij als specialisatie de klinische richting gekozen. Daarnaast heeft hij een master behaald in Sport- en Prestatiepsychologie. Deze master heeft veel raakvlakken met het onderwijs, hier gaat het immers ook om presteren. Daarnaast is Tim actief geweest als invaldocent bij het Sancta Maria. Tim is onze rainman, de man van de cijfers. Vakken waarin Tim bijles geeft zijn o.a. Wiskunde, Economie, Natuurkunde, M&O en Scheikunde. ',
-          },
-        },
-        {
-          image:
-            'https://www.haarlembijdeles.nl/wp-content/uploads/2017/08/170208_Bijdeles_11_LR-280x0-c-default.jpg',
-          title: {
-            rendered: 'Michiel',
-          },
-          excerpt: {
-            rendered:
-              'Michiel van Schagen heeft vwo Cultuur & Maatschappij afgerond op de Vrije School in Haarlem. Daarna heeft hij Politicologie gestudeerd aan de Universiteit van Amsterdam. Michiel heeft zijn Master Internationale Betrekking Cum Laude afgerond. Daarna is hij gaan werken als werkgroepdocent op de universiteit, waar hij werkgroepen Public Policy geeft aan studenten. Hij geeft de bijlessen in talen, geschiedenis en aardrijkskunde. Michiel geeft niet alleen bijlessen, hij helpt studenten ook met schrijfopdrachten en scripties.',
-          },
-        },
-      ],
-    }
-  },
   head() {
     return {
       title: this.title,
@@ -91,14 +38,21 @@ export default {
   },
 
   async asyncData({ params }) {
-    const response = await axios.get(`wp/v2/pages/`, {
+    const teachers = await axios.get('/site/v1/teachers')
+    const response = await axios.get(`wp/v2/pages/?_embed`, {
       params: {
         slug: 'de-docenten',
+        _embed: '1',
       },
     })
 
+    const { data } = response
+
     return {
-      title: response.data[0].title.rendered,
+      title: data[0].title.rendered,
+      teachers: teachers.data.teachers,
+      text: data[0].excerpt.rendered,
+      image: data[0]._embedded['wp:featuredmedia'][0],
     }
   },
 

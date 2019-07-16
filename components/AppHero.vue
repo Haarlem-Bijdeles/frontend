@@ -1,8 +1,20 @@
 <template>
-  <div class="hero" :class="size">
-    <img :src="image" alt="" class="image" />
+  <div v-if="image2" class="hero" :class="size">
+    <img
+      :src="image2.media_details.sizes.hero_medium.source_url"
+      :alt="image2.title.rendered"
+      class="image"
+      :srcset="
+        `
+        ${image2.media_details.sizes.hero_large.source_url} 1140w,
+        ${image2.media_details.sizes.hero_medium.source_url} 800w,
+        ${image2.media_details.sizes.hero_small.source_url} 640w`
+      "
+      sizes="(min-width: 1140px) 1140px, 100vw"
+    />
+
     <div class="wrapper">
-      <h1 id="content" class="title js-skip-content">
+      <h1 id="content" class="title">
         {{ title }}
       </h1>
     </div>
@@ -16,9 +28,13 @@ export default {
       type: String,
       default: 'small',
     },
+    image2: {
+      type: Object,
+      default: () => {},
+    },
     image: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
