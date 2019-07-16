@@ -3,25 +3,33 @@
     <li v-if="facebookUrl">
       <a :href="facebookUrl" class="link" rel="noopener" target="_blank">
         <icon-facebook aria-hidden="true" width="24" height="24" />
-        <span class="sr-only">Volg {{ title }} op Facebook</span>
+        <span class="sr-only">
+          {{ $t('followOn', { title, network: 'Facebook' }) }}
+        </span>
       </a>
     </li>
     <li v-if="twitterUrl">
       <a :href="twitterUrl" class="link" rel="noopener" target="_blank">
         <icon-twitter aria-hidden="true" width="24" height="24" />
-        <span class="sr-only">Volg {{ title }} op Twitter</span>
+        <span class="sr-only">
+          {{ $t('followOn', { title, network: 'Twitter' }) }}
+        </span>
       </a>
     </li>
     <li v-if="linkedInUrl">
       <a :href="linkedInUrl" class="link" rel="noopener" target="_blank">
         <icon-linkedin aria-hidden="true" width="24" height="24" />
-        <span class="sr-only">Volg {{ title }} op LinkedIn</span>
+        <span class="sr-only">
+          {{ $t('followOn', { title, network: 'LinkedIn' }) }}
+        </span>
       </a>
     </li>
     <li v-if="instagramUrl">
       <a :href="instagramUrl" class="link" rel="noopener" target="_blank">
         <icon-instagram aria-hidden="true" width="24" height="24" />
-        <span class="sr-only">Volg {{ title }} op Instagram</span>
+        <span class="sr-only">
+          {{ $t('followOn', { title, network: 'Instagram' }) }}
+        </span>
       </a>
     </li>
   </ul>
@@ -69,7 +77,7 @@ export default {
 .list {
   @mixin list-reset;
   display: grid;
-  grid-template-columns: repeat(4, 2em);
+  grid-template-columns: repeat(auto-fill, minmax(2em, 1fr));
 }
 
 .link {

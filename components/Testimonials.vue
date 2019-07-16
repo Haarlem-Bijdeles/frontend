@@ -1,43 +1,48 @@
 <template>
-  <section class="testimonials" aria-labelledby="testimonials-title">
-    <h2 id="testimonials-title" class="sr-only">Onze waarderingen</h2>
+  <section
+    v-if="testimonials.length"
+    class="testimonials"
+    aria-labelledby="testimonials-title"
+  >
+    <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
     <ul class="list">
-      <li class="testimonial">
-        <div class="testimonial__text">
-          <blockquote class="quote">
-            <cite class="cite">Vader Daaf</cite>
-            Dank voor de tomeloze inzet en hulp!
-          </blockquote>
-        </div>
-      </li>
-      <li class="testimonial">
-        <div class="testimonial__text">
-          <blockquote class="quote">
-            <cite class="cite">Ouder Ashfaq</cite>
-            Door huiswerkbegeleiding is zoveel meer dan de hulp bij het maken
-            van huiswerk. Jullie positieve aanpak en coaching heeft enorm
-            geholpen! Niet alleen bij het stimuleren van schoolwerk, maar ook
-            als persoon.
-          </blockquote>
-        </div>
-      </li>
-      <li class="testimonial">
-        <div class="testimonial__text">
-          <blockquote class="quote">
-            <cite class="cite">Moeder Sem</cite>
-            Naast de cijfers die zijn verbeterd is het zelfvertrouwen enorm
-            gegroeid.
-          </blockquote>
-        </div>
+      <li v-for="testimonial in testimonials" :key="testimonial.title">
+        <blockquote class="quote">
+          <cite class="cite">{{ testimonial.title }}</cite>
+          <!-- eslint-disable-next-line -->
+          <span v-html="testimonial.quote" />
+        </blockquote>
       </li>
     </ul>
   </section>
 </template>
 
+<script>
+import axios from '~/plugins/axios'
+
+export default {
+  data() {
+    return {
+      testimonials: [],
+    }
+  },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    async getData() {
+      const response = await axios.get(`site/v1/testimonials/`)
+      this.testimonials = response.data
+    },
+  },
+}
+</script>
+
 <style lang="postcss" scoped>
 .testimonials {
   @mixin center;
   @mixin block-padding;
+  text-align: center;
 }
 
 .list {
@@ -45,10 +50,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
   grid-gap: var(--gutter);
-}
-
-.testimonial {
-  text-align: center;
 }
 
 .cite {

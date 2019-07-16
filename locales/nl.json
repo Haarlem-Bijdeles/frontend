@@ -1,4 +1,10 @@
 {
+  "ourRatings": "Onze waarderingen",
+  "followOn": "Bekijk %{title} op %{network}",
+  "addresses": "Adressen",
+  "direction": "Routebeschrijving",
+  "usefulLinks": "Handige links",
+  "on": "op",
   "albums": "Albums",
   "biography": "Biography",
   "contact": "Contact",
@@ -19,7 +25,6 @@
   "mainNavigation": "Main navigation",
   "readFullBiography": "Read the full biography",
   "view": "view",
-  "on": "on",
   "menu": "Menu",
   "gallery": "Gallery",
   "getToKnowUs": "Get to know us",

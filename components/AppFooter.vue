@@ -8,7 +8,7 @@
 
         <div class="quick-links">
           <nav aria-label="footer-nav-heading" class="footer-menu">
-            <h2 id="footer-nav-heading">Handige links</h2>
+            <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
             <ul class="menu">
               <li class="menu-item">
                 <nuxt-link to="/" title="Home">Home</nuxt-link>
@@ -48,39 +48,34 @@
         </div>
         <div class="address">
           <h2>Contact</h2>
-          <nuxt-linkddress itemscope itemtype="http://schema.org/Organization">
+          <address itemscope itemtype="http://schema.org/Organization">
             <p itemprop="name">Haarlem Bijdeles</p>
             <p
+              v-for="office in offices"
+              :key="office.zipcode"
               itemprop="address"
               itemscope
               itemtype="http://schema.org/PostalAddress"
             >
-              <span itemprop="streetAddress">Jansstraat 33</span><br />
-              <span itemprop="locality">Haarlem</span>,
-              <span itemprop="postal-code">2011RT</span>
-            </p>
-            <p
-              itemprop="address"
-              itemscope
-              itemtype="http://schema.org/PostalAddress"
-            >
-              <span itemprop="streetAddress">Wagenweg 21</span><br />
-              <span itemprop="locality">Haarlem</span>,
-              <span itemprop="postal-code">2012NA</span>
+              <span itemprop="streetAddress">{{ office.street }}</span>
+              <br />
+              <span itemprop="locality">{{ office.city }}</span
+              >,
+              <span itemprop="postal-code">{{ office.zipcode }}</span>
             </p>
 
             <p>
               <a href="tel:06%20-%2028%2032%2057%2033" itemprop="telephone"
                 >06 - 28 32 57 33</a
-              ><br />
+              >
+              <br />
               <a href="mailto:info@haarlembijdeles.nl" itemprop="email"
                 >info@haarlembijdeles.nl</a
-              ><br />
+              >
+              <br />
             </p>
-            <p>
-              KVK: 57774374
-            </p>
-          </nuxt-linkddress>
+            <p>KVK: 57774374</p>
+          </address>
         </div>
         <div>
           <h2>Volg ons op</h2>
@@ -101,12 +96,27 @@
 import NotchWrapper from '@/components/NotchWrapper.vue'
 import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
 import IconLogo from '@/icons/logo.svg'
+import axios from '~/plugins/axios'
 
 export default {
   components: {
     NotchWrapper,
     SocialMediaLinks,
     IconLogo,
+  },
+  data() {
+    return {
+      offices: [],
+    }
+  },
+  mounted() {
+    this.getOffices()
+  },
+  methods: {
+    async getOffices() {
+      const response = await axios.get('/site/v1/offices')
+      this.offices = response.data
+    },
   },
 }
 </script>

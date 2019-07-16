@@ -6,11 +6,11 @@
         :title="title"
       />
       <div class="wrapper">
-        <contact-offices />
+        <contact-offices :offices="offices" />
         <form-contact />
       </div>
     </article>
-    <block-map />
+    <block-map :offices="offices" />
   </div>
 </template>
 
@@ -44,8 +44,11 @@ export default {
       },
     })
 
+    const offices = await axios.get('/site/v1/offices')
+
     return {
       title: response.data[0].title.rendered,
+      offices: offices.data,
     }
   },
 }

@@ -1,9 +1,12 @@
 <template>
   <div class="offices">
-    <h2 class="title">Adressen</h2>
+    <h2 class="title">{{ $t('addresses') }}</h2>
     <div class="wrapper">
-      <contact-office />
-      <contact-office />
+      <contact-office
+        v-for="office in offices"
+        :key="office.zipcode"
+        :office="office"
+      />
     </div>
   </div>
 </template>
@@ -14,6 +17,12 @@ import ContactOffice from '@/components/ContactOffice.vue'
 export default {
   components: {
     ContactOffice,
+  },
+  props: {
+    offices: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>

@@ -1,15 +1,10 @@
 <template>
-  <notch-wrapper>
-    <GmapMap
-      ref="refMap"
-      :center="locations[0].position"
-      :zoom="15"
-      class="map"
-    >
+  <notch-wrapper v-if="offices.length">
+    <GmapMap ref="refMap" :center="offices[0].position" :zoom="15" class="map">
       <GmapMarker
-        v-for="location in locations"
-        :key="location.zipcode"
-        :position="location.position"
+        v-for="office in offices"
+        :key="office.zipcode"
+        :position="office.position"
       />
     </GmapMap>
   </notch-wrapper>
@@ -21,6 +16,12 @@ import NotchWrapper from '@/components/NotchWrapper.vue'
 export default {
   components: {
     NotchWrapper,
+  },
+  props: {
+    offices: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
