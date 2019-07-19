@@ -66,6 +66,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
+    '@nuxtjs/apollo',
   ],
   /*
    ** Axios module configuration
@@ -126,6 +127,13 @@ export default {
       return response.data.map(
         post => `https://www.haarlembijdeles.nl/${post.slug}`,
       )
+    },
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:9040/graphql',
+      },
     },
   },
 }

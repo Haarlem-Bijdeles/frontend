@@ -15,12 +15,16 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc8.2",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
     "body-scroll-lock": "^2.6.4",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
+    "vue": "^2.6.6",
     "vue-i18n": "^8.0.0",
+    "vue-server-renderer": "^2.6.6",
+    "vue-template-compiler": "^2.6.6",
     "vue2-google-maps": "^0.10.6",
     "vuelidate": "^0.7.4"
   },

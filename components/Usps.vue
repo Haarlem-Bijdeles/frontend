@@ -1,65 +1,21 @@
 <template>
   <div class="highlights">
     <div class="usps">
-      <div class="teaser__usps">
+      <div v-if="usps.length" class="teaser__usps">
         <h2 class="title">Wat kunnen jullie verwachten?</h2>
         <ul class="list">
-          <li class="item">
+          <li v-for="item in usps" :key="item.text" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Een positieve aanpak en groeiend zelfvertrouwen
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Thuis minder gedoe en meer vrije tijd
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Persoonlijke coaching door jonge, hoogopgeleide docenten
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Inhoudelijke ondersteuning en een rustige werkplek
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Aandacht voor Leren Leren en betere resultaten op school
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Leerlingenvolgsysteem op maat
+            {{ item.text }}
           </li>
         </ul>
       </div>
-      <div class="teaser__usps">
+      <div v-if="offers.length" class="teaser__usps">
         <h2 class="title">Ons aanbod:</h2>
         <ul class="list">
-          <li class="item">
+          <li v-for="item in offers" :key="item.text" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Huiswerkbegeleiding
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Bijles
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Examentraining
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Coaching
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            Alle vakken
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            vmbo, havo, vwo
-          </li>
-          <li class="item">
-            <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            In het centrum van Haarlem
+            {{ item.text }}
           </li>
         </ul>
       </div>
@@ -92,6 +48,16 @@ import IconChevronRight from '@/icons/chevron-right.svg'
 export default {
   components: {
     IconChevronRight,
+  },
+  props: {
+    usps: {
+      type: Array,
+      default: () => [],
+    },
+    offers: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>

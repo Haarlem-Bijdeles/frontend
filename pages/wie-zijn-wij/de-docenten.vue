@@ -13,7 +13,7 @@
         :teacher="teacher"
       />
     </ul>
-    <videos />
+    <videos :videos="videos" />
   </div>
 </template>
 
@@ -50,9 +50,10 @@ export default {
 
     return {
       title: data[0].title.rendered,
-      teachers: teachers.data.teachers,
       text: data[0].excerpt.rendered,
       image: data[0]._embedded['wp:featuredmedia'][0],
+      teachers: teachers.data.teachers,
+      videos: teachers.data.videos,
     }
   },
 

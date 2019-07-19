@@ -18,21 +18,11 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
-  data() {
-    return {
-      testimonials: [],
-    }
-  },
-  mounted() {
-    this.getData()
-  },
-  methods: {
-    async getData() {
-      const response = await axios.get(`site/v1/testimonials/`)
-      this.testimonials = response.data
+  props: {
+    testimonials: {
+      type: Array,
+      default: () => [],
     },
   },
 }

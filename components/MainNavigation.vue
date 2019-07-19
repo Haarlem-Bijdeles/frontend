@@ -3,73 +3,28 @@
     <h2 id="menu-title" class="sr-only" tabindex="-1">
       {{ $t('mainNavigation') }}
     </h2>
+
     <ul ref="menu" class="menu">
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(0) }"
-            >Home</span
+      <li v-for="(item, index) in menu" :key="item.ID" class="menu-item">
+        <menu-item :item="item" :index="index" class="menu-link" />
+        <ul v-if="item.children.length !== 0" class="submenu">
+          <li
+            v-for="subitem in item.children"
+            :key="subitem.ID"
+            class="submenu-item"
           >
-        </nuxt-link>
-      </li>
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/huiswerkbegeleiding-haarlem/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(1) }"
-            >Huiswerkbegeleiding</span
-          >
-        </nuxt-link>
-      </li>
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/bijles-haarlem/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(2) }"
-            >Bijles</span
-          >
-        </nuxt-link>
-      </li>
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/werkwijze/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(3) }"
-            >Werkwijze</span
-          >
-        </nuxt-link>
-      </li>
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/wie-zijn-wij/de-docenten/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(4) }"
-            >Wie zijn wij?</span
-          >
-        </nuxt-link>
+            <menu-item :item="subitem" :index="index" class="submenu-link" />
+          </li>
+        </ul>
         <icon-chevron-down
           aria-hidden="true"
           width="24"
           height="24"
           class="icon-chevron-down"
         />
-
-        <ul class="submenu">
-          <li class="submenu-item">
-            <nuxt-link class="submenu-link" to="/wie-zijn-wij/de-docenten/">
-              <span class="title" :class="{ 'link-active': isCurrentStep(0) }">
-                De docenten
-              </span>
-            </nuxt-link>
-          </li>
-          <li class="submenu-item">
-            <nuxt-link class="submenu-link" to="/wie-zijn-wij/blog/">
-              <span class="title" :class="{ 'link-active': isCurrentStep(0) }"
-                >Bijdeles Blog</span
-              >
-            </nuxt-link>
-          </li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <nuxt-link class="menu-link" to="/contact/">
-          <span class="title" :class="{ 'link-active': isCurrentStep(0) }"
-            >Contact</span
-          >
-        </nuxt-link>
       </li>
     </ul>
+
     <div
       class="arrow"
       :class="{ active: mounted }"
@@ -80,16 +35,20 @@
 
 <script>
 import IconChevronDown from '@/icons/chevron-down.svg'
+import MenuItem from '@/components/MenuItem.vue'
+import axios from '~/plugins/axios'
 
 export default {
   components: {
     IconChevronDown,
+    MenuItem,
   },
   data() {
     return {
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,
+      menu: null,
     }
   },
 
@@ -108,8 +67,13 @@ export default {
     setTimeout(() => {
       this.mounted = true
     }, 0)
+    this.getOffices()
   },
   methods: {
+    async getOffices() {
+      const response = await axios.get('/site/v1/details')
+      this.menu = response.data.menus.header
+    },
     isCurrentStep(step) {
       return this.step === step
     },
@@ -149,15 +113,30 @@ nav {
 
 .submenu {
   margin-left: 1em;
+  @mixin list-reset;
 
   @media (--show-full-navigation) {
-    display: none;
+    background: var(--color-white);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-left: 0;
+    padding: 0.25em 0;
+    white-space: nowrap;
   }
+}
+
+.menu-item {
+  position: relative;
 }
 
 .title {
   transition: box-shadow 0.1s ease-out;
   padding: 0.25em 0;
+}
+
+.menu-item:hover .submenu {
+  display: block;
 }
 
 .submenu-link,
@@ -169,18 +148,14 @@ nav {
   position: relative;
   text-decoration: none;
   line-height: 1.1;
-  padding: 0.45em 0;
-  border-top: 1px solid var(--color-white);
+  padding: 0 0.5em 0.25em;
+  border-top: 1px solid var(--color-bg-page);
 
   &:hover {
     text-decoration: none;
     & .title {
       box-shadow: 0 2px 0 0 currentColor;
     }
-  }
-  @media (--show-full-navigation) {
-    border-top: 0;
-    padding: 0;
   }
 }
 

@@ -1,5 +1,9 @@
 <template>
-  <section class="services" aria-labelledby="services-title">
+  <section
+    v-if="services.length"
+    class="services"
+    aria-labelledby="services-title"
+  >
     <img
       src="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_28_HR-800x0-c-default.jpg"
       alt="Haarlem Bijdeles - Huiswerkbegeleiding Haarlem"
@@ -14,75 +18,35 @@
     <div class="wrapper">
       <h2 id="services-title" class="title">Dit zijn onze diensten</h2>
       <ul class="list">
-        <li class="item item--transparent">
+        <li v-for="service in services" :key="service.title" class="item">
           <div class="header">
-            <h3 class="service-title">Huiswerkbegeleiding</h3>
+            <h3 class="service-title">{{ service.title }}</h3>
           </div>
           <ul class="usps">
-            <li class="usp">
-              2-5 middagen per week huiswerkbegeleiding
+            <li v-for="item in service.usps" :key="item.text" class="usp">
+              {{ item.text }}
             </li>
-            <li class="usp">
-              Twee locaties in het centrum van Haarlem
-            </li>
-            <li class="usp">
-              Persoonlijke begeleiding en ontspannen sfeer
-            </li>
-            <li class="usp">Aandacht voor Leren Leren</li>
-            <li class="usp">Planning en hulp bij toetsweken</li>
-            <li class="usp">Leerlingenvolgsysteem op maat</li>
           </ul>
-          <a
-            href="https://www.haarlembijdeles.nl/huiswerkbegeleiding-haarlem/"
-            class="btn btn-ghost"
+          <a v-if="service.link" :href="service.link" class="btn btn-ghost"
             >Meer informatie
-            <span class="sr-only">over Huiswerkbegeleiding</span></a
-          >
-        </li>
-        <li class="item item--transparent">
-          <div class="header">
-            <h3 class="service-title">Bijles</h3>
-          </div>
-          <ul class="usps">
-            <li class="usp">Inhoudelijke hulp voor elk vak</li>
-            <li class="usp">Intensief oefenen met de lesstof</li>
-            <li class="usp">Veel aandacht voor vragen</li>
-            <li class="usp">Individuele begeleiding op maat</li>
-            <li class="usp">Ervaren docenten</li>
-            <li class="usp">In het centrum van Haarlem</li>
-          </ul>
-          <a
-            href="https://www.haarlembijdeles.nl/bijles-haarlem/"
-            class="btn btn-ghost"
-            >Meer informatie <span class="sr-only">over Bijles</span></a
-          >
-        </li>
-        <li class="item item--transparent">
-          <div class="header">
-            <h3 class="service-title">Examentraining</h3>
-          </div>
-          <ul class="usps">
-            <li class="usp">Tweedaagse examentrainingen</li>
-            <li class="usp">
-              Uitgebreid oefenen met examenopgaven
-            </li>
-            <li class="usp">
-              Uitleg van de examenstof en handige tips
-            </li>
-            <li class="usp">Een samenvatting van de examenstof</li>
-            <li class="usp">SE-trainingen voor iedere SE-week</li>
-            <li class="usp">Met zelfvertrouwen de examens in!</li>
-          </ul>
-          <a
-            href="https://www.haarlembijdeles.nl/examentraining-haarlem/"
-            class="btn btn-ghost"
-            >Meer informatie <span class="sr-only">over Examentraining</span></a
+            <span class="sr-only">over {{ service.title }}</span></a
           >
         </li>
       </ul>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    services: {
+      type: Array,
+      default: () => [],
+    },
+  },
+}
+</script>
 
 <style lang="postcss" scoped>
 .services {

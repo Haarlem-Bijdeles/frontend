@@ -1,22 +1,22 @@
 <template>
-  <div>
+  <page>
     <article>
       <app-hero :image2="image" :title="title" />
       <usps />
 
       <intro :text="text" />
     </article>
-  </div>
+  </page>
 </template>
 
 <script>
 import axios from '~/plugins/axios'
-import AppHero from '@/components/AppHero.vue'
+import Page from '@/components/Page.vue'
 import Intro from '@/components/Intro.vue'
 
 export default {
   components: {
-    AppHero,
+    Page,
     Intro,
   },
   meta: {

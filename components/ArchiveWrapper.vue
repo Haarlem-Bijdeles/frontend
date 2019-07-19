@@ -2,8 +2,13 @@
   <div class="archive-bg">
     <div class="wrapper">
       <h2 class="title"><slot name="title" /></h2>
-      <div class="image-wrapper">
-        <img :src="image" alt="" class="image" />
+      <div v-if="images" class="image-wrapper">
+        <img
+          :src="images.archive[0]"
+          :alt="images.alt"
+          class="image"
+          :srcset="`${images.archive[0]} 1x, ${images.archive_2x[0]} 2x`"
+        />
       </div>
 
       <div class="text">
@@ -17,8 +22,12 @@
 export default {
   props: {
     image: {
-      type: String,
-      required: true,
+      type: [Number, String],
+      default: '',
+    },
+    images: {
+      type: Object,
+      default: () => {},
     },
   },
 }
