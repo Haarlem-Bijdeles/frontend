@@ -112,12 +112,11 @@ export default {
   },
   generate: {
     async routes() {
-      // const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
-      // const posts = response.data.map(post => post.slug)
-      const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=100`)
+      const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+      const posts = response.data.map(post => post.slug)
+      const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=11`)
       const pages = response2.data.map(page => page.slug)
-      const urls = [...pages]
-
+      const urls = [...pages, ...posts]
       return urls
     },
   },
