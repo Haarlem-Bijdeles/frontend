@@ -1,7 +1,7 @@
 import axios from 'axios'
 import pkg from './package'
 // const baseUrl = 'http://localhost:9040/wp-json/'
-const baseUrl = 'http://www.haarlembijdeles.nl/wp-json/'
+const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 
 export default {
   mode: 'universal',
