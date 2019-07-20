@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     image() {
-      if (this.page._embedded['wp:featuredmedia']) {
+      if (this.page._embedded && this.page._embedded['wp:featuredmedia']) {
         return this.page._embedded['wp:featuredmedia'][0]
       }
       return null
