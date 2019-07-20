@@ -11,6 +11,15 @@ export default {
     Page,
   },
 
+  computed: {
+    meta() {
+      return this.page.yoast_meta.map(item => {
+        item.hid = item.name ? item.name : item.property
+        return item
+      })
+    },
+  },
+
   async asyncData({ params }) {
     const response = await axios.get(`wp/v2/pages/`, {
       params: {
@@ -28,7 +37,7 @@ export default {
   head() {
     return {
       title: this.page.title.rendered,
-      meta: this.page.yoast_meta,
+      meta: this.meta,
     }
   },
 }

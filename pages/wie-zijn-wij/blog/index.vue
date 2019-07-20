@@ -4,7 +4,7 @@
       image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
       title="Bijdeles Blog"
     />
-    <ul class="list">
+    <ul v-if="posts.length" class="list">
       <app-post v-for="post in posts" :key="post.slug" :post="post" />
     </ul>
   </div>
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       title: this.$t('biography'),
-      posts: [],
     }
   },
   head() {
@@ -34,15 +33,11 @@ export default {
       title: 'Home',
     }
   },
-
-  mounted() {
-    this.getData()
-  },
-  methods: {
-    async getData() {
-      const response = await axios.get(`wp/v2/posts/`)
-      this.posts = response.data
-    },
+  async asyncData({ params }) {
+    const response = await axios.get(`wp/v2/posts/`)
+    return {
+      posts: response.data,
+    }
   },
 }
 </script>
