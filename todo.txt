@@ -1,7 +1,6 @@
 Huiswerkbegeleiding
 
 menu (+mobile)
-google maps
 yoast
 werkwijze
 blog

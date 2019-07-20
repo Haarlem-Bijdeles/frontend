@@ -4,41 +4,40 @@
       Voor de ouders en leerling
     </h1>
     <div class="wrapper">
-      <div class="student">
+      <div v-if="students.length" class="student">
         <h2>Voor de leerling:</h2>
         <ul class="list">
-          <li>
-            Persoonlijke aandacht van betrokken docenten
+          <li v-for="item in students" :key="item.text">
+            {{ item.text }}
           </li>
-          <li>
-            Een vrije en ontspannen sfeer waar rustig gewerkt kan worden
-          </li>
-          <li>Inhoudelijke hulp bij alle vakken</li>
-          <li>
-            Ondersteuning bij het maken van een planning
-          </li>
-          <li>Overhoringen en SO’s voor proefwerken</li>
-          <li>Focus op het Leren Leren</li>
         </ul>
       </div>
-      <div class="parent">
+      <div v-if="parents.length" class="parent">
         <h2>Voor de ouders:</h2>
         <ul class="list">
-          <li>Gratis en vrijblijvend kennismakingsgesprek</li>
-          <li>Geen opzegtermijn</li>
-          <li>Eigen leerlingenvolgsysteem Maginda</li>
-          <li>Maandelijks verslag van de vorderingen</li>
-          <li>
-            Betere resultaten op school en een gemotiveerder kind
-          </li>
-          <li>
-            Het verminderen van stress aan het thuisfront
+          <li v-for="item in parents" :key="item.text">
+            {{ item.text }}
           </li>
         </ul>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    students: {
+      type: Array,
+      default: () => [],
+    },
+    parents: {
+      type: Array,
+      default: () => [],
+    },
+  },
+}
+</script>
 
 <style lang="postcss" scoped>
 .student-parent {

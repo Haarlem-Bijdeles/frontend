@@ -31,7 +31,12 @@
           title="E-mailaddress"
           :error-message="errorMessageEmail"
         />
-        <form-input-text type="tel" name="phone" title="Telefoonnummer" />
+        <form-input-text
+          v-model="form.phonenumber"
+          type="tel"
+          name="phone"
+          title="Telefoonnummer"
+        />
         <form-textarea
           v-model.trim="form.message"
           name="message"
@@ -65,6 +70,7 @@ export default {
         name: '',
         email: '',
         message: '',
+        phonenumber: '',
       },
     }
   },

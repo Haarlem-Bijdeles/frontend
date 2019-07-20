@@ -20,6 +20,14 @@ export default {
     AppFooter,
     ErrorHandler,
   },
+  data() {
+    return {
+      test: this.$store,
+    }
+  },
+  mounted() {
+    window.console.log(this.$store)
+  },
 }
 </script>
 

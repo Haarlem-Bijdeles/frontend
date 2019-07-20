@@ -2,6 +2,7 @@ export const state = () => ({
   locales: ['nl'],
   locale: 'nl',
   step: 0,
+  details: {},
 })
 
 export const mutations = {
@@ -12,5 +13,14 @@ export const mutations = {
   },
   SET_STEP(state, step) {
     state.step = step
+  },
+  SET_DETAILS(state) {
+    state.details = state
+  },
+}
+
+export const actions = {
+  nuxtServerInit({ commit }) {
+    commit('SET_DETAILS', '123')
   },
 }

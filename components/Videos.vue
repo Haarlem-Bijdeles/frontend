@@ -1,15 +1,9 @@
 <template>
-  <section class="videos" aria-labelledby="videos-title">
+  <section v-if="videos.length" class="videos" aria-labelledby="videos-title">
     <h2 id="videos-title" class="sr-only">Onze videos</h2>
-    <div class="video-container">
+    <div v-for="video in videos" :key="video" class="video-container">
       <iframe
-        :src="`//player.vimeo.com/video/${videos.video_1}`"
-        allowfullscreen="allowfullscreen"
-      ></iframe>
-    </div>
-    <div class="video-container">
-      <iframe
-        :src="`//player.vimeo.com/video/${videos.video_2}`"
+        :src="`//player.vimeo.com/video/${video}`"
         allowfullscreen="allowfullscreen"
       ></iframe>
     </div>
@@ -20,8 +14,8 @@
 export default {
   props: {
     videos: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
 }

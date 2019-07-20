@@ -1,5 +1,5 @@
 <template>
-  <section class="prices" aria-labelledby="prices-title">
+  <section v-if="prices" class="prices" aria-labelledby="prices-title">
     <img
       src="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_27_HR-800x0-c-default.jpg"
       alt="Haarlem Bijdeles - Huiswerkbegeleiding Haarlem"
@@ -16,9 +16,13 @@
         Kies het pakket dat bij uw kind past:
       </h1>
       <ul class="list">
-        <li class="item item--transparent">
+        <li
+          v-for="price in prices"
+          :key="price.title"
+          class="item item--transparent"
+        >
           <div class="header">
-            <div class="label">Twee dagen</div>
+            <div class="label">{{ price.title }}</div>
             <div class="value">
               <check-rounded
                 aria-hidden="true"
@@ -26,60 +30,15 @@
                 width="36"
                 height="36"
               />
-              240,- p/m
-            </div>
-          </div>
-        </li>
-        <li class="item item--transparent">
-          <div class="header">
-            <div class="label">Drie dagen</div>
-            <div class="value">
-              <check-rounded
-                aria-hidden="true"
-                class="icon"
-                width="36"
-                height="36"
-              />
-              280,- p/m
-            </div>
-          </div>
-        </li>
-        <li class="item item--recommended item--transparent">
-          <div class="badge">Meest gekozen</div>
-          <div class="header">
-            <div class="label">Vier dagen</div>
-            <div class="value">
-              <check-rounded
-                aria-hidden="true"
-                class="icon"
-                width="36"
-                height="36"
-              />
-
-              320,- p/m
-            </div>
-          </div>
-        </li>
-        <li class="item item--transparent">
-          <div class="header">
-            <div class="label">Vijf dagen</div>
-            <div class="value">
-              <check-rounded
-                aria-hidden="true"
-                class="icon"
-                width="36"
-                height="36"
-              />
-
-              350,- p/m
+              {{ price.price }}
             </div>
           </div>
         </li>
       </ul>
       <div class="buttons">
-        <a href="https://www.haarlembijdeles.nl/contact" class="btn btn-action"
-          >Maak direct een afspraak</a
-        >
+        <nuxt-link to="/contact" class="btn btn-action">
+          Maak direct een afspraak
+        </nuxt-link>
         <a href="tel:06%20-%2028%2032%2057%2033" class="btn btn-ghost"
           >Bel Tim: 06 - 28 32 57 33</a
         >
@@ -94,6 +53,12 @@ import CheckRounded from '@/icons/check-rounded.svg'
 export default {
   components: {
     CheckRounded,
+  },
+  props: {
+    prices: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>

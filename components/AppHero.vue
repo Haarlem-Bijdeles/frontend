@@ -1,6 +1,7 @@
 <template>
   <div v-if="image2" class="hero" :class="size">
     <img
+      v-if="image2.media_details.sizes.hero_large"
       :src="image2.media_details.sizes.hero_medium.source_url"
       :alt="image2.title.rendered"
       class="image"

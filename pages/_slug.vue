@@ -28,6 +28,7 @@ export default {
   head() {
     return {
       title: this.page.title.rendered,
+      meta: this.page.yoast_meta,
     }
   },
 }

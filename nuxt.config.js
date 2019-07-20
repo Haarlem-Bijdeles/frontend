@@ -1,7 +1,7 @@
 import axios from 'axios'
 import pkg from './package'
-const baseUrl = 'http://localhost:9040/wp-json/'
-// const baseUrl = 'http://www.haarlembijdeles.nl/wp-json/'
+// const baseUrl = 'http://localhost:9040/wp-json/'
+const baseUrl = 'http://www.haarlembijdeles.nl/wp-json/'
 
 export default {
   mode: 'universal',
@@ -46,7 +46,7 @@ export default {
    */
   css: ['~/styles/base.css'],
   router: {
-    middleware: ['i18n', 'steps'],
+    middleware: ['i18n', 'steps', 'site'],
   },
   /*
    ** Plugins to load before mounting the App
@@ -66,7 +66,6 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
-    '@nuxtjs/apollo',
   ],
   /*
    ** Axios module configuration
@@ -113,9 +112,11 @@ export default {
   },
   generate: {
     async routes() {
-      const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
-      const posts = response.data.map(post => post.slug)
-      const urls = ['biography', ...posts]
+      // const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+      // const posts = response.data.map(post => post.slug)
+      const response2 = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+      const pages = response2.data.map(post => post.slug)
+      const urls = [...pages]
 
       return urls
     },
@@ -127,13 +128,6 @@ export default {
       return response.data.map(
         post => `https://www.haarlembijdeles.nl/${post.slug}`,
       )
-    },
-  },
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: 'http://localhost:9040/graphql',
-      },
     },
   },
 }

@@ -1,12 +1,21 @@
 <template>
   <notch-wrapper v-if="offices.length">
-    <GmapMap ref="refMap" :center="offices[0].position" :zoom="15" class="map">
-      <GmapMarker
-        v-for="office in offices"
+    <gmap-map ref="refMap" :center="offices[0].position" :zoom="15" class="map">
+      <gmap-marker
+        v-for="(office, index) in offices"
         :key="office.zipcode"
+        :icon="icon"
         :position="office.position"
+        :clickable="true"
+        @click="toggleInfoWindow(office, index)"
       />
-    </GmapMap>
+      <gmap-info-window
+        :options="infoOptions"
+        :position="infoWindowPos"
+        :opened="infoWinOpen"
+        @closeclick="infoWinOpen = false"
+      />
+    </gmap-map>
   </notch-wrapper>
 </template>
 
@@ -25,42 +34,56 @@ export default {
   },
   data() {
     return {
-      locations: [
-        {
-          street: 'Jansstraat 33',
-          zipcode: '2011RT',
-          city: 'Haarlem',
-          position: {
-            lat: 52.383692,
-            lng: 4.63842,
-          },
+      icon: {
+        url:
+          'https://www.haarlembijdeles.nl/wp-content/themes/haarlembijdeles/assets/images/marker@2x.png',
+        size: { width: 30, height: 30 },
+        scaledSize: { width: 30, height: 30 },
+      },
+      infoWindowPos: null,
+      infoWinOpen: false,
+      currentID: null,
+      infoOptions: {
+        content: '',
+        // optional: offset infowindow so it visually sits nicely on top of our marker
+        pixelOffset: {
+          width: 0,
+          height: -35,
         },
-        {
-          street: 'Wagenweg 21',
-          zipcode: '2012NA',
-          city: 'Haarlem',
-          position: {
-            lat: 52.37357,
-            lng: 4.628682,
-          },
-        },
-      ],
+      },
     }
   },
   mounted() {
-    this.$refs.refMap.$mapPromise.then(map => {
-      const bounds = new window.google.maps.LatLngBounds()
+    this.boundMap()
+  },
+  methods: {
+    boundMap() {
+      this.$refs.refMap.$mapPromise.then(map => {
+        const bounds = new window.google.maps.LatLngBounds()
+        this.offices.forEach(location => {
+          const position = new window.google.maps.LatLng(
+            location.position.lat,
+            location.position.lng,
+          )
+          bounds.extend(position)
+        })
 
-      this.locations.forEach(location => {
-        const position = new window.google.maps.LatLng(
-          location.position.lat,
-          location.position.lng,
-        )
-        bounds.extend(position)
+        map.fitBounds(bounds)
       })
+    },
+    toggleInfoWindow: function(marker, ID) {
+      this.infoWindowPos = marker.position
+      this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
 
-      map.fitBounds(bounds)
-    })
+      // check if its the same marker that was selected if yes toggle
+      if (this.currentID === ID) {
+        this.infoWinOpen = !this.infoWinOpen
+      } else {
+        // if different marker set infowindow to open and reset current marker index
+        this.infoWinOpen = true
+        this.currentID = ID
+      }
+    },
   },
 }
 </script>
@@ -69,5 +92,9 @@ export default {
 .map {
   width: 100%;
   height: 20em;
+}
+
+strong {
+  display: none;
 }
 </style>
