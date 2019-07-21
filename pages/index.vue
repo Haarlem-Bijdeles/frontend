@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 import Intro from '@/components/Intro.vue'
 import AppHero from '@/components/AppHero.vue'
 import Services from '@/components/Services.vue'
@@ -28,8 +27,8 @@ export default {
   meta: {
     step: 0,
   },
-  async asyncData({ app }) {
-    const response = await axios.get(`wp/v2/pages/`, {
+  async asyncData({ $axios, app }) {
+    const response = await $axios.get(`wp/v2/pages/`, {
       params: {
         slug: 'welkom-huiswerkbegeleiding-haarlem',
         _embed: '1',
@@ -37,7 +36,7 @@ export default {
     })
     const { data } = response
 
-    const response2 = await axios.get(`site/v1/home/`)
+    const response2 = await $axios.get(`site/v1/home/`)
 
     return {
       title: data[0].title.rendered,

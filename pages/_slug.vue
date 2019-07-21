@@ -1,9 +1,10 @@
 <template>
-  <page :page="page" />
+  <div>
+    <page :page="page" />
+  </div>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 import Page from '@/components/Page.vue'
 
 export default {
@@ -12,6 +13,9 @@ export default {
   },
 
   computed: {
+    details() {
+      return this.$store.state.details
+    },
     meta() {
       return this.page.yoast_meta.map(item => {
         item.hid = item.name ? item.name : item.property
@@ -20,8 +24,8 @@ export default {
     },
   },
 
-  async asyncData({ params }) {
-    const response = await axios.get(`wp/v2/pages/`, {
+  async asyncData({ $axios, params }) {
+    const response = await $axios.get(`wp/v2/pages/`, {
       params: {
         slug: params.slug,
         _embed: 1,
@@ -33,6 +37,10 @@ export default {
       page,
       slug: params.slug,
     }
+  },
+
+  mounted() {
+    window.console.log(this.$store)
   },
   head() {
     return {

@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 import AppPost from '~/components/AppPost.vue'
 import AppHero from '@/components/AppHero.vue'
 
@@ -33,8 +32,8 @@ export default {
       title: 'Home',
     }
   },
-  async asyncData({ params }) {
-    const response = await axios.get(`wp/v2/posts/`)
+  async asyncData({ $axios, params }) {
+    const response = await $axios.get(`wp/v2/posts/`)
     return {
       posts: response.data,
     }

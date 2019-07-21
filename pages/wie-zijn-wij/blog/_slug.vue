@@ -1,19 +1,15 @@
 <template>
-  <article>
-    <h1>{{ title }}</h1>
-    <post-date :date="date" />
-    <!-- eslint-disable-next-line -->
-    <div class="text" v-html="text"/>
-  </article>
+  <page :page="post">
+    related posts
+  </page>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-import PostDate from '@/components/PostDate.vue'
+import Page from '@/components/Page.vue'
 
 export default {
   components: {
-    PostDate,
+    Page,
   },
   meta: {
     step: 4,
@@ -26,8 +22,8 @@ export default {
     }
   },
 
-  async asyncData({ params }) {
-    const response = await axios.get(`wp/v2/posts/`, {
+  async asyncData({ $axios, params }) {
+    const response = await $axios.get(`wp/v2/posts/`, {
       params: {
         slug: params.slug,
       },
@@ -38,6 +34,7 @@ export default {
       title: post.title.rendered,
       text: post.content.rendered,
       date: post.date,
+      post: post,
     }
   },
   head() {

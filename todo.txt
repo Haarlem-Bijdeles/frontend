@@ -1,10 +1,12 @@
 Huiswerkbegeleiding
 
 menu (+mobile)
-yoast
 werkwijze
 blog
+yoast
 
 
 nice to have
 translations
+https://medium.com/@moustachedesign/creating-a-website-with-nuxt-js-and-wordpress-rest-api-51cf66599cf3
+ca

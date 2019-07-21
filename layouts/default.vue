@@ -25,9 +25,6 @@ export default {
       test: this.$store,
     }
   },
-  mounted() {
-    window.console.log(this.$store)
-  },
 }
 </script>
 

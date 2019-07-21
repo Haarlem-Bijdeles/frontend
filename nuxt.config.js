@@ -56,6 +56,7 @@ export default {
     '~/plugins/axios',
     '~/plugins/google-maps',
     '~/plugins/vuelidate',
+    '~/plugins/details',
   ],
   /*
    ** Nuxt.js modules

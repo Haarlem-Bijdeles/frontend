@@ -2,7 +2,7 @@ export const state = () => ({
   locales: ['nl'],
   locale: 'nl',
   step: 0,
-  details: {},
+  details: null,
 })
 
 export const mutations = {
@@ -14,13 +14,14 @@ export const mutations = {
   SET_STEP(state, step) {
     state.step = step
   },
-  SET_DETAILS(state) {
-    state.details = state
+  SET_DETAILS(state, data) {
+    state.details = data
   },
 }
 
 export const actions = {
-  nuxtServerInit({ commit }) {
-    commit('SET_DETAILS', '123')
+  async nuxtServerInit({ commit }, app) {
+    const response = await app.$axios.$get('/site/v1/details')
+    await commit('SET_DETAILS', response)
   },
 }

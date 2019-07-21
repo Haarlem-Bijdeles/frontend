@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 import Page from '@/components/Page.vue'
 
 export default {
@@ -11,8 +10,8 @@ export default {
     Page,
   },
 
-  async asyncData({ params }) {
-    const response = await axios.get(`wp/v2/pages/`, {
+  async asyncData({ $axios, params }) {
+    const response = await $axios.get(`wp/v2/pages/`, {
       params: {
         slug: 'de-docenten',
         _embed: 1,
