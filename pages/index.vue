@@ -4,7 +4,7 @@
       <app-hero size="large" :image2="image" :title="title" />
       <usps :usps="usps" :offers="offers" />
 
-      <intro :text="text" />
+      <the-intro :text="text" />
     </article>
 
     <services :services="services" />
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Intro from '@/components/Intro.vue'
+import TheIntro from '@/components/TheIntro.vue'
 import AppHero from '@/components/AppHero.vue'
 import Services from '@/components/Services.vue'
 import Usps from '@/components/Usps.vue'
@@ -21,7 +21,7 @@ export default {
   components: {
     AppHero,
     Usps,
-    Intro,
+    TheIntro,
     Services,
   },
   meta: {

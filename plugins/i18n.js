@@ -4,23 +4,11 @@ import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 
 const dateTimeFormats = {
-  en: {
+  nl: {
     short: {
       year: 'numeric',
-      month: 'short',
+      month: 'long',
       day: 'numeric',
-    },
-    tour: {
-      month: 'short',
-      day: 'numeric',
-    },
-    long: {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      weekday: 'short',
-      hour: 'numeric',
-      minute: 'numeric',
     },
   },
 }

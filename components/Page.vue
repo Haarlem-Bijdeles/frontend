@@ -2,7 +2,7 @@
   <div>
     <article>
       <app-hero :image2="image" :title="page.title.rendered" />
-      <intro :text="page.content.rendered" />
+      <the-intro :text="page.content.rendered" />
     </article>
     <slot />
 
@@ -25,7 +25,7 @@
 <script>
 import Testimonials from '@/components/Testimonials.vue'
 import AppHero from '@/components/AppHero.vue'
-import Intro from '@/components/Intro.vue'
+import TheIntro from '@/components/TheIntro.vue'
 import Contact from '@/components/templates/Contact.vue'
 import Videos from '@/components/Videos.vue'
 import Teachers from '@/components/templates/Teachers.vue'
@@ -36,7 +36,7 @@ export default {
   components: {
     Testimonials,
     AppHero,
-    Intro,
+    TheIntro,
     Contact,
     Videos,
     Teachers,

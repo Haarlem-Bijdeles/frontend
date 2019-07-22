@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import PostDate from '@/components/PostDate.vue'
+import PostDate from '@/components/Blog/PostDate.vue'
 import IconChevronRight from '@/icons/chevron-right.svg'
 import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
 

@@ -1,29 +1,24 @@
 <template>
   <div class="page">
-    <app-header />
+    <the-header />
     <main>
       <nuxt />
     </main>
-    <app-footer />
+    <the-footer />
     <error-handler />
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader.vue'
-import AppFooter from '@/components/AppFooter.vue'
+import TheHeader from '@/components/TheHeader.vue'
+import TheFooter from '@/components/TheFooter.vue'
 import ErrorHandler from '@/components/ErrorHandler.vue'
 
 export default {
   components: {
-    AppHeader,
-    AppFooter,
+    TheHeader,
+    TheFooter,
     ErrorHandler,
-  },
-  data() {
-    return {
-      test: this.$store,
-    }
   },
 }
 </script>

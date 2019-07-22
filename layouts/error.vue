@@ -4,18 +4,18 @@
       image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
       :title="title"
     />
-    <intro :text="text" />
+    <the-intro :text="text" />
   </div>
 </template>
 
 <script>
 import AppHero from '@/components/AppHero.vue'
-import Intro from '@/components/Intro.vue'
+import TheIntro from '@/components/TheIntro.vue'
 
 export default {
   components: {
     AppHero,
-    Intro,
+    TheIntro,
   },
   props: {
     error: {

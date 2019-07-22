@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ContactOffice from '@/components/ContactOffice.vue'
+import ContactOffice from '@/components/Contact/ContactOffice.vue'
 
 export default {
   components: {

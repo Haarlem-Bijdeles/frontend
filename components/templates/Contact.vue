@@ -10,9 +10,9 @@
 
 <script>
 import axios from '~/plugins/axios'
-import BlockMap from '@/components/BlockMap.vue'
-import ContactOffices from '@/components/ContactOffices.vue'
-import FormContact from '@/components/FormContact.vue'
+import BlockMap from '@/components/Contact/BlockMap.vue'
+import ContactOffices from '@/components/Contact/ContactOffices.vue'
+import FormContact from '@/components/Contact/FormContact.vue'
 
 export default {
   components: {

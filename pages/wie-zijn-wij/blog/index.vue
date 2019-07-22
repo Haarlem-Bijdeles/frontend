@@ -4,19 +4,17 @@
       image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
       title="Bijdeles Blog"
     />
-    <ul v-if="posts.length" class="list">
-      <app-post v-for="post in posts" :key="post.slug" :post="post" />
-    </ul>
+    <posts :posts="posts" />
   </div>
 </template>
 
 <script>
-import AppPost from '~/components/AppPost.vue'
+import Posts from '~/components/Blog/Posts.vue'
 import AppHero from '@/components/AppHero.vue'
 
 export default {
   components: {
-    AppPost,
+    Posts,
     AppHero,
   },
   meta: {
