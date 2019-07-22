@@ -46,7 +46,7 @@ export default {
    */
   css: ['~/styles/base.css'],
   router: {
-    middleware: ['i18n', 'steps', 'site'],
+    middleware: ['i18n', 'steps', 'details'],
   },
   /*
    ** Plugins to load before mounting the App

@@ -39,9 +39,6 @@ export default {
     }
   },
 
-  mounted() {
-    window.console.log(this.$store)
-  },
   head() {
     return {
       title: this.page.title.rendered,

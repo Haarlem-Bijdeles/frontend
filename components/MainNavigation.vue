@@ -51,7 +51,6 @@ export default {
       menu: null,
     }
   },
-
   computed: {
     step() {
       return this.$store.state.step
@@ -63,6 +62,7 @@ export default {
     },
   },
   mounted() {
+    window.console.log(this.$store.state)
     this.setArrowPosition()
     setTimeout(() => {
       this.mounted = true
