@@ -1,8 +1,8 @@
 import axios from 'axios'
+import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
-const baseUrl = 'http://localhost:9040/wp-json/'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
-// import { createApolloFetch } from 'apollo-fetch';
+const baseUrl = 'http://localhost:9040/wp-json/'
 
 export default {
   mode: 'universal',
@@ -117,10 +117,27 @@ export default {
     async routes() {
       // const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
       // const posts = response.data.map(post => post.slug)
-      const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=11`)
-      const pages = response2.data.map(page => page.slug)
-      const urls = [...pages]
-      return urls
+      // const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=11`)
+      // const pages = response2.data.map(page => page.slug)
+      // const urls = [...pages]
+      // return urls
+      const uri = baseUrl
+      const apolloFetch = createApolloFetch({ uri })
+      const query = `query GET_POSTS {
+          pages {
+            edges {
+              node {
+                slug
+                template
+              }
+            }
+          }
+        }
+        `
+      const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
+      const { data } = result
+      window.console.log(result)
+      return data.pages.map(page => page.slug)
     },
   },
   sitemap: {
