@@ -9,9 +9,13 @@
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
-            <ul class="menu">
-              <li v-for="item in menu" :key="item.ID" class="menu-item">
-                <menu-item :item="item" class="menu-link" />
+            <ul v-if="menu.edges.length" class="menu">
+              <li
+                v-for="item in menu.edges[0].node.menuItems.edges"
+                :key="item.node.label"
+                class="menu-item"
+              >
+                <menu-item :item="item.node" />
               </li>
             </ul>
           </nav>
@@ -43,17 +47,15 @@
                 v-if="address.phonenumber"
                 :href="`tel:${address.phonenumber}`"
                 itemprop="telephone"
+                >{{ address.phonenumber }}</a
               >
-                {{ address.phonenumber }}
-              </a>
               <br />
               <a
                 v-if="address.email"
                 :href="`mailto:${address.email}`"
                 itemprop="email"
+                >{{ address.email }}</a
               >
-                {{ address.email }}
-              </a>
               <br />
             </p>
             <p v-if="address.kvk">KVK: {{ address.kvk }}</p>
@@ -81,6 +83,7 @@ import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
 import IconLogo from '@/icons/logo.svg'
 import axios from '~/plugins/axios'
 import MenuItem from '@/components/MenuItem.vue'
+import MenuQuery from '~/graphql/Menu.gql'
 
 export default {
   components: {
@@ -93,7 +96,6 @@ export default {
     return {
       address: null,
       socialMedia: null,
-      menu: null,
     }
   },
   mounted() {
@@ -104,7 +106,15 @@ export default {
       const response = await axios.get('/site/v1/details')
       this.address = response.data.address
       this.socialMedia = response.data.social_media
-      this.menu = response.data.menus.header
+    },
+  },
+
+  apollo: {
+    menu: {
+      query: MenuQuery,
+      variables: {
+        location: 'HEADER_MENU',
+      },
     },
   },
 }

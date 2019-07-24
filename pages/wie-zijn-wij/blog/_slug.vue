@@ -1,37 +1,42 @@
 <template>
-  <page :page="post">
-    <posts :posts="posts" />
-  </page>
+  <div>
+    <page :page="page" />
+  </div>
 </template>
 
 <script>
-import Page from '@/components/Blog/Page.vue'
-import Posts from '~/components/Blog/Posts.vue'
+import Page from '@/components/Page.vue'
+import PostQuery from '~/graphql/Post.gql'
 
 export default {
   components: {
     Page,
-    Posts,
-  },
-  meta: {
-    step: 4,
   },
 
-  async asyncData({ $axios, params }) {
-    const response = await $axios.get(`wp/v2/posts/`, {
-      params: {
-        slug: params.slug,
-      },
-    })
-    const response2 = await $axios.get(`wp/v2/posts/`)
-    return {
-      post: response.data[0],
-      posts: response2.data,
-    }
+  computed: {
+    details() {
+      return this.$store.state.details
+    },
+    meta() {
+      return this.page.yoast_meta.map(item => {
+        item.hid = item.name ? item.name : item.property
+        return item
+      })
+    },
   },
+
+  apollo: {
+    page: {
+      query: PostQuery,
+      variables: {
+        uri: 'faalangst',
+      },
+    },
+  },
+
   head() {
     return {
-      title: this.post.title.rendered,
+      title: this.page.title,
     }
   },
 }

@@ -4,18 +4,18 @@
       <div v-if="usps.length" class="teaser__usps">
         <h2 class="title">Wat kunnen jullie verwachten?</h2>
         <ul class="list">
-          <li v-for="item in usps" :key="item.text" class="item">
+          <li v-for="item in usps" :key="item" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            {{ item.text }}
+            {{ item }}
           </li>
         </ul>
       </div>
       <div v-if="offers.length" class="teaser__usps">
         <h2 class="title">Ons aanbod:</h2>
         <ul class="list">
-          <li v-for="item in offers" :key="item.text" class="item">
+          <li v-for="item in offers" :key="item" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            {{ item.text }}
+            {{ item }}
           </li>
         </ul>
       </div>
@@ -24,12 +24,18 @@
       <h2 class="title">Tarieven</h2>
       <ul class="list">
         <li class="item">
-          <icon-chevron-right aria-hidden="true" width="12" height="12" />
-          Huiswerkbegeleiding vanaf € 240,- p.m.
+          <icon-chevron-right
+            aria-hidden="true"
+            width="12"
+            height="12"
+          />Huiswerkbegeleiding vanaf € 240,- p.m.
         </li>
         <li class="item">
-          <icon-chevron-right aria-hidden="true" width="12" height="12" />
-          Individuele bijles € 30,- p.u.
+          <icon-chevron-right
+            aria-hidden="true"
+            width="12"
+            height="12"
+          />Individuele bijles € 30,- p.u.
         </li>
       </ul>
       <a class="btn btn-action" href="https://www.haarlembijdeles.nl/contact"

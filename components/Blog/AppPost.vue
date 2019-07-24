@@ -1,18 +1,16 @@
 <template>
   <li class="item" @mousedown="mouseDown" @mouseup="mouseUp">
-    <archive-wrapper
-      image="https://www.haarlembijdeles.nl/wp-content/uploads/2018/04/Team-280x0-c-default.jpg"
-    >
+    <archive-wrapper :image="post.featuredImage">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
-        <router-link :to="post.slug" v-html="post.title.rendered" />
+        <router-link :to="post.slug" v-html="post.title" />
       </template>
 
       <div class="meta">
         <post-date :date="post.date" />
       </div>
       <!-- eslint-disable-next-line -->
-      <p v-html="post.excerpt.rendered" />
+      <p v-html="post.excerpt" />
 
       <div class="link-wrapper">
         <span class="read-more">

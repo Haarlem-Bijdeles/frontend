@@ -1,23 +1,19 @@
 <template>
-  <div v-if="image2" class="hero" :class="size">
+  <div v-if="image" class="hero" :class="size">
     <img
-      v-if="image2.media_details.sizes.hero_large"
-      :src="image2.media_details.sizes.hero_medium.source_url"
-      :alt="image2.title.rendered"
+      :src="image.heroMedium"
+      :alt="image.alText"
       class="image"
       :srcset="
         `
-        ${image2.media_details.sizes.hero_large.source_url} 1140w,
-        ${image2.media_details.sizes.hero_medium.source_url} 800w,
-        ${image2.media_details.sizes.hero_small.source_url} 640w`
+        ${image.heroLarge} 1140w,
+        ${image.heroMedium} 800w,
+        ${image.heroSmall} 640w`
       "
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
-
     <div class="wrapper">
-      <h1 id="content" class="title">
-        {{ title }}
-      </h1>
+      <h1 id="content" class="title">{{ title }}</h1>
     </div>
   </div>
 </template>
@@ -29,13 +25,9 @@ export default {
       type: String,
       default: 'small',
     },
-    image2: {
+    image: {
       type: Object,
       default: () => {},
-    },
-    image: {
-      type: String,
-      default: '',
     },
     title: {
       type: String,

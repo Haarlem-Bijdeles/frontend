@@ -4,24 +4,32 @@
       {{ $t('mainNavigation') }}
     </h2>
 
-    <ul ref="menu" class="menu">
-      <li v-for="(item, index) in menu" :key="item.ID" class="menu-item">
-        <menu-item :item="item" :index="index" class="menu-link" />
-        <ul v-if="item.children.length !== 0" class="submenu">
+    <ul v-if="menu.edges.length" ref="menu" class="menu">
+      <li
+        v-for="item in menu.edges[0].node.menuItems.edges"
+        :key="item.node.label"
+        class="menu-item"
+      >
+        <menu-item :item="item.node" class="menu-link" />
+        <ul
+          v-if="item.node.childItems.edges.length"
+          ref="submenu"
+          class="submenu"
+        >
           <li
-            v-for="subitem in item.children"
-            :key="subitem.ID"
-            class="submenu-item"
+            v-for="subItem in item.node.childItems.edges"
+            :key="subItem.node.label"
+            class="menu-item"
           >
-            <menu-item :item="subitem" :index="index" class="submenu-link" />
+            <menu-item :item="subItem.node" class="menu-link" />
           </li>
+          <icon-chevron-down
+            aria-hidden="true"
+            width="24"
+            height="24"
+            class="icon-chevron-down"
+          />
         </ul>
-        <icon-chevron-down
-          aria-hidden="true"
-          width="24"
-          height="24"
-          class="icon-chevron-down"
-        />
       </li>
     </ul>
 
@@ -36,7 +44,7 @@
 <script>
 import IconChevronDown from '@/icons/chevron-down.svg'
 import MenuItem from '@/components/MenuItem.vue'
-import axios from '~/plugins/axios'
+import MenuQuery from '~/graphql/Menu.gql'
 
 export default {
   components: {
@@ -48,7 +56,6 @@ export default {
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,
-      menu: null,
     }
   },
   computed: {
@@ -67,13 +74,8 @@ export default {
     setTimeout(() => {
       this.mounted = true
     }, 0)
-    this.getOffices()
   },
   methods: {
-    async getOffices() {
-      const response = await axios.get('/site/v1/details')
-      this.menu = response.data.menus.header
-    },
     isCurrentStep(step) {
       return this.step === step
     },
@@ -85,6 +87,14 @@ export default {
         this.arrowPosition = `translateX(${activeLink.offsetLeft}px)`
         this.arrowWidth = `${activeLink.offsetWidth}px`
       }
+    },
+  },
+  apollo: {
+    menu: {
+      query: MenuQuery,
+      variables: {
+        location: 'HEADER_MENU',
+      },
     },
   },
 }

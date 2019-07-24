@@ -1,7 +1,9 @@
 <template>
-  <ul v-if="posts.length" class="list">
-    <app-post v-for="post in posts" :key="post.slug" :post="post" />
-  </ul>
+  <div>
+    <ul v-if="posts.length" class="list">
+      <app-post v-for="post in posts" :key="post.node.id" :post="post.node" />
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -14,7 +16,7 @@ export default {
   props: {
     posts: {
       type: Array,
-      required: true,
+      default: () => [],
     },
   },
 }

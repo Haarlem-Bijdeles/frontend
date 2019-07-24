@@ -6,6 +6,7 @@
 
 <script>
 import Page from '@/components/Page.vue'
+import PageQuery from '~/graphql/Page.gql'
 
 export default {
   components: {
@@ -24,25 +25,18 @@ export default {
     },
   },
 
-  async asyncData({ $axios, params }) {
-    const response = await $axios.get(`wp/v2/pages/`, {
-      params: {
-        slug: params.slug,
-        _embed: 1,
+  apollo: {
+    page: {
+      query: PageQuery,
+      variables: {
+        uri: 'bijles-haarlem',
       },
-    })
-    const page = response.data[0]
-
-    return {
-      page,
-      slug: params.slug,
-    }
+    },
   },
 
   head() {
     return {
-      title: this.page.title.rendered,
-      meta: this.meta,
+      title: this.page.title,
     }
   },
 }

@@ -1,0 +1,23 @@
+query GET_POSTS($first: Int, $after: String) {
+  posts(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+      endCursor
+      hasPreviousPage
+      startCursor
+    }
+    edges {
+      node {
+        featuredImage {
+          altText
+          thumbnail: sourceUrl(size: THUMBNAIL)
+          medium: sourceUrl(size: MEDIUM)
+        }
+        postId
+        title
+        date
+        slug
+      }
+    }
+  }
+}

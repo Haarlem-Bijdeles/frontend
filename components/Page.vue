@@ -1,8 +1,8 @@
 <template>
   <div>
     <article>
-      <app-hero :image2="image" :title="page.title.rendered" />
-      <the-intro :text="page.content.rendered" />
+      <app-hero :title="page.title" :image="page.featuredImage" />
+      <the-intro :text="page.content" />
     </article>
     <slot />
 
@@ -16,7 +16,6 @@
       v-if="page.template === 'page-service.php'"
       :service="page.service"
     />
-
     <videos v-if="page.videos" :videos="page.videos" />
     <testimonials :testimonials="page.testimonials" />
   </div>

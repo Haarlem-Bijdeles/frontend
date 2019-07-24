@@ -1,7 +1,8 @@
 import axios from 'axios'
 import pkg from './package'
-// const baseUrl = 'http://localhost:9040/wp-json/'
-const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
+const baseUrl = 'http://localhost:9040/wp-json/'
+// const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
+// import { createApolloFetch } from 'apollo-fetch';
 
 export default {
   mode: 'universal',
@@ -67,6 +68,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
+    '@nuxtjs/apollo',
   ],
   /*
    ** Axios module configuration
@@ -128,6 +130,14 @@ export default {
       return response.data.map(
         post => `https://www.haarlembijdeles.nl/${post.slug}`,
       )
+    },
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        // required
+        httpEndpoint: 'http://localhost:9040/graphql',
+      },
     },
   },
 }

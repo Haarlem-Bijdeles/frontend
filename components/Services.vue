@@ -23,14 +23,14 @@
             <h3 class="service-title">{{ service.title }}</h3>
           </div>
           <ul class="usps">
-            <li v-for="item in service.usps" :key="item.text" class="usp">
-              {{ item.text }}
+            <li v-for="item in service.items" :key="item" class="usp">
+              {{ item }}
             </li>
           </ul>
-          <a v-if="service.link" :href="service.link" class="btn btn-ghost"
-            >Meer informatie
-            <span class="sr-only">over {{ service.title }}</span></a
-          >
+          <a v-if="service.link" :href="service.link" class="btn btn-ghost">
+            Meer informatie
+            <span class="sr-only">over {{ service.title }}</span>
+          </a>
         </li>
       </ul>
     </div>

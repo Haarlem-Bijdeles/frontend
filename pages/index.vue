@@ -1,13 +1,13 @@
 <template>
   <div>
     <article>
-      <app-hero size="large" :image2="image" :title="title" />
-      <usps :usps="usps" :offers="offers" />
+      <app-hero size="large" :image="page.featuredImage" :title="page.title" />
+      <usps :usps="page.usps" :offers="page.offers" />
 
-      <the-intro :text="text" />
+      <the-intro :text="page.content" />
     </article>
 
-    <services :services="services" />
+    <services :services="page.services" />
   </div>
 </template>
 
@@ -16,6 +16,7 @@ import TheIntro from '@/components/TheIntro.vue'
 import AppHero from '@/components/AppHero.vue'
 import Services from '@/components/Services.vue'
 import Usps from '@/components/Usps.vue'
+import FrontPageQuery from '~/graphql/FrontPage.gql'
 
 export default {
   components: {
@@ -27,29 +28,13 @@ export default {
   meta: {
     step: 0,
   },
-  async asyncData({ $axios, app }) {
-    const response = await $axios.get(`wp/v2/pages/`, {
-      params: {
-        slug: 'welkom-huiswerkbegeleiding-haarlem',
-        _embed: '1',
-      },
-    })
-    const { data } = response
 
-    const response2 = await $axios.get(`site/v1/home/`)
-
-    return {
-      title: data[0].title.rendered,
-      text: data[0].content.rendered,
-      image: data[0]._embedded['wp:featuredmedia'][0],
-      usps: response2.data.usps,
-      offers: response2.data.offers,
-      services: response2.data.services,
-    }
+  apollo: {
+    page: FrontPageQuery,
   },
   head() {
     return {
-      title: this.title,
+      title: this.page.title,
     }
   },
 }

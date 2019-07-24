@@ -1,0 +1,6 @@
+query GET_PAGE_BY_URI($uri: String) {
+  page: postBy(uri: $uri) {
+    title
+    content
+  }
+}

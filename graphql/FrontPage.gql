@@ -1,0 +1,19 @@
+query GET_PAGE_BY_URI {
+  page: pageBy(pageId: 1379) {
+    title
+    content
+    featuredImage {
+      altText
+      heroLarge: sourceUrl(size: HERO_LARGE)
+      heroMedium: sourceUrl(size: HERO_MEDIUM)
+      heroSmall: sourceUrl(size: HERO_SMALL)
+    }
+    usps
+    offers
+    services {
+      link
+      title
+      items
+    }
+  }
+}
