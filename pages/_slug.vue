@@ -12,7 +12,12 @@ export default {
   components: {
     Page,
   },
-
+  props: {
+    slug: {
+      type: String,
+      default: '',
+    },
+  },
   computed: {
     details() {
       return this.$store.state.details
@@ -28,8 +33,13 @@ export default {
   apollo: {
     page: {
       query: PageQuery,
-      variables: {
-        uri: 'bijles-haarlem',
+      prefetch: ({ route }) => {
+        return {
+          slug: route.params.slug,
+        }
+      },
+      variables() {
+        return { uri: this.$route.params.slug }
       },
     },
   },

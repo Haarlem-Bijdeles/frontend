@@ -3,6 +3,7 @@ query GET_PAGE_BY_URI($uri: String) {
     title
     uri
     content
+    template
     featuredImage {
       altText
       heroLarge: sourceUrl(size: HERO_LARGE)

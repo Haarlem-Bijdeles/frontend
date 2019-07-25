@@ -5,7 +5,6 @@
       <the-intro :text="page.content" />
     </article>
     <slot />
-
     <contact v-if="page.template === 'page-contact.php'" />
     <teachers
       v-if="page.template === 'page-employers.php'"

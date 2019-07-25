@@ -69,6 +69,7 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
+    '@nuxtjs/router',
   ],
   /*
    ** Axios module configuration
@@ -121,7 +122,7 @@ export default {
       // const pages = response2.data.map(page => page.slug)
       // const urls = [...pages]
       // return urls
-      const uri = baseUrl
+      const uri = 'http://localhost:9040/graphql'
       const apolloFetch = createApolloFetch({ uri })
       const query = `query GET_POSTS {
           pages {
@@ -136,8 +137,7 @@ export default {
         `
       const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
       const { data } = result
-      window.console.log(result)
-      return data.pages.map(page => page.slug)
+      return data.pages.map(page => page.template)
     },
   },
   sitemap: {
