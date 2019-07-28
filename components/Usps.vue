@@ -4,18 +4,18 @@
       <div v-if="usps.length" class="teaser__usps">
         <h2 class="title">Wat kunnen jullie verwachten?</h2>
         <ul class="list">
-          <li v-for="item in usps" :key="item" class="item">
+          <li v-for="item in usps" :key="item.text" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            {{ item }}
+            {{ item.text }}
           </li>
         </ul>
       </div>
       <div v-if="offers.length" class="teaser__usps">
         <h2 class="title">Ons aanbod:</h2>
         <ul class="list">
-          <li v-for="item in offers" :key="item" class="item">
+          <li v-for="item in offers" :key="item.text" class="item">
             <icon-chevron-right aria-hidden="true" width="12" height="12" />
-            {{ item }}
+            {{ item.text }}
           </li>
         </ul>
       </div>

@@ -8,12 +8,18 @@ query GET_FRONT_PAGE {
       heroMedium: sourceUrl(size: HERO_MEDIUM)
       heroSmall: sourceUrl(size: HERO_SMALL)
     }
-    usps
-    offers
+    usps {
+      text
+    }
+    offers {
+      text
+    }
     services {
       link
       title
-      items
+      usps {
+        text
+      }
     }
   }
 }
