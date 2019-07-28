@@ -1,5 +1,5 @@
 <template>
-  <way-we-work :methods="page.way_we_work" />
+  <way-we-work :methods="page.methods" />
 </template>
 
 <script>

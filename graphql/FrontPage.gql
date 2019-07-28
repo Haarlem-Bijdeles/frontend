@@ -1,4 +1,4 @@
-query GET_PAGE_BY_URI {
+query GET_FRONT_PAGE {
   page: pageBy(pageId: 1379) {
     title
     content

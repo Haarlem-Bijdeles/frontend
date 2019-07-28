@@ -4,6 +4,7 @@
     <main>
       <nuxt />
     </main>
+    <the-testimonials />
     <the-footer />
     <error-handler />
   </div>
@@ -12,12 +13,14 @@
 <script>
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
+import TheTestimonials from '@/components/TheTestimonials.vue'
 import ErrorHandler from '@/components/ErrorHandler.vue'
 
 export default {
   components: {
     TheHeader,
     TheFooter,
+    TheTestimonials,
     ErrorHandler,
   },
 }

@@ -69,7 +69,7 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
-    '@nuxtjs/router',
+    // '@nuxtjs/router',
   ],
   /*
    ** Axios module configuration

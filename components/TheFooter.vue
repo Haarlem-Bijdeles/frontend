@@ -22,14 +22,10 @@
         </div>
         <div class="address">
           <h2>Contact</h2>
-          <address
-            v-if="address"
-            itemscope
-            itemtype="http://schema.org/Organization"
-          >
-            <p itemprop="name">Haarlem Bijdeles</p>
+          <address itemscope itemtype="http://schema.org/Organization">
+            <p itemprop="name">{{ generalSettings.title }}</p>
             <p
-              v-for="office in address.offices"
+              v-for="office in generalSettings.addresses"
               :key="office.zipcode"
               itemprop="address"
               itemscope
@@ -44,32 +40,30 @@
 
             <p>
               <a
-                v-if="address.phonenumber"
-                :href="`tel:${address.phonenumber}`"
+                v-if="generalSettings.phonenumber"
+                :href="`tel:${generalSettings.phonenumber}`"
                 itemprop="telephone"
-                >{{ address.phonenumber }}</a
+                >{{ generalSettings.phonenumber }}</a
               >
               <br />
               <a
-                v-if="address.email"
-                :href="`mailto:${address.email}`"
+                v-if="generalSettings.companyEmail"
+                :href="`mailto:${generalSettings.companyEmail}`"
                 itemprop="email"
-                >{{ address.email }}</a
+                >{{ generalSettings.companyEmail }}</a
               >
               <br />
             </p>
-            <p v-if="address.kvk">KVK: {{ address.kvk }}</p>
+            <p v-if="generalSettings.kvk">KVK: {{ generalSettings.kvk }}</p>
           </address>
         </div>
         <div>
           <h2>Volg ons op</h2>
+
           <social-media-links
-            v-if="socialMedia"
+            v-if="generalSettings.socialMedia"
             title="Haarlem bijdeles"
-            :facebook-url="socialMedia.facebook"
-            :twitter-url="socialMedia.twitter"
-            :linked-in-url="socialMedia.linkedin"
-            :instagram-url="socialMedia.instagram"
+            :social-media="generalSettings.socialMedia"
           />
         </div>
       </div>
@@ -84,6 +78,7 @@ import IconLogo from '@/icons/logo.svg'
 import axios from '~/plugins/axios'
 import MenuItem from '@/components/MenuItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
+import OfficesQuery from '~/graphql/Offices.gql'
 
 export default {
   components: {
@@ -113,8 +108,11 @@ export default {
     menu: {
       query: MenuQuery,
       variables: {
-        location: 'HEADER_MENU',
+        location: 'FOOTER_MENU',
       },
+    },
+    generalSettings: {
+      query: OfficesQuery,
     },
   },
 }

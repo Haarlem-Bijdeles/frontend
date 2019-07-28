@@ -6,22 +6,17 @@
     </article>
     <slot />
     <contact v-if="page.template === 'page-contact.php'" />
-    <teachers
-      v-if="page.template === 'page-employers.php'"
-      :teachers="page.teachers"
-    />
-    <way-we-work v-if="page.template === 'page-procedure.php'" :page="page" />
+    <teachers v-if="page.teachers" :teachers="page.teachers" />
+    <way-we-work v-if="page.template === 'page-way-we-work.php'" :page="page" />
     <service
       v-if="page.template === 'page-service.php'"
-      :service="page.service"
+      :for-students-and-parents="page.forStudentsAndParents"
     />
     <videos v-if="page.videos" :videos="page.videos" />
-    <testimonials :testimonials="page.testimonials" />
   </div>
 </template>
 
 <script>
-import Testimonials from '@/components/Testimonials.vue'
 import AppHero from '@/components/AppHero.vue'
 import TheIntro from '@/components/TheIntro.vue'
 import Contact from '@/components/templates/Contact.vue'
@@ -32,7 +27,6 @@ import Service from '@/components/templates/Service.vue'
 
 export default {
   components: {
-    Testimonials,
     AppHero,
     TheIntro,
     Contact,

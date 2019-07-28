@@ -7,11 +7,13 @@ query GET_MENU_BY_LOCATION($location: MenuLocationEnum) {
             node {
               label
               url
+              relativeUrl
               target
               childItems {
                 edges {
                   node {
                     label
+                    relativeUrl
                     url
                     target
                   }

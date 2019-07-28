@@ -10,11 +10,9 @@
       <p v-html="teacher.bio" />
 
       <social-media-links
+        v-if="teacher.socialMedia"
         :title="teacher.name"
-        :facebook-url="teacher.facebook"
-        :twitter-url="teacher.twitter"
-        :linked-in-url="teacher.linkedin"
-        :instagram-url="teacher.instagram"
+        :social-media="teacher.socialMedia"
       />
     </archive-wrapper>
   </li>

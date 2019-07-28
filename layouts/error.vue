@@ -1,20 +1,14 @@
 <template>
   <div class="container">
-    <app-hero
-      image="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_64_HR-1140x0-c-default.jpg"
-      :title="title"
-    />
     <the-intro :text="text" />
   </div>
 </template>
 
 <script>
-import AppHero from '@/components/AppHero.vue'
 import TheIntro from '@/components/TheIntro.vue'
 
 export default {
   components: {
-    AppHero,
     TheIntro,
   },
   props: {

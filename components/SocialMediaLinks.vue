@@ -1,31 +1,51 @@
 <template>
   <ul class="list">
-    <li v-if="facebookUrl">
-      <a :href="facebookUrl" class="link" rel="noopener" target="_blank">
+    <li v-if="socialMedia.facebook">
+      <a
+        :href="socialMedia.facebook"
+        class="link"
+        rel="noopener"
+        target="_blank"
+      >
         <icon-facebook aria-hidden="true" width="24" height="24" />
         <span class="sr-only">
           {{ $t('followOn', { title, network: 'Facebook' }) }}
         </span>
       </a>
     </li>
-    <li v-if="twitterUrl">
-      <a :href="twitterUrl" class="link" rel="noopener" target="_blank">
+    <li v-if="socialMedia.twitter">
+      <a
+        :href="socialMedia.twitter"
+        class="link"
+        rel="noopener"
+        target="_blank"
+      >
         <icon-twitter aria-hidden="true" width="24" height="24" />
         <span class="sr-only">
           {{ $t('followOn', { title, network: 'Twitter' }) }}
         </span>
       </a>
     </li>
-    <li v-if="linkedInUrl">
-      <a :href="linkedInUrl" class="link" rel="noopener" target="_blank">
+    <li v-if="socialMedia.linkedin">
+      <a
+        :href="socialMedia.linkedin"
+        class="link"
+        rel="noopener"
+        target="_blank"
+      >
         <icon-linkedin aria-hidden="true" width="24" height="24" />
         <span class="sr-only">
           {{ $t('followOn', { title, network: 'LinkedIn' }) }}
         </span>
       </a>
     </li>
-    <li v-if="instagramUrl">
-      <a :href="instagramUrl" class="link" rel="noopener" target="_blank">
+    <li v-if="socialMedia.instagram">
+      <a
+        :href="socialMedia.instagram"
+        class="link"
+        rel="noopener"
+        target="_blank"
+      >
         <icon-instagram aria-hidden="true" width="24" height="24" />
         <span class="sr-only">
           {{ $t('followOn', { title, network: 'Instagram' }) }}
@@ -53,21 +73,9 @@ export default {
       type: String,
       required: true,
     },
-    facebookUrl: {
-      type: String,
-      default: '',
-    },
-    linkedInUrl: {
-      type: String,
-      default: '',
-    },
-    twitterUrl: {
-      type: String,
-      default: '',
-    },
-    instagramUrl: {
-      type: String,
-      default: '',
+    socialMedia: {
+      type: Object,
+      default: () => {},
     },
   },
 }

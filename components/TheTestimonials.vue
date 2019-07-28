@@ -1,12 +1,15 @@
 <template>
   <section
-    v-if="testimonials.length"
+    v-if="testimonials.edges.length"
     class="testimonials"
     aria-labelledby="testimonials-title"
   >
     <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
     <ul class="list">
-      <li v-for="testimonial in testimonials" :key="testimonial.node.title">
+      <li
+        v-for="testimonial in testimonials.edges"
+        :key="testimonial.node.title"
+      >
         <blockquote class="quote">
           <cite class="cite">{{ testimonial.node.title }}</cite>
           <!-- eslint-disable-next-line -->
@@ -18,12 +21,11 @@
 </template>
 
 <script>
+import TestimonialsQuery from '~/graphql/Testimonials.gql'
+
 export default {
-  props: {
-    testimonials: {
-      type: Array,
-      default: () => [],
-    },
+  apollo: {
+    testimonials: TestimonialsQuery,
   },
 }
 </script>

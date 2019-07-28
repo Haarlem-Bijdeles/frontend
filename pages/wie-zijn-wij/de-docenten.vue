@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import TeachersQuery from '~/graphql/Teachers.gql'
 import Page from '@/components/Page.vue'
 
 export default {
@@ -10,23 +11,22 @@ export default {
     Page,
   },
 
-  async asyncData({ $axios, params }) {
-    const response = await $axios.get(`wp/v2/pages/`, {
-      params: {
-        slug: 'de-docenten',
-        _embed: 1,
+  apollo: {
+    page: {
+      query: TeachersQuery,
+      prefetch: ({ route }) => {
+        return {
+          slug: route.params.slug,
+        }
       },
-    })
-    const page = response.data[0]
-
-    return {
-      page,
-      slug: params.slug,
-    }
+      variables() {
+        return { uri: 'wie-zijn-wij/de-docenten/' }
+      },
+    },
   },
   head() {
     return {
-      title: this.page.title.rendered,
+      title: this.page.title,
     }
   },
 }
