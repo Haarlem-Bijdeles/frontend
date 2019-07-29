@@ -11,18 +11,16 @@ export default {
     Page,
   },
 
-  apollo: {
-    page: {
+  async asyncData({ app, params }) {
+    const page = await app.apolloProvider.defaultClient.query({
       query: TeachersQuery,
-      prefetch: ({ route }) => {
-        return {
-          slug: route.params.slug,
-        }
+      variables: {
+        uri: 'wie-zijn-wij/de-docenten/',
       },
-      variables() {
-        return { uri: 'wie-zijn-wij/de-docenten/' }
-      },
-    },
+    })
+    return {
+      page: page.data.page,
+    }
   },
   head() {
     return {

@@ -15,8 +15,12 @@ query GET_PAGE_BY_URI($uri: String) {
       text
     }
     forStudentsAndParents {
-      forParents
-      forStudents
+      forParents {
+        text
+      }
+      forStudents {
+        text
+      }
     }
   }
 }

@@ -1,10 +1,10 @@
 <template>
-  <div v-if="offices.length">
+  <div>
     <div class="wrapper">
-      <contact-offices :offices="offices" />
+      <contact-offices v-if="offices.length" :offices="offices" />
       <form-contact />
     </div>
-    <block-map :offices="offices" />
+    <block-map v-if="offices.length" :offices="offices" />
   </div>
 </template>
 

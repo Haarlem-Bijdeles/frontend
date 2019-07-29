@@ -29,8 +29,13 @@ export default {
     step: 0,
   },
 
-  apollo: {
-    page: FrontPageQuery,
+  async asyncData({ app, params }) {
+    const page = await app.apolloProvider.defaultClient.query({
+      query: FrontPageQuery,
+    })
+    return {
+      page: page.data.page,
+    }
   },
   head() {
     return {

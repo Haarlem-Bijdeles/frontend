@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page :page="page" />
+    <page v-if="page" :page="page" />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
       default: '',
     },
   },
+
   computed: {
     details() {
       return this.$store.state.details
@@ -30,18 +31,16 @@ export default {
     },
   },
 
-  apollo: {
-    page: {
+  async asyncData({ app, params }) {
+    const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
-      prefetch: ({ route }) => {
-        return {
-          slug: route.params.slug,
-        }
+      variables: {
+        uri: params.slug,
       },
-      variables() {
-        return { uri: this.$route.params.slug }
-      },
-    },
+    })
+    return {
+      page: page.data.page,
+    }
   },
 
   head() {

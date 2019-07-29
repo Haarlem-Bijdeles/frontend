@@ -3,7 +3,6 @@ query GET_TESTIMONIALS {
     edges {
       node {
         title
-        quote
       }
     }
   }

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
-const baseUrl = 'http://localhost:9040/wp-json/'
+const baseUrl = 'http://haarlembijdeles.local/wp-json/'
 
 export default {
   mode: 'universal',
@@ -114,46 +114,46 @@ export default {
       },
     },
   },
-  generate: {
-    async routes() {
-      // const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
-      // const posts = response.data.map(post => post.slug)
-      // const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=11`)
-      // const pages = response2.data.map(page => page.slug)
-      // const urls = [...pages]
-      // return urls
-      const uri = 'http://localhost:9040/graphql'
-      const apolloFetch = createApolloFetch({ uri })
-      const query = `query GET_POSTS {
-          pages {
-            edges {
-              node {
-                slug
-                template
-              }
-            }
-          }
-        }
-        `
-      const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
-      const { data } = result
-      return data.pages.map(page => page.template)
-    },
-  },
-  sitemap: {
-    hostname: 'https://www.haarlembijdeles.nl/',
-    async routes() {
-      const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
-      return response.data.map(
-        post => `https://www.haarlembijdeles.nl/${post.slug}`,
-      )
-    },
-  },
+  // generate: {
+  //   async routes() {
+  //     // const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+  //     // const posts = response.data.map(post => post.slug)
+  //     // const response2 = await axios.get(`${baseUrl}wp/v2/pages/?per_page=11`)
+  //     // const pages = response2.data.map(page => page.slug)
+  //     // const urls = [...pages]
+  //     // return urls
+  //     const uri = 'http://haarlembijdeles.local/graphql'
+  //     const apolloFetch = createApolloFetch({ uri })
+  //     const query = `query GET_POSTS {
+  //         pages {
+  //           edges {
+  //             node {
+  //               slug
+  //               template
+  //             }
+  //           }
+  //         }
+  //       }
+  //       `
+  //     const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
+  //     const { data } = result
+  //     return data.pages.map(page => page.template)
+  //   },
+  // },
+  // sitemap: {
+  //   hostname: 'https://www.haarlembijdeles.nl/',
+  //   async routes() {
+  //     const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
+  //     return response.data.map(
+  //       post => `https://www.haarlembijdeles.nl/${post.slug}`,
+  //     )
+  //   },
+  // },
   apollo: {
     clientConfigs: {
       default: {
         // required
-        httpEndpoint: 'http://localhost:9040/graphql',
+        httpEndpoint: 'http://haarlembijdeles.local/graphql',
       },
     },
   },

@@ -19,9 +19,9 @@ export const mutations = {
   },
 }
 
-export const actions = {
-  async nuxtServerInit({ commit }, app) {
-    const response = await app.$axios.$get('/site/v1/details')
-    await commit('SET_DETAILS', response)
-  },
-}
+// export const actions = {
+//   async nuxtServerInit({ commit }, app) {
+//     const response = await app.$axios.$get('/site/v1/details')
+//     await commit('SET_DETAILS', response)
+//   },
+// }
