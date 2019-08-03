@@ -4,6 +4,7 @@
     <div v-if="posts.edges && posts.edges.length">
       <posts :posts="posts.edges" />
     </div>
+    <button v-if="showMoreButton" @click="showMore">show more</button>
   </div>
 </template>
 
@@ -21,6 +22,12 @@ export default {
   meta: {
     step: 4,
   },
+  data() {
+    return {
+      page: 0,
+      showMoreButton: true,
+    }
+  },
   head() {
     return {
       title: this.page.title,
@@ -30,13 +37,43 @@ export default {
     const blog = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
     })
-    const posts = await app.apolloProvider.defaultClient.query({
-      query: PostsQuery,
-    })
     return {
       page: blog.data.blog,
-      posts: posts.data.posts,
     }
+  },
+  apollo: {
+    // Pages
+    posts: {
+      query: PostsQuery,
+      variables: {
+        first: 2,
+      },
+    },
+  },
+  methods: {
+    showMore() {
+      // Fetch more data and transform the original result
+      this.$apollo.queries.posts.fetchMore({
+        // New variables
+        variables: {
+          after: this.posts.pageInfo.endCursor,
+        },
+        // Transform the previous result with new data
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          const newPosts = fetchMoreResult.posts
+          this.showMoreButton = fetchMoreResult.posts.pageInfo.hasNextPage
+
+          return {
+            posts: {
+              __typename: previousResult.posts.__typename,
+              pageInfo: newPosts.pageInfo,
+              // Merging the tag list
+              edges: [...previousResult.posts.edges, ...newPosts.edges],
+            },
+          }
+        },
+      })
+    },
   },
 }
 </script>
