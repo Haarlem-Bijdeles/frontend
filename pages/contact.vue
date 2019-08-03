@@ -2,10 +2,10 @@
   <div>
     <page v-if="page" :page="page" />
     <div class="wrapper">
-      <contact-offices v-if="offices.length" :offices="offices" />
+      <contact-offices v-if="offices && offices.length" :offices="offices" />
       <form-contact />
     </div>
-    <block-map v-if="offices.length" :offices="offices" />
+    <block-map v-if="offices && offices.length" :offices="offices" />
   </div>
 </template>
 

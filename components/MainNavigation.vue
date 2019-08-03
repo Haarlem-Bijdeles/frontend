@@ -69,7 +69,6 @@ export default {
     },
   },
   mounted() {
-    window.console.log(this.$store.state)
     this.setArrowPosition()
     setTimeout(() => {
       this.mounted = true
