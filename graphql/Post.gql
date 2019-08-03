@@ -1,5 +1,5 @@
 query GET_PAGE_BY_URI($uri: String) {
-  page: postBy(uri: $uri) {
+  post: postBy(uri: $uri) {
     title
     content
   }

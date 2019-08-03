@@ -1,22 +1,22 @@
 <template>
   <div>
-    <page :page="blog" />
-    <article>
-      <h1>{{ post.title }}</h1>
-      <!-- eslint-disable-next-line -->
-      <div v-html="post.content" />
-    </article>
+    <page v-if="page" :page="page" />
   </div>
 </template>
 
 <script>
 import Page from '@/components/Page.vue'
-import PostQuery from '~/graphql/Post.gql'
-import BlogQuery from '~/graphql/Blog.gql'
+import PageQuery from '~/graphql/Page.gql'
 
 export default {
   components: {
     Page,
+  },
+  props: {
+    slug: {
+      type: String,
+      default: '',
+    },
   },
 
   computed: {
@@ -32,25 +32,20 @@ export default {
   },
 
   async asyncData({ app, params }) {
-    const blog = await app.apolloProvider.defaultClient.query({
-      query: BlogQuery,
-    })
-    const post = await app.apolloProvider.defaultClient.query({
-      query: PostQuery,
+    const page = await app.apolloProvider.defaultClient.query({
+      query: PageQuery,
       variables: {
         uri: params.slug,
       },
     })
-
     return {
-      blog: blog.data.blog,
-      post: post.data.post,
+      page: page.data.page,
     }
   },
 
   head() {
     return {
-      title: this.post.title,
+      title: this.page.title,
     }
   },
 }

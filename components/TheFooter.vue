@@ -92,9 +92,6 @@ export default {
       socialMedia: null,
     }
   },
-  mounted() {
-    this.getOffices()
-  },
 
   apollo: {
     menu: {

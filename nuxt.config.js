@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
+// import routes from './pages/index'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
 
@@ -48,6 +48,15 @@ export default {
   css: ['~/styles/base.css'],
   router: {
     middleware: ['i18n', 'steps', 'details'],
+    // extendRoutes(nuxtRoutes, resolve) {
+    //   nuxtRoutes.splice(
+    //     0,
+    //     nuxtRoutes.length,
+    //     ...routes.map(route => {
+    //       return { ...route, component: resolve(__dirname, route.component) }
+    //     }),
+    //   )
+    // },
   },
   /*
    ** Plugins to load before mounting the App
@@ -69,7 +78,7 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
-    '@nuxtjs/router',
+    ['@nuxtjs/router', { path: '~/src/' }],
   ],
   /*
    ** Axios module configuration
@@ -116,32 +125,62 @@ export default {
   },
   generate: {
     async routes() {
-      const response = await axios.get(
-        `${baseUrl}wp-json/wp/v2/posts/?per_page=100`,
-      )
-      const posts = response.data.map(post => post.slug)
-      const response2 = await axios.get(
-        `${baseUrl}wp-json/wp/v2/pages/?per_page=11`,
-      )
-      const pages = response2.data.map(page => page.slug)
-      const urls = [...pages, ...posts]
-      return urls
-      // const uri = 'https://api.haarlembijdeles.michielkoning.nl/graphql'
-      // const apolloFetch = createApolloFetch({ uri })
-      // const query = `query GET_POSTS {
-      //     pages {
-      //       edges {
-      //         node {
-      //           slug
-      //           template
-      //         }
-      //       }
-      //     }
-      //   }
-      //   `
-      // const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
-      // const { data } = result
-      // return data.pages.map(page => page.template)
+      // const response = await axios.get(
+      //   `${baseUrl}wp-json/wp/v2/posts/?per_page=100`,
+      // )
+      // const posts = response.data.map(post => post.slug)
+      // const response2 = await axios.get(
+      //   `${baseUrl}wp-json/wp/v2/pages/?per_page=11`,
+      // )
+      // const pages = response2.data.map(page => page.slug)
+      // const urls = [...pages]
+      // return urls
+
+      const uri = `${baseUrl}/graphql`
+
+      const query = `
+        query GET_SITEMAP {
+          pages(first: 100) {
+            edges {
+              node {
+                uri
+                childPages {
+                  edges {
+                    node {
+                      uri
+                    }
+                  }
+                }
+
+              }
+            }
+          }
+          posts(first:100) {
+            edges {
+              node {
+                uri
+              }
+            }
+          }
+        }
+      `
+
+      const apolloFetch = createApolloFetch({ uri })
+      const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
+      const { pages, posts } = result.data
+
+      // const sitemapPosts = posts.edges.map(item => {
+      //   return item.node.uri
+      // })
+      const sitemapPages = pages.edges.map(item => {
+        const subItems = item.node.childPages.edges.map(subItem => {
+          return subItem.node.uri
+        })
+        return [item.node.uri, ...subItems]
+      })
+
+      // return [...sitemapPosts, ...[].concat(...sitemapPages)]
+      // return [...[].concat(...sitemapPages)]
     },
   },
   // sitemap: {
