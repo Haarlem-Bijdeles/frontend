@@ -7,6 +7,10 @@ query GET_OFFICES {
       city
       street
       zipcode
+      position {
+        lat
+        lng
+      }
     }
     socialMedia {
       facebook

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
-const baseUrl = 'http://haarlembijdeles.local/wp-json/'
+const baseUrl = 'http://localhost:9040/wp-json/'
 
 export default {
   mode: 'universal',
@@ -69,7 +69,7 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
-    // '@nuxtjs/router',
+    '@nuxtjs/router',
   ],
   /*
    ** Axios module configuration
@@ -122,7 +122,7 @@ export default {
   //     // const pages = response2.data.map(page => page.slug)
   //     // const urls = [...pages]
   //     // return urls
-  //     const uri = 'http://haarlembijdeles.local/graphql'
+  //     const uri = 'http://localhost:9040/graphql'
   //     const apolloFetch = createApolloFetch({ uri })
   //     const query = `query GET_POSTS {
   //         pages {
@@ -153,7 +153,7 @@ export default {
     clientConfigs: {
       default: {
         // required
-        httpEndpoint: 'http://haarlembijdeles.local/graphql',
+        httpEndpoint: 'http://localhost:9040/graphql',
       },
     },
   },

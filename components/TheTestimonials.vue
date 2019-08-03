@@ -1,6 +1,6 @@
 <template>
   <section
-    v-if="testimonials.edges.length"
+    v-if="testimonials"
     class="testimonials"
     aria-labelledby="testimonials-title"
   >
@@ -24,6 +24,11 @@
 import TestimonialsQuery from '~/graphql/Testimonials.gql'
 
 export default {
+  data() {
+    return {
+      testimonials: [],
+    }
+  },
   apollo: {
     testimonials: TestimonialsQuery,
   },
