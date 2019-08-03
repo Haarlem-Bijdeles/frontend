@@ -1,22 +1,64 @@
 <template>
-  <div>
-    <ul v-if="posts.length" class="list">
-      <app-post v-for="post in posts" :key="post.node.id" :post="post.node" />
+  <div v-if="posts">
+    <ul v-if="posts.edges.length" class="list">
+      <app-post
+        v-for="post in posts.edges"
+        :key="post.node.id"
+        :post="post.node"
+      />
     </ul>
+    <button v-if="posts.pageInfo.hasNextPage" @click="showMore">
+      show more
+    </button>
   </div>
 </template>
 
 <script>
 import AppPost from '~/components/Blog/AppPost.vue'
+import PostsQuery from '~/graphql/Posts.gql'
 
 export default {
   components: {
     AppPost,
   },
-  props: {
+
+  apollo: {
+    // Pages
     posts: {
-      type: Array,
-      default: () => [],
+      query: PostsQuery,
+      variables: {
+        first: 2,
+      },
+    },
+  },
+  data() {
+    return {
+      posts: [],
+    }
+  },
+  methods: {
+    showMore() {
+      // Fetch more data and transform the original result
+      this.$apollo.queries.posts.fetchMore({
+        // New variables
+        variables: {
+          after: this.posts.pageInfo.endCursor,
+        },
+        // Transform the previous result with new data
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          const newPosts = fetchMoreResult.posts
+          this.showMoreButton = fetchMoreResult.posts.pageInfo.hasNextPage
+
+          return {
+            posts: {
+              __typename: previousResult.posts.__typename,
+              pageInfo: newPosts.pageInfo,
+              // Merging the tag list
+              edges: [...previousResult.posts.edges, ...newPosts.edges],
+            },
+          }
+        },
+      })
     },
   },
 }

@@ -169,9 +169,9 @@ export default {
       const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
       const { pages, posts } = result.data
 
-      // const sitemapPosts = posts.edges.map(item => {
-      //   return item.node.uri
-      // })
+      const sitemapPosts = posts.edges.map(item => {
+        return `/wie-zijn-wij/blog/${item.node.uri}`
+      })
       const sitemapPages = pages.edges.map(item => {
         const subItems = item.node.childPages.edges.map(subItem => {
           return subItem.node.uri
@@ -179,8 +179,7 @@ export default {
         return [item.node.uri, ...subItems]
       })
 
-      // return [...sitemapPosts, ...[].concat(...sitemapPages)]
-      // return [...[].concat(...sitemapPages)]
+      return [...sitemapPosts, ...[].concat(...sitemapPages)]
     },
   },
   // sitemap: {
