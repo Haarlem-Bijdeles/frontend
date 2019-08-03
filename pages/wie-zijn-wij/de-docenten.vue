@@ -22,6 +22,9 @@ export default {
       page: page.data.page,
     }
   },
+  meta: {
+    step: 4,
+  },
   head() {
     return {
       title: this.page.title,

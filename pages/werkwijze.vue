@@ -27,6 +27,9 @@ export default {
       page: page.data.page,
     }
   },
+  meta: {
+    step: 3,
+  },
 
   head() {
     return {

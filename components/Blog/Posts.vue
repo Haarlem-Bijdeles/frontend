@@ -7,9 +7,15 @@
         :post="post.node"
       />
     </ul>
-    <button v-if="posts.pageInfo.hasNextPage" @click="showMore">
-      show more
-    </button>
+    <div class="button-wrapper">
+      <button
+        v-if="posts.pageInfo.hasNextPage"
+        class="btn btn-ghost"
+        @click="showMore"
+      >
+        Toon meer berichten
+      </button>
+    </div>
   </div>
 </template>
 
@@ -27,13 +33,13 @@ export default {
     posts: {
       query: PostsQuery,
       variables: {
-        first: 2,
+        first: 5,
       },
     },
   },
   data() {
     return {
-      posts: [],
+      posts: null,
     }
   },
   methods: {
@@ -67,5 +73,11 @@ export default {
 <style lang="postcss" scoped>
 .list {
   @mixin list-reset;
+}
+
+.button-wrapper {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  @mixin center;
 }
 </style>

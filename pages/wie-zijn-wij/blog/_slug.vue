@@ -9,7 +9,10 @@
       <!-- eslint-disable-next-line -->
       <div v-html="post.content" />
     </archive-wrapper>
-    <posts />
+    <section id="posts-title">
+      <h1 id="posts-title" class="posts-title-wrapper">Meer berichten</h1>
+      <posts />
+    </section>
   </div>
 </template>
 
@@ -66,3 +69,10 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+.posts-title-wrapper {
+  padding-top: 2rem;
+  @mixin center;
+}
+</style>

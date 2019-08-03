@@ -1,7 +1,7 @@
 <template>
-  <a v-if="item.target === '_blank'" :href="item.url" target="_blank">{{
-    item.label
-  }}</a>
+  <a v-if="item.target === '_blank'" :href="item.url" target="_blank">
+    {{ item.label }}
+  </a>
   <nuxt-link v-else :to="item.relativeUrl">{{ item.label }}</nuxt-link>
 </template>
 

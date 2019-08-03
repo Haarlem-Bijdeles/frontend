@@ -6,9 +6,9 @@
   --container-width-xlg: 72rem;
   --height-navigation-sm: 2em;
   --width-navigation-left: 20rem;
-  --gutter: 1em;
+  --gutter: 1rem;
 
   @media (--viewport-md) {
-    --gutter: 1.5em;
+    --gutter: 1.5rem;
   }
 }

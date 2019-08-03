@@ -15,6 +15,10 @@ query GET_PAGE_BY_URI($uri: String) {
       forStudents {
         text
       }
+    },
+    prices {
+      price
+      title
     }
   }
 }
