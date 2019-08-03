@@ -75,7 +75,6 @@
 import NotchWrapper from '@/components/NotchWrapper.vue'
 import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
 import IconLogo from '@/icons/logo.svg'
-import axios from '~/plugins/axios'
 import MenuItem from '@/components/MenuItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
 import OfficesQuery from '~/graphql/Offices.gql'
@@ -95,13 +94,6 @@ export default {
   },
   mounted() {
     this.getOffices()
-  },
-  methods: {
-    async getOffices() {
-      const response = await axios.get('/site/v1/details')
-      this.address = response.data.address
-      this.socialMedia = response.data.social_media
-    },
   },
 
   apollo: {
