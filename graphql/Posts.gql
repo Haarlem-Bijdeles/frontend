@@ -1,5 +1,7 @@
-query GET_POSTS($first: Int, $after: String) {
-  posts(first: $first, after: $after) {
+query GET_POSTS($first: Int, $after: String, $notIn: [ID]) {
+  posts(first: $first, after: $after, where: {
+    notIn:$notIn
+  }) {
     pageInfo {
       hasNextPage
       endCursor
@@ -8,6 +10,7 @@ query GET_POSTS($first: Int, $after: String) {
     }
     edges {
       node {
+        title
         featuredImage {
           altText
           thumbnail: sourceUrl(size: THUMBNAIL)
