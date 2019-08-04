@@ -1,30 +1,37 @@
 <template>
   <div class="way-we-work">
-    <nav>
-      <ul>
-        <li v-for="(method, index) in methods" :key="method.title">
-          <a :href="`#werkwijze-${index + 1}`">
+    <nav class="nav">
+      <ul class="list">
+        <li
+          v-for="(method, index) in methods"
+          :key="method.title"
+          class="list-item"
+        >
+          <button
+            class="nav-link btn btn-ghost  btn-small"
+            :class="{ active: activeItem === index }"
+            @click="scrollTo(index + 1)"
+          >
             {{ method.title }}
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
 
-    <div class="list">
-      <archive-wrapper
-        v-for="(method, index) in methods"
-        :id="`#werkwijze-${index + 1}`"
-        :key="method.title"
-        :images="method.images"
-      >
-        <template v-slot:title>
-          {{ method.title }}
-        </template>
+    <archive-wrapper
+      v-for="(method, index) in methods"
+      :id="`werkwijze-${index + 1}`"
+      :key="method.title"
+      ref="archive-item"
+      :images="method.images"
+    >
+      <template v-slot:title>
+        {{ method.title }}
+      </template>
 
-        <!-- eslint-disable-next-line -->
+      <!-- eslint-disable-next-line -->
         <div v-html="method.text" />
-      </archive-wrapper>
-    </div>
+    </archive-wrapper>
   </div>
 </template>
 
@@ -41,6 +48,43 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      activeItems: [],
+    }
+  },
+  computed: {
+    activeItem() {
+      return Math.min.apply(Math, this.activeItems)
+    },
+  },
+  mounted() {
+    const items = this.$refs['archive-item'].map(item => item.$el)
+
+    if (
+      'IntersectionObserver' in window &&
+      'IntersectionObserverEntry' in window
+    ) {
+      const imageObserver = new IntersectionObserver(entries => {
+        const index = items.indexOf(entries[0].target)
+        if (entries[0].isIntersecting) {
+          this.activeItems.push(index)
+        } else {
+          this.activeItems = this.activeItems.filter(item => item !== index)
+        }
+      })
+      items.forEach(element => {
+        imageObserver.observe(element)
+      })
+    }
+  },
+  methods: {
+    scrollTo(index) {
+      document
+        .querySelector(`#werkwijze-${index}`)
+        .scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
@@ -50,10 +94,10 @@ export default {
   background: var(--color-white);
 }
 
-nav {
+.nav {
+  @mixin center;
   display: none;
 
-  @mixin center;
   position: sticky;
   top: 0;
   background: var(--color-white);
@@ -61,44 +105,16 @@ nav {
   @media (--viewport-md) {
     display: block;
   }
+}
 
-  & ul {
-    @mixin list-reset;
-    display: flex;
-    justify-content: center;
-  }
+.list {
+  @mixin list-reset;
+  display: flex;
+  justify-content: center;
+}
 
-  & li {
-    margin-right: 1em;
-    padding-left: 0;
-    border: 1px solid #7f7f7f;
-    padding: 0.25em 0.5em;
-    border-radius: 0.25em;
-    font-weight: 400;
-
-    &::before {
-      background: none;
-    }
-
-    &.is-active {
-      background: $color-action;
-      border-color: $color-action;
-
-      a {
-        color: #fff;
-      }
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  & a {
-    @mixin link-reset;
-    display: block;
-    text-align: center;
-  }
+.list-item {
+  margin: 0 0.25em;
 }
 
 .item:nth-child(2n) >>> .image-wrapper {

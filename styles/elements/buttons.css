@@ -42,12 +42,17 @@ a {
   font-family: var(--font-family-headings);
   background: var(--color-primary);
   transition: background-color 0.2s ease-out;
-  max-width: 20em;
   color: var(--color-white);
   box-shadow: none;
   &:hover {
     box-shadow: none;
     background: var(--color-primary-dark);
+  }
+
+  &.btn-small {
+    font-size: 1em;
+    padding: 0.25em 0.5em;
+    font-weight: var(--font-weight-normal);
   }
 
   &:hover {
@@ -59,6 +64,7 @@ a {
     color: var(--color-white);
     border: 2px dashed var(--color-white);
 
+    &.active,
     &:hover {
       background: transparent;
     }
@@ -68,6 +74,7 @@ a {
     background: var(--color-primary);
     color: var(--color-white);
 
+    &.active,
     &:hover {
       background: var(--color-primary-dark);
     }
@@ -77,6 +84,7 @@ a {
     color: #f9f9f9;
     background-color: #06b226;
 
+    &.active,
     &:hover {
       background-color: #059921;
     }
@@ -87,9 +95,10 @@ a {
     color: var(--color-text);
     border: 2px solid var(--color-text);
 
+    &.active,
     &:hover {
-      background: var(--color-white);
-      color: var(--text-color);
+      background: var(--color-text);
+      color: var(--color-white);
     }
   }
 }

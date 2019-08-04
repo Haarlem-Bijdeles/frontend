@@ -1,5 +1,5 @@
 <template>
-  <nav aria-labelledby="menu-title">
+  <nav aria-labelledby="menu-title" class="nav">
     <h2 id="menu-title" class="sr-only" tabindex="-1">
       {{ $t('mainNavigation') }}
     </h2>
@@ -40,7 +40,6 @@ export default {
     $route() {
       this.$nextTick(() => {
         this.setArrowPosition()
-        document.activeElement.blur()
       })
     },
   },
@@ -73,7 +72,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-nav {
+.nav {
   position: relative;
 }
 
