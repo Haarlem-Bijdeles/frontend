@@ -69,7 +69,6 @@ export default {
 
 <style lang="postcss" scoped>
 header {
-  font-size: 1.2em;
   background: var(--color-primary);
   @media (--show-full-navigation) {
     background: transparent;
@@ -122,6 +121,7 @@ header {
   overflow: hidden;
   z-index: var(--main-navigation);
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  background: var(--color-bg-page);
 
   @media (--show-full-navigation) {
     height: auto;

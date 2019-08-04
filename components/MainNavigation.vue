@@ -83,7 +83,7 @@ nav {
 
 .menu {
   @mixin list-reset;
-  border-bottom: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--color-black);
 
   @media (--show-full-navigation) {
     margin-left: var(--gutter);

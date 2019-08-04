@@ -1,7 +1,7 @@
 <template>
   <li
     class="menu-item"
-    :class="{ open: isOpen }"
+    :class="{ open: isOpen, 'has-popup': item.childItems.edges.length > 0 }"
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
@@ -31,7 +31,7 @@
         :key="subItem.node.label"
         class="menu-item"
       >
-        <menu-item :item="subItem.node" class="menu-link" />
+        <menu-item :item="subItem.node" class="submenu-link" />
       </li>
     </ul>
   </li>
@@ -79,32 +79,63 @@ export default {
 .submenu {
   @mixin list-reset;
   margin-left: 1em;
-  display: none;
-  @mixin list-reset;
 
   @media (--show-full-navigation) {
+    display: none;
     background: var(--color-bg-page);
     position: absolute;
-    left: 0;
     top: 100%;
     margin-left: 0;
-    padding: 0.25em 0;
+    padding: 0 0.5em;
     white-space: nowrap;
+
+    @nest .open & {
+      display: block;
+    }
   }
 }
 
 .menu-item {
   position: relative;
-  display: flex;
-
-  &.open .submenu {
-    display: block;
+  @media (--show-full-navigation) {
+    display: flex;
   }
 }
 
 .title {
   transition: box-shadow 0.1s ease-out;
   padding: 0.25em 0;
+}
+
+.menu-link {
+  font-size: 1.2em;
+  border-bottom: 3px solid transparent;
+
+  &.nuxt-link-active[aria-haspopup='true'],
+  &.nuxt-link-exact-active {
+    border-bottom-color: var(--color-black);
+  }
+
+  @media (--show-full-navigation) {
+    padding: 0.75em 0.5em;
+  }
+
+  &[aria-haspopup='true'] {
+    padding-right: 0.5em;
+  }
+}
+
+.submenu-link {
+  font-size: 1.1em;
+  border-bottom: 2px solid transparent;
+
+  &.nuxt-link-exact-active {
+    border-bottom-color: var(--color-black);
+  }
+
+  @media (--show-full-navigation) {
+    padding: 0.25em 0;
+  }
 }
 
 .submenu-link,
@@ -116,14 +147,17 @@ export default {
   position: relative;
   text-decoration: none;
   line-height: 1.1;
-  padding: 0 0.5em 0.25em;
-  border-top: 1px solid var(--color-bg-page);
+  padding: 0.5em 0;
+  border-top: 1px solid var(--color-black);
 
   &:hover {
     text-decoration: none;
     & .title {
       box-shadow: 0 2px 0 0 currentColor;
     }
+  }
+  @media (--show-full-navigation) {
+    border-top: 0;
   }
 }
 
