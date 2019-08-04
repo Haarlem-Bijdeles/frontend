@@ -25,10 +25,6 @@ export default {
     TheIntro,
     Services,
   },
-  meta: {
-    step: 0,
-  },
-
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: FrontPageQuery,

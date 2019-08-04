@@ -47,7 +47,7 @@ export default {
    */
   css: ['~/styles/base.css'],
   router: {
-    middleware: ['i18n', 'steps', 'details'],
+    middleware: ['i18n', 'details'],
     // extendRoutes(nuxtRoutes, resolve) {
     //   nuxtRoutes.splice(
     //     0,

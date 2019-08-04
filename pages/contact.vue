@@ -24,9 +24,6 @@ export default {
     ContactOffices,
     FormContact,
   },
-  meta: {
-    step: 5,
-  },
   async asyncData({ app }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,

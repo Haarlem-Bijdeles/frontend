@@ -15,9 +15,6 @@ export default {
     Posts,
     AppHero,
   },
-  meta: {
-    step: 4,
-  },
   data() {
     return {
       page: 0,

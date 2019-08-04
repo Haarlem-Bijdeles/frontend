@@ -118,10 +118,11 @@ export default {
 
   @media (--show-full-navigation) {
     padding: 0.75em 0.5em;
+    border-bottom: 0;
   }
 
   &[aria-haspopup='true'] {
-    padding-right: 0.5em;
+    padding-right: 0.25em;
   }
 }
 
@@ -135,6 +136,7 @@ export default {
 
   @media (--show-full-navigation) {
     padding: 0.25em 0;
+    border-bottom: 0;
   }
 }
 
@@ -166,19 +168,6 @@ export default {
   @media (--show-full-navigation) {
     display: block;
     transform: translate(-0.25em, 0.25em);
-  }
-}
-
-.arrow {
-  height: 3px;
-  background: currentColor;
-  display: none;
-
-  @media (--show-full-navigation) {
-    display: block;
-  }
-  &.active {
-    transition: all 0.2s ease-out;
   }
 }
 </style>

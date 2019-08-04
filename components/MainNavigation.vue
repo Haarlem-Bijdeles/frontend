@@ -35,14 +35,13 @@ export default {
       mounted: false,
     }
   },
-  computed: {
-    step() {
-      return this.$store.state.step
-    },
-  },
+
   watch: {
     $route() {
-      this.setArrowPosition()
+      this.$nextTick(() => {
+        this.setArrowPosition()
+        document.activeElement.blur()
+      })
     },
   },
   mounted() {
@@ -52,15 +51,12 @@ export default {
     }, 0)
   },
   methods: {
-    isCurrentStep(step) {
-      return this.step === step
-    },
     setArrowPosition() {
       const activeLink = this.$refs.menu.querySelector(
-        `:nth-child(${this.step + 1}`,
+        '.nuxt-link-active[aria-haspopup=true], .nuxt-link-exact-active',
       )
       if (activeLink) {
-        this.arrowPosition = `translateX(${activeLink.offsetLeft}px)`
+        this.arrowPosition = `translateX(${activeLink.parentElement.offsetLeft}px)`
         this.arrowWidth = `${activeLink.offsetWidth}px`
       }
     },
@@ -90,6 +86,19 @@ nav {
     display: flex;
     border-bottom: 0;
     justify-content: space-between;
+  }
+}
+
+.arrow {
+  height: 3px;
+  background: currentColor;
+  display: none;
+
+  @media (--show-full-navigation) {
+    display: block;
+  }
+  &.active {
+    transition: all 0.2s ease-out;
   }
 }
 </style>

@@ -71,7 +71,7 @@ export default {
         map.fitBounds(bounds)
       })
     },
-    toggleInfoWindow: function(marker, ID) {
+    toggleInfoWindow(marker, ID) {
       this.infoWindowPos = marker.position
       this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
 

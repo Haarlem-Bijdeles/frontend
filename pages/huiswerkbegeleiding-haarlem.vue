@@ -30,9 +30,6 @@ export default {
       page: page.data.page,
     }
   },
-  meta: {
-    step: 2,
-  },
   head() {
     return {
       title: this.page.title,
