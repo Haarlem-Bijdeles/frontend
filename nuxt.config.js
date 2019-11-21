@@ -46,28 +46,10 @@ export default {
    ** Global CSS
    */
   css: ['~/styles/base.css'],
-  router: {
-    middleware: ['i18n', 'details'],
-    // extendRoutes(nuxtRoutes, resolve) {
-    //   nuxtRoutes.splice(
-    //     0,
-    //     nuxtRoutes.length,
-    //     ...routes.map(route => {
-    //       return { ...route, component: resolve(__dirname, route.component) }
-    //     }),
-    //   )
-    // },
-  },
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/i18n.js',
-    '~/plugins/axios',
-    '~/plugins/google-maps',
-    '~/plugins/vuelidate',
-    '~/plugins/details',
-  ],
+  plugins: ['~/plugins/axios', '~/plugins/google-maps', '~/plugins/vuelidate'],
   /*
    ** Nuxt.js modules
    */
@@ -79,7 +61,21 @@ export default {
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
     ['@nuxtjs/router', { path: '~/src/' }],
+    'nuxt-i18n',
   ],
+  i18n: {
+    defaultLocale: 'nl',
+    locales: [
+      {
+        name: 'Nederlands',
+        code: 'nl',
+        iso: 'nl-NL',
+        file: 'nl.json',
+      },
+    ],
+    lazy: true,
+    langDir: 'locales/',
+  },
   /*
    ** Axios module configuration
    */
