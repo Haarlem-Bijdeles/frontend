@@ -11,6 +11,7 @@ query GET_POSTS($first: Int, $after: String, $notIn: [ID]) {
     edges {
       node {
         title
+        excerpt
         featuredImage {
           altText
           thumbnail: sourceUrl(size: THUMBNAIL)

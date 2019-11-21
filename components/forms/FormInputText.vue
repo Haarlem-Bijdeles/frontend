@@ -14,6 +14,7 @@
 <script>
 import RandomProp from '~/mixins/random.js'
 export default {
+  inheritAttrs: false,
   props: {
     title: {
       type: String,

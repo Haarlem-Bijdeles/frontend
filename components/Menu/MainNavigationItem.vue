@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{ open: isOpen, 'has-popup': item.childItems.edges.length > 0 }"
+    :class="{ 'has-popup': item.childItems.edges.length > 0 }"
     @mouseover="mouseover"
     @mouseout="mouseout"
     class="menu-item"
@@ -25,26 +25,32 @@
       />
       <span class="sr-only">Toon submenu voor {{ item.label }}</span>
     </button>
-    <ul ref="submenu" v-if="item.childItems.edges.length" class="submenu">
-      <li
-        v-for="subItem in item.childItems.edges"
-        :key="subItem.node.label"
-        class="menu-item"
-      >
-        <menu-item :item="subItem.node" class="submenu-link" />
-      </li>
-    </ul>
+    <template v-if="item.childItems.edges.length">
+      <animation-slide-in>
+        <ul v-show="isOpen" class="submenu">
+          <li
+            v-for="subItem in item.childItems.edges"
+            :key="subItem.node.label"
+            class="menu-item"
+          >
+            <menu-item :item="subItem.node" class="submenu-link" />
+          </li>
+        </ul>
+      </animation-slide-in>
+    </template>
   </li>
 </template>
 
 <script>
 import MenuItem from '@/components/MenuItem.vue'
 import IconChevronDown from '@/icons/chevron-down.svg'
+import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
 
 export default {
   components: {
     MenuItem,
     IconChevronDown,
+    AnimationSlideIn,
   },
   props: {
     item: {
@@ -81,17 +87,12 @@ export default {
   margin-left: 1em;
 
   @media (--show-full-navigation) {
-    display: none;
     background: var(--color-bg-page);
     position: absolute;
     top: 100%;
     margin-left: 0;
     padding: 0 0.5em;
     white-space: nowrap;
-
-    @nest .open & {
-      display: block;
-    }
   }
 }
 
