@@ -20,29 +20,29 @@
         <form-input-text
           v-model.trim.lazy="$v.form.name.$model"
           :error-message="errorMessageName"
+          :title="$t('form.name')"
           type="text"
           name="name"
-          title="Name"
         />
         <form-input-text
           v-model.trim.lazy="$v.form.email.$model"
           :error-message="errorMessageEmail"
+          :title="$t('form.email')"
           name="email"
           type="email"
-          title="E-mailaddress"
         />
         <form-input-text
           v-model="form.phonenumber"
+          :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
-          title="Telefoonnummer"
         />
         <form-textarea
           v-model.trim="form.message"
+          :title="$t('form.message')"
           name="message"
           rows="4"
           type="message"
-          title="Bericht"
         />
         <button type="submit" class="btn">Verzenden</button>
       </form-fieldset>

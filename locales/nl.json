@@ -32,18 +32,10 @@
   "reviews": "Reviews",
   "mobileWorkshop": "Mobile workshop",
   "form": {
-    "name": "Voornaam",
-    "lastName": "Achternaam",
-    "address": "Adres",
-    "zipcode": "Postcode",
-    "city": "Woonplaats",
+    "name": "Naam",
     "phoneNumber": "Telefoonnummer",
     "email": "E-mailadres",
-    "acceptConditions": {
-      "part1": "Ik ga akkoord met de",
-      "part2": "algemene voorwaarden",
-      "part3": "."
-    },
+    "message": "Bericht",
     "subscribeToNewsletter": "Ik meld me aan voor de nieuwsbrief",
     "motivation": {
       "job": "Omschrijf hier je klus",

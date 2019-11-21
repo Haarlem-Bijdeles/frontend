@@ -1,20 +1,27 @@
 <template>
-  <div class="field">
-    <label ref="label" :for="id">{{ title }}</label>
+  <form-field
+    :id="id"
+    :error-message="errorMessage"
+    :title="title"
+    class="field"
+  >
     <textarea
       :id="id"
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
     />
-    <span aria-live="assertive">{{ errorMessage }}</span>
-  </div>
+  </form-field>
 </template>
 
 <script>
+import FormField from '~/components/forms/FormField.vue'
 import RandomProp from '~/mixins/random.js'
+
 export default {
-  inheritAttrs: false,
+  components: {
+    FormField,
+  },
   props: {
     title: {
       type: String,
