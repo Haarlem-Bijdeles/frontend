@@ -57,7 +57,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
     ['@nuxtjs/router', { path: '~/src/' }],
@@ -193,15 +192,7 @@ export default {
       return [...sitemapPosts, ...[].concat(...sitemapPages)]
     },
   },
-  // sitemap: {
-  //   hostname: 'https://www.haarlembijdeles.nl/',
-  //   async routes() {
-  //     const response = await axios.get(`${baseUrl}wp/v2/posts/?per_page=100`)
-  //     return response.data.map(
-  //       post => `https://www.haarlembijdeles.nl/${post.slug}`,
-  //     )
-  //   },
-  // },
+
   apollo: {
     clientConfigs: {
       default: {
