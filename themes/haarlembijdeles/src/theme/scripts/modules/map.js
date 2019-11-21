@@ -6,7 +6,7 @@ GoogleMapsLoader.KEY = settings.GOOGLE_MAPS_API;
 GoogleMapsLoader.LANGUAGE = 'nl';
 GoogleMapsLoader.VERSION = 'weekly';
 
-GoogleMapsLoader.load((google) => {
+GoogleMapsLoader.load(google => {
   const map = new google.maps.Map(document.querySelector('.map'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
   });
@@ -21,8 +21,11 @@ GoogleMapsLoader.load((google) => {
   };
 
   let marker;
-  window.locations.forEach((location) => {
-    const position = new google.maps.LatLng(location.latitude, location.longitude);
+  window.locations.forEach(location => {
+    const position = new google.maps.LatLng(
+      location.latitude,
+      location.longitude,
+    );
 
     marker = new google.maps.Marker({
       position,

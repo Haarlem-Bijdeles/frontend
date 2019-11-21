@@ -9,8 +9,8 @@
         <img
           :src="image.thumbnail"
           :alt="image.altText"
-          class="image"
           :srcset="`${image.thumbnail} 1x, ${image.medium} 2x`"
+          class="image"
         />
       </div>
 

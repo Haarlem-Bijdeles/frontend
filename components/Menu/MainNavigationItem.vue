@@ -1,21 +1,21 @@
 <template>
   <li
-    class="menu-item"
     :class="{ open: isOpen, 'has-popup': item.childItems.edges.length > 0 }"
     @mouseover="mouseover"
     @mouseout="mouseout"
+    class="menu-item"
   >
     <menu-item
       :item="item"
-      class="menu-link"
       :aria-haspopup="item.childItems.edges.length > 0"
       :aria-expanded="isOpen"
+      class="menu-link"
     />
     <button
       v-if="item.childItems.edges.length"
-      class="btn-show-submenu"
       :aria-expanded="isOpen"
       @click="toggleMenu"
+      class="btn-show-submenu"
     >
       <icon-chevron-down
         aria-hidden="true"
@@ -25,7 +25,7 @@
       />
       <span class="sr-only">Toon submenu voor {{ item.label }}</span>
     </button>
-    <ul v-if="item.childItems.edges.length" ref="submenu" class="submenu">
+    <ul ref="submenu" v-if="item.childItems.edges.length" class="submenu">
       <li
         v-for="subItem in item.childItems.edges"
         :key="subItem.node.label"

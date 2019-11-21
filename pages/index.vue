@@ -1,7 +1,7 @@
 <template>
   <div>
     <article>
-      <app-hero size="large" :image="page.featuredImage" :title="page.title" />
+      <app-hero :image="page.featuredImage" :title="page.title" size="large" />
       <usps :usps="page.usps" :offers="page.offers" />
 
       <the-intro :text="page.content" />

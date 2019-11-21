@@ -62,8 +62,8 @@
 
           <social-media-links
             v-if="generalSettings.socialMedia"
-            title="Haarlem bijdeles"
             :social-media="generalSettings.socialMedia"
+            title="Haarlem bijdeles"
           />
         </div>
       </div>

@@ -5,11 +5,11 @@
 
     <form
       v-else
+      @submit.prevent="submit"
       action
       data-netlify="true"
       method="post"
       name="contact"
-      @submit.prevent="submit"
     >
       <p>
         Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
@@ -19,17 +19,17 @@
       <form-fieldset title="Contactformulier">
         <form-input-text
           v-model.trim.lazy="$v.form.name.$model"
+          :error-message="errorMessageName"
           type="text"
           name="name"
           title="Name"
-          :error-message="errorMessageName"
         />
         <form-input-text
           v-model.trim.lazy="$v.form.email.$model"
+          :error-message="errorMessageEmail"
           name="email"
           type="email"
           title="E-mailaddress"
-          :error-message="errorMessageEmail"
         />
         <form-input-text
           v-model="form.phonenumber"

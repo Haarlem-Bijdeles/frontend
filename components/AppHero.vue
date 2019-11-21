@@ -1,15 +1,15 @@
 <template>
-  <div v-if="image" class="hero" :class="size">
+  <div v-if="image" :class="size" class="hero">
     <img
       :src="image.heroMedium"
       :alt="image.alText"
-      class="image"
       :srcset="
         `
         ${image.heroLarge} 1140w,
         ${image.heroMedium} 800w,
         ${image.heroSmall} 640w`
       "
+      class="image"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <div class="wrapper">

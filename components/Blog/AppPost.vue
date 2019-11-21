@@ -1,5 +1,5 @@
 <template>
-  <li class="item" @mousedown="mouseDown" @mouseup="mouseUp">
+  <li @mousedown="mouseDown" @mouseup="mouseUp" class="item">
     <archive-wrapper :image="post.featuredImage">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->

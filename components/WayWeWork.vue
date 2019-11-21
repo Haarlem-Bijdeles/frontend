@@ -7,22 +7,23 @@
           :key="method.title"
           class="list-item"
         >
-          <button
-            class="nav-link btn btn-ghost  btn-small"
+          <a
             :class="{ active: activeItem === index }"
-            @click="scrollTo(index + 1)"
+            :href="`#werkwijze-${index + 1}`"
+            @click="animateScrollToAnchor(index + 1, $event)"
+            class="nav-link btn btn-ghost  btn-small"
           >
             {{ method.title }}
-          </button>
+          </a>
         </li>
       </ul>
     </nav>
 
     <archive-wrapper
+      ref="archive-item"
       v-for="(method, index) in methods"
       :id="`werkwijze-${index + 1}`"
       :key="method.title"
-      ref="archive-item"
       :images="method.images"
     >
       <template v-slot:title>
@@ -30,7 +31,7 @@
       </template>
 
       <!-- eslint-disable-next-line -->
-        <div v-html="method.text" />
+      <div v-html="method.text" />
     </archive-wrapper>
   </div>
 </template>
@@ -79,7 +80,8 @@ export default {
     }
   },
   methods: {
-    scrollTo(index) {
+    animateScrollToAnchor(index, event) {
+      event.preventDefault()
       document
         .querySelector(`#werkwijze-${index}`)
         .scrollIntoView({ behavior: 'smooth' })
