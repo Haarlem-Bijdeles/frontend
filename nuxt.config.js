@@ -59,7 +59,6 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-svg-loader',
     '@nuxtjs/apollo',
-    ['@nuxtjs/router', { path: '~/src/' }],
     'nuxt-i18n',
   ],
   i18n: {
