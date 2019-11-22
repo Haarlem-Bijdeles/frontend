@@ -2,7 +2,6 @@ Huiswerkbegeleiding
 
 menu (+mobile)
 werkwijze
-blog
 yoast
 
 

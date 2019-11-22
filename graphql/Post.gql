@@ -1,4 +1,4 @@
-query GET_PAGE_BY_URI($uri: String) {
+query GET_POST_BY_URI($uri: String) {
   post: postBy(uri: $uri) {
     featuredImage {
       altText
@@ -10,5 +10,19 @@ query GET_PAGE_BY_URI($uri: String) {
     title
     date
     slug
+    seo {
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphDescription
+      opengraphImage
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage
+      twitterTitle
+    }
   }
 }
