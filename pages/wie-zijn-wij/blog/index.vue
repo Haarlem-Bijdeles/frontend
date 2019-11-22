@@ -15,6 +15,14 @@ export default {
     Posts,
     AppHero,
   },
+  async asyncData({ app, params }) {
+    const blog = await app.apolloProvider.defaultClient.query({
+      query: BlogQuery,
+    })
+    return {
+      page: blog.data.blog,
+    }
+  },
   data() {
     return {
       page: 0,
@@ -24,14 +32,6 @@ export default {
   head() {
     return {
       title: this.page.title,
-    }
-  },
-  async asyncData({ app, params }) {
-    const blog = await app.apolloProvider.defaultClient.query({
-      query: BlogQuery,
-    })
-    return {
-      page: blog.data.blog,
     }
   },
 }

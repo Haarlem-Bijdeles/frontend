@@ -10,8 +10,8 @@
     <div class="button-wrapper">
       <button
         v-if="posts.pageInfo.hasNextPage"
-        @click="showMore"
         class="btn btn-ghost"
+        @click="showMore"
       >
         Toon meer berichten
       </button>

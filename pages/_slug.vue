@@ -19,18 +19,6 @@ export default {
     },
   },
 
-  computed: {
-    details() {
-      return this.$store.state.details
-    },
-    meta() {
-      return this.page.yoast_meta.map(item => {
-        item.hid = item.name ? item.name : item.property
-        return item
-      })
-    },
-  },
-
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
@@ -42,6 +30,18 @@ export default {
     return {
       page: page.data.page,
     }
+  },
+
+  computed: {
+    details() {
+      return this.$store.state.details
+    },
+    meta() {
+      return this.page.yoast_meta.map(item => {
+        item.hid = item.name ? item.name : item.property
+        return item
+      })
+    },
   },
 
   head() {

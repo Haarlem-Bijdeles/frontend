@@ -1,9 +1,9 @@
 <template>
   <li
     :class="{ 'has-popup': item.childItems.edges.length > 0 }"
+    class="menu-item"
     @mouseover="mouseover"
     @mouseout="mouseout"
-    class="menu-item"
   >
     <menu-item
       :item="item"
@@ -14,8 +14,8 @@
     <button
       v-if="item.childItems.edges.length"
       :aria-expanded="isOpen"
-      @click="toggleMenu"
       class="btn-show-submenu"
+      @click="toggleMenu"
     >
       <icon-chevron-down
         aria-hidden="true"

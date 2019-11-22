@@ -5,11 +5,11 @@
 
     <form
       v-else
-      @submit.prevent="submit"
       action
       data-netlify="true"
       method="post"
       name="contact"
+      @submit.prevent="submit"
     >
       <p>
         Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
