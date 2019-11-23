@@ -1,10 +1,5 @@
 <template>
-  <form-field
-    :id="id"
-    :error-message="errorMessage"
-    :title="title"
-    class="field"
-  >
+  <form-field :id="id" :error-message="errorMessage" :title="title">
     <input
       :id="id"
       v-bind="$attrs"
@@ -12,6 +7,7 @@
       :type="type"
       :maxlength="maxlength"
       @input="$emit('input', $event.target.value)"
+      class="field"
     />
   </form-field>
 </template>
@@ -51,3 +47,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.field {
+  @mixin form-field;
+}
+</style>

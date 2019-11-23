@@ -1,5 +1,5 @@
 <template>
-  <div class="field">
+  <div class="form-item">
     <label :for="id" class="label">{{ title }}</label>
     <slot />
     <error-message :error-message="errorMessage" />
@@ -29,3 +29,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.label {
+  display: block;
+  margin-bottom: 0.25em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+</style>

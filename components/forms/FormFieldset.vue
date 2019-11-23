@@ -1,5 +1,5 @@
 <template>
-  <fieldset>
+  <fieldset class="fieldset">
     <legend class="sr-only">{{ title }}</legend>
     <div class="fields">
       <slot />
@@ -19,6 +19,13 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
 .fields {
   display: grid;
   grid-gap: 1em;
