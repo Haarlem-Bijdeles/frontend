@@ -11,7 +11,7 @@
 
 <script>
 import Page from '@/components/Page.vue'
-import PageQuery from '~/graphql/Page.gql'
+import PageContactQuery from '~/graphql/PageContact.gql'
 import OfficesQuery from '~/graphql/Offices.gql'
 import BlockMap from '@/components/Contact/BlockMap.vue'
 import ContactOffices from '@/components/Contact/ContactOffices.vue'
@@ -26,7 +26,7 @@ export default {
   },
   async asyncData({ app }) {
     const page = await app.apolloProvider.defaultClient.query({
-      query: PageQuery,
+      query: PageContactQuery,
       variables: {
         uri: 'contact',
       },

@@ -33,18 +33,6 @@ export default {
     PostDate,
   },
 
-  computed: {
-    details() {
-      return this.$store.state.details
-    },
-    meta() {
-      return this.page.yoast_meta.map(item => {
-        item.hid = item.name ? item.name : item.property
-        return item
-      })
-    },
-  },
-
   async asyncData({ app, params }) {
     const blog = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
@@ -60,6 +48,18 @@ export default {
       blog: blog.data.blog,
       post: post.data.post,
     }
+  },
+
+  computed: {
+    details() {
+      return this.$store.state.details
+    },
+    meta() {
+      return this.page.yoast_meta.map(item => {
+        item.hid = item.name ? item.name : item.property
+        return item
+      })
+    },
   },
 
   head() {

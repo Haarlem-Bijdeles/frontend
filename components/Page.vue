@@ -2,7 +2,7 @@
   <div>
     <article>
       <app-hero :title="page.title" :image="page.featuredImage" />
-      <the-intro :text="page.content" />
+      <the-intro v-if="page.content" :text="page.content" />
     </article>
     <slot />
     <teachers v-if="page.teachers" :teachers="page.teachers" />

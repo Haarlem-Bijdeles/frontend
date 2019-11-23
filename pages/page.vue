@@ -19,18 +19,6 @@ export default {
     },
   },
 
-  async asyncData({ app, params }) {
-    const page = await app.apolloProvider.defaultClient.query({
-      query: PageQuery,
-      variables: {
-        uri: params.slug,
-      },
-    })
-    return {
-      page: page.data.page,
-    }
-  },
-
   computed: {
     details() {
       return this.$store.state.details
@@ -41,6 +29,18 @@ export default {
         return item
       })
     },
+  },
+
+  async asyncData({ app, params }) {
+    const page = await app.apolloProvider.defaultClient.query({
+      query: PageQuery,
+      variables: {
+        uri: params.slug,
+      },
+    })
+    return {
+      page: page.data.page,
+    }
   },
 
   head() {

@@ -1,7 +1,10 @@
 <template>
   <div>
     <h2>Neem contact met ons op</h2>
-    <p v-if="submitted">Succes</p>
+    <p v-if="submitted">
+      Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
+      benaderen.
+    </p>
 
     <form
       v-else
