@@ -5,8 +5,7 @@
       <the-intro v-if="page.content" :text="page.content" />
     </article>
     <slot />
-    <teachers v-if="page.teachers" :teachers="page.teachers" />
-    <way-we-work v-if="page.template === 'page-way-we-work.php'" :page="page" />
+    <teacher-list v-if="page.teachers" :teachers="page.teachers" />
     <videos v-if="page.videos" :videos="page.videos" />
   </div>
 </template>
@@ -15,16 +14,14 @@
 import AppHero from '@/components/AppHero.vue'
 import TheIntro from '@/components/TheIntro.vue'
 import Videos from '@/components/Videos.vue'
-import Teachers from '@/components/templates/Teachers.vue'
-import WayWeWork from '@/components/templates/WayWeWork.vue'
+import TeacherList from '@/components/Teachers/TeacherList.vue'
 
 export default {
   components: {
     AppHero,
     TheIntro,
     Videos,
-    Teachers,
-    WayWeWork,
+    TeacherList,
   },
   props: {
     page: {

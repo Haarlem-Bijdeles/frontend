@@ -14,8 +14,8 @@
 <script>
 import TheIntro from '@/components/TheIntro.vue'
 import AppHero from '@/components/AppHero.vue'
-import Services from '@/components/Services.vue'
-import Usps from '@/components/Usps.vue'
+import Services from '@/components/Home/Services.vue'
+import Usps from '@/components/Home/Usps.vue'
 import FrontPageQuery from '~/graphql/FrontPage.gql'
 
 export default {

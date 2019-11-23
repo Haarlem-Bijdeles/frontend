@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import FormField from '~/components/forms/FormField.vue'
+import FormField from '~/components/Forms/FormField.vue'
 import RandomProp from '~/mixins/random.js'
 
 export default {

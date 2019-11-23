@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul v-if="teachers.length" class="list">
-      <teacher
+      <teacher-list-item
         v-for="teacher in teachers"
         :key="teacher.name"
         :teacher="teacher"
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Teacher from '~/components/Teacher.vue'
+import TeacherListItem from '~/components/Teachers/TeacherListItem.vue'
 export default {
   components: {
-    Teacher,
+    TeacherListItem,
   },
   props: {
     teachers: {

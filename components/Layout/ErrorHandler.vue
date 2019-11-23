@@ -4,7 +4,7 @@
       <div class="content">
         <span class="text" aria-live="polite" role="region">{{ message }}</span>
 
-        <button v-if="message" type="button" class="dismiss" @click="dismiss">
+        <button v-if="message" type="button" @click="dismiss" class="dismiss">
           <icon-close aria-hidden="true" width="24" height="24" />
           <span class="sr-only">{{ $t('close') }}</span>
         </button>
@@ -16,7 +16,7 @@
 <script>
 import EventBusUtil from '@/utils/eventBusUtil'
 import IconClose from '@/icons/close.svg'
-import NotchWrapper from '@/components/NotchWrapper.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

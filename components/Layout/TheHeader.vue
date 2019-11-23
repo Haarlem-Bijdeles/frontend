@@ -9,14 +9,14 @@
       </nuxt-link>
 
       <transition
-        name="fade2"
         @after-enter="afterEnter"
         @after-leave="afterLeave"
         @before-leave="beforeLeave"
+        name="fade2"
       >
         <div v-show="showMenu" class="bg">
           <transition name="fade">
-            <div v-show="showMenu" ref="bg" class="content">
+            <div ref="bg" v-show="showMenu" class="content">
               <main-navigation />
             </div>
           </transition>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import SkipLinks from '@/components/SkipLinks.vue'
+import SkipLinks from '@/components/Layout/SkipLinks.vue'
 import MobileNavigation from '@/components/MobileNavigation.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import IconLogo from '@/icons/logo.svg'

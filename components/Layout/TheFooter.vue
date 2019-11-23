@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import NotchWrapper from '@/components/NotchWrapper.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
 import IconLogo from '@/icons/logo.svg'
 import MenuItem from '@/components/MenuItem.vue'

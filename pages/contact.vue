@@ -15,7 +15,7 @@ import PageContactQuery from '~/graphql/PageContact.gql'
 import OfficesQuery from '~/graphql/Offices.gql'
 import BlockMap from '@/components/Contact/BlockMap.vue'
 import ContactOffices from '@/components/Contact/ContactOffices.vue'
-import FormContact from '@/components/Contact/FormContact.vue'
+import FormContact from '@/components/Forms/FormContact.vue'
 
 export default {
   components: {

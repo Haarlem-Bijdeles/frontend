@@ -18,13 +18,13 @@
 
   --color-navigation: #2f2e3e;
 }
-
-/* @media (--dark-mode) {
+/*
+@media (--dark-mode) {
   :root {
     --color-black: #fff;
     --color-white: #000;
     --color-primary: #fff;
     --color-white: #1532c3;
-    --color-text: #fff;
+    --color-text: #f85909;
  }
 } */

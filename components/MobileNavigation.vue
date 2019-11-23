@@ -26,7 +26,7 @@
 
 <script>
 import IconBars from '@/icons/bars.svg'
-import NotchWrapper from '@/components/NotchWrapper.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 import IconLogoSmall from '@/icons/logo-small.svg'
 
 export default {

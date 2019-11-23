@@ -11,8 +11,8 @@
       action
       data-netlify="true"
       method="post"
-      name="contact"
       @submit.prevent="submit"
+      name="contact"
     >
       <p>
         Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
@@ -56,9 +56,9 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import axios from 'axios'
-import FormFieldset from '@/components/forms/FormFieldset.vue'
-import FormInputText from '@/components/forms/FormInputText.vue'
-import FormTextarea from '@/components/forms/FormTextarea.vue'
+import FormFieldset from '@/components/Forms/FormFieldset.vue'
+import FormInputText from '@/components/Forms/FormInputText.vue'
+import FormTextarea from '@/components/Forms/FormTextarea.vue'
 
 export default {
   components: {

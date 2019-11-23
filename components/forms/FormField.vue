@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ErrorMessage from '@/components/forms/ErrorMessage.vue'
+import ErrorMessage from '@/components/Forms/ErrorMessage.vue'
 
 export default {
   components: {

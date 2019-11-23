@@ -1,9 +1,9 @@
 <template>
-  <li class="item" @mousedown="mouseDown" @mouseup="mouseUp">
+  <li @mousedown="mouseDown" @mouseup="mouseUp" class="item">
     <archive-wrapper :image="post.featuredImage">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
-        <router-link :to="post.slug" v-html="post.title" />
+        <router-link :to="post.slug" v-html="post.title" class="link" />
       </template>
 
       <div class="meta">
@@ -69,6 +69,10 @@ export default {
     var(--color-gray-light) 0,
     var(--color-white) 20rem
   );
+}
+
+.link {
+  @mixin link-reset;
 }
 
 .social {

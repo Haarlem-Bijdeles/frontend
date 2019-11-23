@@ -8,7 +8,7 @@
 <script>
 import Page from '@/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
-import WayWeWork from '@/components/templates/WayWeWork.vue'
+import WayWeWork from '@/components/WayWeWork/WayWeWorkWrapper.vue'
 
 export default {
   components: {
