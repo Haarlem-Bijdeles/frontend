@@ -92,9 +92,7 @@ export default {
   /*
    ** Axios module configuration
    */
-  axios: {
-    baseURL: baseUrl,
-  },
+  axios: {},
   /*
    ** Build configuration
    */
