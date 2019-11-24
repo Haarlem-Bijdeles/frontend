@@ -8,10 +8,10 @@
 
     <form
       v-else
+      @submit.prevent="submit"
       action
       data-netlify="true"
       method="post"
-      @submit.prevent="submit"
       name="contact"
     >
       <p>
