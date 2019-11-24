@@ -7,7 +7,7 @@ const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
 export default {
   mode: 'universal',
   env: {
-    baseUrl,
+    baseUrl: 'https://haarlembijdeles.michielkoning.nl/',
   },
   /*
    ** Headers of the page
