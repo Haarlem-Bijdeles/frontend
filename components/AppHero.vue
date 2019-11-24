@@ -2,7 +2,7 @@
   <div v-if="image" :class="size" class="hero">
     <img
       :src="image.heroMedium"
-      :alt="image.alText"
+      :alt="image.altText"
       :srcset="
         `
         ${image.heroLarge} 1140w,
