@@ -1,5 +1,6 @@
 <template>
   <div v-if="image" :class="size" class="hero">
+    {{ url }}
     <img
       :src="image.heroMedium"
       :alt="image.altText"
@@ -28,6 +29,11 @@ export default {
     image: {
       type: Object,
       default: () => {},
+    },
+    computed: {
+      url() {
+        return process.env.URL
+      },
     },
     title: {
       type: String,
