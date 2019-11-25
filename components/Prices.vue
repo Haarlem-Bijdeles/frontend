@@ -36,12 +36,16 @@
         </li>
       </ul>
       <div class="buttons">
-        <nuxt-link to="/contact" class="btn btn-action">
-          Maak direct een afspraak
-        </nuxt-link>
-        <a href="tel:06%20-%2028%2032%2057%2033" class="btn btn-ghost"
-          >Bel Tim: 06 - 28 32 57 33</a
-        >
+        <div class="button-wrapper">
+          <nuxt-link to="/contact" class="btn btn-action">
+            Maak direct een afspraak
+          </nuxt-link>
+        </div>
+        <div class="button-wrapper">
+          <a href="tel:06%20-%2028%2032%2057%2033" class="btn btn-ghost"
+            >Bel Tim: 06 - 28 32 57 33</a
+          >
+        </div>
       </div>
     </div>
   </section>
@@ -163,6 +167,7 @@ export default {
   @mixin list-reset;
   display: grid;
   grid-gap: var(--gutter);
+  margin-bottom: 1em;
   grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
 }
 
@@ -209,5 +214,24 @@ export default {
   background: #06b326;
   fill: var(--color-white);
   border-radius: 50%;
+}
+
+.buttons {
+  @include breakpoint(md) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.button-wrapper {
+  padding-bottom: 0.5em;
+  @include breakpoint(md) {
+    width: 25%;
+    padding: 0 0.5em 0.5em;
+  }
+}
+
+.btn {
+  width: 100%;
 }
 </style>

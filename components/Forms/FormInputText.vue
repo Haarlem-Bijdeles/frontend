@@ -6,8 +6,8 @@
       :value="value"
       :type="type"
       :maxlength="maxlength"
-      @input="$emit('input', $event.target.value)"
       class="field"
+      @input="$emit('input', $event.target.value)"
     />
   </form-field>
 </template>

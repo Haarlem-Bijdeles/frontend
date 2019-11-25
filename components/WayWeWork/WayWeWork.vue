@@ -10,8 +10,8 @@
           <a
             :class="{ active: activeItem === index }"
             :href="`#werkwijze-${index + 1}`"
-            @click="animateScrollToAnchor(index + 1, $event)"
             class="nav-link btn btn-ghost  btn-small"
+            @click="animateScrollToAnchor(index + 1, $event)"
           >
             {{ method.title }}
           </a>
@@ -20,9 +20,9 @@
     </nav>
 
     <archive-wrapper
-      ref="archive-item"
       v-for="(method, index) in methods"
       :id="`werkwijze-${index + 1}`"
+      ref="archive-item"
       :key="method.title"
       :images="method.images"
     >

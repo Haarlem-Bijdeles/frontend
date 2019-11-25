@@ -4,8 +4,8 @@
       :id="id"
       v-bind="$attrs"
       :value="value"
-      @input="$emit('input', $event.target.value)"
       class="field"
+      @input="$emit('input', $event.target.value)"
     />
   </form-field>
 </template>
