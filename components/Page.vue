@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <article>
-      <app-hero :title="page.title" :image="page.featuredImage" />
-      <the-intro v-if="page.content" :text="page.content" />
-    </article>
+  <article>
+    <app-hero
+      :title="page.title"
+      :image="page.featuredImage"
+      :is-large="isLargeHero"
+    />
     <slot />
-  </div>
+    <the-intro v-if="page.content" :text="page.content" />
+  </article>
 </template>
 
 <script>
@@ -21,6 +23,10 @@ export default {
     page: {
       type: Object,
       default: () => {},
+    },
+    isLargeHero: {
+      type: Boolean,
+      default: false,
     },
   },
 }

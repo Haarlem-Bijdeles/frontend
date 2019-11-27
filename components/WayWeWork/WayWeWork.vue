@@ -25,6 +25,7 @@
       ref="archive-item"
       :key="method.title"
       :image="method.image"
+      class="item"
     >
       <template v-slot:title>
         {{ method.title }}

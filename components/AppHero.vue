@@ -1,5 +1,5 @@
 <template>
-  <div v-if="image" :class="size" class="hero">
+  <div v-if="image" :class="{ large: isLarge }" class="hero">
     <img
       :src="image.heroMedium"
       :alt="image.altText"
@@ -21,9 +21,9 @@
 <script>
 export default {
   props: {
-    size: {
-      type: String,
-      default: 'small',
+    isLarge: {
+      type: Boolean,
+      default: false,
     },
     image: {
       type: Object,
@@ -42,19 +42,16 @@ export default {
   position: relative;
   text-shadow: 1px 1px 1px var(--color-black);
   color: var(--color-white);
-}
-
-.small {
   height: 8rem;
   @media (--viewport-sm) {
     height: 20rem;
   }
-}
 
-.large {
-  height: 10rem;
-  @media (--viewport-sm) {
-    height: 30rem;
+  &.large {
+    height: 10rem;
+    @media (--viewport-sm) {
+      height: 30rem;
+    }
   }
 }
 
