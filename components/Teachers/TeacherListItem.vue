@@ -1,6 +1,7 @@
 <template>
   <li class="item">
-    <archive-wrapper :images="teacher.images">
+    {{ teacher.featuredImage }}
+    <archive-wrapper :image="teacher.image">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
         <span v-html="teacher.name" />

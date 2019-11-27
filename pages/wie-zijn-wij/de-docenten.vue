@@ -1,13 +1,19 @@
 <template>
-  <page :page="page" />
+  <div>
+    <page v-if="page" :page="page" />
+
+    <teacher-list v-if="page.employers" :teachers="page.employers.employers" />
+  </div>
 </template>
 
 <script>
-import TeachersQuery from '~/graphql/Teachers.gql'
+import TeachersQuery from '~/graphql/PageTeachers.gql'
+import TeacherList from '@/components/Teachers/TeacherList.vue'
 import Page from '@/components/Page.vue'
 
 export default {
   components: {
+    TeacherList,
     Page,
   },
 
