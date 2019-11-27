@@ -14,8 +14,8 @@ query GET_POSTS($first: Int, $after: String, $notIn: [ID]) {
         excerpt
         featuredImage {
           altText
-          thumbnail: sourceUrl(size: THUMBNAIL)
-          medium: sourceUrl(size: MEDIUM)
+          archive: sourceUrl(size: ARCHIVE)
+          archive2x: sourceUrl(size: ARCHIVE_2X)
         }
         postId
         title

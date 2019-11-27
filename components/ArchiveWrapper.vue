@@ -4,12 +4,11 @@
       <h2 class="title">
         <slot name="title" />
       </h2>
-
       <div v-if="image" class="image-wrapper">
         <img
-          :src="image.thumbnail"
+          :src="image.archive"
           :alt="image.altText"
-          :srcset="`${image.thumbnail} 1x, ${image.medium} 2x`"
+          :srcset="`${image.archive} 1x, ${image.archive2x} 2x`"
           class="image"
         />
       </div>

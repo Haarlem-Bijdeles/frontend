@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <page v-if="page" :page="page" />
-  </div>
+  <page v-if="page" :page="page" />
 </template>
 
 <script>
@@ -11,12 +9,6 @@ import PageQuery from '~/graphql/Page.gql'
 export default {
   components: {
     Page,
-  },
-  props: {
-    slug: {
-      type: String,
-      default: '',
-    },
   },
 
   async asyncData({ app, params }) {
@@ -30,18 +22,6 @@ export default {
     return {
       page: page.data.page,
     }
-  },
-
-  computed: {
-    details() {
-      return this.$store.state.details
-    },
-    meta() {
-      return this.page.yoast_meta.map(item => {
-        item.hid = item.name ? item.name : item.property
-        return item
-      })
-    },
   },
 
   head() {

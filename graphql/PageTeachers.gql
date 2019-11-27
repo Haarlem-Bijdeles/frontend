@@ -17,8 +17,9 @@ query GET_TEACHERS_PAGE_BY_URI($uri: String) {
         name
         twitter
         image {
-          thumbnail: sourceUrl(size: THUMBNAIL)
-          medium: sourceUrl(size: MEDIUM)
+          altText
+          archive: sourceUrl(size: ARCHIVE)
+          archive2x: sourceUrl(size: ARCHIVE_2X)
         }
       }
     }
