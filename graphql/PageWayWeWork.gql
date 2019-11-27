@@ -8,14 +8,10 @@ query GET_TEACHERS_PAGE_BY_URI($uri: String) {
       heroMedium: sourceUrl(size: HERO_MEDIUM)
       heroSmall: sourceUrl(size: HERO_SMALL)
     }
-    employersGroup {
-      employers {
-        bio
-        facebook
-        fieldGroupName
-        linkedin
-        name
-        twitter
+    wayWeWorkGroup {
+      wayWeWork {
+        text
+        title
         image {
           thumbnail: sourceUrl(size: THUMBNAIL)
           medium: sourceUrl(size: MEDIUM)

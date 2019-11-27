@@ -1,8 +1,10 @@
 <template>
   <div>
     <page v-if="page" :page="page" />
-
-    <teacher-list v-if="page.employers" :teachers="page.employers.employers" />
+    <teacher-list
+      v-if="page.employersGroup"
+      :teachers="page.employersGroup.employers"
+    />
   </div>
 </template>
 

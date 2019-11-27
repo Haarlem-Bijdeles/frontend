@@ -24,7 +24,7 @@
       :id="`werkwijze-${index + 1}`"
       ref="archive-item"
       :key="method.title"
-      :images="method.images"
+      :image="method.image"
     >
       <template v-slot:title>
         {{ method.title }}
