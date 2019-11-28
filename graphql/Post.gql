@@ -1,4 +1,5 @@
 #import "./Fragments/ImageArchive.gql"
+#import "./Fragments/Seo.gql"
 
 query GET_POST_BY_URI($uri: String) {
   post: postBy(uri: $uri) {
@@ -10,5 +11,8 @@ query GET_POST_BY_URI($uri: String) {
     title
     date
     slug
+    seo {
+      ...seo
+    }
   }
 }

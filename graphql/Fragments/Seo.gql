@@ -1,0 +1,14 @@
+fragment seo on SEO {
+  focuskw
+  metaDesc
+  metaKeywords
+  metaRobotsNofollow
+  metaRobotsNoindex
+  opengraphDescription
+  opengraphImage
+  opengraphTitle
+  title
+  twitterDescription
+  twitterImage
+  twitterTitle
+}
