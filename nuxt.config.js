@@ -26,15 +26,7 @@ export default {
       },
       { hid: 'description', name: 'description', content: pkg.description },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-
-      {
-        href:
-          'https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap',
-        rel: 'stylesheet',
-      },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
