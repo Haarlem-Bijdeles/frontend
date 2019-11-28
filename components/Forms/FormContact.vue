@@ -21,6 +21,7 @@
       <input type="hidden" name="form-name" value="contact" />
       <form-fieldset title="Contactformulier">
         <form-input-text
+          id="name"
           v-model.trim.lazy="$v.form.name.$model"
           :error-message="errorMessageName"
           :title="$t('form.name')"
@@ -28,6 +29,7 @@
           name="name"
         />
         <form-input-text
+          id="email"
           v-model.trim.lazy="$v.form.email.$model"
           :error-message="errorMessageEmail"
           :title="$t('form.email')"
@@ -35,12 +37,14 @@
           type="email"
         />
         <form-input-text
+          id="phone"
           v-model="form.phonenumber"
           :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
         />
         <form-textarea
+          id="message"
           v-model.trim="form.message"
           :title="$t('form.message')"
           name="message"

@@ -14,7 +14,6 @@
 
 <script>
 import FormField from '~/components/Forms/FormField.vue'
-import RandomProp from '~/mixins/random.js'
 
 export default {
   components: {
@@ -26,8 +25,10 @@ export default {
       type: String,
       required: true,
     },
-    id: RandomProp,
-
+    id: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       default: 'text',
