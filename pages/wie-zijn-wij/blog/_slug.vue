@@ -11,7 +11,7 @@
     </archive-wrapper>
     <section id="posts-title">
       <h1 id="posts-title" class="posts-title-wrapper">Meer berichten</h1>
-      <posts />
+      <posts :not-in="post.postId" />
     </section>
   </div>
 </template>

@@ -7,6 +7,7 @@
         :post="post.node"
       />
     </ul>
+
     <div class="button-wrapper">
       <button
         v-if="posts.pageInfo.hasNextPage"
@@ -32,9 +33,18 @@ export default {
     // Pages
     posts: {
       query: PostsQuery,
-      variables: {
-        first: 5,
+      variables() {
+        return {
+          first: 5,
+          notIn: this.notIn,
+        }
       },
+    },
+  },
+  props: {
+    notIn: {
+      type: Number,
+      default: 0,
     },
   },
   data() {

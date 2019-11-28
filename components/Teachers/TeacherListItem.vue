@@ -38,18 +38,10 @@ export default {
     socialMedia() {
       const socialMedia = {}
       const { teacher } = this
-      if (teacher.facebook) {
-        socialMedia.facebook = teacher.facebook
-      }
-      if (teacher.twitter) {
-        socialMedia.twitter = teacher.twitter
-      }
-      if (teacher.linkedin) {
-        socialMedia.linkedin = teacher.linkedin
-      }
-      if (teacher.instagram) {
-        socialMedia.instagram = teacher.instagram
-      }
+      if (teacher.facebook) socialMedia.facebook = teacher.facebook
+      if (teacher.twitter) socialMedia.twitter = teacher.twitter
+      if (teacher.linkedin) socialMedia.linkedin = teacher.linkedin
+      if (teacher.instagram) socialMedia.instagram = teacher.instagram
       return socialMedia
     },
     hasSocialMedia() {
