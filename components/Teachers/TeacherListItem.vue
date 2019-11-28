@@ -11,9 +11,9 @@
       <p v-html="teacher.bio" />
 
       <social-media-links
-        v-if="teacher.socialMedia"
+        v-if="hasSocialMedia"
         :title="teacher.name"
-        :social-media="teacher.socialMedia"
+        :social-media="socialMedia"
       />
     </archive-wrapper>
   </li>
@@ -32,6 +32,28 @@ export default {
     teacher: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    socialMedia() {
+      const socialMedia = {}
+      const { teacher } = this
+      if (teacher.facebook) {
+        socialMedia.facebook = teacher.facebook
+      }
+      if (teacher.twitter) {
+        socialMedia.twitter = teacher.twitter
+      }
+      if (teacher.linkedin) {
+        socialMedia.linkedin = teacher.linkedin
+      }
+      if (teacher.instagram) {
+        socialMedia.instagram = teacher.instagram
+      }
+      return socialMedia
+    },
+    hasSocialMedia() {
+      return Object.keys(this.socialMedia).length
     },
   },
 }

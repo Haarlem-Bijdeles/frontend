@@ -17,5 +17,9 @@ query GET_TEACHERS_PAGE_BY_URI($uri: String) {
         }
       }
     }
+    videosGroup {
+      video1
+      video2
+    }
   }
 }
