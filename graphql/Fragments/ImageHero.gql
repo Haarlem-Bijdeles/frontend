@@ -1,0 +1,6 @@
+fragment imageHero on MediaItem {
+  altText
+  heroLarge: sourceUrl(size: HERO_LARGE)
+  heroMedium: sourceUrl(size: HERO_MEDIUM)
+  heroSmall: sourceUrl(size: HERO_SMALL)
+}

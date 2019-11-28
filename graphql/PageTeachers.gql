@@ -1,13 +1,9 @@
+#import "./Fragments/PageContent.gql"
+#import "./Fragments/ImageArchive.gql"
+
 query GET_TEACHERS_PAGE_BY_URI($uri: String) {
   page: pageBy(uri: $uri) {
-    title
-    content
-    featuredImage {
-      altText
-      heroLarge: sourceUrl(size: HERO_LARGE)
-      heroMedium: sourceUrl(size: HERO_MEDIUM)
-      heroSmall: sourceUrl(size: HERO_SMALL)
-    }
+    ...pageContent
     employersGroup {
       employers {
         bio
@@ -17,9 +13,7 @@ query GET_TEACHERS_PAGE_BY_URI($uri: String) {
         name
         twitter
         image {
-          altText
-          archive: sourceUrl(size: ARCHIVE)
-          archive2x: sourceUrl(size: ARCHIVE_2X)
+          ...imageArchive
         }
       }
     }

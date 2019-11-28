@@ -1,28 +1,14 @@
+#import "./Fragments/ImageArchive.gql"
+
 query GET_POST_BY_URI($uri: String) {
   post: postBy(uri: $uri) {
     featuredImage {
-      altText
-      thumbnail: sourceUrl(size: THUMBNAIL)
-      medium: sourceUrl(size: MEDIUM)
+      ...imageArchive
     }
     postId
     content
     title
     date
     slug
-    seo {
-      focuskw
-      metaDesc
-      metaKeywords
-      metaRobotsNofollow
-      metaRobotsNoindex
-      opengraphDescription
-      opengraphImage
-      opengraphTitle
-      title
-      twitterDescription
-      twitterImage
-      twitterTitle
-    }
   }
 }

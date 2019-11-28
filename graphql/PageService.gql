@@ -1,13 +1,8 @@
+#import "./Fragments/PageContent.gql"
+
 query GET_PAGE_BY_URI($uri: String) {
   page: pageBy(uri: $uri) {
-    title
-    content
-    featuredImage {
-      altText
-      heroLarge: sourceUrl(size: HERO_LARGE)
-      heroMedium: sourceUrl(size: HERO_MEDIUM)
-      heroSmall: sourceUrl(size: HERO_SMALL)
-    }
+    ...pageContent
     forStudentsAndParents {
       forParents {
         text
@@ -15,7 +10,7 @@ query GET_PAGE_BY_URI($uri: String) {
       forStudents {
         text
       }
-    },
+    }
     prices {
       price
       title
