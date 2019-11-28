@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import IconFacebook from '@/icons/facebook-rounded.svg'
-import IconTwitter from '@/icons/twitter-rounded.svg'
-import IconLinkedin from '@/icons/linkedin-rounded.svg'
+import IconFacebook from '@/icons/facebook.svg'
+import IconTwitter from '@/icons/twitter.svg'
+import IconLinkedin from '@/icons/linkedin.svg'
 import IconInstagram from '@/icons/instagram.svg'
 
 export default {
