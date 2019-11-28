@@ -1,7 +1,8 @@
 Huiswerkbegeleiding
 menu (+mobile)
 yoast
-
+read more
+site settings
 
 nice to have
 translations
