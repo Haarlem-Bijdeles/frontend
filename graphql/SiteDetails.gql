@@ -1,0 +1,26 @@
+query getSiteDetails {
+  siteDetails {
+    socialMediaGroup {
+      facebook
+      fieldGroupName
+      instagram
+      linkedin
+      twitter
+    }
+    addressesGroup {
+      email
+      kvk
+      phonenumber
+      addresses {
+        city
+        latitude
+        longitude
+        street
+        zipcode
+        image {
+          id
+        }
+      }
+    }
+  }
+}

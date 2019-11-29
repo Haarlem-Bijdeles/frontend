@@ -1,6 +1,5 @@
 :root {
-  --error-handler: 9;
-  --mobile-navigation: 3;
-  --main-navigation: 2;
-  --gallery-photo-1: 1;
+  --error-handler: 3;
+  --mobile-navigation: 2;
+  --main-navigation: 1;
 }

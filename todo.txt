@@ -1,8 +1,11 @@
+site settings
 Huiswerkbegeleiding
 menu (+mobile)
 yoast
 read more
-site settings
+testimonials
+lazyload images
+marker from static
 
 nice to have
 translations

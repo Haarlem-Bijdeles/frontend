@@ -78,6 +78,7 @@ import IconLogo from '@/icons/logo.svg'
 import MenuItem from '@/components/MenuItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
 import OfficesQuery from '~/graphql/Offices.gql'
+import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 
 export default {
   components: {
@@ -102,6 +103,9 @@ export default {
     },
     generalSettings: {
       query: OfficesQuery,
+    },
+    siteDetails: {
+      query: SiteDetailsQuery,
     },
   },
 }

@@ -1,11 +1,11 @@
 <template>
   <notch-wrapper v-if="offices.length">
-    <gmap-map ref="refMap" :center="offices[0].position" :zoom="15" class="map">
+    <gmap-map ref="refMap" :center="center" :zoom="15" class="map">
       <gmap-marker
         v-for="(office, index) in offices"
         :key="office.zipcode"
         :icon="icon"
-        :position="office.position"
+        :position="getPosition(office)"
         :clickable="true"
         @click="toggleInfoWindow(office, index)"
       />
@@ -53,17 +53,28 @@ export default {
       },
     }
   },
+  computed: {
+    center() {
+      return this.getPosition(this.offices[0])
+    },
+  },
   mounted() {
     this.boundMap()
   },
   methods: {
+    getPosition(office) {
+      return {
+        latitude: office.latitude,
+        longitude: office.longitude,
+      }
+    },
     boundMap() {
       this.$refs.refMap.$mapPromise.then(map => {
         const bounds = new window.google.maps.LatLngBounds()
         this.offices.forEach(location => {
           const position = new window.google.maps.LatLng(
-            location.position.lat,
-            location.position.lng,
+            location.latitude,
+            location.longitude,
           )
           bounds.extend(position)
         })
@@ -72,7 +83,7 @@ export default {
       })
     },
     toggleInfoWindow(marker, ID) {
-      this.infoWindowPos = marker.position
+      this.infoWindowPos = this.getPosition(marker)
       this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
 
       // check if its the same marker that was selected if yes toggle
