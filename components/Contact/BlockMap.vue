@@ -64,8 +64,8 @@ export default {
   methods: {
     getPosition(office) {
       return {
-        latitude: office.latitude,
-        longitude: office.longitude,
+        lat: office.latitude,
+        lng: office.longitude,
       }
     },
     boundMap() {
