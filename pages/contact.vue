@@ -44,6 +44,12 @@ export default {
   head() {
     return {
       title: this.page.title,
+      link: [
+        {
+          rel: 'dns-prefetch',
+          href: '//maps.googleapis.com',
+        },
+      ],
     }
   },
 }

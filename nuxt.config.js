@@ -26,7 +26,17 @@ export default {
       },
       { hid: 'description', name: 'description', content: pkg.description },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'dns-prefetch',
+        href: '//www.google-analytics.com',
+      },
+      {
+        rel: 'dns-prefetch',
+        href: 'https://api.haarlembijdeles.michielkoning.nl',
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
 
   /*
@@ -44,7 +54,7 @@ export default {
   plugins: [
     '~/plugins/axios',
     { src: '~/plugins/google-maps', mode: 'client' },
-    { src: '~/plugins/vuelidate', mode: 'client' },
+    '~/plugins/vuelidate',
   ],
   /*
    ** Nuxt.js modules
