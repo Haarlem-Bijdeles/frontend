@@ -1,13 +1,11 @@
 <template>
   <div>
     <img
-      src="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_25_HR-280x0-c-default.jpg"
-      alt
+      v-if="office.image"
+      :src="office.image.archive"
+      :alt="office.image.altText"
+      :srcset="`${office.image.archive} 1x, ${office.image.archive2x} 2x`"
       class="image"
-      srcset="
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_25_HR-280x0-c-default.jpg 1x,
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_25_HR-560x0-c-default.jpg 2x
-      "
     />
     <span class="street">{{ office.street }}</span>
     {{ office.zipcode }}, {{ office.city }}

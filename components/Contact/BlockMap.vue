@@ -35,8 +35,7 @@ export default {
   data() {
     return {
       icon: {
-        url:
-          'https://www.haarlembijdeles.nl/wp-content/themes/haarlembijdeles/assets/images/marker@2x.png',
+        url: '/images/marker@2x.png',
         size: { width: 30, height: 30 },
         scaledSize: { width: 30, height: 30 },
       },

@@ -1,3 +1,5 @@
+#import "./Fragments/ImageArchive.gql"
+
 query getSiteDetails {
   siteDetails {
     socialMediaGroup {
@@ -18,7 +20,7 @@ query getSiteDetails {
         street
         zipcode
         image {
-          id
+          ...imageArchive
         }
       }
     }

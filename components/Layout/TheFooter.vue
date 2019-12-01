@@ -23,9 +23,9 @@
         <div class="address">
           <h2>Contact</h2>
           <address itemscope itemtype="http://schema.org/Organization">
-            <p itemprop="name">{{ generalSettings.title }}</p>
+            <p itemprop="name">Haarlem bijdeles</p>
             <p
-              v-for="office in generalSettings.addresses"
+              v-for="office in offices"
               :key="office.zipcode"
               itemprop="address"
               itemscope
@@ -40,29 +40,31 @@
 
             <p>
               <a
-                v-if="generalSettings.phonenumber"
-                :href="`tel:${generalSettings.phonenumber}`"
+                v-if="siteDetails.addressesGroup.phonenumber"
+                :href="`tel:${siteDetails.addressesGroup.phonenumber}`"
                 itemprop="telephone"
-                >{{ generalSettings.phonenumber }}</a
+                >{{ siteDetails.addressesGroup.phonenumber }}</a
               >
               <br />
               <a
-                v-if="generalSettings.companyEmail"
-                :href="`mailto:${generalSettings.companyEmail}`"
+                v-if="siteDetails.addressesGroup.email"
+                :href="`mailto:${siteDetails.addressesGroup.email}`"
                 itemprop="email"
-                >{{ generalSettings.companyEmail }}</a
+                >{{ siteDetails.addressesGroup.email }}</a
               >
               <br />
             </p>
-            <p v-if="generalSettings.kvk">KVK: {{ generalSettings.kvk }}</p>
+            <p v-if="siteDetails.addressesGroup.kvk">
+              KVK: {{ siteDetails.addressesGroup.kvk }}
+            </p>
           </address>
         </div>
         <div>
           <h2>Volg ons op</h2>
 
           <social-media-links
-            v-if="generalSettings.socialMedia"
-            :social-media="generalSettings.socialMedia"
+            v-if="socialMedia"
+            :social-media="socialMedia"
             title="Haarlem bijdeles"
           />
         </div>
@@ -77,7 +79,6 @@ import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
 import IconLogo from '@/icons/logo.svg'
 import MenuItem from '@/components/MenuItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
-import OfficesQuery from '~/graphql/Offices.gql'
 import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 
 export default {
@@ -90,8 +91,28 @@ export default {
   data() {
     return {
       address: null,
-      socialMedia: null,
     }
+  },
+  computed: {
+    socialMedia() {
+      const socialMedia = {}
+      const socialMediaSettings = this.siteDetails.socialMediaGroup
+      if (socialMediaSettings.facebook)
+        socialMedia.facebook = socialMediaSettings.facebook
+      if (socialMediaSettings.twitter)
+        socialMedia.twitter = socialMediaSettings.twitter
+      if (socialMediaSettings.linkedin)
+        socialMedia.linkedin = socialMediaSettings.linkedin
+      if (socialMediaSettings.instagram)
+        socialMedia.instagram = socialMediaSettings.instagram
+      return socialMedia
+    },
+    hasSocialMedia() {
+      return Object.keys(this.socialMedia).length
+    },
+    offices() {
+      return this.siteDetails.addressesGroup.addresses
+    },
   },
 
   apollo: {
@@ -100,9 +121,6 @@ export default {
       variables: {
         location: 'FOOTER_MENU',
       },
-    },
-    generalSettings: {
-      query: OfficesQuery,
     },
     siteDetails: {
       query: SiteDetailsQuery,
