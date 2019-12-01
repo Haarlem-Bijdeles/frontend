@@ -2,7 +2,6 @@ Huiswerkbegeleiding
 menu (+mobile)
 yoast
 testimonials
-lazyload images
 backup heroimage
 
 nice to have
