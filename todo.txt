@@ -1,7 +1,6 @@
 Huiswerkbegeleiding
 menu (+mobile)
 yoast
-read more
 testimonials
 lazyload images
 backup heroimage

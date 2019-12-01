@@ -1,6 +1,6 @@
 <template>
   <div v-if="image" :class="{ large: isLarge }" class="hero">
-    <img
+    <app-image
       :src="image.heroMedium"
       :alt="image.altText"
       :srcset="
@@ -19,7 +19,12 @@
 </template>
 
 <script>
+import AppImage from '@/components/Shared/AppImage.vue'
+
 export default {
+  components: {
+    AppImage,
+  },
   props: {
     isLarge: {
       type: Boolean,

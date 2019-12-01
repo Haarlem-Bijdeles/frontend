@@ -1,12 +1,7 @@
 <template>
   <div>
-    <img
-      v-if="office.image"
-      :src="office.image.archive"
-      :alt="office.image.altText"
-      :srcset="`${office.image.archive} 1x, ${office.image.archive2x} 2x`"
-      class="image"
-    />
+    <image-archive v-if="office.image" :image="office.image" />
+
     <span class="street">{{ office.street }}</span>
     {{ office.zipcode }}, {{ office.city }}
     <br />
@@ -23,7 +18,12 @@
 </template>
 
 <script>
+import ImageArchive from '@/components/Shared/ImageArchive.vue'
+
 export default {
+  components: {
+    ImageArchive,
+  },
   props: {
     office: {
       type: Object,

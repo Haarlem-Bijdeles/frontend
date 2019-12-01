@@ -5,12 +5,7 @@
         <slot name="title" />
       </h2>
       <div v-if="image" class="image-wrapper">
-        <img
-          :src="image.archive"
-          :alt="image.altText"
-          :srcset="`${image.archive} 1x, ${image.archive2x} 2x`"
-          class="image"
-        />
+        <image-archive :image="image" />
       </div>
 
       <div class="text">
@@ -21,7 +16,12 @@
 </template>
 
 <script>
+import ImageArchive from '@/components/Shared/ImageArchive.vue'
+
 export default {
+  components: {
+    ImageArchive,
+  },
   props: {
     image: {
       type: Object,
