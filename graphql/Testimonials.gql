@@ -1,5 +1,5 @@
-query GET_TESTIMONIALS {
-  testimonials(first: 3) {
+query GET_TESTIMONIALS($first: Int) {
+  testimonials(first: $first) {
     edges {
       node {
         title
