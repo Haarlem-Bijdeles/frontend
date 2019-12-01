@@ -1,5 +1,5 @@
 <template>
-  <li class="item" @mousedown="mouseDown" @mouseup="mouseUp">
+  <clickable-list-item :url="post.slug" class="list-item">
     <archive-wrapper :image="post.featuredImage">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
@@ -12,50 +12,28 @@
       <!-- eslint-disable-next-line -->
       <p v-html="post.excerpt" />
 
-      <div class="link-wrapper">
-        <span class="read-more">
-          {{ $t('readMore') }}
-          <icon-chevron-right aria-hidden="true" width="16" height="16" />
-        </span>
-      </div>
+      <read-more-link class="read-more" />
     </archive-wrapper>
-  </li>
+  </clickable-list-item>
 </template>
 
 <script>
 import PostDate from '@/components/Blog/PostDate.vue'
-import IconChevronRight from '@/icons/chevron-right.svg'
 import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
+import ClickableListItem from '@/components/Shared/ClickableListItem.vue'
+import ReadMoreLink from '@/components/Shared/ReadMoreLink.vue'
 
 export default {
   components: {
     PostDate,
-    IconChevronRight,
     ArchiveWrapper,
+    ClickableListItem,
+    ReadMoreLink,
   },
   props: {
     post: {
       type: Object,
       required: true,
-    },
-  },
-  data() {
-    return {
-      down: null,
-    }
-  },
-  methods: {
-    mouseUp() {
-      const up = +new Date()
-      if (up - this.down < 200) {
-        this.goToPost()
-      }
-    },
-    mouseDown() {
-      this.down = +new Date()
-    },
-    goToPost() {
-      this.$router.push(this.post.slug)
     },
   },
 }

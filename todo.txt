@@ -1,11 +1,10 @@
-site settings
 Huiswerkbegeleiding
 menu (+mobile)
 yoast
 read more
 testimonials
 lazyload images
-marker from static
+backup heroimage
 
 nice to have
 translations
