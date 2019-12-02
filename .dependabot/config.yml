@@ -4,3 +4,8 @@ update_configs:
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "weekly"
+    target_branch: "packages"
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "all"
