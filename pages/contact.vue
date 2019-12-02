@@ -16,6 +16,7 @@ import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 import BlockMap from '@/components/Contact/BlockMap.vue'
 import ContactOffices from '@/components/Contact/ContactOffices.vue'
 import FormContact from '@/components/Forms/FormContact.vue'
+import getSeoMetaData from '@/helpers/seo'
 
 export default {
   components: {
@@ -42,8 +43,10 @@ export default {
   },
 
   head() {
+    const seoData = getSeoMetaData(this.page, this.$nuxt.$route)
+
     return {
-      title: this.page.title,
+      ...seoData,
       link: [
         {
           rel: 'dns-prefetch',

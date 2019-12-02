@@ -1,7 +1,11 @@
 #import "./Fragments/PageContent.gql"
+#import "./Fragments/Seo.gql"
 
 query GET_BLOG {
   blog: pageBy(pageId: 1383) {
     ...pageContent
+    seo {
+      ...seo
+    }
   }
 }

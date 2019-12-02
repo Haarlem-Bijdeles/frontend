@@ -9,6 +9,7 @@
 import Posts from '~/components/Blog/Posts.vue'
 import AppHero from '@/components/AppHero.vue'
 import BlogQuery from '~/graphql/Blog.gql'
+import getSeoMetaData from '@/helpers/seo'
 
 export default {
   components: {
@@ -30,9 +31,7 @@ export default {
     }
   },
   head() {
-    return {
-      title: this.page.title,
-    }
+    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
 }
 </script>

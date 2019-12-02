@@ -17,6 +17,7 @@ import Page from '@/components/Page.vue'
 import Services from '@/components/Home/Services.vue'
 import Usps from '@/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
+import getSeoMetaData from '@/helpers/seo'
 
 export default {
   components: {
@@ -33,9 +34,7 @@ export default {
     }
   },
   head() {
-    return {
-      title: this.page.title,
-    }
+    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
 }
 </script>
