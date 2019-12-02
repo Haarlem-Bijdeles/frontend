@@ -7,7 +7,7 @@
     <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
     <testimonials-list :testimonials="testimonials.edges" />
     <div v-if="showButton" class="button-wrapper">
-      <nuxt-link to="/referenties" class="btn">
+      <nuxt-link to="/referenties" class="btn btn-ghost">
         Bekijk alle referenties
       </nuxt-link>
     </div>
