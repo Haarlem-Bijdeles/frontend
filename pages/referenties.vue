@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" />
+    <page :page="page" />
     <testimonials-wrapper :testimonials="testimonials" />
   </div>
 </template>
@@ -13,6 +13,7 @@ import PageQuery from '~/graphql/Page.gql'
 import getSeoMetaData from '@/helpers/seo'
 
 export default {
+  layout: 'testimonials',
   components: {
     Page,
     TestimonialsWrapper,

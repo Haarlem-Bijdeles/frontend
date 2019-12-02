@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" />
+    <page :page="page" />
     <teacher-list
       v-if="page.employersGroup"
       :teachers="page.employersGroup.employers"

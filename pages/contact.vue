@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" />
+    <page :page="page" />
     <div class="wrapper">
       <contact-offices v-if="offices && offices.length" :offices="offices" />
       <form-contact />

@@ -1,5 +1,5 @@
 <template>
-  <testimonials-wrapper :testimonials="testimonials" />
+  <testimonials-wrapper :testimonials="testimonials" :show-button="true" />
 </template>
 
 <script>

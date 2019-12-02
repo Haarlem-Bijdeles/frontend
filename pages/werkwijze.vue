@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" />
+    <page :page="page" />
     <way-we-work
       v-if="page.wayWeWorkGroup"
       :methods="page.wayWeWorkGroup.wayWeWork"
