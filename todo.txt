@@ -1,6 +1,5 @@
 Huiswerkbegeleiding
 menu (+mobile)
-yoast
 testimonials
 backup heroimage
 

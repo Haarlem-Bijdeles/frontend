@@ -51,13 +51,31 @@ export default {
   },
   methods: {
     setArrowPosition() {
-      const activeLink = this.$refs.menu.querySelector(
-        '.nuxt-link-active[aria-haspopup=true], .nuxt-link-exact-active',
-      )
+      const activeLink = this.getMainLink()
+
       if (activeLink) {
         this.arrowPosition = `translateX(${activeLink.parentElement.offsetLeft}px)`
         this.arrowWidth = `${activeLink.offsetWidth}px`
+      } else {
+        this.arrowWidth = 0
       }
+    },
+    getMainLink() {
+      let activeLink = this.$refs.menu.querySelector(
+        '.menu-link.nuxt-link-active[aria-haspopup=true], .menu-link.nuxt-link-exact-active',
+      )
+      if (activeLink) {
+        return activeLink
+      }
+      const activeSubLink = this.$refs.menu.querySelector(
+        '.submenu-link.nuxt-link-exact-active',
+      )
+      if (activeSubLink) {
+        const menuItem = activeSubLink.closest('.menu-item.has-popup')
+        activeLink = menuItem.querySelector('.menu-link')
+        return activeLink
+      }
+      return null
     },
   },
   apollo: {

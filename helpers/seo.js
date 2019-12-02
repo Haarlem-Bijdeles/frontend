@@ -11,8 +11,10 @@ const getMetaTitle = (page, key) => {
 const getMetaDescripion = (page, key) => {
   if (page.seo[key]) {
     return page.seo[key]
+  } else if (page.seo.metaDesc) {
+    return page.seo.metaDesc
   }
-  return page.seo.metaDesc
+  return null
 }
 
 const getMetaImage = (page, key) => {
@@ -23,7 +25,7 @@ const getMetaImage = (page, key) => {
   } else if (page.featuredImage.archive2x) {
     return page.featuredImage.archive2x
   }
-  return ''
+  return null
 }
 
 export default (page, path) => {
