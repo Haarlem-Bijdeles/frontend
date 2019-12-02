@@ -1,5 +1,5 @@
 <template>
-  <page v-if="page" :page="page" />
+  <page :page="page" />
 </template>
 
 <script>

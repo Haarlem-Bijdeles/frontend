@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" />
+    <page :page="page" />
     <service :for-students-and-parents="page.forStudentsAndParents" />
     <prices :prices="page.prices" />
   </div>

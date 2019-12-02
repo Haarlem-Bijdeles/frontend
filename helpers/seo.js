@@ -20,10 +20,12 @@ const getMetaDescripion = (page, key) => {
 const getMetaImage = (page, key) => {
   if (page.seo[key]) {
     return page.seo[key]
-  } else if (page.featuredImage.heroSmall) {
-    return page.featuredImage.heroSmall
-  } else if (page.featuredImage.archive2x) {
-    return page.featuredImage.archive2x
+  } else if (page.featuredImage) {
+    if (page.featuredImage.heroSmall) {
+      return page.featuredImage.heroSmall
+    } else if (page.featuredImage.archive2x) {
+      return page.featuredImage.archive2x
+    }
   }
   return null
 }

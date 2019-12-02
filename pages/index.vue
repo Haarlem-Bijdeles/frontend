@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page v-if="page" :page="page" :is-large-hero="true">
+    <page :page="page" :is-large-hero="true">
       <usps
         v-if="page.uspsFrontPageGroup"
         :usps="page.uspsFrontPageGroup.usps"
