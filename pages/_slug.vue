@@ -5,6 +5,7 @@
 <script>
 import Page from '@/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
+import getSeoMetaData from '@/helpers/seo'
 
 export default {
   components: {
@@ -25,9 +26,7 @@ export default {
   },
 
   head() {
-    return {
-      title: this.page.title,
-    }
+    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
 }
 </script>

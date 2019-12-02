@@ -17,7 +17,7 @@ export default {
       lang: 'nl',
     },
     title: pkg.name,
-    titleTemplate: '%s | Haarlem bijdeles',
+    titleTemplate: '%s',
     meta: [
       { charset: 'utf-8' },
       {
@@ -25,6 +25,11 @@ export default {
         content: 'width=device-width, initial-scale=1, viewport-fit=cover',
       },
       { hid: 'description', name: 'description', content: pkg.description },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: pkg.description,
+      },
     ],
     link: [
       {

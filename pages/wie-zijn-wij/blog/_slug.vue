@@ -21,6 +21,7 @@ import Page from '@/components/Page.vue'
 import Posts from '~/components/Blog/Posts.vue'
 import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
 import PostDate from '@/components/Blog/PostDate.vue'
+import getSeoMetaData from '@/helpers/seo'
 
 import PostQuery from '~/graphql/Post.gql'
 import BlogQuery from '~/graphql/Blog.gql'
@@ -61,11 +62,8 @@ export default {
       })
     },
   },
-
   head() {
-    return {
-      title: this.post.seo.title,
-    }
+    return getSeoMetaData(this.post, this.$nuxt.$route)
   },
 }
 </script>

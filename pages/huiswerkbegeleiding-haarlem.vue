@@ -11,6 +11,7 @@ import Page from '@/components/Page.vue'
 import PageServiceQuery from '~/graphql/PageService.gql'
 import Service from '@/components/templates/Service.vue'
 import Prices from '@/components/Prices.vue'
+import getSeoMetaData from '@/helpers/seo'
 
 export default {
   components: {
@@ -31,9 +32,7 @@ export default {
     }
   },
   head() {
-    return {
-      title: this.page.title,
-    }
+    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
 }
 </script>
