@@ -14,7 +14,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.0-rc17",
+    "@nuxtjs/apollo": "^4.0.0-rc18",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/pwa": "^3.0.0-beta.19",
     "apollo-fetch": "^0.7.0",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
-    "@vue/test-utils": "^1.0.0-beta.27",
+    "@vue/test-utils": "^1.0.0-beta.30",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
