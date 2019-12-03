@@ -9,14 +9,6 @@ query getSiteDetails {
       linkedin
       twitter
     }
-    heroImageGroup {
-      image {
-        altText
-        heroLarge: sourceUrl(size: HERO_LARGE)
-        heroMedium: sourceUrl(size: HERO_MEDIUM)
-        heroSmall: sourceUrl(size: HERO_SMALL)
-      }
-    }
     addressesGroup {
       email
       kvk

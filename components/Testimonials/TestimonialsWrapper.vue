@@ -1,6 +1,6 @@
 <template>
   <section
-    v-if="testimonials"
+    v-if="testimonials.edges"
     class="testimonials"
     aria-labelledby="testimonials-title"
   >
