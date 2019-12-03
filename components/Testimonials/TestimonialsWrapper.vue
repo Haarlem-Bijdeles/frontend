@@ -6,11 +6,9 @@
   >
     <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
     <testimonials-list :testimonials="testimonials.edges" />
-    <div v-if="showButton" class="button-wrapper">
-      <nuxt-link to="/referenties" class="btn btn-ghost">
-        Bekijk alle referenties
-      </nuxt-link>
-    </div>
+    <nuxt-link v-if="showButton" to="/referenties" class="btn btn-ghost">
+      Bekijk alle referenties
+    </nuxt-link>
   </section>
 </template>
 
@@ -41,8 +39,7 @@ export default {
   text-align: center;
 }
 
-.button-wrapper {
-  max-width: 20em;
+.btn {
   margin: 2em auto 0;
 }
 </style>
