@@ -40,6 +40,8 @@ a {
   transition: background-color 0.2s ease-out;
   color: var(--color-white);
   box-shadow: none;
+  max-width: 20em;
+
   &:hover {
     box-shadow: none;
     background: var(--color-primary-dark);
