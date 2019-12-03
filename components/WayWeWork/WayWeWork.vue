@@ -110,6 +110,10 @@ export default {
   }
 }
 
+.nav-link {
+  max-width: none;
+}
+
 .list {
   @mixin list-reset;
   display: flex;
