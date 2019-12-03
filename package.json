@@ -22,7 +22,7 @@
     "cross-env": "^6.0.3",
     "graphql-tag": "^2.10.1",
     "nuxt": "^2.10.2",
-    "nuxt-i18n": "^6.4.0",
+    "nuxt-i18n": "^6.4.1",
     "vue": "^2.6.10",
     "vue-server-renderer": "^2.6.10",
     "vue-template-compiler": "^2.6.10",

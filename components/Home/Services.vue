@@ -16,7 +16,7 @@
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <div class="wrapper">
-      <h2 id="services-title" class="title">Dit zijn onze diensten</h2>
+      <h2 id="services-title" class="title">{{ $t('title') }}</h2>
       <ul class="list">
         <li v-for="service in services" :key="service.title" class="item">
           <div class="header">
@@ -28,7 +28,7 @@
             </li>
           </ul>
           <a v-if="service.link" :href="service.link" class="btn btn-ghost">
-            Meer informatie
+            {{ $t('moreInformation') }}
             <span class="sr-only">over {{ service.title }}</span>
           </a>
         </li>
@@ -220,3 +220,12 @@ export default {
   background: var(--color-white);
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Dit zijn onze diensten",
+    "moreInformation": "Meer informatie"
+  }
+}
+</i18n>
