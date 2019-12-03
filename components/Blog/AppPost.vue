@@ -5,7 +5,6 @@
         <!-- eslint-disable-next-line -->
         <router-link :to="post.slug" v-html="post.title" class="link" />
       </template>
-
       <div class="meta">
         <post-date :date="post.date" />
       </div>

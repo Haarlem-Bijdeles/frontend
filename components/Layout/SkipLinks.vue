@@ -1,7 +1,7 @@
 <template>
   <div class="skip-links">
-    <a href="#content" class="btn">Naar hoofdinhoud</a>
-    <a href="#menu" class="btn">Naar hoofdnavigatiemenu</a>
+    <a href="#content" class="btn">{{ $t('content') }}</a>
+    <a href="#menu" class="btn">{{ $t('menu') }}</a>
   </div>
 </template>
 
@@ -23,3 +23,12 @@ a {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "content": "Naar hoofdinhoud",
+    "menu": "Naar hoofdnavigatie"
+  }
+}
+</i18n>
