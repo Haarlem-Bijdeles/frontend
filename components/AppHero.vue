@@ -20,6 +20,7 @@
 
 <script>
 import AppImage from '@/components/Shared/AppImage.vue'
+import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 
 export default {
   components: {
@@ -38,6 +39,11 @@ export default {
       type: String,
       required: true,
     },
+  },
+  mounted() {
+    if (!this.image) {
+      const result = 6
+    }
   },
 }
 </script>
