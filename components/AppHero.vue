@@ -1,13 +1,13 @@
 <template>
-  <div v-if="image" :class="{ large: isLarge }" class="hero">
+  <div v-if="generatedImage" :class="{ large: isLarge }" class="hero">
     <app-image
-      :src="image.heroMedium"
-      :alt="image.altText"
+      :src="generatedImage.heroMedium"
+      :alt="generatedImage.altText"
       :srcset="
         `
-        ${image.heroLarge} 1140w,
-        ${image.heroMedium} 800w,
-        ${image.heroSmall} 640w`
+        ${generatedImage.heroLarge} 1140w,
+        ${generatedImage.heroMedium} 800w,
+        ${generatedImage.heroSmall} 640w`
       "
       class="image"
       sizes="(min-width: 1140px) 1140px, 100vw"
@@ -20,7 +20,7 @@
 
 <script>
 import AppImage from '@/components/Shared/AppImage.vue'
-import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
+import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
 
 export default {
   components: {
@@ -40,10 +40,26 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    if (!this.image) {
-      const result = 6
+  data() {
+    return {
+      generatedImage: null,
     }
+  },
+  mounted() {
+    if (this.image) {
+      this.generatedImage = this.image
+    } else {
+      this.getFallbackImage()
+    }
+  },
+  methods: {
+    async getFallbackImage() {
+      this.$apollo.getClient()
+      const { data } = await this.$apollo.query({
+        query: FallbackHeroImageQuery,
+      })
+      this.generatedImage = data.siteDetails.heroImageGroup.image
+    },
   },
 }
 </script>

@@ -1,5 +1,9 @@
 <template>
-  <testimonials-wrapper :testimonials="testimonials" :show-button="true" />
+  <testimonials-wrapper
+    v-if="testimonials"
+    :testimonials="testimonials"
+    :show-button="true"
+  />
 </template>
 
 <script>
@@ -12,7 +16,7 @@ export default {
   },
   data() {
     return {
-      testimonials: [],
+      testimonials: {},
     }
   },
   apollo: {

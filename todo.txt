@@ -1,8 +1,6 @@
 postdate
 Huiswerkbegeleiding
 menu (+mobile)
-testimonials
-backup heroimage
 
 nice to have
 translations
