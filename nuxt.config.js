@@ -70,7 +70,8 @@ export default {
   ],
   i18n: {
     defaultLocale: 'nl',
-    vueI18nLoader: true,
+    lazy: true,
+    langDir: 'locales/',
     locales: [
       {
         name: 'Nederlands',
@@ -79,22 +80,23 @@ export default {
         file: 'nl.json',
       },
     ],
-    lazy: true,
-    langDir: 'locales/',
-    dateTimeFormats: {
-      nl: {
-        short: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          weekday: 'short',
-          hour: 'numeric',
-          minute: 'numeric',
+    vueI18nLoader: true,
+    vueI18n: {
+      dateTimeFormats: {
+        nl: {
+          short: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          },
+          long: {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            weekday: 'short',
+            hour: 'numeric',
+            minute: 'numeric',
+          },
         },
       },
     },
