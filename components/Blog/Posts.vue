@@ -14,7 +14,7 @@
         class="btn btn-ghost"
         @click="showMore"
       >
-        Toon meer berichten
+        {{ $t('showMorePosts') }}
       </button>
     </div>
   </div>
@@ -91,3 +91,11 @@ export default {
   @mixin center;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "showMorePosts": "Toon meer berichten"
+  }
+}
+</i18n>
