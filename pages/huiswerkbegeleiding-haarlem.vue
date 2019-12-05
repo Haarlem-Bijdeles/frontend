@@ -1,22 +1,24 @@
 <template>
   <div>
     <page :page="page" />
-    <service :for-students-and-parents="page.forStudentsAndParents" />
-    <prices :prices="page.prices" />
+    <student-parent
+      :for-students-and-parents-group="page.forStudentsAndParentsGroup"
+    />
+    <prices :prices-group="page.pricesGroup" />
   </div>
 </template>
 
 <script>
 import Page from '@/components/Page.vue'
 import PageServiceQuery from '~/graphql/PageService.gql'
-import Service from '@/components/templates/Service.vue'
 import Prices from '@/components/Prices.vue'
 import getSeoMetaData from '@/helpers/seo'
+import StudentParent from '@/components/StudentParent.vue'
 
 export default {
   components: {
+    StudentParent,
     Page,
-    Service,
     Prices,
   },
 
