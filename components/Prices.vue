@@ -23,6 +23,7 @@
           :key="price.title"
           class="item item--transparent"
         >
+          <div v-if="price.recommended" class="badge">Meest gekozen</div>
           <div class="header">
             <div class="label">{{ price.title }}</div>
             <div class="value">
@@ -93,8 +94,9 @@ export default {
 }
 
 .badge {
+  --badge-height: 2em;
   background: var(--color-action);
-  line-height: 2em;
+  line-height: var(--badge-height);
   position: absolute;
   top: -1.5em;
   padding: 0;
@@ -118,24 +120,21 @@ export default {
     display: block;
     top: 0.25em;
     position: absolute;
-    border-top: 1em solid darken($color-action, $darken-amount);
-    border-bottom: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
+    border-top: calc(var(--badge-height) / 2) solid var(--color-action-dark);
+    border-bottom: calc(var(--badge-height) / 2) solid var(--color-action-dark);
   }
 
   &::before {
     right: 100%;
-    margin-right: $tail-h-offset;
-    border-right: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
-    border-left: 5px solid transparent;
+    margin-right: 0;
+    border-right: calc(var(--badge-height) / 2) solid var(--color-action-dark);
+    border-left: calc(var(--badge-height) / 2) solid transparent;
   }
   &::after {
     left: 100%;
-    margin-left: $tail-h-offset;
-    border-left: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
-    border-right: 5px solid transparent;
+    margin-left: 0;
+    border-left: calc(var(--badge-height) / 2) solid var(--color-action-dark);
+    border-right: calc(var(--badge-height) / 2) solid transparent;
   }
 }
 

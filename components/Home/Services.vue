@@ -84,7 +84,7 @@ export default {
 
 .badge {
   background: var(--color-primary);
-  line-height: $banner-height;
+  line-height: 2em;
   position: absolute;
   top: -1.5em;
   padding: 0;
@@ -108,23 +108,20 @@ export default {
     display: block;
     top: 0.25em;
     position: absolute;
-    border-top: ($banner-height / 2) solid darken($color-action, $darken-amount);
-    border-bottom: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
+    border-top: 5px solid var(--color-action-dark);
+    border-bottom: 5px solid var(--color-action-dark);
   }
 
   &::before {
     right: 100%;
-    margin-right: $tail-h-offset;
-    border-right: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
+    margin-right: 0;
+    border-right: 5px solid var(--color-action-dark);
     border-left: 5px solid transparent;
   }
   &::after {
     left: 100%;
-    margin-left: $tail-h-offset;
-    border-left: ($banner-height / 2) solid
-      darken($color-action, $darken-amount);
+    margin-left: 0;
+    border-left: 5px solid var(--color-action-dark);
     border-right: 5px solid transparent;
   }
 }
