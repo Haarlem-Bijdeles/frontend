@@ -34,7 +34,7 @@
 export default {
   props: {
     forStudentsAndParentsGroup: {
-      type: Array,
+      type: Object,
       default: () => {},
     },
   },
