@@ -1,4 +1,5 @@
 #import "./Fragments/PageContent.gql"
+#import "./Fragments/ImageHero.gql"
 
 query GET_PAGE_BY_URI($uri: String) {
   page: pageBy(uri: $uri) {
@@ -14,6 +15,24 @@ query GET_PAGE_BY_URI($uri: String) {
     prices {
       price
       title
+    }
+    forStudentsAndParentsGroup {
+      student {
+        text
+      }
+      parents {
+        text
+      }
+    }
+    pricesGroup {
+      image {
+        ...imageHero
+      }
+      prices {
+        price
+        title
+        recommended
+      }
     }
   }
 }

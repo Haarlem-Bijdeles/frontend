@@ -1,14 +1,16 @@
 <template>
-  <section v-if="prices" class="prices" aria-labelledby="prices-title">
-    <img
-      src="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_27_HR-800x0-c-default.jpg"
-      alt="Haarlem Bijdeles - Huiswerkbegeleiding Haarlem"
-      class="image"
-      srcset="
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_27_HR-1140x0-c-default.jpg 1140w,
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_27_HR-800x0-c-default.jpg   800w,
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_27_HR-640x0-c-default.jpg   640w
+  <section v-if="pricesGroup" class="prices" aria-labelledby="prices-title">
+    <app-image
+      v-if="pricesGroup.image"
+      :src="pricesGroup.image.heroMedium"
+      :alt="pricesGroup.image.altText"
+      :srcset="
+        `
+        ${pricesGroup.image.heroLarge} 1140w,
+        ${pricesGroup.image.heroMedium} 800w,
+        ${pricesGroup.image.heroSmall} 640w`
       "
+      class="image"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <div class="wrapper">
@@ -17,7 +19,7 @@
       </h1>
       <ul class="list">
         <li
-          v-for="price in prices"
+          v-for="price in pricesGroup.prices"
           :key="price.title"
           class="item item--transparent"
         >
@@ -53,15 +55,17 @@
 
 <script>
 import CheckRounded from '@/icons/check-rounded.svg'
+import AppImage from '@/components/Shared/AppImage.vue'
 
 export default {
   components: {
+    AppImage,
     CheckRounded,
   },
   props: {
-    prices: {
+    pricesGroup: {
       type: Array,
-      default: () => [],
+      default: () => {},
     },
   },
 }

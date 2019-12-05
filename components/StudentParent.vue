@@ -4,16 +4,26 @@
       Voor de ouders en leerling
     </h1>
     <div class="wrapper">
-      <div v-if="students.length" class="student">
+      <div v-if="forStudentsAndParentsGroup.student.length" class="student">
         <h2>Voor de leerling:</h2>
         <ul class="list">
-          <li v-for="item in students" :key="item.text">{{ item.text }}</li>
+          <li
+            v-for="item in forStudentsAndParentsGroup.student"
+            :key="item.text"
+          >
+            {{ item.text }}
+          </li>
         </ul>
       </div>
-      <div v-if="parents.length" class="parent">
+      <div v-if="forStudentsAndParentsGroup.parents.length" class="parent">
         <h2>Voor de ouders:</h2>
         <ul class="list">
-          <li v-for="item in parents" :key="item.text">{{ item.text }}</li>
+          <li
+            v-for="item in forStudentsAndParentsGroup.parents"
+            :key="item.text"
+          >
+            {{ item.text }}
+          </li>
         </ul>
       </div>
     </div>
@@ -23,13 +33,9 @@
 <script>
 export default {
   props: {
-    students: {
+    forStudentsAndParentsGroup: {
       type: Array,
-      default: () => [],
-    },
-    parents: {
-      type: Array,
-      default: () => [],
+      default: () => {},
     },
   },
 }
