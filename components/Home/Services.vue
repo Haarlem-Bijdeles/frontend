@@ -1,24 +1,32 @@
 <template>
   <section
-    v-if="services.length"
+    v-if="servicesGroup"
     class="services"
     aria-labelledby="services-title"
   >
-    <img
-      src="https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_28_HR-800x0-c-default.jpg"
-      alt="Haarlem Bijdeles - Huiswerkbegeleiding Haarlem"
-      class="image"
-      srcset="
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_28_HR-1140x0-c-default.jpg 1140w,
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_28_HR-800x0-c-default.jpg   800w,
-        https://www.haarlembijdeles.nl/wp-content/uploads/2017/09/170208_Bijdeles_28_HR-640x0-c-default.jpg   640w
+    <app-image
+      v-if="servicesGroup.servicesImage"
+      :src="servicesGroup.servicesImage.heroMedium"
+      :alt="servicesGroup.servicesImage.altText"
+      :srcset="
+        `
+        ${servicesGroup.servicesImage.heroLarge} 1140w,
+        ${servicesGroup.servicesImage.heroMedium} 800w,
+        ${servicesGroup.servicesImage.heroSmall} 640w`
       "
+      class="image"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <div class="wrapper">
-      <h2 id="services-title" class="title">{{ $t('title') }}</h2>
+      <h2 id="services-title" class="title">
+        {{ servicesGroup.servicesLabel }}
+      </h2>
       <ul class="list">
-        <li v-for="service in services" :key="service.title" class="item">
+        <li
+          v-for="service in servicesGroup.services"
+          :key="service.title"
+          class="item"
+        >
           <div class="header">
             <h3 class="service-title">{{ service.title }}</h3>
           </div>
@@ -38,11 +46,16 @@
 </template>
 
 <script>
+import AppImage from '@/components/Shared/AppImage.vue'
+
 export default {
+  components: {
+    AppImage,
+  },
   props: {
-    services: {
-      type: Array,
-      default: () => [],
+    servicesGroup: {
+      type: Object,
+      default: () => {},
     },
   },
 }
@@ -224,7 +237,6 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Dit zijn onze diensten",
     "moreInformation": "Meer informatie"
   }
 }

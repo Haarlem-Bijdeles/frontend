@@ -45,7 +45,7 @@ export default {
       generatedImage: null,
     }
   },
-  mounted() {
+  created() {
     if (this.image) {
       this.generatedImage = this.image
     } else {
