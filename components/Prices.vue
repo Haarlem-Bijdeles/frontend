@@ -64,7 +64,7 @@ export default {
   },
   props: {
     pricesGroup: {
-      type: Array,
+      type: Object,
       default: () => {},
     },
   },
