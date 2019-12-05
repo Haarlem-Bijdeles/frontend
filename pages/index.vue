@@ -7,7 +7,7 @@
         :offers="page.uspsFrontPageGroup.offers"
       />
     </page>
-    <services :services="page.servicesGroup.services" />
+    <services :services-group="page.servicesGroup" />
   </div>
 </template>
 
