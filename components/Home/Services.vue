@@ -4,19 +4,8 @@
     class="services"
     aria-labelledby="services-title"
   >
-    <app-image
-      v-if="servicesGroup.servicesImage"
-      :src="servicesGroup.servicesImage.heroMedium"
-      :alt="servicesGroup.servicesImage.altText"
-      :srcset="
-        `
-        ${servicesGroup.servicesImage.heroLarge} 1140w,
-        ${servicesGroup.servicesImage.heroMedium} 800w,
-        ${servicesGroup.servicesImage.heroSmall} 640w`
-      "
-      class="image"
-      sizes="(min-width: 1140px) 1140px, 100vw"
-    />
+    <image-hero :image="servicesGroup.servicesImage" class="image" />
+
     <div class="wrapper">
       <h2 id="services-title" class="title">
         {{ servicesGroup.servicesLabel }}
@@ -46,11 +35,11 @@
 </template>
 
 <script>
-import AppImage from '@/components/Shared/AppImage.vue'
+import ImageHero from '@/components/Images/ImageHero.vue'
 
 export default {
   components: {
-    AppImage,
+    ImageHero,
   },
   props: {
     servicesGroup: {
@@ -72,9 +61,6 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: none;
 
   @media (--viewport-lg) {
