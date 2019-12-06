@@ -10,17 +10,19 @@
       <h2 id="services-title" class="title">
         {{ servicesGroup.servicesLabel }}
       </h2>
-      <services-list />
+      <services-list :services-group="servicesGroup" />
     </div>
   </section>
 </template>
 
 <script>
 import ImageHero from '@/components/Images/ImageHero.vue'
+import ServicesList from '@/components/Services/ServicesList.vue'
 
 export default {
   components: {
     ImageHero,
+    ServicesList,
   },
   props: {
     servicesGroup: {
@@ -52,6 +54,7 @@ export default {
 .title {
   color: var(--color-white);
   text-shadow: var(--text-shadow);
+  margin-bottom: var(--spacing-m);
 }
 
 .wrapper {

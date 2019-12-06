@@ -1,15 +1,21 @@
 <template>
-  <ul class="list">
-    <li
+  <ul v-if="servicesGroup.services.length" class="list">
+    <services-list-item
       v-for="service in servicesGroup.services"
       :key="service.title"
+      :service="service"
       class="item"
-    ></li>
+    />
   </ul>
 </template>
 
 <script>
+import ServicesListItem from '@/components/Services/ServicesListItem.vue'
+
 export default {
+  components: {
+    ServicesListItem,
+  },
   props: {
     servicesGroup: {
       type: Object,
