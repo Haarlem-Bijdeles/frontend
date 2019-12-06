@@ -35,7 +35,7 @@ body {
 
 p {
   hanging-punctuation: first;
-  margin: 0 0 1em;
+  margin: 0 0 var(--spacing-m);
 }
 
 h1,
@@ -54,17 +54,17 @@ h3 {
 }
 
 h1 {
-  margin: 0 0 0.5em;
+  margin: 0 0 var(--spacing-xs);
   font-size: 2rem;
 }
 
 h2 {
-  margin: 0 0 0.5em;
+  margin: 0 0 var(--spacing-xs);
   font-size: 1.5rem;
 }
 
 h3 {
-  margin: 0.5em 0 0;
+  margin: var(--spacing-xs) 0 0;
   font-size: 1.25rem;
 }
 

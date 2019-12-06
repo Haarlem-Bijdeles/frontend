@@ -84,14 +84,14 @@ export default {
 <style lang="postcss" scoped>
 .submenu {
   @mixin list-reset;
-  margin-left: 1em;
+  margin-left: var(--spacing-m);
 
   @media (--show-full-navigation) {
     background: var(--color-bg-page);
     position: absolute;
     top: 100%;
     margin-left: 0;
-    padding: 0 0.5em;
+    padding: 0 var(--spacing-xs);
     white-space: nowrap;
   }
 }
@@ -105,7 +105,7 @@ export default {
 
 .title {
   transition: box-shadow 0.1s ease-out;
-  padding: 0.25em 0;
+  padding: var(--spacing-xxs) 0;
 }
 
 .menu-link {
@@ -118,12 +118,12 @@ export default {
   }
 
   @media (--show-full-navigation) {
-    padding: 0.75em 0.5em;
+    padding: var(--spacing-s) var(--spacing-xs);
     border-bottom: 0;
   }
 
   &[aria-haspopup='true'] {
-    padding-right: 0.25em;
+    padding-right: var(--spacing-xxs);
   }
 }
 
@@ -136,7 +136,7 @@ export default {
   }
 
   @media (--show-full-navigation) {
-    padding: 0.25em 0;
+    padding: var(--spacing-xxs) 0;
     border-bottom: 0;
   }
 }
@@ -150,7 +150,7 @@ export default {
   position: relative;
   text-decoration: none;
   line-height: 1.1;
-  padding: 0.5em 0;
+  padding: var(--spacing-xs) 0;
   border-top: 1px solid var(--color-black);
 
   &:hover {

@@ -1,11 +1,11 @@
 ol,
 ul {
-  margin: 0 0 1em;
-  padding-left: 1em;
+  margin: 0 0 var(--spacing-m);
+  padding-left: var(--spacing-m);
 }
 
 li {
-  margin-bottom: 0.25em;
+  margin-bottom: var(--spacing-xxs);
 }
 
 dd {

@@ -9,7 +9,7 @@ table {
 th,
 td {
   background: var(--color-white);
-  padding: 0.5em;
+  padding: var(--spacing-xs);
   text-align: left;
   border-bottom: 2px solid var(--color-black);
 

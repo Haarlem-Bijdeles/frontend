@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .label {
   display: block;
-  margin-bottom: 0.25em;
+  margin-bottom: var(--spacing-xxs);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }

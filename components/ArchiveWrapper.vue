@@ -55,7 +55,7 @@ export default {
 
 .image-wrapper {
   flex: 0 0 33%;
-  margin-bottom: 1em;
+  margin-bottom: var(--spacing-m);
   max-width: 20em;
 
   @media (--viewport-sm) {

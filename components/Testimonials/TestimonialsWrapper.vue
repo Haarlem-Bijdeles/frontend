@@ -40,6 +40,6 @@ export default {
 }
 
 .btn {
-  margin: 2em auto 0;
+  margin: var(--spacing-l) auto 0;
 }
 </style>

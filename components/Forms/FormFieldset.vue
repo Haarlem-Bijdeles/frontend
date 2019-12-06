@@ -28,6 +28,6 @@ export default {
 
 .fields {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
 }
 </style>

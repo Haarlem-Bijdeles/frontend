@@ -34,7 +34,7 @@ a {
   border-radius: 0.25em;
   display: block;
   text-decoration: none;
-  padding: 0.5em 0.5em;
+  padding: var(--spacing-xs) var(--spacing-xs);
   font-family: var(--font-family-headings);
   background: var(--color-primary);
   transition: background-color 0.2s ease-out;
@@ -49,7 +49,7 @@ a {
 
   &.btn-small {
     font-size: 1em;
-    padding: 0.25em 0.5em;
+    padding: var(--spacing-xxs) var(--spacing-xs);
     font-weight: var(--font-weight-normal);
   }
 
