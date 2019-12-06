@@ -1,5 +1,5 @@
 <template>
-  <app-image
+  <lazy-loading-image
     v-if="image"
     :src="image.archive"
     :alt="image.altText"
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import AppImage from '@/components/Shared/AppImage.vue'
+import LazyLoadingImage from '@/components/Images/LazyLoadingImage.vue'
 
 export default {
   components: {
-    AppImage,
+    LazyLoadingImage,
   },
 
   props: {
