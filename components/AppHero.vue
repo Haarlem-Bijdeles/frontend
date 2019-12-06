@@ -1,17 +1,7 @@
 <template>
   <div v-if="generatedImage" :class="{ large: isLarge }" class="hero">
-    <app-image
-      :src="generatedImage.heroMedium"
-      :alt="generatedImage.altText"
-      :srcset="
-        `
-        ${generatedImage.heroLarge} 1140w,
-        ${generatedImage.heroMedium} 800w,
-        ${generatedImage.heroSmall} 640w`
-      "
-      class="image"
-      sizes="(min-width: 1140px) 1140px, 100vw"
-    />
+    <image-hero :image="generatedImage" class="image" />
+
     <div class="wrapper">
       <h1 id="content" class="title">{{ title }}</h1>
     </div>
@@ -19,12 +9,12 @@
 </template>
 
 <script>
-import AppImage from '@/components/Shared/AppImage.vue'
+import ImageHero from '@/components/Images/ImageHero.vue'
 import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
 
 export default {
   components: {
-    AppImage,
+    ImageHero,
   },
   props: {
     isLarge: {
@@ -67,7 +57,7 @@ export default {
 <style lang="postcss" scoped>
 .hero {
   position: relative;
-  text-shadow: 1px 1px 1px var(--color-black);
+  text-shadow: var(--text-shadow);
   color: var(--color-white);
   height: 8rem;
   @media (--viewport-sm) {
@@ -80,13 +70,6 @@ export default {
       height: 30rem;
     }
   }
-}
-
-.image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .title {
