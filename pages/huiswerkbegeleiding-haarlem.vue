@@ -4,14 +4,14 @@
     <student-parent
       :for-students-and-parents-group="page.forStudentsAndParentsGroup"
     />
-    <prices :prices-group="page.pricesGroup" />
+    <prices-wrapper :prices-group="page.pricesGroup" />
   </div>
 </template>
 
 <script>
 import Page from '@/components/Page.vue'
 import PageServiceQuery from '~/graphql/PageService.gql'
-import Prices from '@/components/Prices.vue'
+import PricesWrapper from '@/components/Prices/PricesWrapper.vue'
 import getSeoMetaData from '@/helpers/seo'
 import StudentParent from '@/components/StudentParent.vue'
 
@@ -19,7 +19,7 @@ export default {
   components: {
     StudentParent,
     Page,
-    Prices,
+    PricesWrapper,
   },
 
   async asyncData({ app }) {

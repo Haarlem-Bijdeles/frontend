@@ -128,7 +128,7 @@ export default {
 
 .title {
   color: var(--color-white);
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: var(--text-shadow);
 }
 
 .header {
@@ -171,15 +171,7 @@ export default {
   flex: 1 0 auto;
 
   @media (--viewport-lg) {
-    &--transparent {
-      background: rgba(var(--color-white), 0.9);
-    }
-  }
-
-  &--recommended {
-    @include breakpoint-max(sm) {
-      margin-top: 1em;
-    }
+    background: var(--color-white-transparent);
   }
 }
 

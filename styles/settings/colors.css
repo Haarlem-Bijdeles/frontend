@@ -11,6 +11,8 @@
   --color-text: #000;
   --color-action: #06b226;
   --color-action-dark: #059921;
+
+  --color-white-transparent: rgba(249,249,249,0.9);
   /*  */
   --color-primary: #f85909;
   --color-primary-dark: #ca4400;
@@ -19,6 +21,8 @@
   --color-secondary: #2f2e3e;
 
   --color-navigation: #2f2e3e;
+
+  --text-shadow: 1px 1px 1px var(--color-black);
 }
 /*
 @media (--dark-mode) {
