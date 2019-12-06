@@ -105,7 +105,7 @@ header {
 .logo-wrapper {
   @mixin link-reset;
   flex: 0 0 auto;
-  margin-bottom: -var(--spacing-l);
+  margin-bottom: calc(var(--spacing-l) / -1);
   position: relative;
   z-index: 9;
 }

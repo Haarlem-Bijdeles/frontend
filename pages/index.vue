@@ -7,14 +7,14 @@
         :offers="page.uspsFrontPageGroup.offers"
       />
     </page>
-    <services :services-group="page.servicesGroup" />
+    <services-wrapper :services-group="page.servicesGroup" />
   </div>
 </template>
 
 <script>
 import Page from '@/components/Page.vue'
 
-import Services from '@/components/Home/Services.vue'
+import ServicesWrapper from '@/components/Services/ServicesWrapper.vue'
 import Usps from '@/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
 import getSeoMetaData from '@/helpers/seo'
@@ -23,7 +23,7 @@ export default {
   components: {
     Page,
     Usps,
-    Services,
+    ServicesWrapper,
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({

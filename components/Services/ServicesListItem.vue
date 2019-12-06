@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    servicesGroup: {
+    service: {
       type: Object,
       default: () => {},
     },
