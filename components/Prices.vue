@@ -220,21 +220,28 @@ export default {
 }
 
 .buttons {
-  @include breakpoint(md) {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 -0.5em;
+  @media (--viewport-sm) {
+    flex-direction: row;
   }
 }
 
 .button-wrapper {
   padding-bottom: 0.5em;
-  @include breakpoint(md) {
-    width: 25%;
+  @media (--viewport-sm) {
+    width: 50%;
     padding: 0 0.5em 0.5em;
+  }
+  @media (--viewport-md) {
+    width: 25%;
   }
 }
 
 .btn {
   width: 100%;
+  max-width: none;
 }
 </style>
