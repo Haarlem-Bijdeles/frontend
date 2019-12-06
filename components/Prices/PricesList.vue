@@ -29,7 +29,7 @@ export default {
   @mixin list-reset;
   display: grid;
   grid-gap: var(--gutter);
-  margin-bottom: 1em;
+  margin-bottom: var(--spacing-m);
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: calc(var(--gutter) * 2);

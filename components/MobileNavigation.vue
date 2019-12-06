@@ -59,7 +59,7 @@ export default {
 <style lang="postcss" scoped>
 .wrapper {
   position: fixed;
-  padding: 0.5em var(--gutter);
+  padding: var(--spacing-xs) var(--gutter);
   top: 0;
   left: 0;
   right: 0;
@@ -83,7 +83,8 @@ export default {
 }
 
 .btn {
-  padding: 0.5em 0.75em 0.5em 0.5em;
+  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-xs)
+    var(--spacing-xs);
   font-size: 0.8em;
   display: flex;
   align-items: center;
@@ -91,7 +92,7 @@ export default {
 }
 
 .bars {
-  margin-right: 0.25em;
+  margin-right: var(--spacing-xxs);
   fill: var(--color-white);
 }
 </style>

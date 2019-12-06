@@ -58,6 +58,6 @@ export default {
 
 .archive__icon {
   @include icon(1.5em);
-  margin-right: 0.25em;
+  margin-right: var(--spacing-xxs);
 }
 </style>

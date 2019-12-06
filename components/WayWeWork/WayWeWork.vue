@@ -104,7 +104,7 @@ export default {
   position: sticky;
   top: 0;
   background: var(--color-white);
-  padding: 0.5em 0;
+  padding: var(--spacing-xs) 0;
   @media (--viewport-md) {
     display: block;
   }
@@ -121,7 +121,7 @@ export default {
 }
 
 .list-item {
-  margin: 0 0.25em;
+  margin: 0 var(--spacing-xxs);
 }
 
 .item:nth-child(2n) >>> .image-wrapper {

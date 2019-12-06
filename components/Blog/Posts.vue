@@ -86,8 +86,8 @@ export default {
 }
 
 .button-wrapper {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
   @mixin center;
 }
 </style>

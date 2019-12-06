@@ -25,10 +25,10 @@
 }
 
 .button-wrapper {
-  padding-bottom: 0.5em;
+  padding-bottom: var(--spacing-xs);
   @media (--viewport-sm) {
     width: 50%;
-    padding: 0 0.5em 0.5em;
+    padding: 0 var(--spacing-xs) var(--spacing-xs);
   }
   @media (--viewport-md) {
     width: 25%;

@@ -22,7 +22,7 @@ export default {
 <style lang="postcss" scoped>
 .cite {
   line-height: 1.3;
-  margin-bottom: 0.25em;
+  margin-bottom: var(--spacing-xxs);
   display: block;
   font-weight: var(--font-weight-bold);
 }

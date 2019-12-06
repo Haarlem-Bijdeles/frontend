@@ -87,7 +87,7 @@ header {
   max-height: 100vh;
 
   @media (--show-full-navigation) {
-    padding: 1em var(--gutter) 0 0;
+    padding: var(--spacing-m) var(--gutter) 0 0;
     flex-direction: column;
     overflow: visible;
     transform: translateY(0);
@@ -105,7 +105,7 @@ header {
 .logo-wrapper {
   @mixin link-reset;
   flex: 0 0 auto;
-  margin-bottom: -2em;
+  margin-bottom: -var(--spacing-l);
   position: relative;
   z-index: 9;
 }

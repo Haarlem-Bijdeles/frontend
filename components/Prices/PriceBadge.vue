@@ -4,7 +4,7 @@
 
 <style lang="postcss" scoped>
 .badge {
-  --badge-height: 2em;
+  --badge-height: var(--spacing-l);
   background: var(--color-action);
   line-height: var(--badge-height);
   position: absolute;
@@ -14,8 +14,8 @@
   font-weight: 700;
   color: #fff;
   z-index: 9;
-  left: 2em;
-  right: 2em;
+  left: var(--spacing-l);
+  right: var(--spacing-l);
 
   @media (--viewport-sm) {
     left: 50%;
@@ -28,7 +28,7 @@
     z-index: 1;
     content: '';
     display: block;
-    top: 0.25em;
+    top: var(--spacing-xxs);
     position: absolute;
     border-top: calc(var(--badge-height) / 2) solid var(--color-action-dark);
     border-bottom: calc(var(--badge-height) / 2) solid var(--color-action-dark);

@@ -100,6 +100,6 @@ export default {
 }
 
 .btn {
-  margin-top: 0.5em;
+  margin-top: var(--spacing-xs);
 }
 </style>

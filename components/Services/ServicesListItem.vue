@@ -1,46 +1,22 @@
 <template>
-  <section
-    v-if="servicesGroup"
-    class="services"
-    aria-labelledby="services-title"
-  >
-    <image-hero :image="servicesGroup.servicesImage" class="image" />
-
-    <div class="wrapper">
-      <h2 id="services-title" class="title">
-        {{ servicesGroup.servicesLabel }}
-      </h2>
-      <ul class="list">
-        <li
-          v-for="service in servicesGroup.services"
-          :key="service.title"
-          class="item"
-        >
-          <div class="header">
-            <h3 class="service-title">{{ service.title }}</h3>
-          </div>
-          <ul class="usps">
-            <li v-for="item in service.usps" :key="item.text" class="usp">
-              {{ item.text }}
-            </li>
-          </ul>
-          <a v-if="service.link" :href="service.link.url" class="btn btn-ghost">
-            {{ $t('moreInformation') }}
-            <span class="sr-only">over {{ service.title }}</span>
-          </a>
-        </li>
-      </ul>
+  <li class="item">
+    <div class="header">
+      <h3 class="service-title">{{ service.title }}</h3>
     </div>
-  </section>
+    <ul class="usps">
+      <li v-for="item in service.usps" :key="item.text" class="usp">
+        {{ item.text }}
+      </li>
+    </ul>
+    <a v-if="service.link" :href="service.link.url" class="btn btn-ghost">
+      {{ $t('moreInformation') }}
+      <span class="sr-only">over {{ service.title }}</span>
+    </a>
+  </li>
 </template>
 
 <script>
-import ImageHero from '@/components/Images/ImageHero.vue'
-
 export default {
-  components: {
-    ImageHero,
-  },
   props: {
     servicesGroup: {
       type: Object,
@@ -70,7 +46,7 @@ export default {
 
 .badge {
   background: var(--color-primary);
-  line-height: 2em;
+  line-height: var(--spacing-l);
   position: absolute;
   top: -1.5em;
   padding: 0;
@@ -178,7 +154,7 @@ export default {
 
 .icon {
   font-size: 1.25rem;
-  @include icon(2em);
+  @include icon(var(--spacing-l));
   position: absolute;
   left: 0;
   top: 0;

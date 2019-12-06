@@ -36,7 +36,7 @@ export default {
 <style lang="postcss" scoped>
 .image {
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: var(--spacing-xs);
   height: 12em;
   object-fit: cover;
   width: 100%;

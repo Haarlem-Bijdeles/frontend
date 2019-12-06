@@ -30,7 +30,7 @@ export default {
 <style lang="postcss" scoped>
 .wrapper {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -32,13 +32,13 @@ export default {
 <style lang="postcss" scoped>
 .item {
   flex-direction: column;
-  padding: 0.5em 1em 1em;
+  padding: var(--spacing-xs) var(--spacing-m) var(--spacing-m);
   background: var(--color-white);
   position: relative;
   display: flex;
   flex: 1 0 auto;
   margin-bottom: 0;
-  margin-top: 1em;
+  margin-top: var(--spacing-m);
 
   @media (--viewport-lg) {
     background: var(--color-white-transparent);

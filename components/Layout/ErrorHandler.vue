@@ -53,7 +53,7 @@ export default {
     left: 0;
     right: 0;
     z-index: var(--error-handler);
-    padding: 0.5em 0.25em;
+    padding: var(--spacing-xs) var(--spacing-xxs);
     background: var(--color-bg-page);
     border-top: 2px solid var(--color-white);
   }
@@ -66,7 +66,7 @@ export default {
 
 button {
   order: -1;
-  margin: 0.25em 0.25em 0 0;
+  margin: var(--spacing-xxs) var(--spacing-xxs) 0 0;
 }
 
 .text {

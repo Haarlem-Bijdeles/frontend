@@ -51,12 +51,12 @@ export default {
 .title {
   color: var(--color-white);
   text-shadow: var(--text-shadow);
-  margin-bottom: 1em;
+  margin-bottom: var(--spacing-m);
 }
 
 .header {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: var(--spacing-m);
   position: relative;
 }
 

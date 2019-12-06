@@ -63,7 +63,7 @@ export default {
   @mixin center;
   @mixin block-padding;
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
   @media (--viewport-md) {
     grid-template-columns: 2fr 1fr;
   }
