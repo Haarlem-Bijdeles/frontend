@@ -35,7 +35,7 @@
               {{ item.text }}
             </li>
           </ul>
-          <a v-if="service.link" :href="service.link" class="btn btn-ghost">
+          <a v-if="service.link" :href="service.link.url" class="btn btn-ghost">
             {{ $t('moreInformation') }}
             <span class="sr-only">over {{ service.title }}</span>
           </a>
