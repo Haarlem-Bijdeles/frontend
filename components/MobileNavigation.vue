@@ -64,7 +64,7 @@ export default {
   left: 0;
   right: 0;
   background: var(--color-primary);
-  z-index: var(--mobile-navigation);
+  z-index: var(--z-mobile-navigation);
   border-bottom: 1px solid var(--color-white);
   @media (--show-full-navigation) {
     display: none;

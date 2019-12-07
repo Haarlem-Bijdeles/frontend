@@ -119,7 +119,7 @@ header {
   bottom: 0;
   height: 100vh;
   overflow: hidden;
-  z-index: var(--main-navigation);
+  z-index: var(--z-main-navigation);
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   background: var(--color-bg-page);
 

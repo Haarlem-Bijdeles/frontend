@@ -148,8 +148,20 @@ export default {
   @mixin list-reset;
 }
 
+.menu-item {
+  padding-bottom: var(--spacing-xxs);
+}
+
 .logo {
   border: 1px solid rgba(255, 255, 255, 0.5);
   display: block;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "usefulLinks": "Handige links"
+  }
+}
+</i18n>

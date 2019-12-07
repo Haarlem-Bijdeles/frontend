@@ -9,13 +9,13 @@
     </ul>
 
     <div class="button-wrapper">
-      <button
+      <app-button
         v-if="posts.pageInfo.hasNextPage"
-        class="btn btn-ghost"
+        button-style="ghost"
         @click="showMore"
       >
         {{ $t('showMorePosts') }}
-      </button>
+      </app-button>
     </div>
   </div>
 </template>
@@ -23,9 +23,11 @@
 <script>
 import AppPost from '~/components/Blog/AppPost.vue'
 import PostsQuery from '~/graphql/Posts.gql'
+import AppButton from '@/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     AppPost,
   },
 

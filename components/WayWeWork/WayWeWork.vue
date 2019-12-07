@@ -7,14 +7,16 @@
           :key="method.title"
           class="list-item"
         >
-          <a
+          <app-button
             :class="{ active: activeItem === index }"
             :href="`#werkwijze-${index + 1}`"
-            class="nav-link btn btn-ghost  btn-small"
+            button-style="ghost"
+            :is-large="false"
+            class="nav-link"
             @click="animateScrollToAnchor(index + 1, $event)"
           >
             {{ method.title }}
-          </a>
+          </app-button>
         </li>
       </ul>
     </nav>
@@ -39,9 +41,11 @@
 
 <script>
 import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
+import AppButton from '@/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     ArchiveWrapper,
   },
   props: {

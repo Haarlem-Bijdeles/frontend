@@ -8,15 +8,24 @@
         {{ item.text }}
       </li>
     </ul>
-    <a v-if="service.link" :href="service.link.url" class="btn btn-ghost">
+    <app-button
+      v-if="service.link"
+      :href="service.link.url"
+      button-style="ghost"
+    >
       {{ $t('moreInformation') }}
-      <span class="sr-only">over {{ service.title }}</span>
-    </a>
+      <span class="sr-only">{{ $t('about') }} {{ service.title }}</span>
+    </app-button>
   </li>
 </template>
 
 <script>
+import AppButton from '@/components/Shared/AppButton.vue'
+
 export default {
+  components: {
+    AppButton,
+  },
   props: {
     service: {
       type: Object,
@@ -68,7 +77,8 @@ export default {
 <i18n>
 {
   "nl": {
-    "moreInformation": "Meer informatie"
+    "moreInformation": "Meer informatie",
+    "about": "over"
   }
 }
 </i18n>
