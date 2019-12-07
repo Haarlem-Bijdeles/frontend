@@ -23,6 +23,7 @@ query GET_FRONT_PAGE {
           target
           title
           url
+          relativeUrl
         }
       }
       servicesImage {

@@ -5,10 +5,14 @@ fragment seo on SEO {
   metaRobotsNofollow
   metaRobotsNoindex
   opengraphDescription
-  opengraphImage
+  opengraphImage {
+    archive: sourceUrl(size: ARCHIVE)
+  }
   opengraphTitle
   title
   twitterDescription
-  twitterImage
+  twitterImage {
+    archive: sourceUrl(size: ARCHIVE)
+  }
   twitterTitle
 }
