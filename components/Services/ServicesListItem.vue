@@ -1,30 +1,36 @@
 <template>
-  <li class="item">
+  <clickable-list-item url="service.link.relativeUrl" class="item">
     <div class="header">
-      <h3 class="title">{{ service.title }}</h3>
+      <h3 class="title">
+        <nuxt-link
+          v-if="service.link.relativeUrl"
+          :to="service.link.relativeUrl"
+        >
+          {{ service.title }}
+        </nuxt-link>
+      </h3>
     </div>
     <ul class="usps">
       <li v-for="item in service.usps" :key="item.text" class="usp">
         {{ item.text }}
       </li>
     </ul>
-    <app-button
-      v-if="service.link"
-      :href="service.link.url"
+    <span
+      v-if="service.link.relativeUrl"
+      :href="service.link.relativeUrl"
       button-style="ghost"
     >
       {{ $t('moreInformation') }}
-      <span class="sr-only">{{ $t('about') }} {{ service.title }}</span>
-    </app-button>
-  </li>
+    </span>
+  </clickable-list-item>
 </template>
 
 <script>
-import AppButton from '@/components/Shared/AppButton.vue'
+import ClickableListItem from '@/components/Shared/ClickableListItem.vue'
 
 export default {
   components: {
-    AppButton,
+    ClickableListItem,
   },
   props: {
     service: {
@@ -77,8 +83,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "moreInformation": "Meer informatie",
-    "about": "over"
+    "moreInformation": "Meer informatie"
   }
 }
 </i18n>
