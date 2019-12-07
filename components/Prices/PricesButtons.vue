@@ -1,17 +1,37 @@
 <template>
   <div class="buttons">
     <div class="button-wrapper">
-      <nuxt-link to="/contact" class="btn btn-action">
+      <app-button
+        :is-full-width="true"
+        to="/contact"
+        button-style="action"
+        class="btn"
+      >
         {{ $t('makeAppointment') }}
-      </nuxt-link>
+      </app-button>
     </div>
     <div class="button-wrapper">
-      <a href="tel:06%20-%2028%2032%2057%2033" class="btn btn-ghost">
+      <app-button
+        :is-full-width="true"
+        href="tel:06%20-%2028%2032%2057%2033"
+        button-style="ghost"
+        class="btn"
+      >
         {{ $t('callUs') }}
-      </a>
+      </app-button>
     </div>
   </div>
 </template>
+
+<script>
+import AppButton from '@/components/Shared/AppButton.vue'
+
+export default {
+  components: {
+    AppButton,
+  },
+}
+</script>
 
 <style lang="postcss" scoped>
 .buttons {
@@ -33,11 +53,6 @@
   @media (--viewport-md) {
     width: 25%;
   }
-}
-
-.btn {
-  width: 100%;
-  max-width: none;
 }
 </style>
 

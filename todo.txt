@@ -1,5 +1,4 @@
 menu (+mobile)
-app button
 
 nice to have
 translations

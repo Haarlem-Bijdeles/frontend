@@ -35,21 +35,27 @@
           bijles € 30,- p.u.
         </li>
       </ul>
-      <a class="btn btn-action" href="https://www.haarlembijdeles.nl/contact"
-        >Maak direct een afspraak</a
+      <app-button class="btn" button-style="action" to="/contact">
+        Maak direct een afspraak
+      </app-button>
+      <app-button
+        class="btn"
+        href="tel:06%20-%2028%2032%2057%2033"
+        button-style="ghost"
       >
-      <a href="tel:06%20-%2028%2032%2057%2033" class="btn btn-ghost"
-        >Bel Tim: 06 - 28 32 57 33</a
-      >
+        Bel Tim: 06 - 28 32 57 33
+      </app-button>
     </div>
   </div>
 </template>
 
 <script>
 import IconUsp from '@/icons/usp.svg'
+import AppButton from '@/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     IconUsp,
   },
   props: {
@@ -100,6 +106,6 @@ export default {
 }
 
 .btn {
-  margin-top: var(--spacing-xs);
+  margin-top: var(--spacing-s);
 }
 </style>

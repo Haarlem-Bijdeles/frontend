@@ -6,17 +6,19 @@
   >
     <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
     <testimonials-list :testimonials="testimonials.edges" />
-    <nuxt-link v-if="showButton" to="/referenties" class="btn btn-ghost">
-      Bekijk alle referenties
-    </nuxt-link>
+    <app-button v-if="showButton" to="/referenties" button-style="ghost">
+      {{ $t('btnShowAll') }}
+    </app-button>
   </section>
 </template>
 
 <script>
 import TestimonialsList from '~/components/Testimonials/TestimonialsList.vue'
+import AppButton from '@/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     TestimonialsList,
   },
   props: {
@@ -43,3 +45,11 @@ export default {
   margin: var(--spacing-l) auto 0;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "btnShowAll": "Bekijk alle referenties"
+  }
+}
+</i18n>

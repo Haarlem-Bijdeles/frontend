@@ -1,5 +1,6 @@
 :root {
-  --error-handler: 3;
-  --mobile-navigation: 2;
-  --main-navigation: 1;
+  --z-skip-links: 4;
+  --z-error-handler: 3;
+  --z-mobile-navigation: 2;
+  --z-main-navigation: 1;
 }

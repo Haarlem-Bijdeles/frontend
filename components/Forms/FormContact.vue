@@ -51,7 +51,7 @@
           rows="4"
           type="message"
         />
-        <button type="submit" class="btn">Verzenden</button>
+        <app-button type="submit" :is-full-width="true">Verzenden</app-button>
       </form-fieldset>
     </form>
   </div>
@@ -63,12 +63,14 @@ import axios from 'axios'
 import FormFieldset from '@/components/Forms/FormFieldset.vue'
 import FormInputText from '@/components/Forms/FormInputText.vue'
 import FormTextarea from '@/components/Forms/FormTextarea.vue'
+import AppButton from '@/components/Shared/AppButton.vue'
 
 export default {
   components: {
     FormFieldset,
     FormInputText,
     FormTextarea,
+    AppButton,
   },
   data() {
     return {

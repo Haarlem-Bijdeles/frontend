@@ -52,7 +52,7 @@ export default {
     font-size: 1.25em;
     left: 0;
     right: 0;
-    z-index: var(--error-handler);
+    z-index: var(--z-error-handler);
     padding: var(--spacing-xs) var(--spacing-xxs);
     background: var(--color-bg-page);
     border-top: 2px solid var(--color-white);
