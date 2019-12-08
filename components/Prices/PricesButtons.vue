@@ -13,6 +13,7 @@
     <div class="button-wrapper">
       <app-button
         :is-full-width="true"
+        button-tag="a"
         href="tel:06%20-%2028%2032%2057%2033"
         button-style="ghost"
         class="btn"

@@ -1,0 +1,44 @@
+@define-mixin btn {
+  @mixin link-reset;
+
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  border-radius: 0.25em;
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-m);
+  font-family: var(--font-family-headings);
+  transition: background-color 0.2s ease-out;
+  max-width: 20em;
+  border: 2px solid transparent;
+}
+
+
+@define-mixin btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+@define-mixin btn-primary-hover {
+  background: var(--color-primary-dark);
+}
+
+
+@define-mixin btn-action {
+  color: #f9f9f9;
+  background-color: #06b226;
+}
+
+@define-mixin btn-action-hover {
+  background-color: #059921;
+}
+
+@define-mixin btn-ghost {
+  background: var(--color-white);
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+@define-mixin btn-ghost-hover {
+  background: var(--color-text);
+  color: var(--color-white);
+}

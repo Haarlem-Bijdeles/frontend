@@ -1,7 +1,7 @@
 menu (+mobile)
 plugins voor netlfiy
 translations for urls
-clickalbe service
+webmanifest nalopen
 
 nice to have
 translations

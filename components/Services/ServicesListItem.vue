@@ -15,7 +15,7 @@
     <span
       v-if="service.link.url"
       :href="service.link.url"
-      button-style="ghost"
+      class="btn"
       aria-hidden="true"
     >
       {{ $t('moreInformation') }}
@@ -50,6 +50,13 @@ export default {
   @media (--viewport-lg) {
     background: var(--color-white-transparent);
   }
+
+  &:focus-within,
+  &:hover {
+    & .btn {
+      @mixin btn-ghost-hover;
+    }
+  }
 }
 
 .header {
@@ -74,6 +81,8 @@ export default {
 }
 
 .btn {
+  @mixin btn;
+  @mixin btn-ghost;
   align-self: center;
 }
 </style>

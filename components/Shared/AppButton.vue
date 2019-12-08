@@ -3,7 +3,6 @@
     :is="tag"
     :type="generatedType"
     :to="to"
-    :href="href"
     :class="cssClass"
     class="btn"
     @click="$emit('click', $event)"
@@ -19,9 +18,12 @@ export default {
       type: String,
       default: null,
     },
-    href: {
+    buttonTag: {
       type: String,
-      default: null,
+      default: 'button',
+      validator(value) {
+        return ['nuxt-link', 'a', 'button'].includes(value)
+      },
     },
     type: {
       type: String,
@@ -55,10 +57,7 @@ export default {
       if (this.to) {
         return 'nuxt-link'
       }
-      if (this.href) {
-        return 'a'
-      }
-      return 'button'
+      return this.buttonTag
     },
     generatedType() {
       if (this.tag === 'button') {
@@ -72,17 +71,7 @@ export default {
 
 <style lang="postcss" scoped>
 .btn {
-  @mixin link-reset;
-
-  text-align: center;
-  font-weight: var(--font-weight-bold);
-  border-radius: 0.25em;
-  display: block;
-  padding: var(--spacing-xs) var(--spacing-m);
-  font-family: var(--font-family-headings);
-  transition: background-color 0.2s ease-out;
-  max-width: 20em;
-  border: 2px solid transparent;
+  @mixin btn;
 
   &:disabled {
     background: transparent;
@@ -107,34 +96,26 @@ export default {
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-white);
+  @mixin btn-primary;
 
-  &.active,
   &:hover {
-    background: var(--color-primary-dark);
+    @mixin btn-primary-hover;
   }
 }
 
 .btn-action {
-  color: #f9f9f9;
-  background-color: #06b226;
+  @mixin btn-action;
 
-  &.active,
   &:hover {
-    background-color: #059921;
+    @mixin btn-action-hover;
   }
 }
 
 .btn-ghost {
-  background: var(--color-white);
-  color: var(--color-text);
-  border-color: var(--color-text);
+  @mixin btn-ghost;
 
-  &.active,
   &:hover {
-    background: var(--color-text);
-    color: var(--color-white);
+    @mixin btn-ghost-hover;
   }
 }
 </style>

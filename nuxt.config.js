@@ -68,6 +68,11 @@ export default {
     '@nuxtjs/apollo',
     'nuxt-i18n',
   ],
+  manifest: {
+    name: 'Haarlem Bijdeles',
+    lang: 'nl',
+    theme_color: '#f85909',
+  },
   i18n: {
     defaultLocale: 'nl',
     lazy: true,
