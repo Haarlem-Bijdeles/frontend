@@ -11,6 +11,7 @@ import TestimonialsWrapper from '~/components/Testimonials/TestimonialsWrapper.v
 import Page from '@/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
 import getSeoMetaData from '@/helpers/seo'
+import pages from '@/config/pages'
 
 export default {
   layout: 'testimonials',
@@ -28,7 +29,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        uri: 'referenties',
+        pageId: pages.testimonials,
       },
     })
 

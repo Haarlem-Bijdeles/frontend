@@ -1,4 +1,7 @@
 menu (+mobile)
+pages from config file
+styling of table
+plugins voor netlfiy
 
 nice to have
 translations

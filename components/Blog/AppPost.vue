@@ -9,7 +9,7 @@
         <post-date :date="post.date" />
       </div>
       <!-- eslint-disable-next-line -->
-      <p v-html="post.excerpt" />
+      <div v-html="post.excerpt" />
 
       <read-more-link class="read-more" />
     </archive-wrapper>

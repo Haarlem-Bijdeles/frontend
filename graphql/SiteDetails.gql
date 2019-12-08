@@ -4,7 +4,6 @@ query getSiteDetails {
   siteDetails {
     socialMediaGroup {
       facebook
-      fieldGroupName
       instagram
       linkedin
       twitter
