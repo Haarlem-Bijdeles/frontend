@@ -1,5 +1,7 @@
 menu (+mobile)
 plugins voor netlfiy
+translations for urls
+clickalbe service
 
 nice to have
 translations
