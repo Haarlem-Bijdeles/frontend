@@ -5,6 +5,12 @@
       <mobile-navigation @toggleMenu="toggleMenu" />
       <nuxt-link class="logo-wrapper" to="/">
         <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
+        <icon-logo-small
+          class="logo-small"
+          height="50"
+          width="160"
+          aria-hidden="true"
+        />
         <span class="sr-only">Haarlm bijdeles</span>
       </nuxt-link>
 
@@ -31,6 +37,7 @@ import SkipLinks from '@/components/Layout/SkipLinks.vue'
 import MobileNavigation from '@/components/MobileNavigation.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import IconLogo from '@/icons/logo.svg'
+import IconLogoSmall from '@/icons/logo-small.svg'
 
 const bodyScrollLock = require('body-scroll-lock')
 
@@ -39,6 +46,7 @@ export default {
     SkipLinks,
     MobileNavigation,
     IconLogo,
+    IconLogoSmall,
     MainNavigation,
   },
   data() {
@@ -70,7 +78,10 @@ export default {
 <style lang="postcss" scoped>
 header {
   background: var(--color-primary);
-  @media (--show-full-navigation) {
+  margin-bottom: 4em;
+
+  @media (--navigation-md) {
+    margin-bottom: 0;
     background: transparent;
   }
 }
@@ -78,6 +89,17 @@ header {
 .header-wrapper {
   display: flex;
   @mixin center;
+
+  @media (--navigation-md) {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (--navigation-lg) {
+    flex-direction: row;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
 }
 
 .content {
@@ -86,8 +108,8 @@ header {
   -webkit-overflow-scrolling: touch;
   max-height: 100vh;
 
-  @media (--show-full-navigation) {
-    padding: var(--spacing-m) var(--gutter) 0 0;
+  @media (--navigation-md) {
+    padding: 0 var(--gutter);
     flex-direction: column;
     overflow: visible;
     transform: translateY(0);
@@ -96,18 +118,25 @@ header {
     justify-content: flex-end;
     flex: 1 0 auto;
   }
-}
 
-.usps {
-  order: -1;
+  @media (--navigation-lg) {
+    padding-top: var(--spacing-m);
+    padding-left: 0;
+  }
 }
 
 .logo-wrapper {
   @mixin link-reset;
-  flex: 0 0 auto;
-  margin-bottom: calc(var(--spacing-l) / -1);
+  flex: 1 0 auto;
   position: relative;
   z-index: 9;
+  background: var(--color-primary);
+  width: 100%;
+  @media (--navigation-lg) {
+    width: auto;
+    flex: 0 0 auto;
+    margin-bottom: calc(var(--spacing-l) / -1);
+  }
 }
 
 .bg {
@@ -123,7 +152,7 @@ header {
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   background: var(--color-bg-page);
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     height: auto;
     position: static;
     padding: 0;
@@ -157,34 +186,25 @@ header {
   align-self: center;
 }
 
+.logo,
+.logo-small {
+  fill: var(--color-primary);
+  display: none;
+}
+
 .logo {
-  fill: var(--color-primary);
-  display: none;
-  @media (--show-full-navigation) {
+  @media (--navigation-lg) {
     display: block;
   }
 }
 
-.triangle {
-  display: none;
-  @media (--viewport-lg) {
+.logo-small {
+  margin: var(--spacing-xs) auto;
+  @media (--navigation-md) {
     display: block;
-    position: absolute;
-    left: 0;
-    top: 20em;
-    width: 10vw;
-    height: auto;
   }
-}
-
-.header-bow {
-  flex: 1 0 auto;
-  fill: var(--color-primary);
-  display: none;
-  width: 15vw;
-  max-width: 13em;
-  @media (--show-full-navigation) {
-    display: block;
+  @media (--navigation-lg) {
+    display: none;
   }
 }
 </style>
