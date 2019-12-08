@@ -11,7 +11,7 @@
       <!-- eslint-disable-next-line -->
       <div v-html="post.excerpt" />
 
-      <read-more-link class="read-more" />
+      <read-more-link aria-hidden="true" class="read-more" />
     </archive-wrapper>
   </clickable-list-item>
 </template>

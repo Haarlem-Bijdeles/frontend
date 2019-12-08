@@ -1,11 +1,8 @@
 <template>
-  <clickable-list-item url="service.link.relativeUrl" class="item">
+  <clickable-list-item :url="service.link.url" class="item">
     <div class="header">
       <h3 class="title">
-        <nuxt-link
-          v-if="service.link.relativeUrl"
-          :to="service.link.relativeUrl"
-        >
+        <nuxt-link v-if="service.link.url" :to="service.link.url">
           {{ service.title }}
         </nuxt-link>
       </h3>
@@ -16,9 +13,10 @@
       </li>
     </ul>
     <span
-      v-if="service.link.relativeUrl"
-      :href="service.link.relativeUrl"
+      v-if="service.link.url"
+      :href="service.link.url"
       button-style="ghost"
+      aria-hidden="true"
     >
       {{ $t('moreInformation') }}
     </span>
