@@ -12,8 +12,8 @@
   transition: background-color 0.1s ease-out;
 
   &:disabled {
-    background-color: var(--color-gray-lightest);
-    color: var(--color-gray-light);
+    background-color: var(--color-gray-lighterest);
+    color: var(--color-gray-lighter);
   }
 
   &.has-error {
