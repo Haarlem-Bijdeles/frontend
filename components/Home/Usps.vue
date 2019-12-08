@@ -40,6 +40,7 @@
       </app-button>
       <app-button
         class="btn"
+        button-tag="a"
         href="tel:06%20-%2028%2032%2057%2033"
         button-style="ghost"
       >
