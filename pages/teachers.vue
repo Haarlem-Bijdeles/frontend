@@ -55,5 +55,10 @@ export default {
   head() {
     return getSeoMetaData(this.page, this.$nuxt.$route)
   },
+  nuxtI18n: {
+    paths: {
+      nl: '/wie-zijn-wij/de-docenten',
+    },
+  },
 }
 </script>

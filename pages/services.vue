@@ -37,5 +37,10 @@ export default {
   head() {
     return getSeoMetaData(this.page, this.$nuxt.$route)
   },
+  nuxtI18n: {
+    paths: {
+      nl: '/huiswerkbegeleiding-haarlem',
+    },
+  },
 }
 </script>

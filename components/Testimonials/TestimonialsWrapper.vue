@@ -49,7 +49,8 @@ export default {
 <i18n>
 {
   "nl": {
-    "btnShowAll": "Bekijk alle referenties"
+    "btnShowAll": "Bekijk alle referenties",
+    "ourRatings": "Onze waarderingen"
   }
 }
 </i18n>

@@ -35,7 +35,7 @@ export default {
 .archive-bg {
   background: linear-gradient(
     to bottom,
-    var(--color-gray-light) 0,
+    var(--color-gray-lighter) 0,
     var(--color-white) 20rem
   );
 }

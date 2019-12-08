@@ -56,6 +56,11 @@ export default {
       ],
     }
   },
+  nuxtI18n: {
+    paths: {
+      nl: '/contact',
+    },
+  },
 }
 </script>
 

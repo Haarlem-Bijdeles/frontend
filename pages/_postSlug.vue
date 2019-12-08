@@ -25,6 +25,7 @@ import getSeoMetaData from '@/helpers/seo'
 
 import PostQuery from '~/graphql/Post.gql'
 import BlogQuery from '~/graphql/Blog.gql'
+import pages from '@/config/pages'
 
 export default {
   components: {
@@ -37,11 +38,14 @@ export default {
   async asyncData({ app, params }) {
     const blog = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
+      variables: {
+        pageId: pages.blog,
+      },
     })
     const post = await app.apolloProvider.defaultClient.query({
       query: PostQuery,
       variables: {
-        uri: params.slug,
+        uri: params.postSlug,
       },
     })
 
@@ -64,6 +68,11 @@ export default {
   },
   head() {
     return getSeoMetaData(this.post, this.$nuxt.$route)
+  },
+  nuxtI18n: {
+    paths: {
+      nl: '/wie-zijn-wij/blog/:postSlug',
+    },
   },
 }
 </script>
