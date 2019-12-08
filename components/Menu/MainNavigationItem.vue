@@ -27,7 +27,7 @@
     </button>
     <template v-if="item.childItems.edges.length">
       <animation-slide-in>
-        <ul v-show="isOpen" class="submenu">
+        <ul class="submenu" :class="{ 'is-open': isOpen }">
           <li
             v-for="subItem in item.childItems.edges"
             :key="subItem.node.label"
@@ -86,19 +86,24 @@ export default {
   @mixin list-reset;
   margin-left: var(--spacing-m);
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
+    display: none;
     background: var(--color-bg-page);
     position: absolute;
     top: 100%;
     margin-left: 0;
     padding: 0 var(--spacing-xs);
     white-space: nowrap;
+
+    &.is-open {
+      display: block;
+    }
   }
 }
 
 .menu-item {
   position: relative;
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     display: flex;
   }
 }
@@ -117,7 +122,7 @@ export default {
     border-bottom-color: var(--color-black);
   }
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     padding: var(--spacing-s) var(--spacing-xs);
     border-bottom: 0;
   }
@@ -135,7 +140,7 @@ export default {
     border-bottom-color: var(--color-black);
   }
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     padding: var(--spacing-xxs) 0;
     border-bottom: 0;
   }
@@ -159,14 +164,14 @@ export default {
       box-shadow: 0 2px 0 0 currentColor;
     }
   }
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     border-top: 0;
   }
 }
 
 .btn-show-submenu {
   display: none;
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     display: block;
     transform: translate(-0.25em, 0.25em);
   }

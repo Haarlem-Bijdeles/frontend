@@ -98,7 +98,7 @@ export default {
   @mixin list-reset;
   border-bottom: 1px solid var(--color-black);
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     margin-left: var(--gutter);
     display: flex;
     border-bottom: 0;
@@ -111,7 +111,7 @@ export default {
   background: currentColor;
   display: none;
 
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     display: block;
   }
   &.active {

@@ -2,14 +2,6 @@
   <div class="wrapper">
     <notch-wrapper>
       <div class="buttons">
-        <button
-          :aria-expanded="menuIsExpanded"
-          class="btn"
-          @click="toggleMenu(!menuIsExpanded)"
-        >
-          <icon-bars aria-hidden="true" width="24" height="24" class="bars" />
-          {{ $t('menu') }}
-        </button>
         <nuxt-link class="logo-wrapper" to="/">
           <icon-logo-small
             class="logo"
@@ -19,6 +11,14 @@
           />
           <span class="sr-only">Turbo Solutions</span>
         </nuxt-link>
+        <button
+          :aria-expanded="menuIsExpanded"
+          class="btn"
+          @click="toggleMenu(!menuIsExpanded)"
+        >
+          <icon-bars aria-hidden="true" width="24" height="24" class="bars" />
+          {{ $t('menu') }}
+        </button>
       </div>
     </notch-wrapper>
   </div>
@@ -66,7 +66,7 @@ export default {
   background: var(--color-primary);
   z-index: var(--z-mobile-navigation);
   border-bottom: 1px solid var(--color-white);
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     display: none;
   }
 }
