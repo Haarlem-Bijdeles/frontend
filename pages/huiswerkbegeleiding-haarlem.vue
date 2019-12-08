@@ -14,6 +14,7 @@ import PageServiceQuery from '~/graphql/PageService.gql'
 import PricesWrapper from '@/components/Prices/PricesWrapper.vue'
 import getSeoMetaData from '@/helpers/seo'
 import StudentParent from '@/components/StudentParent.vue'
+import pages from '@/config/pages'
 
 export default {
   components: {
@@ -26,7 +27,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageServiceQuery,
       variables: {
-        uri: 'huiswerkbegeleiding-haarlem',
+        pageId: pages.services,
       },
     })
     return {

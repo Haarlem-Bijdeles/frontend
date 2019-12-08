@@ -13,7 +13,7 @@
 
 <script>
 import Page from '@/components/Page.vue'
-
+import pages from '@/config/pages'
 import ServicesWrapper from '@/components/Services/ServicesWrapper.vue'
 import Usps from '@/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
@@ -28,11 +28,15 @@ export default {
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageHomeQuery,
+      variables: {
+        pageId: pages.home,
+      },
     })
     return {
       page: page.data.page,
     }
   },
+
   head() {
     return getSeoMetaData(this.page, this.$nuxt.$route)
   },

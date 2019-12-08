@@ -1,8 +1,8 @@
 #import "./Fragments/PageContent.gql"
 #import "./Fragments/Seo.gql"
 
-query GET_BLOG {
-  blog: pageBy(pageId: 1383) {
+query GET_BLOG($pageId: Int) {
+  blog: pageBy(pageId: $pageId) {
     ...pageContent
     seo {
       ...seo

@@ -17,6 +17,7 @@ import BlockMap from '@/components/Contact/BlockMap.vue'
 import ContactOffices from '@/components/Contact/ContactOffices.vue'
 import FormContact from '@/components/Forms/FormContact.vue'
 import getSeoMetaData from '@/helpers/seo'
+import pages from '@/config/pages'
 
 export default {
   components: {
@@ -29,7 +30,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        uri: 'contact',
+        pageId: pages.contact,
       },
     })
     const siteDetails = await app.apolloProvider.defaultClient.query({

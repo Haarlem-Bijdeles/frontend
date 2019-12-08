@@ -1,8 +1,8 @@
 #import "./Fragments/PageContent.gql"
 #import "./Fragments/ImageHero.gql"
 
-query GET_PAGE_BY_URI($uri: String) {
-  page: pageBy(uri: $uri) {
+query GET_PAGE_BY_URI($pageId: Int) {
+  page: pageBy(pageId: $pageId) {
     ...pageContent
     forStudentsAndParentsGroup {
       student {

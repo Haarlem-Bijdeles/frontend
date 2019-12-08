@@ -1,8 +1,8 @@
 #import "./Fragments/PageContent.gql"
 #import "./Fragments/ImageArchive.gql"
 
-query GET_TEACHERS_PAGE_BY_URI($uri: String) {
-  page: pageBy(uri: $uri) {
+query GET_WAY_WE_WORK_PAGE_BY_URI($pageId: Int) {
+  page: pageBy(pageId: $pageId) {
     ...pageContent
     wayWeWorkGroup {
       wayWeWork {

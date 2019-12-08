@@ -1,8 +1,8 @@
 #import "./Fragments/PageContent.gql"
 #import "./Fragments/ImageHero.gql"
 
-query GET_FRONT_PAGE {
-  page: pageBy(pageId: 1379) {
+query GET_FRONT_PAGE($pageId: Int) {
+  page: pageBy(pageId: $pageId) {
     ...pageContent
     uspsFrontPageGroup {
       usps {

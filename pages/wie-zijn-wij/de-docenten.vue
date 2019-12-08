@@ -15,6 +15,7 @@ import TeacherList from '@/components/Teachers/TeacherList.vue'
 import Videos from '@/components/Videos.vue'
 import Page from '@/components/Page.vue'
 import getSeoMetaData from '@/helpers/seo'
+import pages from '@/config/pages'
 
 export default {
   components: {
@@ -27,7 +28,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: TeachersQuery,
       variables: {
-        uri: 'wie-zijn-wij/de-docenten/',
+        pageId: pages.teachers,
       },
     })
     return {

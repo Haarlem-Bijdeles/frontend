@@ -10,9 +10,10 @@
 
 <script>
 import Page from '@/components/Page.vue'
-import PageQuery from '~/graphql/PageWayWeWork.gql'
+import PageWayWeWorkQuery from '~/graphql/PageWayWeWork.gql'
 import WayWeWork from '@/components/WayWeWork/WayWeWork.vue'
 import getSeoMetaData from '@/helpers/seo'
+import pages from '@/config/pages'
 
 export default {
   components: {
@@ -22,9 +23,9 @@ export default {
 
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
-      query: PageQuery,
+      query: PageWayWeWorkQuery,
       variables: {
-        uri: 'werkwijze',
+        pageId: pages.wayWeWork,
       },
     })
     return {
