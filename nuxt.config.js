@@ -71,6 +71,7 @@ export default {
   manifest: {
     name: 'Haarlem Bijdeles',
     lang: 'nl',
+    background_color: '#f85909',
     theme_color: '#f85909',
   },
   i18n: {
