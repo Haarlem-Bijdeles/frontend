@@ -12,8 +12,8 @@
   padding: 0;
   text-align: center;
   font-weight: 700;
-  color: #fff;
-  z-index: 9;
+  color: var(--color-white);
+  z-index: var(--z-price-badge);
   left: var(--spacing-l);
   right: var(--spacing-l);
 
@@ -25,7 +25,7 @@
 
   &::before,
   &::after {
-    z-index: 1;
+    z-index: var(--z-price-badge);
     content: '';
     display: block;
     top: var(--spacing-xxs);

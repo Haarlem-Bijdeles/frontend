@@ -1,6 +1,9 @@
 :root {
+  --z-header: 5;
   --z-skip-links: 4;
   --z-error-handler: 3;
   --z-mobile-navigation: 2;
   --z-main-navigation: 1;
+  --z-price-badge: 1;
+  --z-student-parent: 1;
 }

@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <ul v-if="teachers.length" class="list">
-      <teacher-list-item
-        v-for="teacher in teachers"
-        :key="teacher.name"
-        :teacher="teacher"
-      />
-    </ul>
-  </div>
+  <ul v-if="teachers.length" class="list">
+    <teacher-list-item
+      v-for="teacher in teachers"
+      :key="teacher.name"
+      :teacher="teacher"
+    />
+  </ul>
 </template>
 
 <script>
