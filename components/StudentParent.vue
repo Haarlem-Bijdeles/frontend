@@ -62,7 +62,7 @@ export default {
       pointer-events: none;
       border-top-color: #88b7d5;
       border-top-width: 2em;
-      z-index: 9;
+      z-index: var(--z-student-parent);
     }
 
     &::before {

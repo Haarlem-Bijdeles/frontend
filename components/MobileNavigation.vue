@@ -86,6 +86,7 @@ export default {
   padding: var(--spacing-xs) var(--spacing-s) var(--spacing-xs)
     var(--spacing-xs);
   font-size: 0.8em;
+  color: var(--color-white);
   display: flex;
   align-items: center;
   border: 2px solid var(--color-white);
@@ -93,6 +94,6 @@ export default {
 
 .bars {
   margin-right: var(--spacing-xxs);
-  fill: var(--color-white);
+  fill: currentColor;
 }
 </style>

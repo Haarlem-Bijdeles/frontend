@@ -129,7 +129,7 @@ header {
   @mixin link-reset;
   flex: 1 0 auto;
   position: relative;
-  z-index: 9;
+  z-index: var(--z-header);
   background: var(--color-primary);
   width: 100%;
   @media (--navigation-lg) {
