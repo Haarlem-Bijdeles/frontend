@@ -1,7 +1,6 @@
-menu (+mobile)
 plugins voor netlfiy
 translations for urls
-webmanifest nalopen
+notch
 
 nice to have
 translations
