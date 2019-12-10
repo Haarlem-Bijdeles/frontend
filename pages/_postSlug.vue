@@ -84,6 +84,5 @@ export default {
 <style lang="postcss">
 .posts-title-wrapper {
   padding-top: 2rem;
-  @mixin center;
 }
 </style>
