@@ -2,10 +2,6 @@
   <footer class="footer">
     <notch-wrapper>
       <div class="wrapper">
-        <nuxt-link to="/" title="Haarlem Bijdeles" class="logo">
-          <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
-        </nuxt-link>
-
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
@@ -59,6 +55,10 @@
             </p>
           </address>
         </div>
+        <nuxt-link to="/" title="Haarlem Bijdeles" class="logo">
+          <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
+        </nuxt-link>
+
         <div>
           <h2>Volg ons op</h2>
 
@@ -137,10 +137,17 @@ export default {
 .wrapper {
   @mixin block-padding;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   grid-gap: var(--gutter);
   align-items: start;
   justify-items: start;
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewport-md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .menu {
@@ -154,6 +161,11 @@ export default {
 .logo {
   border: 1px solid rgba(255, 255, 255, 0.5);
   display: block;
+
+  @media (--viewport-md) {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
 }
 </style>
 
