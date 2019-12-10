@@ -2,11 +2,11 @@
   <div v-if="generatedImage" :class="{ large: isLarge }" class="hero">
     <image-hero :image="generatedImage" class="image" />
 
-    <notch-wrapper>
-      <div class="wrapper">
+    <div class="wrapper">
+      <notch-wrapper>
         <h1 id="content" class="title">{{ title }}</h1>
-      </div>
-    </notch-wrapper>
+      </notch-wrapper>
+    </div>
   </div>
 </template>
 
