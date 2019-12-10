@@ -1,24 +1,26 @@
 <template>
   <div class="way-we-work">
-    <nav class="nav">
-      <ul class="list">
-        <li
-          v-for="(method, index) in methods"
-          :key="method.title"
-          class="list-item"
-        >
-          <app-button
-            :class="{ active: activeItem === index }"
-            :href="`#werkwijze-${index + 1}`"
-            button-style="ghost"
-            :is-large="false"
-            class="nav-link"
-            @click="animateScrollToAnchor(index + 1, $event)"
+    <nav class="nav" aria-label="Onze werkwijze">
+      <notch-wrapper>
+        <ul class="list">
+          <li
+            v-for="(method, index) in methods"
+            :key="method.title"
+            class="list-item"
           >
-            {{ method.title }}
-          </app-button>
-        </li>
-      </ul>
+            <app-button
+              :class="{ active: activeItem === index }"
+              :href="`#werkwijze-${index + 1}`"
+              button-style="ghost"
+              :is-large="false"
+              class="nav-link"
+              @click="animateScrollToAnchor(index + 1, $event)"
+            >
+              {{ method.title }}
+            </app-button>
+          </li>
+        </ul>
+      </notch-wrapper>
     </nav>
 
     <archive-wrapper
@@ -42,9 +44,11 @@
 <script>
 import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
 import AppButton from '@/components/Shared/AppButton.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
+    NotchWrapper,
     AppButton,
     ArchiveWrapper,
   },
@@ -102,7 +106,6 @@ export default {
 }
 
 .nav {
-  @mixin center;
   display: none;
 
   position: sticky;

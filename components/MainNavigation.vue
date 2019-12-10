@@ -99,10 +99,13 @@ export default {
   border-bottom: 1px solid var(--color-black);
 
   @media (--navigation-md) {
-    margin-left: var(--gutter);
     display: flex;
     border-bottom: 0;
     justify-content: space-between;
+  }
+
+  @media (--navigation-lg) {
+    margin-left: var(--spacing-l);
   }
 }
 

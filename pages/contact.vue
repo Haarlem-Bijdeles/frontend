@@ -6,8 +6,8 @@
         <contact-offices v-if="offices && offices.length" :offices="offices" />
         <form-contact />
       </div>
-      <block-map v-if="offices && offices.length" :offices="offices" />
     </notch-wrapper>
+    <block-map v-if="offices && offices.length" :offices="offices" />
   </div>
 </template>
 

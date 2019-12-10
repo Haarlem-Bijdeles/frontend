@@ -10,7 +10,9 @@
       <div v-html="post.content" />
     </archive-wrapper>
     <section id="posts-title">
-      <h1 id="posts-title" class="posts-title-wrapper">Meer berichten</h1>
+      <notch-wrapper>
+        <h1 id="posts-title" class="posts-title-wrapper">Meer berichten</h1>
+      </notch-wrapper>
       <posts :not-in="post.postId" />
     </section>
   </div>
@@ -26,9 +28,11 @@ import getSeoMetaData from '@/helpers/seo'
 import PostQuery from '~/graphql/Post.gql'
 import BlogQuery from '~/graphql/Blog.gql'
 import pages from '@/config/pages'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
+    NotchWrapper,
     Page,
     Posts,
     ArchiveWrapper,
