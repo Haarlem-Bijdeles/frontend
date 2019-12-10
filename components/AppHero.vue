@@ -3,7 +3,9 @@
     <image-hero :image="generatedImage" class="image" />
 
     <div class="wrapper">
-      <h1 id="content" class="title">{{ title }}</h1>
+      <notch-wrapper>
+        <h1 id="content" class="title">{{ title }}</h1>
+      </notch-wrapper>
     </div>
   </div>
 </template>
@@ -11,10 +13,12 @@
 <script>
 import ImageHero from '@/components/Images/ImageHero.vue'
 import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
     ImageHero,
+    NotchWrapper,
   },
   props: {
     isLarge: {
@@ -77,7 +81,6 @@ export default {
 }
 
 .wrapper {
-  @mixin center;
   justify-content: center;
   align-items: center;
   text-align: center;

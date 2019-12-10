@@ -3,35 +3,42 @@
     <h1 id="student-parent-title" class="sr-only">
       Voor de ouders en leerling
     </h1>
-    <div class="wrapper">
-      <div v-if="forStudentsAndParentsGroup.student.length" class="student">
-        <h2>Voor de leerling:</h2>
-        <ul class="list">
-          <li
-            v-for="item in forStudentsAndParentsGroup.student"
-            :key="item.text"
-          >
-            {{ item.text }}
-          </li>
-        </ul>
+    <notch-wrapper>
+      <div class="wrapper">
+        <div v-if="forStudentsAndParentsGroup.student.length" class="student">
+          <h2>Voor de leerling:</h2>
+          <ul class="list">
+            <li
+              v-for="item in forStudentsAndParentsGroup.student"
+              :key="item.text"
+            >
+              {{ item.text }}
+            </li>
+          </ul>
+        </div>
+        <div v-if="forStudentsAndParentsGroup.parents.length" class="parent">
+          <h2>Voor de ouders:</h2>
+          <ul class="list">
+            <li
+              v-for="item in forStudentsAndParentsGroup.parents"
+              :key="item.text"
+            >
+              {{ item.text }}
+            </li>
+          </ul>
+        </div>
       </div>
-      <div v-if="forStudentsAndParentsGroup.parents.length" class="parent">
-        <h2>Voor de ouders:</h2>
-        <ul class="list">
-          <li
-            v-for="item in forStudentsAndParentsGroup.parents"
-            :key="item.text"
-          >
-            {{ item.text }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    </notch-wrapper>
   </section>
 </template>
 
 <script>
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+
 export default {
+  components: {
+    NotchWrapper,
+  },
   props: {
     forStudentsAndParentsGroup: {
       type: Object,
@@ -42,10 +49,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.student-parent {
-  @mixin center;
-}
-
 .wrapper {
   position: relative;
   @media (--viewport-sm) {

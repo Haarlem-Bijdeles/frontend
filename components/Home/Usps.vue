@@ -1,61 +1,65 @@
 <template>
-  <div class="highlights">
-    <div class="usps">
-      <div v-if="usps.length" class="teaser__usps">
-        <h2 class="title">Wat kunnen jullie verwachten?</h2>
+  <notch-wrapper>
+    <div class="highlights">
+      <div class="usps">
+        <div v-if="usps.length" class="teaser__usps">
+          <h2 class="title">Wat kunnen jullie verwachten?</h2>
+          <ul class="list">
+            <li v-for="item in usps" :key="item.text" class="item">
+              <icon-usp aria-hidden="true" width="12" height="12" />
+              {{ item.text }}
+            </li>
+          </ul>
+        </div>
+        <div v-if="offers.length" class="teaser__usps">
+          <h2 class="title">Ons aanbod:</h2>
+          <ul class="list">
+            <li v-for="item in offers" :key="item.text" class="item">
+              <icon-usp aria-hidden="true" width="12" height="12" />
+              {{ item.text }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="prices">
+        <h2 class="title">Tarieven</h2>
         <ul class="list">
-          <li v-for="item in usps" :key="item.text" class="item">
-            <icon-usp aria-hidden="true" width="12" height="12" />
-            {{ item.text }}
+          <li class="item">
+            <icon-usp
+              aria-hidden="true"
+              width="12"
+              height="12"
+            />Huiswerkbegeleiding vanaf € 240,- p.m.
+          </li>
+          <li class="item">
+            <icon-usp aria-hidden="true" width="12" height="12" />Individuele
+            bijles € 30,- p.u.
           </li>
         </ul>
-      </div>
-      <div v-if="offers.length" class="teaser__usps">
-        <h2 class="title">Ons aanbod:</h2>
-        <ul class="list">
-          <li v-for="item in offers" :key="item.text" class="item">
-            <icon-usp aria-hidden="true" width="12" height="12" />
-            {{ item.text }}
-          </li>
-        </ul>
+        <app-button class="btn" button-style="action" to="/contact">
+          Maak direct een afspraak
+        </app-button>
+        <app-button
+          class="btn"
+          button-tag="a"
+          href="tel:06%20-%2028%2032%2057%2033"
+          button-style="ghost"
+        >
+          Bel Tim: 06 - 28 32 57 33
+        </app-button>
       </div>
     </div>
-    <div class="prices">
-      <h2 class="title">Tarieven</h2>
-      <ul class="list">
-        <li class="item">
-          <icon-usp
-            aria-hidden="true"
-            width="12"
-            height="12"
-          />Huiswerkbegeleiding vanaf € 240,- p.m.
-        </li>
-        <li class="item">
-          <icon-usp aria-hidden="true" width="12" height="12" />Individuele
-          bijles € 30,- p.u.
-        </li>
-      </ul>
-      <app-button class="btn" button-style="action" to="/contact">
-        Maak direct een afspraak
-      </app-button>
-      <app-button
-        class="btn"
-        button-tag="a"
-        href="tel:06%20-%2028%2032%2057%2033"
-        button-style="ghost"
-      >
-        Bel Tim: 06 - 28 32 57 33
-      </app-button>
-    </div>
-  </div>
+  </notch-wrapper>
 </template>
 
 <script>
 import IconUsp from '@/icons/usp.svg'
 import AppButton from '@/components/Shared/AppButton.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
+    NotchWrapper,
     AppButton,
     IconUsp,
   },
@@ -93,7 +97,6 @@ export default {
 }
 
 .highlights {
-  @mixin center;
   display: grid;
   grid-gap: var(--gutter);
   position: relative;

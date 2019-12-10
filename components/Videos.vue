@@ -1,17 +1,24 @@
 <template>
   <section v-if="videos.length" class="videos" aria-labelledby="videos-title">
-    <h2 id="videos-title" class="sr-only">Onze videos</h2>
-    <div v-for="video in videos" :key="video" class="video-container">
-      <iframe
-        :src="`//player.vimeo.com/video/${video}`"
-        allowfullscreen="allowfullscreen"
-      ></iframe>
-    </div>
+    <notch-wrapper>
+      <h2 id="videos-title" class="sr-only">Onze videos</h2>
+      <div v-for="video in videos" :key="video" class="video-container">
+        <iframe
+          :src="`//player.vimeo.com/video/${video}`"
+          allowfullscreen="allowfullscreen"
+        ></iframe>
+      </div>
+    </notch-wrapper>
   </section>
 </template>
 
 <script>
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+
 export default {
+  components: {
+    NotchWrapper,
+  },
   props: {
     videos: {
       type: Array,
@@ -23,7 +30,6 @@ export default {
 
 <style lang="postcss" scoped>
 .videos {
-  @mixin center;
   @mixin block-padding;
 
   @media (--viewport-md) {

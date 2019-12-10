@@ -1,12 +1,13 @@
 <template>
   <section v-if="pricesGroup" class="prices" aria-labelledby="prices-title">
     <image-hero :image="pricesGroup.image" class="image" />
-
-    <div class="wrapper">
-      <h1 id="prices-title" class="title">{{ $t('title') }}:</h1>
-      <prices-list :prices="pricesGroup.prices" />
-      <prices-buttons />
-    </div>
+    <notch-wrapper>
+      <div class="wrapper">
+        <h1 id="prices-title" class="title">{{ $t('title') }}:</h1>
+        <prices-list :prices="pricesGroup.prices" />
+        <prices-buttons />
+      </div>
+    </notch-wrapper>
   </section>
 </template>
 
@@ -14,9 +15,11 @@
 import ImageHero from '@/components/Images/ImageHero.vue'
 import PricesList from '@/components/Prices/PricesList.vue'
 import PricesButtons from '@/components/Prices/PricesButtons.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
+    NotchWrapper,
     ImageHero,
     PricesList,
     PricesButtons,
@@ -61,7 +64,6 @@ export default {
 }
 
 .wrapper {
-  @mixin center;
   @mixin block-padding;
   position: relative;
 }

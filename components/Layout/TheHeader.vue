@@ -1,34 +1,36 @@
 <template>
   <header>
-    <div class="header-wrapper">
-      <skip-links />
-      <mobile-navigation @toggleMenu="toggleMenu" />
-      <nuxt-link class="logo-wrapper" to="/">
-        <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
-        <icon-logo-small
-          class="logo-small"
-          height="50"
-          width="160"
-          aria-hidden="true"
-        />
-        <span class="sr-only">Haarlm bijdeles</span>
-      </nuxt-link>
+    <NotchWrapper>
+      <div class="header-wrapper">
+        <skip-links />
+        <mobile-navigation @toggleMenu="toggleMenu" />
+        <nuxt-link class="logo-wrapper" to="/">
+          <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
+          <icon-logo-small
+            class="logo-small"
+            height="50"
+            width="160"
+            aria-hidden="true"
+          />
+          <span class="sr-only">Haarlm bijdeles</span>
+        </nuxt-link>
 
-      <transition
-        name="fade2"
-        @after-enter="afterEnter"
-        @after-leave="afterLeave"
-        @before-leave="beforeLeave"
-      >
-        <div v-show="showMenu" class="bg">
-          <transition name="fade">
-            <div v-show="showMenu" ref="bg" class="content">
-              <main-navigation />
-            </div>
-          </transition>
-        </div>
-      </transition>
-    </div>
+        <transition
+          name="fade2"
+          @after-enter="afterEnter"
+          @after-leave="afterLeave"
+          @before-leave="beforeLeave"
+        >
+          <div v-show="showMenu" class="bg">
+            <transition name="fade">
+              <div v-show="showMenu" ref="bg" class="content">
+                <main-navigation />
+              </div>
+            </transition>
+          </div>
+        </transition>
+      </div>
+    </NotchWrapper>
   </header>
 </template>
 
@@ -38,6 +40,7 @@ import MobileNavigation from '@/components/MobileNavigation.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import IconLogo from '@/icons/logo.svg'
 import IconLogoSmall from '@/icons/logo-small.svg'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 const bodyScrollLock = require('body-scroll-lock')
 
@@ -48,6 +51,7 @@ export default {
     IconLogo,
     IconLogoSmall,
     MainNavigation,
+    NotchWrapper,
   },
   data() {
     return {
@@ -81,14 +85,22 @@ header {
   margin-bottom: 4em;
 
   @media (--navigation-md) {
+    background: linear-gradient(
+      var(--color-primary) 0,
+      var(--color-primary) 4em,
+      transparent 4em,
+      transparent 100%
+    );
     margin-bottom: 0;
+  }
+
+  @media (--navigation-lg) {
     background: transparent;
   }
 }
 
 .header-wrapper {
   display: flex;
-  @mixin center;
 
   @media (--navigation-md) {
     flex-direction: column;
@@ -97,8 +109,6 @@ header {
   }
   @media (--navigation-lg) {
     flex-direction: row;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
   }
 }
 
@@ -109,7 +119,7 @@ header {
   max-height: 100vh;
 
   @media (--navigation-md) {
-    padding: 0 var(--gutter);
+    padding: 0;
     flex-direction: column;
     overflow: visible;
     transform: translateY(0);
@@ -130,7 +140,6 @@ header {
   flex: 1 0 auto;
   position: relative;
   z-index: var(--z-header);
-  background: var(--color-primary);
   width: 100%;
   @media (--navigation-lg) {
     width: auto;

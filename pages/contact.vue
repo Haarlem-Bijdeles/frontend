@@ -1,10 +1,12 @@
 <template>
   <div>
     <page :page="page" />
-    <div class="wrapper">
-      <contact-offices v-if="offices && offices.length" :offices="offices" />
-      <form-contact />
-    </div>
+    <notch-wrapper v-if="offices.length">
+      <div class="wrapper">
+        <contact-offices v-if="offices && offices.length" :offices="offices" />
+        <form-contact />
+      </div>
+    </notch-wrapper>
     <block-map v-if="offices && offices.length" :offices="offices" />
   </div>
 </template>
@@ -18,6 +20,7 @@ import ContactOffices from '@/components/Contact/ContactOffices.vue'
 import FormContact from '@/components/Forms/FormContact.vue'
 import getSeoMetaData from '@/helpers/seo'
 import pages from '@/config/pages'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
@@ -25,6 +28,7 @@ export default {
     BlockMap,
     ContactOffices,
     FormContact,
+    NotchWrapper,
   },
   async asyncData({ app }) {
     const page = await app.apolloProvider.defaultClient.query({
@@ -66,7 +70,6 @@ export default {
 
 <style lang="postcss" scoped>
 .wrapper {
-  @mixin center;
   @mixin block-padding;
   display: grid;
   grid-gap: var(--gutter);

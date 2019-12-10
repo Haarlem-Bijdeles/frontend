@@ -59,7 +59,7 @@ export default {
 <style lang="postcss" scoped>
 .wrapper {
   position: fixed;
-  padding: var(--spacing-xs) var(--gutter);
+  padding: var(--spacing-xs) 0;
   top: 0;
   left: 0;
   right: 0;

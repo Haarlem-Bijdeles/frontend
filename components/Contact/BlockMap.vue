@@ -1,31 +1,30 @@
 <template>
-  <notch-wrapper v-if="offices.length">
-    <gmap-map ref="refMap" :center="center" :zoom="15" class="map">
-      <gmap-marker
-        v-for="(office, index) in offices"
-        :key="office.zipcode"
-        :icon="icon"
-        :position="getPosition(office)"
-        :clickable="true"
-        @click="toggleInfoWindow(office, index)"
-      />
-      <gmap-info-window
-        :options="infoOptions"
-        :position="infoWindowPos"
-        :opened="infoWinOpen"
-        @closeclick="infoWinOpen = false"
-      />
-    </gmap-map>
-  </notch-wrapper>
+  <gmap-map
+    v-if="offices.length"
+    ref="refMap"
+    :center="center"
+    :zoom="15"
+    class="map"
+  >
+    <gmap-marker
+      v-for="(office, index) in offices"
+      :key="office.zipcode"
+      :icon="icon"
+      :position="getPosition(office)"
+      :clickable="true"
+      @click="toggleInfoWindow(office, index)"
+    />
+    <gmap-info-window
+      :options="infoOptions"
+      :position="infoWindowPos"
+      :opened="infoWinOpen"
+      @closeclick="infoWinOpen = false"
+    />
+  </gmap-map>
 </template>
 
 <script>
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-
 export default {
-  components: {
-    NotchWrapper,
-  },
   props: {
     offices: {
       type: Array,

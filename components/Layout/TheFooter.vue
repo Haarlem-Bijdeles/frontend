@@ -135,7 +135,6 @@ export default {
 }
 
 .wrapper {
-  @mixin center;
   @mixin block-padding;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));

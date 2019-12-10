@@ -1,26 +1,30 @@
 <template>
   <div class="archive-bg">
-    <div class="wrapper">
-      <h2 class="title">
-        <slot name="title" />
-      </h2>
-      <div v-if="image" class="image-wrapper">
-        <image-archive :image="image" />
-      </div>
+    <notch-wrapper>
+      <div class="wrapper">
+        <h2 class="title">
+          <slot name="title" />
+        </h2>
+        <div v-if="image" class="image-wrapper">
+          <image-archive :image="image" />
+        </div>
 
-      <div class="text">
-        <slot />
+        <div class="text">
+          <slot />
+        </div>
       </div>
-    </div>
+    </notch-wrapper>
   </div>
 </template>
 
 <script>
 import ImageArchive from '@/components/Images/ImageArchive.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
     ImageArchive,
+    NotchWrapper,
   },
   props: {
     image: {
@@ -41,7 +45,6 @@ export default {
 }
 
 .wrapper {
-  @mixin center;
   @mixin block-padding;
   flex-wrap: wrap;
   @media (--viewport-sm) {
