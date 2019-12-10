@@ -1,10 +1,17 @@
 <template>
-  <!-- eslint-disable-next-line -->
-  <div class="intro" v-html="text" v-if="text" />
+  <notch-wrapper v-if="text">
+    <!-- eslint-disable-next-line -->
+    <div class="intro" v-html="text" />
+  </notch-wrapper>
 </template>
 
 <script>
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+
 export default {
+  components: {
+    NotchWrapper,
+  },
   props: {
     text: {
       type: String,
@@ -16,7 +23,6 @@ export default {
 
 <style lang="postcss" scoped>
 .intro {
-  @mixin center var(--container-width-lg);
   @mixin block-padding;
 }
 </style>

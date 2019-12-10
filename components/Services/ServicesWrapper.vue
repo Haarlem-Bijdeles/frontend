@@ -5,22 +5,25 @@
     aria-labelledby="services-title"
   >
     <image-hero :image="servicesGroup.servicesImage" class="image" />
-
-    <div class="wrapper">
-      <h2 id="services-title" class="title">
-        {{ servicesGroup.servicesLabel }}
-      </h2>
-      <services-list :services-group="servicesGroup" />
-    </div>
+    <notch-wrapper>
+      <div class="wrapper">
+        <h2 id="services-title" class="title">
+          {{ servicesGroup.servicesLabel }}
+        </h2>
+        <services-list :services-group="servicesGroup" />
+      </div>
+    </notch-wrapper>
   </section>
 </template>
 
 <script>
 import ImageHero from '@/components/Images/ImageHero.vue'
 import ServicesList from '@/components/Services/ServicesList.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
+    NotchWrapper,
     ImageHero,
     ServicesList,
   },
@@ -58,7 +61,6 @@ export default {
 }
 
 .wrapper {
-  @mixin center;
   position: relative;
   padding-top: 5rem;
   padding-bottom: 3rem;

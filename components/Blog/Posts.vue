@@ -7,16 +7,17 @@
         :post="post.node"
       />
     </ul>
-
-    <div class="button-wrapper">
-      <app-button
-        v-if="posts.pageInfo.hasNextPage"
-        button-style="ghost"
-        @click="showMore"
-      >
-        {{ $t('showMorePosts') }}
-      </app-button>
-    </div>
+    <notch-wrapper>
+      <div class="button-wrapper">
+        <app-button
+          v-if="posts.pageInfo.hasNextPage"
+          button-style="ghost"
+          @click="showMore"
+        >
+          {{ $t('showMorePosts') }}
+        </app-button>
+      </div>
+    </notch-wrapper>
   </div>
 </template>
 
@@ -24,11 +25,13 @@
 import AppPost from '~/components/Blog/AppPost.vue'
 import PostsQuery from '~/graphql/Posts.gql'
 import AppButton from '@/components/Shared/AppButton.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
     AppButton,
     AppPost,
+    NotchWrapper,
   },
 
   apollo: {
@@ -90,7 +93,6 @@ export default {
 .button-wrapper {
   padding-top: var(--spacing-m);
   padding-bottom: var(--spacing-m);
-  @mixin center;
 }
 </style>
 

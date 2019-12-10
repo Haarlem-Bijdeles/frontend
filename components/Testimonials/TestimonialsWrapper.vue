@@ -4,22 +4,26 @@
     class="testimonials"
     aria-labelledby="testimonials-title"
   >
-    <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
-    <testimonials-list :testimonials="testimonials.edges" />
-    <app-button v-if="showButton" to="/referenties" button-style="ghost">
-      {{ $t('btnShowAll') }}
-    </app-button>
+    <notch-wrapper>
+      <h2 id="testimonials-title" class="sr-only">{{ $t('ourRatings') }}</h2>
+      <testimonials-list :testimonials="testimonials.edges" />
+      <app-button v-if="showButton" to="/referenties" button-style="ghost">
+        {{ $t('btnShowAll') }}
+      </app-button>
+    </notch-wrapper>
   </section>
 </template>
 
 <script>
 import TestimonialsList from '~/components/Testimonials/TestimonialsList.vue'
 import AppButton from '@/components/Shared/AppButton.vue'
+import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
     AppButton,
     TestimonialsList,
+    NotchWrapper,
   },
   props: {
     testimonials: {
@@ -36,7 +40,6 @@ export default {
 
 <style lang="postcss" scoped>
 .testimonials {
-  @mixin center;
   @mixin block-padding;
   text-align: center;
 }

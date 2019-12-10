@@ -1,6 +1,6 @@
 plugins voor netlfiy
 translations for urls
-notch
+replace center by notch
 
 nice to have
 translations

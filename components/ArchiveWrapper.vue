@@ -1,6 +1,6 @@
 <template>
   <div class="archive-bg">
-    <NotchWrapper>
+    <notch-wrapper>
       <div class="wrapper">
         <h2 class="title">
           <slot name="title" />
@@ -13,7 +13,7 @@
           <slot />
         </div>
       </div>
-    </NotchWrapper>
+    </notch-wrapper>
   </div>
 </template>
 
