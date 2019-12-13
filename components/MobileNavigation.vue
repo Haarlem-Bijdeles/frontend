@@ -83,13 +83,13 @@ export default {
 }
 
 .btn {
-  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-xs)
-    var(--spacing-xs);
-  font-size: 0.8em;
+  @mixin btn;
+
   color: var(--color-white);
+  font-size: 0.8em;
+  border-color: currentColor;
   display: flex;
   align-items: center;
-  border: 2px solid var(--color-white);
 }
 
 .bars {
