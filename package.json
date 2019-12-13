@@ -14,7 +14,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.0-rc18",
+    "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/pwa": "^3.0.0-beta.19",
     "apollo-fetch": "^0.7.0",
@@ -48,7 +48,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
     "jest": "^24.9.0",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.2",
     "nuxt-svg-loader": "^1.0.1",
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
