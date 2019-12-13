@@ -1,5 +1,6 @@
 plugins voor netlfiy
 translations for urls
+splashscreen
 
 nice to have
 translations
