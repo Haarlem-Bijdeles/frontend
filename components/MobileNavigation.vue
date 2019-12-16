@@ -90,6 +90,11 @@ export default {
   border-color: currentColor;
   display: flex;
   align-items: center;
+
+  &[aria-expanded='true'] {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
 }
 
 .bars {
