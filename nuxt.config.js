@@ -3,6 +3,7 @@ import pkg from './package'
 // import routes from './pages/index'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
+import splashscreens from './config/splashscreens';
 
 export default {
   mode: 'universal',
@@ -30,6 +31,7 @@ export default {
       },
     ],
     link: [
+      ...splashscreens,
       {
         rel: 'dns-prefetch',
         href: '//www.google-analytics.com',
@@ -38,7 +40,6 @@ export default {
         rel: 'dns-prefetch',
         href: 'https://api.haarlembijdeles.michielkoning.nl',
       },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
 
