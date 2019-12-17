@@ -5,7 +5,7 @@
         <div v-if="usps.length" class="teaser__usps">
           <h2 class="title">Wat kunnen jullie verwachten?</h2>
           <ul class="list">
-            <li v-for="item in usps" :key="item.text" class="item">
+            <li v-for="item in usps" :key="item.text" class="list-item">
               <icon-usp aria-hidden="true" width="12" height="12" />
               {{ item.text }}
             </li>
@@ -14,7 +14,7 @@
         <div v-if="offers.length" class="teaser__usps">
           <h2 class="title">Ons aanbod:</h2>
           <ul class="list">
-            <li v-for="item in offers" :key="item.text" class="item">
+            <li v-for="item in offers" :key="item.text" class="list-item">
               <icon-usp aria-hidden="true" width="12" height="12" />
               {{ item.text }}
             </li>
@@ -24,16 +24,13 @@
       <div class="prices">
         <h2 class="title">Tarieven</h2>
         <ul class="list">
-          <li class="item">
-            <icon-usp
-              aria-hidden="true"
-              width="12"
-              height="12"
-            />Huiswerkbegeleiding vanaf € 240,- p.m.
+          <li class="list-item">
+            <icon-usp aria-hidden="true" width="12" height="12" />
+            Huiswerkbegeleiding vanaf € 240,- p.m.
           </li>
-          <li class="item">
-            <icon-usp aria-hidden="true" width="12" height="12" />Individuele
-            bijles € 30,- p.u.
+          <li class="list-item">
+            <icon-usp aria-hidden="true" width="12" height="12" />
+            Individuele bijles € 30,- p.u.
           </li>
         </ul>
         <app-button class="btn" button-style="action" to="/contact">
@@ -79,6 +76,10 @@ export default {
 <style lang="postcss" scoped>
 .list {
   @mixin list-reset;
+
+  & > .list-item {
+    margin-bottom: 0.25em;
+  }
 }
 
 .usps {
@@ -101,6 +102,7 @@ export default {
   grid-gap: var(--gutter);
   position: relative;
   margin-top: 1rem;
+
   @media (--viewport-sm) {
     margin-top: -5rem;
   }
