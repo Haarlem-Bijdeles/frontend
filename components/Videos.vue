@@ -1,12 +1,14 @@
 <template>
-  <section v-if="videos.length" class="videos" aria-labelledby="videos-title">
+  <section v-if="videos.length" aria-labelledby="videos-title">
     <notch-wrapper>
-      <h2 id="videos-title" class="sr-only">Onze videos</h2>
-      <div v-for="video in videos" :key="video" class="video-container">
-        <iframe
-          :src="`//player.vimeo.com/video/${video}`"
-          allowfullscreen="allowfullscreen"
-        ></iframe>
+      <div class="videos">
+        <h2 id="videos-title" class="sr-only">Onze videos</h2>
+        <div v-for="video in videos" :key="video" class="video-container">
+          <iframe
+            :src="`//player.vimeo.com/video/${video}`"
+            allowfullscreen="allowfullscreen"
+          ></iframe>
+        </div>
       </div>
     </notch-wrapper>
   </section>
