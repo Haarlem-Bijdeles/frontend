@@ -45,7 +45,7 @@
           href="tel:06%20-%2028%2032%2057%2033"
           button-style="ghost"
         >
-          Bel Tim: 06 - 28 32 57 33
+          Bel ons: 06 - 28 32 57 33
         </app-button>
       </div>
     </div>
