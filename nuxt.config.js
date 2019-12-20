@@ -38,10 +38,6 @@ export default {
       ...splashscreens,
       {
         rel: 'dns-prefetch',
-        href: '//www.google-analytics.com',
-      },
-      {
-        rel: 'dns-prefetch',
         href: 'https://api.haarlembijdeles.michielkoning.nl',
       },
     ],

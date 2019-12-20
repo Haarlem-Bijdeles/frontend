@@ -87,9 +87,14 @@ export default {
 
   color: var(--color-white);
   font-size: 0.8em;
-  border-color: currentColor;
+  border-color: var(--color-white);
   display: flex;
   align-items: center;
+
+  &[aria-expanded='true'] {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
 }
 
 .bars {

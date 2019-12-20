@@ -61,7 +61,7 @@ export default {
 {
   "nl": {
     "makeAppointment": "Maak direct een afspraak",
-    "callUs": "Bel Tim: 06 - 28 32 57 33"
+    "callUs": "Bel ons: 06 - 28 32 57 33"
   }
 }
 </i18n>

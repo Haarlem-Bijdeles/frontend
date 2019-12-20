@@ -2,14 +2,15 @@
   <div class="archive-bg">
     <notch-wrapper>
       <div class="wrapper">
-        <h2 class="title">
-          <slot name="title" />
-        </h2>
         <div v-if="image" class="image-wrapper">
           <image-archive :image="image" />
         </div>
 
         <div class="text">
+          <h2 class="title">
+            <slot name="title" />
+          </h2>
+
           <slot />
         </div>
       </div>
