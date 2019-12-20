@@ -1,9 +1,13 @@
 import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
+import splashscreens from './config/splashscreens'
+import googleAnalytics from './config/googleAnalytics'
+import manifest from './config/manifest'
+import i18n from './config/i18n'
+import apollo from './config/apollo'
 // import routes from './pages/index'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
 const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
-import splashscreens from './config/splashscreens';
 
 export default {
   mode: 'universal',
@@ -67,45 +71,10 @@ export default {
     '@nuxtjs/apollo',
     'nuxt-i18n',
   ],
-  manifest: {
-    name: 'Haarlem Bijdeles',
-    background_color: '#f85909',
-    theme_color: '#f85909',
-    short_name: 'Haarlem Bijdeles',
-  },
-  i18n: {
-    defaultLocale: 'nl',
-    lazy: true,
-    langDir: 'locales/',
-    locales: [
-      {
-        name: 'Nederlands',
-        code: 'nl',
-        iso: 'nl-NL',
-        file: 'nl.json',
-      },
-    ],
-    vueI18nLoader: true,
-    vueI18n: {
-      dateTimeFormats: {
-        nl: {
-          short: {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          },
-          long: {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            weekday: 'short',
-            hour: 'numeric',
-            minute: 'numeric',
-          },
-        },
-      },
-    },
-  },
+  buildModules: ['@nuxtjs/google-analytics'],
+  googleAnalytics,
+  manifest,
+  i18n,
   /*
    ** Axios module configuration
    */
@@ -196,12 +165,5 @@ export default {
     },
   },
 
-  apollo: {
-    clientConfigs: {
-      default: {
-        // required
-        httpEndpoint: `${baseUrl}graphql`,
-      },
-    },
-  },
+  apollo,
 }
