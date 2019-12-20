@@ -1,6 +1,5 @@
-plugins voor netlfiy
 translations for urls
-splashscreen
+sitemap
 
 nice to have
 translations
