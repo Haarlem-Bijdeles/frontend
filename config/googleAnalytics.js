@@ -6,7 +6,7 @@ export default {
       window.navigator.doNotTrack ||
       window.doNotTrack ||
       window.navigator.msDoNotTrack
-    if (doNotTrack !== '1' && doNotTrack !== 'yes') {
+    return !(doNotTrack !== '1' || doNotTrack !== 'yes') {
       return false
     }
     return true
