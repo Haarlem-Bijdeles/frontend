@@ -163,4 +163,7 @@ export default {
   },
 
   apollo,
+  sitemap: {
+    hostname: 'https://www.haarlembijdeles.nl/',
+  },
 }
