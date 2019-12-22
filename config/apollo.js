@@ -1,4 +1,4 @@
-const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
+const baseUrl = 'https://api.haarlembijdeles.nl/'
 
 export default {
   clientConfigs: {

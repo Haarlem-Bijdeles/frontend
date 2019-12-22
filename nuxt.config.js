@@ -7,12 +7,12 @@ import i18n from './config/i18n'
 import apollo from './config/apollo'
 // import routes from './pages/index'
 // const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
-const baseUrl = 'https://api.haarlembijdeles.michielkoning.nl/'
+const baseUrl = 'https://api.haarlembijdeles.nl/'
 
 export default {
   mode: 'universal',
   env: {
-    baseUrl: 'https://haarlembijdeles.michielkoning.nl/',
+    baseUrl: 'https://www.haarlembijdeles.nl/',
   },
   /*
    ** Headers of the page
@@ -38,7 +38,7 @@ export default {
       ...splashscreens,
       {
         rel: 'dns-prefetch',
-        href: 'https://api.haarlembijdeles.michielkoning.nl',
+        href: 'https://api.haarlembijdeles.nl',
       },
     ],
   },
