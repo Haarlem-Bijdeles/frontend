@@ -1,6 +1,8 @@
+import { siteTitle, themeColor } from './siteDetails'
+
 export default {
-  name: 'Haarlem Bijdeles',
-  background_color: '#f85909',
-  theme_color: '#f85909',
-  short_name: 'Haarlem Bijdeles',
+  name: siteTitle,
+  background_color: themeColor,
+  theme_color: themeColor,
+  short_name: siteTitle,
 }

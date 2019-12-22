@@ -1,10 +1,10 @@
-const baseUrl = 'https://api.haarlembijdeles.nl/'
+import { apiUrl } from './siteDetails'
 
 export default {
   clientConfigs: {
     default: {
       // required
-      httpEndpoint: `${baseUrl}graphql`,
+      httpEndpoint: `${apiUrl}graphql`,
     },
   },
 }

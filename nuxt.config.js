@@ -5,20 +5,21 @@ import googleAnalytics from './config/googleAnalytics'
 import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
-// import routes from './pages/index'
-// const baseUrl = 'https://www.haarlembijdeles.nl/wp-json/'
-const baseUrl = 'https://api.haarlembijdeles.nl/'
+import sitemap from './config/sitemap'
+import { apiUrl, siteUrl } from './config/siteDetails'
 
 export default {
   mode: 'universal',
   env: {
-    baseUrl: 'https://www.haarlembijdeles.nl/',
+    baseUrl: siteUrl,
   },
   /*
    ** Headers of the page
    */
   head: {
-    lang: 'nl',
+    htmlAttrs: {
+      lang: 'nl',
+    },
     title: pkg.name,
     titleTemplate: '%s',
     meta: [
@@ -38,7 +39,7 @@ export default {
       ...splashscreens,
       {
         rel: 'dns-prefetch',
-        href: 'https://api.haarlembijdeles.nl',
+        href: apiUrl,
       },
     ],
   },
@@ -116,7 +117,7 @@ export default {
   generate: {
     fallback: true,
     async routes() {
-      const uri = `${baseUrl}/graphql`
+      const uri = `${apiUrl}/graphql`
 
       const query = `
         query GET_SITEMAP {
@@ -163,7 +164,5 @@ export default {
   },
 
   apollo,
-  sitemap: {
-    hostname: 'https://www.haarlembijdeles.nl/',
-  },
+  sitemap,
 }
