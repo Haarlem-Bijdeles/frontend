@@ -41,12 +41,6 @@ export default {
         rel: 'dns-prefetch',
         href: apiUrl,
       },
-      {
-        rel: 'preload',
-        href: '/fonts/OpenSans-Regular-Basic.woff2',
-        as: 'font',
-        type: 'font/woff2',
-      },
     ],
   },
 
@@ -62,12 +56,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/axios',
-    '~/plugins/google-maps',
-    '~/plugins/vuelidate',
-    { src: '~/plugins/fontsLoader', mode: 'client' },
-  ],
+  plugins: ['~/plugins/axios', '~/plugins/google-maps', '~/plugins/vuelidate'],
   /*
    ** Nuxt.js modules
    */
