@@ -1,8 +1,16 @@
 :root {
   --font-size-base: 16px;
-  --font-family-base: 'Open Sans', sans-serif;
+  --font-family-base: 'Open Sans', arial, sans-serif;
   --line-height-base: 1.5;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-family-header: var(--font-family-base);
+}
+
+.fonts-stage-1 {
+  --font-family-base: 'Open Sans Webfont Basic', 'Open Sans', arial, sans-serif;
+}
+
+.fonts-stage-2 {
+  --font-family-base: 'Open Sans Webfont', 'Open Sans', arial, sans-serif;
 }
