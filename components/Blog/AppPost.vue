@@ -35,6 +35,11 @@ export default {
       required: true,
     },
   },
+  computed: {
+    url() {
+      return `/wie-zijn-wij/blog/${this.post.slug}/`
+    },
+  },
 }
 </script>
 
