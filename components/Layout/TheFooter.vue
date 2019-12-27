@@ -160,7 +160,11 @@ export default {
 
 .logo {
   border: 1px solid rgba(255, 255, 255, 0.5);
-  display: block;
+  display: none;
+
+  @media (--viewport-sm) {
+    display: block;
+  }
 
   @media (--viewport-md) {
     grid-column-start: 1;
