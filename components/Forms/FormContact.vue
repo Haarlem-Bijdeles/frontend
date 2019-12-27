@@ -2,14 +2,14 @@
   <div>
     <h2>Neem contact met ons op</h2>
     <p v-if="submitted">
-      Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
-      benaderen.
+      Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.
     </p>
 
     <form
       v-else
       action
       data-netlify="true"
+      netlify-honeypot="bot-field"
       method="post"
       name="contact"
       @submit.prevent="submit"
@@ -18,7 +18,9 @@
         Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
         benaderen.
       </p>
+
       <input type="hidden" name="form-name" value="contact" />
+
       <form-fieldset title="Contactformulier">
         <form-input-text
           id="name"
