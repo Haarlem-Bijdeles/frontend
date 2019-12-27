@@ -1,9 +1,9 @@
 <template>
-  <clickable-list-item :url="post.slug" class="list-item">
+  <clickable-list-item :url="url" class="list-item">
     <archive-wrapper :image="post.featuredImage">
       <template v-slot:title>
         <!-- eslint-disable-next-line -->
-        <router-link :to="post.slug" v-html="post.title" class="link" />
+        <router-link :to="url" v-html="post.title" class="link" />
       </template>
       <div class="meta">
         <post-date :date="post.date" />
@@ -33,6 +33,11 @@ export default {
     post: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    url() {
+      return `/wie-zijn-wij/blog/${this.post.slug}/`
     },
   },
 }
