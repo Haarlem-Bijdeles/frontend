@@ -34,6 +34,7 @@
     "name": "Naam",
     "phoneNumber": "Telefoonnummer",
     "email": "E-mailadres",
+    "botField": "Vul dit niet in als je mens bent",
     "message": "Bericht",
     "subscribeToNewsletter": "Ik meld me aan voor de nieuwsbrief",
     "motivation": {

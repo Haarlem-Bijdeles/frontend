@@ -53,6 +53,15 @@
           rows="4"
           type="message"
         />
+        <form-input-text
+          id="bot-field"
+          v-model="form.botField"
+          :title="$t('form.botField')"
+          type="text"
+          :class="$style['bot-field']"
+          name="bot-field"
+        />
+
         <app-button type="submit" :is-full-width="true">Verzenden</app-button>
       </form-fieldset>
     </form>
@@ -82,6 +91,7 @@ export default {
         email: '',
         message: '',
         phonenumber: '',
+        botField: '',
       },
     }
   },
@@ -152,3 +162,9 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.bot-field {
+  display: none;
+}
+</style>
