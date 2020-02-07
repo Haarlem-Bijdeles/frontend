@@ -14,3 +14,5 @@ https://haarlembijdeles.nl/*                    https://www.haarlembijdeles.nl/:
 /maken-fouten-als-onderdeel-succes              /wie-zijn-wij/blog/maken-fouten-als-onderdeel-succes
 /faalangst                                      /wie-zijn-wij/blog/faalangst
 /teamuitje                                      /wie-zijn-wij/blog/teamuitje
+/wp-admin/*                                     https://api.haarlembijdeles.nl/wp-admin/:splat 301!
+/wp-login/*                                     https://api.haarlembijdeles.nl/wp-login/:splat 301!
