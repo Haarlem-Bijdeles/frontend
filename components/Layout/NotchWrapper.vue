@@ -8,7 +8,7 @@
 
 <style lang="postcss" scoped>
 .notch-wrapper {
-  padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  padding: var(--notch);
 }
 
 .layout-wrapper {
