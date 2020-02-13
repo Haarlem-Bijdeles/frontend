@@ -34,6 +34,10 @@ export default {
         content: 'black-translucent',
       },
       {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes',
+      },
+      {
         hid: 'og:description',
         name: 'og:description',
         content: pkg.description,
