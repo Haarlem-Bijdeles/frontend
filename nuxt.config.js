@@ -31,7 +31,7 @@ export default {
       { hid: 'description', name: 'description', content: pkg.description },
       {
         name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black',
+        content: 'black-translucent',
       },
       {
         hid: 'og:description',
