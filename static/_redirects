@@ -1,18 +1,18 @@
 https://haarlembijdeles.nl/*                    https://www.haarlembijdeles.nl/:splat 301!
-/wie-zijn-wij                                   /wie-zijn-wij/de-docenten
-/sporten-en-leren                               /wie-zijn-wij/blog/sporten-en-leren
-/een-mooie-start                                /wie-zijn-wij/blog/een-mooie-start
-/huiswerkbegeleiding-in-2014                    /wie-zijn-wij/blog/huiswerkbegeleiding-in-2014
-/tegemoetkoming-huiswerkbegeleiding             /wie-zijn-wij/blog/tegemoetkoming-huiswerkbegeleiding
-/cursus-leren-leren                             /wie-zijn-wij/blog/cursus-leren-leren
-/referenties                                    /wie-zijn-wij/blog/referenties
-/sterk-slim-challenge-voor-3fm-serious-request  /wie-zijn-wij/blog/sterk-slim-challenge-voor-3fm-serious-request
-/succes-op-de-huiswerkbegeleiding               /wie-zijn-wij/blog/succes-op-de-huiswerkbegeleiding
-/leren-leren                                    /wie-zijn-wij/blog/leren-leren
-/zelfvertrouwen                                 /wie-zijn-wij/blog/zelfvertrouwen
-/uitbreiding-een-nieuwe-locatie                 /wie-zijn-wij/blog/uitbreiding-een-nieuwe-locatie
-/maken-fouten-als-onderdeel-succes              /wie-zijn-wij/blog/maken-fouten-als-onderdeel-succes
-/faalangst                                      /wie-zijn-wij/blog/faalangst
-/teamuitje                                      /wie-zijn-wij/blog/teamuitje
+/wie-zijn-wij                                   /wie-zijn-wij/de-docenten 301!
+/sporten-en-leren                               /wie-zijn-wij/blog/sporten-en-leren 301!
+/een-mooie-start                                /wie-zijn-wij/blog/een-mooie-start 301!
+/huiswerkbegeleiding-in-2014                    /wie-zijn-wij/blog/huiswerkbegeleiding-in-2014 301!
+/tegemoetkoming-huiswerkbegeleiding             /wie-zijn-wij/blog/tegemoetkoming-huiswerkbegeleiding 301!
+/cursus-leren-leren                             /wie-zijn-wij/blog/cursus-leren-leren 301!
+/referenties                                    /wie-zijn-wij/blog/referenties 301!
+/sterk-slim-challenge-voor-3fm-serious-request  /wie-zijn-wij/blog/sterk-slim-challenge-voor-3fm-serious-request 301!
+/succes-op-de-huiswerkbegeleiding               /wie-zijn-wij/blog/succes-op-de-huiswerkbegeleiding 301!
+/leren-leren                                    /wie-zijn-wij/blog/leren-leren 301!
+/zelfvertrouwen                                 /wie-zijn-wij/blog/zelfvertrouwen 301!
+/uitbreiding-een-nieuwe-locatie                 /wie-zijn-wij/blog/uitbreiding-een-nieuwe-locatie 301!
+/maken-fouten-als-onderdeel-succes              /wie-zijn-wij/blog/maken-fouten-als-onderdeel-succes 301!
+/faalangst                                      /wie-zijn-wij/blog/faalangst 301!
+/teamuitje                                      /wie-zijn-wij/blog/teamuitje 301!
 /wp-admin/*                                     https://api.haarlembijdeles.nl/wp-admin/:splat 301!
 /wp-login/*                                     https://api.haarlembijdeles.nl/wp-login/:splat 301!
