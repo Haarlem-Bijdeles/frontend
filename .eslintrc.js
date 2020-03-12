@@ -15,5 +15,8 @@ module.exports = {
   ],
   plugins: ['prettier'],
   // add your custom rules here
-  rules: {},
-};
+  rules: {
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/no-deprecated-slot-scope-attribute': 1,
+  },
+}
