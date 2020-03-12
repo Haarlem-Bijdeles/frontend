@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import PostDate from '@/components/Blog/PostDate.vue'
-import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
-import ClickableListItem from '@/components/Shared/ClickableListItem.vue'
-import ReadMoreLink from '@/components/Shared/ReadMoreLink.vue'
+import PostDate from '~/components/Blog/PostDate.vue'
+import ArchiveWrapper from '~/components/ArchiveWrapper.vue'
+import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
+import ReadMoreLink from '~/components/Shared/ReadMoreLink.vue'
 
 export default {
   components: {

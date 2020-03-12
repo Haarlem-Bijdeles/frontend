@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import Page from '@/components/Page.vue'
+import Page from '~/components/Page.vue'
 import Posts from '~/components/Blog/Posts.vue'
-import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
-import PostDate from '@/components/Blog/PostDate.vue'
-import getSeoMetaData from '@/helpers/seo'
+import ArchiveWrapper from '~/components/ArchiveWrapper.vue'
+import PostDate from '~/components/Blog/PostDate.vue'
+import getSeoMetaData from '~/helpers/seo'
 
 import PostQuery from '~/graphql/Post.gql'
 import BlogQuery from '~/graphql/Blog.gql'
-import pages from '@/config/pages'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import pages from '~/config/pages'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

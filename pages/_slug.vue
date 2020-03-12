@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import Page from '@/components/Page.vue'
+import Page from '~/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
-import getSeoMetaData from '@/helpers/seo'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {

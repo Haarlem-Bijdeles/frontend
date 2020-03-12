@@ -74,10 +74,10 @@
 </template>
 
 <script>
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
-import IconLogo from '@/icons/logo.svg'
-import MenuItem from '@/components/MenuItem.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import SocialMediaLinks from '~/components/SocialMediaLinks.vue'
+import IconLogo from '~/icons/logo.svg'
+import MenuItem from '~/components/MenuItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
 import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 

@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import Page from '@/components/Page.vue'
-import pages from '@/config/pages'
-import ServicesWrapper from '@/components/Services/ServicesWrapper.vue'
-import Usps from '@/components/Home/Usps.vue'
+import Page from '~/components/Page.vue'
+import pages from '~/config/pages'
+import ServicesWrapper from '~/components/Services/ServicesWrapper.vue'
+import Usps from '~/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
-import getSeoMetaData from '@/helpers/seo'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {

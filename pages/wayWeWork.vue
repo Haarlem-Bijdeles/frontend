@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import Page from '@/components/Page.vue'
+import Page from '~/components/Page.vue'
 import PageWayWeWorkQuery from '~/graphql/PageWayWeWork.gql'
-import WayWeWork from '@/components/WayWeWork/WayWeWork.vue'
-import getSeoMetaData from '@/helpers/seo'
-import pages from '@/config/pages'
+import WayWeWork from '~/components/WayWeWork/WayWeWork.vue'
+import getSeoMetaData from '~/helpers/seo'
+import pages from '~/config/pages'
 
 export default {
   components: {

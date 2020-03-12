@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import ImageHero from '@/components/Images/ImageHero.vue'
+import ImageHero from '~/components/Images/ImageHero.vue'
 import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

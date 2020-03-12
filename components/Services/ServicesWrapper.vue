@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import ImageHero from '@/components/Images/ImageHero.vue'
-import ServicesList from '@/components/Services/ServicesList.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import ImageHero from '~/components/Images/ImageHero.vue'
+import ServicesList from '~/components/Services/ServicesList.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

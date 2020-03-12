@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import LazyLoadingImage from '@/components/Images/LazyLoadingImage.vue'
+import LazyLoadingImage from '~/components/Images/LazyLoadingImage.vue'
 
 export default {
   components: {

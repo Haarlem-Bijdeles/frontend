@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import ClickableListItem from '@/components/Shared/ClickableListItem.vue'
+import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
 
 export default {
   components: {

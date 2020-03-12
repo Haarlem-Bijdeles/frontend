@@ -16,8 +16,8 @@
 
 <script>
 import TestimonialsList from '~/components/Testimonials/TestimonialsList.vue'
-import AppButton from '@/components/Shared/AppButton.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

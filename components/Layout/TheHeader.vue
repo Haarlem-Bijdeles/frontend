@@ -1,6 +1,6 @@
 <template>
   <header>
-    <NotchWrapper>
+    <notch-wrapper>
       <div class="header-wrapper">
         <skip-links />
         <mobile-navigation @toggleMenu="toggleMenu" />
@@ -30,17 +30,17 @@
           </div>
         </transition>
       </div>
-    </NotchWrapper>
+    </notch-wrapper>
   </header>
 </template>
 
 <script>
-import SkipLinks from '@/components/Layout/SkipLinks.vue'
-import MobileNavigation from '@/components/MobileNavigation.vue'
-import MainNavigation from '@/components/MainNavigation.vue'
-import IconLogo from '@/icons/logo.svg'
-import IconLogoSmall from '@/icons/logo-small.svg'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import SkipLinks from '~/components/Layout/SkipLinks.vue'
+import MobileNavigation from '~/components/MobileNavigation.vue'
+import MainNavigation from '~/components/MainNavigation.vue'
+import IconLogo from '~/icons/logo.svg'
+import IconLogoSmall from '~/icons/logo-small.svg'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 const bodyScrollLock = require('body-scroll-lock')
 

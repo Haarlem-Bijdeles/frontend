@@ -22,7 +22,7 @@
 
 <script>
 import MenuQuery from '~/graphql/Menu.gql'
-import MainNavigationItem from '@/components/Menu/MainNavigationItem.vue'
+import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
 
 export default {
   components: {

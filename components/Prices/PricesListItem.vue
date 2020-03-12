@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import PriceBadge from '@/components/Prices/PriceBadge.vue'
-import CheckRounded from '@/icons/check-rounded.svg'
+import PriceBadge from '~/components/Prices/PriceBadge.vue'
+import CheckRounded from '~/icons/check-rounded.svg'
 
 export default {
   components: {

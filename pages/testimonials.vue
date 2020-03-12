@@ -8,10 +8,10 @@
 <script>
 import TestimonialsQuery from '~/graphql/Testimonials.gql'
 import TestimonialsWrapper from '~/components/Testimonials/TestimonialsWrapper.vue'
-import Page from '@/components/Page.vue'
+import Page from '~/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
-import getSeoMetaData from '@/helpers/seo'
-import pages from '@/config/pages'
+import getSeoMetaData from '~/helpers/seo'
+import pages from '~/config/pages'
 
 export default {
   layout: 'testimonials',

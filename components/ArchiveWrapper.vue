@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ImageArchive from '@/components/Images/ImageArchive.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import ImageArchive from '~/components/Images/ImageArchive.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

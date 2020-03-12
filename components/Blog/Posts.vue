@@ -24,8 +24,8 @@
 <script>
 import AppPost from '~/components/Blog/AppPost.vue'
 import PostsQuery from '~/graphql/Posts.gql'
-import AppButton from '@/components/Shared/AppButton.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

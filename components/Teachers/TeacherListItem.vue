@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
-import SocialMediaLinks from '@/components/SocialMediaLinks.vue'
+import ArchiveWrapper from '~/components/ArchiveWrapper.vue'
+import SocialMediaLinks from '~/components/SocialMediaLinks.vue'
 
 export default {
   components: {

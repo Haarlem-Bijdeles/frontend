@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import IconUsp from '@/icons/usp.svg'
-import AppButton from '@/components/Shared/AppButton.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import IconUsp from '~/icons/usp.svg'
+import AppButton from '~/components/Shared/AppButton.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

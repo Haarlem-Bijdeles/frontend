@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import Page from '@/components/Page.vue'
+import Page from '~/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
 import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
-import BlockMap from '@/components/Contact/BlockMap.vue'
-import ContactOffices from '@/components/Contact/ContactOffices.vue'
-import FormContact from '@/components/Forms/FormContact.vue'
-import getSeoMetaData from '@/helpers/seo'
-import pages from '@/config/pages'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import BlockMap from '~/components/Contact/BlockMap.vue'
+import ContactOffices from '~/components/Contact/ContactOffices.vue'
+import FormContact from '~/components/Forms/FormContact.vue'
+import getSeoMetaData from '~/helpers/seo'
+import pages from '~/config/pages'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

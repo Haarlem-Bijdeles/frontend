@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import ArchiveWrapper from '@/components/ArchiveWrapper.vue'
-import AppButton from '@/components/Shared/AppButton.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import ArchiveWrapper from '~/components/ArchiveWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

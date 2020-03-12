@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ImageArchive from '@/components/Images/ImageArchive.vue'
+import ImageArchive from '~/components/Images/ImageArchive.vue'
 
 export default {
   components: {

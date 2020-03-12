@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppButton from '@/components/Shared/AppButton.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
   components: {

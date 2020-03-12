@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import AppHero from '@/components/AppHero.vue'
-import TheIntro from '@/components/TheIntro.vue'
+import AppHero from '~/components/AppHero.vue'
+import TheIntro from '~/components/TheIntro.vue'
 
 export default {
   components: {

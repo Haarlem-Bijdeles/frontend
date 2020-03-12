@@ -11,11 +11,11 @@
 
 <script>
 import TeachersQuery from '~/graphql/PageTeachers.gql'
-import TeacherList from '@/components/Teachers/TeacherList.vue'
-import Videos from '@/components/Videos.vue'
-import Page from '@/components/Page.vue'
-import getSeoMetaData from '@/helpers/seo'
-import pages from '@/config/pages'
+import TeacherList from '~/components/Teachers/TeacherList.vue'
+import Videos from '~/components/Videos.vue'
+import Page from '~/components/Page.vue'
+import getSeoMetaData from '~/helpers/seo'
+import pages from '~/config/pages'
 
 export default {
   components: {

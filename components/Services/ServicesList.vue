@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ServicesListItem from '@/components/Services/ServicesListItem.vue'
+import ServicesListItem from '~/components/Services/ServicesListItem.vue'
 
 export default {
   components: {

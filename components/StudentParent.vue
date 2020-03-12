@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

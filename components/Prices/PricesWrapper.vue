@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import ImageHero from '@/components/Images/ImageHero.vue'
-import PricesList from '@/components/Prices/PricesList.vue'
-import PricesButtons from '@/components/Prices/PricesButtons.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import ImageHero from '~/components/Images/ImageHero.vue'
+import PricesList from '~/components/Prices/PricesList.vue'
+import PricesButtons from '~/components/Prices/PricesButtons.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {
