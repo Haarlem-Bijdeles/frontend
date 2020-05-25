@@ -168,7 +168,7 @@ export default {
       const { pages, posts } = result.data
 
       const sitemapPosts = posts.edges.map((item) => {
-        return `/wie-zijn-wij/blog/${item.node.uri}`
+        return item.node.uri
       })
       const sitemapPages = pages.edges.map((item) => {
         const subItems = item.node.childPages.edges.map((subItem) => {
