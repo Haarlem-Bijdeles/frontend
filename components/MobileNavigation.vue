@@ -28,6 +28,7 @@
 import IconBars from '~/icons/bars.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import IconLogoSmall from '~/icons/logo-small.svg'
+import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
@@ -41,10 +42,8 @@ export default {
     }
   },
 
-  watch: {
-    $route() {
-      this.toggleMenu(false)
-    },
+  mounted() {
+    EventBusUtil.$on('change-page', () => this.toggleMenu(false))
   },
 
   methods: {

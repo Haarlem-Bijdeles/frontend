@@ -10,6 +10,7 @@
       :aria-haspopup="item.childItems.edges.length > 0"
       :aria-expanded="isOpen"
       class="menu-link"
+      @click.native="changePage"
     />
     <button
       v-if="item.childItems.edges.length"
@@ -33,7 +34,11 @@
             :key="subItem.node.label"
             class="menu-item"
           >
-            <menu-item :item="subItem.node" class="submenu-link" />
+            <menu-item
+              :item="subItem.node"
+              class="submenu-link"
+              @click.native="changePage"
+            />
           </li>
         </ul>
       </animation-slide-in>
@@ -45,6 +50,7 @@
 import MenuItem from '~/components/MenuItem.vue'
 import IconChevronDown from '~/icons/chevron-down.svg'
 import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
+import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
@@ -65,6 +71,9 @@ export default {
     }
   },
   methods: {
+    changePage() {
+      EventBusUtil.$emit('change-page')
+    },
     toggleMenu() {
       this.isOpen = !this.isOpen
     },
