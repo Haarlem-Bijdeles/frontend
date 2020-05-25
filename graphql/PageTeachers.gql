@@ -1,8 +1,8 @@
 #import "./Fragments/PageContent.gql"
 #import "./Fragments/ImageArchive.gql"
 
-query GET_TEACHERS_PAGE_BY_URI($pageId: Int) {
-  page: pageBy(pageId: $pageId) {
+query GET_TEACHERS_PAGE_BY_URI($pageId: ID!) {
+  page(id: $pageId, idType: DATABASE_ID) {
     ...pageContent
     employersGroup {
       employers {

@@ -1,0 +1,7 @@
+#import "./Fragments/PageContent.gql"
+
+query GET_PAGE_BY_URI($uri: ID!) {
+  page(id: $uri, idType: URI) {
+    ...pageContent
+  }
+}

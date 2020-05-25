@@ -40,7 +40,7 @@ export default {
   },
 
   async asyncData({ app, params }) {
-    const blog = await app.apolloProvider.defaultClient.query({
+    const page = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
       variables: {
         pageId: pages.blog,
@@ -54,7 +54,7 @@ export default {
     })
 
     return {
-      blog: blog.data.blog,
+      blog: page.data.page,
       post: post.data.post,
     }
   },
@@ -64,7 +64,7 @@ export default {
       return this.$store.state.details
     },
     meta() {
-      return this.page.yoast_meta.map(item => {
+      return this.page.yoast_meta.map((item) => {
         item.hid = item.name ? item.name : item.property
         return item
       })

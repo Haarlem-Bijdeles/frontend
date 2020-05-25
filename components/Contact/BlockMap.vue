@@ -67,9 +67,9 @@ export default {
       }
     },
     boundMap() {
-      this.$refs.refMap.$mapPromise.then(map => {
+      this.$refs.refMap.$mapPromise.then((map) => {
         const bounds = new window.google.maps.LatLngBounds()
-        this.offices.forEach(location => {
+        this.offices.forEach((location) => {
           const position = new window.google.maps.LatLng(
             location.latitude,
             location.longitude,

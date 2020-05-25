@@ -4,12 +4,10 @@
     class="image"
     :src="image.heroMedium"
     :alt="image.altText"
-    :srcset="
-      `
+    :srcset="`
         ${image.heroLarge} 1140w,
         ${image.heroMedium} 800w,
-        ${image.heroSmall} 640w`
-    "
+        ${image.heroSmall} 640w`"
     sizes="(min-width: 1140px) 1140px, 100vw"
   />
 </template>

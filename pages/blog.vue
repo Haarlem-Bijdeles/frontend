@@ -18,14 +18,14 @@ export default {
     AppHero,
   },
   async asyncData({ app, params }) {
-    const blog = await app.apolloProvider.defaultClient.query({
+    const page = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
       variables: {
         pageId: pages.blog,
       },
     })
     return {
-      page: blog.data.blog,
+      page: page.data.page,
     }
   },
   data() {

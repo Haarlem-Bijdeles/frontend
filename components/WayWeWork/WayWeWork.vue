@@ -69,21 +69,21 @@ export default {
     },
   },
   mounted() {
-    const items = this.$refs['archive-item'].map(item => item.$el)
+    const items = this.$refs['archive-item'].map((item) => item.$el)
 
     if (
       'IntersectionObserver' in window &&
       'IntersectionObserverEntry' in window
     ) {
-      const imageObserver = new IntersectionObserver(entries => {
+      const imageObserver = new IntersectionObserver((entries) => {
         const index = items.indexOf(entries[0].target)
         if (entries[0].isIntersecting) {
           this.activeItems.push(index)
         } else {
-          this.activeItems = this.activeItems.filter(item => item !== index)
+          this.activeItems = this.activeItems.filter((item) => item !== index)
         }
       })
-      items.forEach(element => {
+      items.forEach((element) => {
         imageObserver.observe(element)
       })
     }

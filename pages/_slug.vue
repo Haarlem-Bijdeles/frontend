@@ -4,7 +4,7 @@
 
 <script>
 import Page from '~/components/Page.vue'
-import PageQuery from '~/graphql/Page.gql'
+import PageByUriQuery from '~/graphql/PageByUri.gql'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
@@ -14,7 +14,7 @@ export default {
 
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
-      query: PageQuery,
+      query: PageByUriQuery,
       variables: {
         uri: params.slug,
       },

@@ -1,7 +1,7 @@
 #import "./Fragments/PageContent.gql"
 
-query GET_PAGE_BY_URI($uri: String, $pageId: Int) {
-  page: pageBy(uri: $uri, pageId: $pageId) {
+query GET_PAGE_BY_URI($pageId: ID!) {
+  page(id: $pageId, idType: DATABASE_ID) {
     ...pageContent
   }
 }

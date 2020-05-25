@@ -6,9 +6,7 @@
     {{ office.zipcode }}, {{ office.city }}
     <br />
     <a
-      :href="
-        `https://www.google.com/maps?daddr=${office.street}%20${office.city}`
-      "
+      :href="`https://www.google.com/maps?daddr=${office.street}%20${office.city}`"
       target="_blank"
       rel="noopener"
       class="contact__btn-route"
