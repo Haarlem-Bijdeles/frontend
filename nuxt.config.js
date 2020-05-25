@@ -132,54 +132,57 @@ export default {
       },
     },
   },
-  // generate: {
-  //   fallback: true,
-  //   async routes() {
-  //     const uri = `${apiUrl}/graphql`
+  generate: {
+    fallback: true,
+    async routes() {
+      const uri = `${apiUrl}/graphql`
 
-  //     const query = `
-  //       query GET_SITEMAP {
-  //         pages(first: 100) {
-  //           edges {
-  //             node {
-  //               uri
-  //               childPages {
-  //                 edges {
-  //                   node {
-  //                     uri
-  //                   }
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //         posts(first:100) {
-  //           edges {
-  //             node {
-  //               uri
-  //             }
-  //           }
-  //         }
-  //       }
-  //     `
+      const query = `
+        query GET_SITEMAP {
+          pages(first: 100) {
+            edges {
+              node {
+                uri
+                childPages {
+                  edges {
+                    node {
+                      uri
+                    }
+                  }
+                }
+              }
+            }
+          }
+          posts(first:100) {
+            edges {
+              node {
+                uri
+              }
+            }
+          }
+        }
+      `
 
-  //     const apolloFetch = createApolloFetch({ uri })
-  //     const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
-  //     const { pages } = result.data
+      const apolloFetch = createApolloFetch({ uri })
+      const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
+      const { pages, posts } = result.data
 
-  //     // const sitemapPosts = posts.edges.map((item) => {
-  //     //   return item.node.uri
-  //     // })
-  //     const sitemapPages = pages.edges.map((item) => {
-  //       const subItems = item.node.childPages.edges.map((subItem) => {
-  //         return subItem.node.uri
-  //       })
-  //       return [item.node.uri, ...subItems]
-  //     })
+      const pagesToGenerate = []
+      pages.edges.forEach((page) => {
+        pagesToGenerate.push(page)
+        if (page.node.childPages.edges) {
+          page.node.childPages.edges.forEach((childPage) => {
+            pagesToGenerate.push(childPage)
+          })
+        }
+      })
 
-  //     return [...[].concat(...sitemapPages)]
-  //   },
-  // },
+      const urls = [...pagesToGenerate, ...posts.edges]
+      return urls.map((url) => {
+        return url.node.relativeUrl
+      })
+    },
+  },
 
   apollo,
   sitemap,
