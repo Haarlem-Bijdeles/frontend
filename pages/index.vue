@@ -1,11 +1,7 @@
 <template>
   <div>
-    <page :page="page" :is-large-hero="true">
-      <usps
-        v-if="page.uspsFrontPageGroup"
-        :usps="page.uspsFrontPageGroup.usps"
-        :offers="page.uspsFrontPageGroup.offers"
-      />
+    <page :page="page" :show-hero="false">
+      <usps :image="page.featuredImage" />
     </page>
     <services-wrapper :services-group="page.servicesGroup" />
   </div>

@@ -1,10 +1,6 @@
 <template>
   <article>
-    <app-hero
-      :title="page.title"
-      :image="page.featuredImage"
-      :is-large="isLargeHero"
-    />
+    <app-hero v-if="showHero" :title="page.title" :image="page.featuredImage" />
     <slot />
     <the-intro v-if="page.content" :text="page.content" />
   </article>
@@ -24,9 +20,9 @@ export default {
       type: Object,
       default: () => {},
     },
-    isLargeHero: {
+    showHero: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
 }

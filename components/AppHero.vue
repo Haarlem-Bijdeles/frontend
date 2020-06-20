@@ -1,5 +1,5 @@
 <template>
-  <div v-if="generatedImage" :class="{ large: isLarge }" class="hero">
+  <div v-if="generatedImage" class="hero">
     <image-hero :image="generatedImage" class="image" />
 
     <div class="wrapper">
@@ -21,10 +21,6 @@ export default {
     NotchWrapper,
   },
   props: {
-    isLarge: {
-      type: Boolean,
-      default: false,
-    },
     image: {
       type: Object,
       default: () => {},
@@ -66,13 +62,6 @@ export default {
   height: 8rem;
   @media (--viewport-sm) {
     height: 20rem;
-  }
-
-  &.large {
-    height: 10rem;
-    @media (--viewport-sm) {
-      height: 30rem;
-    }
   }
 }
 

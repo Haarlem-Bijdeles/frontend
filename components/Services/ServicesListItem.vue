@@ -1,10 +1,24 @@
 <template>
-  <clickable-list-item :url="service.link.url" class="item">
+  <clickable-list-item
+    :url="service.link.url"
+    :external="isExternalLink"
+    class="item"
+    :target="service.link.target"
+  >
     <div class="header">
       <h3 class="title">
-        <nuxt-link v-if="service.link.url" :to="service.link.url">
-          {{ service.title }}
-        </nuxt-link>
+        <template v-if="service.link.url">
+          <a
+            v-if="isExternalLink"
+            :href="service.link.url"
+            :target="service.link.target"
+          >
+            {{ service.title }}
+          </a>
+          <nuxt-link v-else :to="service.link.url">
+            {{ service.title }}
+          </nuxt-link>
+        </template>
       </h3>
     </div>
     <ul class="usps">
@@ -12,12 +26,7 @@
         {{ item.text }}
       </li>
     </ul>
-    <span
-      v-if="service.link.url"
-      :href="service.link.url"
-      class="btn"
-      aria-hidden="true"
-    >
+    <span v-if="service.link.url" class="btn" aria-hidden="true">
       {{ $t('moreInformation') }}
     </span>
   </clickable-list-item>
@@ -34,6 +43,11 @@ export default {
     service: {
       type: Object,
       default: () => {},
+    },
+  },
+  computed: {
+    isExternalLink() {
+      return this.service.link.target === '_blank'
     },
   },
 }
