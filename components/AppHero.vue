@@ -5,6 +5,19 @@
     <div class="wrapper">
       <notch-wrapper>
         <h1 id="content" class="title">{{ title }}</h1>
+        <div v-if="showContactButtons" class="buttons">
+          <app-button class="btn" button-style="action" to="/contact">
+            Maak direct een afspraak
+          </app-button>
+          <app-button
+            class="btn"
+            button-tag="a"
+            href="tel:06%20-%2028%2032%2057%2033"
+            button-style="ghost"
+          >
+            Bel ons: 06 - 28 32 57 33
+          </app-button>
+        </div>
       </notch-wrapper>
     </div>
   </div>
@@ -14,9 +27,11 @@
 import ImageHero from '~/components/Images/ImageHero.vue'
 import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     ImageHero,
     NotchWrapper,
   },
@@ -28,6 +43,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    showContactButtons: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -57,15 +76,30 @@ export default {
 <style lang="postcss" scoped>
 .hero {
   position: relative;
-  text-shadow: var(--text-shadow);
-  color: var(--color-white);
+
   height: 8rem;
   @media (--viewport-sm) {
     height: 20rem;
   }
 }
 
+.buttons {
+  position: absolute;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 4em;
+}
+
+.btn {
+  margin: 0 var(--spacing-xs);
+}
+
 .title {
+  color: var(--color-white);
+  text-shadow: var(--text-shadow);
   color: var(--color-white);
 }
 

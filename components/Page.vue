@@ -1,6 +1,10 @@
 <template>
   <article>
-    <app-hero v-if="showHero" :title="page.title" :image="page.featuredImage" />
+    <app-hero
+      :show-contact-buttons="showContactButtonsOnHero"
+      :title="page.title"
+      :image="page.featuredImage"
+    />
     <slot />
     <the-intro v-if="page.content" :text="page.content" />
   </article>
@@ -20,9 +24,9 @@ export default {
       type: Object,
       default: () => {},
     },
-    showHero: {
+    showContactButtonsOnHero: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 }

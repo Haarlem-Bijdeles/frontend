@@ -1,8 +1,6 @@
 <template>
   <div>
-    <page :page="page" :show-hero="false">
-      <usps :image="page.featuredImage" />
-    </page>
+    <page :page="page" :show-contact-buttons-on-hero="true" />
     <services-wrapper :services-group="page.servicesGroup" />
   </div>
 </template>
@@ -11,14 +9,12 @@
 import Page from '~/components/Page.vue'
 import pages from '~/config/pages'
 import ServicesWrapper from '~/components/Services/ServicesWrapper.vue'
-import Usps from '~/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
     Page,
-    Usps,
     ServicesWrapper,
   },
   async asyncData({ app, params }) {

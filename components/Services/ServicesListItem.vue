@@ -10,6 +10,7 @@
         <template v-if="service.link.url">
           <a
             v-if="isExternalLink"
+            rel="noopener"
             :href="service.link.url"
             :target="service.link.target"
           >
@@ -47,7 +48,7 @@ export default {
   },
   computed: {
     isExternalLink() {
-      return this.service.link.target === '_blank'
+      return this.service.link.url.includes('https://')
     },
   },
 }
