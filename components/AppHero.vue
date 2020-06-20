@@ -1,10 +1,19 @@
 <template>
-  <div v-if="generatedImage" class="hero">
+  <div
+    v-if="generatedImage"
+    class="hero"
+    :class="{ 'has-buttons': showContactButtons }"
+  >
     <image-hero :image="generatedImage" class="image" />
 
     <div class="wrapper">
       <notch-wrapper>
         <h1 id="content" class="title">{{ title }}</h1>
+      </notch-wrapper>
+    </div>
+
+    <div class="buttons-wrapper">
+      <notch-wrapper>
         <div v-if="showContactButtons" class="buttons">
           <app-button class="btn" button-style="action" to="/contact">
             Maak direct een afspraak
@@ -76,25 +85,45 @@ export default {
 <style lang="postcss" scoped>
 .hero {
   position: relative;
+  height: 10rem;
 
-  height: 8rem;
+  &.has-buttons {
+    margin-bottom: 3em;
+  }
+
   @media (--viewport-sm) {
     height: 20rem;
   }
 }
 
-.buttons {
+.buttons-wrapper {
   position: absolute;
-  justify-content: center;
-  flex-direction: row;
-  display: flex;
   left: 0;
   right: 0;
-  bottom: 4em;
+  bottom: -5em;
+
+  @media (--viewport-sm) {
+    bottom: 4em;
+  }
+}
+
+.buttons {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  @media (--viewport-sm) {
+    flex-direction: row;
+  }
 }
 
 .btn {
-  margin: 0 var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+  max-width: none;
+
+  @media (--viewport-sm) {
+    margin: 0 var(--spacing-xs);
+  }
 }
 
 .title {
