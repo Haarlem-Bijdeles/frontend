@@ -88,7 +88,11 @@ export default {
   height: 10rem;
 
   &.has-buttons {
-    margin-bottom: 3em;
+    margin-bottom: 4em;
+
+    @media (--viewport-sm) {
+      margin-bottom: 0;
+    }
   }
 
   @media (--viewport-sm) {
