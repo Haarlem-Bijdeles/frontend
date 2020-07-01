@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.1",
-    "@nuxtjs/axios": "^5.10.3",
+    "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/sitemap": "^2.3.0",
     "apollo-fetch": "^0.7.0",
