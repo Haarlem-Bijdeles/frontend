@@ -1,7 +1,7 @@
 <template>
   <section aria-labelledby="home-usps-title" :class="$style['home-usps']">
     <notch-wrapper>
-      <h1 id="home-usps-title" :class="$style.title">Onze kernwaarden</h1>
+      <h1 id="home-usps-title" :class="$style.title">{{ $t('title') }}</h1>
       <ul :class="$style.list">
         <home-usp
           v-for="usp in $t('usps')"
@@ -63,6 +63,7 @@ export default {
 <i18n>
 {
   "nl": {
+    "title": "Onze kernwaarden",
     "usps": [
       {
         "title": "Positief en persoonlijk",
