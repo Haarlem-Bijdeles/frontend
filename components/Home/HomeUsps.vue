@@ -3,46 +3,12 @@
     <notch-wrapper>
       <h1 id="home-usps-title" :class="$style.title">Onze kernwaarden</h1>
       <ul :class="$style.list">
-        <li :class="$style['list-item']">
-          <icon-usp-3
-            aria-hidden="true"
-            width="64"
-            height="64"
-            :class="$style.icon"
-          />
-          <h2 :class="$style['list-item-title']">
-            Inhoudelijke ondersteuning
-          </h2>
-          <p>Hoogopgeleide docenten die met uw kind het proces uitlichten.</p>
-        </li>
-        <li :class="$style['list-item']">
-          <icon-usp-2
-            aria-hidden="true"
-            width="64"
-            height="64"
-            :class="$style.icon"
-          />
-          <h2 :class="$style['list-item-title']">
-            Van stampen naar begrijpen
-          </h2>
-          <p>
-            Via RTTI: reproduceren, toepassen in bekende situatie, toepassen in
-            onbekende situatie en inzicht.
-          </p>
-        </li>
-        <li :class="$style['list-item']">
-          <icon-usp-1
-            aria-hidden="true"
-            width="64"
-            height="64"
-            :class="$style.icon"
-          />
-          <h2 :class="$style['list-item-title']">Een positieve aanpak</h2>
-          <p>
-            Op wetenschappelijk gefundeerde theorieen gebaseerd. Talent = aanleg
-            x leervermogen.
-          </p>
-        </li>
+        <home-usp
+          v-for="usp in $t('usps')"
+          :key="usp.title"
+          :class="$style['list-item']"
+          :usp="usp"
+        />
       </ul>
     </notch-wrapper>
   </section>
@@ -50,15 +16,12 @@
 
 <script>
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
-import IconUsp1 from '~/icons/usp-1.svg'
-import IconUsp2 from '~/icons/usp-2.svg'
-import IconUsp3 from '~/icons/usp-3.svg'
+import HomeUsp from '~/components/Home/HomeUsp.vue'
+
 export default {
   components: {
     NotchWrapper,
-    IconUsp1,
-    IconUsp2,
-    IconUsp3,
+    HomeUsp,
   },
 }
 </script>
@@ -69,17 +32,8 @@ export default {
   text-align: center;
 }
 
-.icon {
-  margin-bottom: var(--spacing-xs);
-}
-
 .title {
   margin-bottom: var(--spacing-s);
-}
-
-.list-item-title {
-  margin-bottom: 0.25em;
-  font-size: 1.25rem;
 }
 
 .list {
@@ -105,3 +59,27 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "usps": [
+      {
+        "title": "Positief en persoonlijk",
+        "text": "Een fijne, positieve leeromgeving met persoonlijke aandacht voor iedere leerling.",
+        "icon": "usp-1"
+      },
+      {
+        "title": "Hulp bij leren leren",
+        "text": "Leerstrategieën die leiden tot efficiënter leren, betere schoolresultaten en minder stress.",
+        "icon": "usp-2"
+      },
+      {
+        "title": "Planning en structuur",
+        "text": "Ondersteuning bij het plannen van schoolwerk, zodat leerlingen overzicht krijgen.",
+        "icon": "usp-3"
+      }
+    ]
+  }
+}
+</i18n>
