@@ -11,6 +11,10 @@ export default {
       type: String,
       required: true,
     },
+    external: {
+      type: Boolean,
+      required: false,
+    },
   },
   data() {
     return {
@@ -18,7 +22,8 @@ export default {
     }
   },
   methods: {
-    mouseUp() {
+    mouseUp(event) {
+      if (event.target.tagName === 'A') return
       const up = +new Date()
       if (up - this.down < 200) {
         this.goToItem()
@@ -28,7 +33,11 @@ export default {
       this.down = +new Date()
     },
     goToItem() {
-      this.$router.push(this.url)
+      if (this.external) {
+        window.open(this.url)
+      } else {
+        this.$router.push(this.url)
+      }
     },
   },
 }

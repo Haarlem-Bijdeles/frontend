@@ -1,9 +1,9 @@
 <template>
   <article>
     <app-hero
+      :show-contact-buttons="showContactButtonsOnHero"
       :title="page.title"
       :image="page.featuredImage"
-      :is-large="isLargeHero"
     />
     <slot />
     <the-intro v-if="page.content" :text="page.content" />
@@ -24,7 +24,7 @@ export default {
       type: Object,
       default: () => {},
     },
-    isLargeHero: {
+    showContactButtonsOnHero: {
       type: Boolean,
       default: false,
     },

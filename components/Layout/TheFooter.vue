@@ -176,7 +176,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "usefulLinks": "Handige links"
+    "usefulLinks": "Pagina's"
   }
 }
 </i18n>

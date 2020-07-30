@@ -1,12 +1,7 @@
 <template>
   <div>
-    <page :page="page" :is-large-hero="true">
-      <usps
-        v-if="page.uspsFrontPageGroup"
-        :usps="page.uspsFrontPageGroup.usps"
-        :offers="page.uspsFrontPageGroup.offers"
-      />
-    </page>
+    <page :page="page" :show-contact-buttons-on-hero="true" />
+    <home-usps />
     <services-wrapper :services-group="page.servicesGroup" />
   </div>
 </template>
@@ -15,15 +10,15 @@
 import Page from '~/components/Page.vue'
 import pages from '~/config/pages'
 import ServicesWrapper from '~/components/Services/ServicesWrapper.vue'
-import Usps from '~/components/Home/Usps.vue'
 import PageHomeQuery from '~/graphql/PageHome.gql'
 import getSeoMetaData from '~/helpers/seo'
+import HomeUsps from '~/components/Home/HomeUsps.vue'
 
 export default {
   components: {
     Page,
-    Usps,
     ServicesWrapper,
+    HomeUsps,
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
@@ -32,8 +27,11 @@ export default {
         pageId: pages.home,
       },
     })
+
+    const page2 = page.data.page
+    page2.content = null
     return {
-      page: page.data.page,
+      page: page2,
     }
   },
 

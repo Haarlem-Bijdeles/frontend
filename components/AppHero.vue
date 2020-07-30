@@ -1,10 +1,32 @@
 <template>
-  <div v-if="generatedImage" :class="{ large: isLarge }" class="hero">
+  <div
+    v-if="generatedImage"
+    class="hero"
+    :class="{ 'has-buttons': showContactButtons }"
+  >
     <image-hero :image="generatedImage" class="image" />
 
     <div class="wrapper">
       <notch-wrapper>
         <h1 id="content" class="title">{{ title }}</h1>
+      </notch-wrapper>
+    </div>
+
+    <div class="buttons-wrapper">
+      <notch-wrapper>
+        <div v-if="showContactButtons" class="buttons">
+          <app-button class="btn" button-style="action" to="/contact">
+            Maak direct een afspraak
+          </app-button>
+          <app-button
+            class="btn"
+            button-tag="a"
+            href="tel:06%20-%2028%2032%2057%2033"
+            button-style="ghost"
+          >
+            Bel ons: 06 - 28 32 57 33
+          </app-button>
+        </div>
       </notch-wrapper>
     </div>
   </div>
@@ -14,17 +36,15 @@
 import ImageHero from '~/components/Images/ImageHero.vue'
 import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
   components: {
+    AppButton,
     ImageHero,
     NotchWrapper,
   },
   props: {
-    isLarge: {
-      type: Boolean,
-      default: false,
-    },
     image: {
       type: Object,
       default: () => {},
@@ -32,6 +52,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    showContactButtons: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -61,22 +85,54 @@ export default {
 <style lang="postcss" scoped>
 .hero {
   position: relative;
-  text-shadow: var(--text-shadow);
-  color: var(--color-white);
-  height: 8rem;
+  height: 10rem;
+
+  &.has-buttons {
+    margin-bottom: 4em;
+
+    @media (--viewport-sm) {
+      margin-bottom: 0;
+    }
+  }
+
   @media (--viewport-sm) {
     height: 20rem;
   }
+}
 
-  &.large {
-    height: 10rem;
-    @media (--viewport-sm) {
-      height: 30rem;
-    }
+.buttons-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5em;
+
+  @media (--viewport-sm) {
+    bottom: 4em;
+  }
+}
+
+.buttons {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  @media (--viewport-sm) {
+    flex-direction: row;
+  }
+}
+
+.btn {
+  margin-bottom: var(--spacing-xs);
+  max-width: none;
+
+  @media (--viewport-sm) {
+    margin: 0 var(--spacing-xs);
   }
 }
 
 .title {
+  color: var(--color-white);
+  text-shadow: var(--text-shadow);
   color: var(--color-white);
 }
 

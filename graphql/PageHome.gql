@@ -4,14 +4,6 @@
 query GET_FRONT_PAGE($pageId: ID!) {
   page(id: $pageId, idType: DATABASE_ID) {
     ...pageContent
-    uspsFrontPageGroup {
-      usps {
-        text
-      }
-      offers {
-        text
-      }
-    }
     servicesGroup {
       servicesLabel
       services {
