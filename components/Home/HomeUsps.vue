@@ -1,7 +1,9 @@
 <template>
   <section aria-labelledby="home-usps-title" :class="$style['home-usps']">
     <notch-wrapper>
-      <h1 id="home-usps-title" :class="$style.title">{{ $t('title') }}</h1>
+      <h1 id="home-usps-title" :class="$style.title" class="sr-only">
+        {{ $t('title') }}
+      </h1>
       <ul :class="$style.list">
         <home-usp
           v-for="usp in $t('usps')"
@@ -76,8 +78,8 @@ export default {
         "icon": "usp-2"
       },
       {
-        "title": "Planning en structuur",
-        "text": "Ondersteuning bij het plannen van schoolwerk, zodat leerlingen overzicht krijgen.",
+        "title": "Planning en inhoud",
+        "text": "Plannen van het schoolwerk voor meer overzicht en inhoudelijke hulp bij ieder vak.",
         "icon": "usp-3"
       }
     ]

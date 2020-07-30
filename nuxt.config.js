@@ -13,6 +13,10 @@ export default {
   env: {
     baseUrl: siteUrl,
   },
+  server: {
+    port: 3333,
+    host: '0.0.0.0',
+  },
   /*
    ** Headers of the page
    */
@@ -170,17 +174,17 @@ export default {
 
       const pagesToGenerate = []
 
-      pages.edges.forEach(page => {
+      pages.edges.forEach((page) => {
         pagesToGenerate.push(page)
         if (page.node.childPages.edges) {
-          page.node.childPages.edges.forEach(childPage => {
+          page.node.childPages.edges.forEach((childPage) => {
             pagesToGenerate.push(childPage)
           })
         }
       })
 
       const urls = [...pagesToGenerate, ...posts.edges]
-      return urls.map(url => {
+      return urls.map((url) => {
         return url.node.uri
       })
     },

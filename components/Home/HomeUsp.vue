@@ -40,6 +40,8 @@ export default {
 
 <style lang="postcss" module>
 .icon {
+  width: 4em;
+  height: 4em;
   margin-bottom: var(--spacing-xs);
 }
 
