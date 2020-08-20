@@ -36,8 +36,8 @@
 
 <script>
 import SkipLinks from '~/components/Layout/SkipLinks.vue'
-import MobileNavigation from '~/components/MobileNavigation.vue'
-import MainNavigation from '~/components/MainNavigation.vue'
+import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
+import MainNavigation from '~/components/Menu/MainNavigation.vue'
 import IconLogo from '~/icons/logo.svg'
 import IconLogoSmall from '~/icons/logo-small.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'

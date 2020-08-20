@@ -4,16 +4,24 @@
       {{ $t('mainNavigation') }}
     </h2>
 
-    <ul ref="menu" class="menu">
-      <template v-if="menu && menu.edges.length">
-        <main-navigation-item
-          v-for="item in menu.edges[0].node.menuItems.edges"
-          :key="item.node.label"
-          :item="item.node"
-        />
-      </template>
-    </ul>
-
+    <div ref="menu">
+      <apollo-query
+        :query="require('~/graphql/Menu.gql')"
+        :variables="{
+          location: 'HEADER_MENU',
+        }"
+      >
+        <template v-slot="{ result: { data } }">
+          <ul v-if="data" class="menu">
+            <main-navigation-item
+              v-for="item in data.menu.edges[0].node.menuItems.edges"
+              :key="item.node.label"
+              :item="item.node"
+            />
+          </ul>
+        </template>
+      </apollo-query>
+    </div>
     <div
       :class="{ active: mounted }"
       :style="{ transform: arrowPosition, width: arrowWidth }"
@@ -23,7 +31,6 @@
 </template>
 
 <script>
-import MenuQuery from '~/graphql/Menu.gql'
 import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
 
 export default {
@@ -79,14 +86,6 @@ export default {
         return activeLink
       }
       return null
-    },
-  },
-  apollo: {
-    menu: {
-      query: MenuQuery,
-      variables: {
-        location: 'HEADER_MENU',
-      },
     },
   },
 }
