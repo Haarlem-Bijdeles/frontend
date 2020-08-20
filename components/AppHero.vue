@@ -4,7 +4,7 @@
     class="hero"
     :class="{ 'has-buttons': showContactButtons }"
   >
-    <image-hero :image="generatedImage" class="image" />
+    <image-hero :image="generatedImage.node" class="image" />
 
     <div class="wrapper">
       <notch-wrapper>

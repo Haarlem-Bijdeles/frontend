@@ -5,7 +5,9 @@ fragment pageContent on Page {
   title
   content
   featuredImage {
-    ...imageHero
+    node {
+      ...imageHero
+    }
   }
   seo {
     ...seo

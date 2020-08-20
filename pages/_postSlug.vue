@@ -39,7 +39,7 @@ export default {
     PostDate,
   },
 
-  async asyncData({ app, params }) {
+  async asyncData({ app, route }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: BlogQuery,
       variables: {
@@ -49,7 +49,7 @@ export default {
     const post = await app.apolloProvider.defaultClient.query({
       query: PostQuery,
       variables: {
-        uri: params.postSlug,
+        uri: route.fullPath,
       },
     })
 

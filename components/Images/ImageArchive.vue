@@ -1,9 +1,9 @@
 <template>
   <lazy-loading-image
-    v-if="image"
-    :src="image.archive"
-    :alt="image.altText"
-    :srcset="`${image.archive} 1x, ${image.archive2x} 2x`"
+    v-if="imageArchive"
+    :src="imageArchive.archive"
+    :alt="imageArchive.altText"
+    :srcset="`${imageArchive.archive} 1x, ${imageArchive.archive2x} 2x`"
     class="image"
   />
 </template>
@@ -20,6 +20,14 @@ export default {
     image: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    imageArchive() {
+      if (this.image.node) {
+        return this.image.node
+      }
+      return this.image
     },
   },
 }

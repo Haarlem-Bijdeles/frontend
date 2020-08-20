@@ -2,7 +2,7 @@ query GET_MENU_BY_LOCATION($location: MenuLocationEnum) {
   menu: menus(where: {location: $location}) {
     edges {
       node {
-        menuItems {
+        menuItems(where: {parentId: 0}) {
           edges {
             node {
               ...menuItem

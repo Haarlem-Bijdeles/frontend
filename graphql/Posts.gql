@@ -13,7 +13,9 @@ query GET_POSTS($first: Int, $after: String, $notIn: [ID]) {
         title
         excerpt
         featuredImage {
-          ...imageArchive
+          node {
+            ...imageArchive
+          }
         }
         postId
         title

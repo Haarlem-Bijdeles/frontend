@@ -1,12 +1,13 @@
 #import "./Fragments/ImageArchive.gql"
 #import "./Fragments/Seo.gql"
 
-query GET_POST_BY_URI($uri: String) {
-  post: postBy(uri: $uri) {
+query GET_POST_BY_URI($uri: ID!) {
+  post(id: $uri, idType: URI) {
     featuredImage {
-      ...imageArchive
+      node {
+        ...imageArchive
+      }
     }
-    postId
     content
     title
     date
