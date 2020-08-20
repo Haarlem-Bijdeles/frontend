@@ -5,7 +5,7 @@
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
-            <ul v-if="menu.edges.length" class="menu">
+            <ul v-if="menu && menu.edges.length" class="menu">
               <li
                 v-for="item in menu.edges[0].node.menuItems.edges"
                 :key="item.node.label"
@@ -16,7 +16,7 @@
             </ul>
           </nav>
         </div>
-        <div class="address">
+        <div v-if="siteDetails" class="address">
           <h2>Contact</h2>
           <address itemscope itemtype="http://schema.org/Organization">
             <p itemprop="name">Haarlem bijdeles</p>
@@ -95,6 +95,7 @@ export default {
   },
   computed: {
     socialMedia() {
+      if (!this.siteDetails) return
       const socialMedia = {}
       const socialMediaSettings = this.siteDetails.socialMediaGroup
       if (socialMediaSettings.facebook)

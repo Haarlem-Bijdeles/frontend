@@ -4,12 +4,14 @@
       {{ $t('mainNavigation') }}
     </h2>
 
-    <ul v-if="menu.edges.length" ref="menu" class="menu">
-      <main-navigation-item
-        v-for="item in menu.edges[0].node.menuItems.edges"
-        :key="item.node.label"
-        :item="item.node"
-      />
+    <ul ref="menu" class="menu">
+      <template v-if="menu && menu.edges.length">
+        <main-navigation-item
+          v-for="item in menu.edges[0].node.menuItems.edges"
+          :key="item.node.label"
+          :item="item.node"
+        />
+      </template>
     </ul>
 
     <div
@@ -33,6 +35,7 @@ export default {
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,
+      menu: null,
     }
   },
 
