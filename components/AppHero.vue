@@ -4,7 +4,7 @@
     class="hero"
     :class="{ 'has-buttons': showContactButtons }"
   >
-    <image-hero :image="generatedImage.node" class="image" />
+    <image-hero :image="generatedImage" class="image" />
 
     <div class="wrapper">
       <notch-wrapper>
@@ -65,7 +65,7 @@ export default {
   },
   created() {
     if (this.image) {
-      this.generatedImage = this.image
+      this.generatedImage = this.image.node
     } else {
       this.getFallbackImage()
     }
