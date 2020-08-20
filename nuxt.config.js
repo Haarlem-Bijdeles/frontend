@@ -148,7 +148,7 @@ export default {
             edges {
               node {
                 uri
-                childPages {
+                children {
                   edges {
                     node {
                       uri
@@ -177,8 +177,8 @@ export default {
 
       pages.edges.forEach((page) => {
         pagesToGenerate.push(page)
-        if (page.node.childPages.edges) {
-          page.node.childPages.edges.forEach((childPage) => {
+        if (page.node.children.edges) {
+          page.node.children.edges.forEach((childPage) => {
             pagesToGenerate.push(childPage)
           })
         }
