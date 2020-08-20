@@ -10,6 +10,7 @@ import { apiUrl, siteUrl } from './config/siteDetails'
 
 export default {
   mode: 'universal',
+  target: 'static',
   env: {
     baseUrl: siteUrl,
   },
