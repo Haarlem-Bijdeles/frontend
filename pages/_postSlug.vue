@@ -13,7 +13,7 @@
       <notch-wrapper>
         <h1 id="posts-title" class="posts-title-wrapper">Meer berichten</h1>
       </notch-wrapper>
-      <posts :not-in="post.postId" />
+      <posts :not-in="post.databaseId" />
     </section>
   </div>
 </template>

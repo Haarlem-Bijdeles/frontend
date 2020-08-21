@@ -17,7 +17,7 @@ query GET_POSTS($first: Int, $after: String, $notIn: [ID]) {
             ...imageArchive
           }
         }
-        postId
+        databaseId
         title
         date
         slug

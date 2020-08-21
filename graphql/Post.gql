@@ -9,6 +9,7 @@ query GET_POST_BY_URI($uri: ID!) {
       }
     }
     content
+    databaseId
     title
     date
     slug
