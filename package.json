@@ -22,7 +22,7 @@
     "cross-env": "^7.0.2",
     "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.3",
-    "nuxt-i18n": "^6.13.10",
+    "nuxt-i18n": "^6.13.11",
     "vue": "^2.6.12",
     "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.5"

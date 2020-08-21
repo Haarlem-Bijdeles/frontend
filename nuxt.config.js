@@ -139,6 +139,9 @@ export default {
   },
   generate: {
     fallback: true,
+    crawler: false,
+    interval: 2000,
+    concurrency: 5,
     async routes() {
       const uri = `${apiUrl}graphql`
 
