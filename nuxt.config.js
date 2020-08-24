@@ -139,28 +139,12 @@ export default {
   },
   generate: {
     fallback: true,
-    crawler: false,
     interval: 2000,
     concurrency: 5,
     async routes() {
       const uri = `${apiUrl}graphql`
-
       const query = `
         query GET_SITEMAP {
-          pages(first: 100) {
-            edges {
-              node {
-                uri
-                children {
-                  edges {
-                    node {
-                      uri
-                    }
-                  }
-                }
-              }
-            }
-          }
           posts(first:100) {
             edges {
               node {
@@ -174,21 +158,9 @@ export default {
       const apolloFetch = createApolloFetch({ uri })
       const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
 
-      const { pages, posts } = result.data
+      const { posts } = result.data
 
-      const pagesToGenerate = []
-
-      pages.edges.forEach((page) => {
-        pagesToGenerate.push(page)
-        if (page.node.children.edges) {
-          page.node.children.edges.forEach((childPage) => {
-            pagesToGenerate.push(childPage)
-          })
-        }
-      })
-
-      const urls = [...pagesToGenerate, ...posts.edges]
-      return urls.map((url) => {
+      return posts.edges.map((url) => {
         return url.node.uri
       })
     },
