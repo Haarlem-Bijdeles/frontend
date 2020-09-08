@@ -70,7 +70,6 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import axios from 'axios'
 import FormFieldset from '~/components/Forms/FormFieldset.vue'
 import FormInputText from '~/components/Forms/FormInputText.vue'
 import FormTextarea from '~/components/Forms/FormTextarea.vue'
@@ -149,15 +148,17 @@ export default {
         const axiosConfig = {
           header: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }
-        await axios.post(
-          '/',
-          this.encodeFormData({
-            'form-name': 'contact',
-            ...this.form,
-          }),
-          axiosConfig,
-        )
-        this.submitted = true
+        try {
+          await this.$http.$post(
+            '/',
+            this.encodeFormData({
+              'form-name': 'contact',
+              ...this.form,
+            }),
+            axiosConfig,
+          )
+          this.submitted = true
+        } catch (error) {}
       }
     },
   },
