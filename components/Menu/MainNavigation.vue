@@ -5,22 +5,13 @@
     </h2>
 
     <div ref="menu">
-      <apollo-query
-        :query="require('~/graphql/Menu.gql')"
-        :variables="{
-          location: 'HEADER_MENU',
-        }"
-      >
-        <template v-slot="{ result: { data } }">
-          <ul v-if="data" class="menu">
-            <main-navigation-item
-              v-for="item in data.menu.edges[0].node.menuItems.edges"
-              :key="item.node.label"
-              :item="item.node"
-            />
-          </ul>
-        </template>
-      </apollo-query>
+      <ul v-if="menu" class="menu">
+        <main-navigation-item
+          v-for="item in menu.header.edges[0].node.menuItems.edges"
+          :key="item.node.label"
+          :item="item.node"
+        />
+      </ul>
     </div>
     <div
       :class="{ active: mounted }"
@@ -31,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
 
 export default {
@@ -42,10 +34,9 @@ export default {
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,
-      menu: null,
     }
   },
-
+  computed: mapState(['menu']),
   watch: {
     $route() {
       this.$nextTick(() => {

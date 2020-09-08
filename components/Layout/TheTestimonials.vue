@@ -7,27 +7,16 @@
 </template>
 
 <script>
-import TestimonialsQuery from '~/graphql/Testimonials.gql'
+import { mapState } from 'vuex'
 import TestimonialsWrapper from '~/components/Testimonials/TestimonialsWrapper.vue'
 
 export default {
   components: {
     TestimonialsWrapper,
   },
-  data() {
-    return {
-      testimonials: {},
-    }
-  },
-  apollo: {
-    testimonials: {
-      query: TestimonialsQuery,
-      variables() {
-        return {
-          first: 3,
-        }
-      },
-    },
-  },
+  computed: mapState([
+    // map this.count to store.state.count
+    'testimonials',
+  ]),
 }
 </script>

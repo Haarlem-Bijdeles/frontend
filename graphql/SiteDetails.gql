@@ -1,7 +1,13 @@
 #import "./Fragments/ImageArchive.gql"
+#import "./Fragments/ImageHero.gql"
 
 query getSiteDetails {
   siteDetails {
+    heroImageGroup {
+      image {
+        ...imageHero
+      }
+    }
     socialMediaGroup {
       facebook
       instagram

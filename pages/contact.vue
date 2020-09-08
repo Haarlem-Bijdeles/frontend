@@ -3,7 +3,7 @@
     <page :page="page" />
     <notch-wrapper v-if="offices.length">
       <div class="wrapper">
-        <contact-offices v-if="offices && offices.length" :offices="offices" />
+        <contact-offices :offices="offices" />
         <form-contact />
       </div>
     </notch-wrapper>
@@ -12,9 +12,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Page from '~/components/Page.vue'
 import PageQuery from '~/graphql/Page.gql'
-import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 import BlockMap from '~/components/Contact/BlockMap.vue'
 import ContactOffices from '~/components/Contact/ContactOffices.vue'
 import FormContact from '~/components/Forms/FormContact.vue'
@@ -30,6 +30,7 @@ export default {
     FormContact,
     NotchWrapper,
   },
+
   async asyncData({ app }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
@@ -37,16 +38,17 @@ export default {
         pageId: pages.contact,
       },
     })
-    const siteDetails = await app.apolloProvider.defaultClient.query({
-      query: SiteDetailsQuery,
-    })
 
     return {
       page: page.data.page,
-      offices: siteDetails.data.siteDetails.addressesGroup.addresses,
     }
   },
-
+  computed: {
+    ...mapState(['siteDetails']),
+    offices() {
+      return this.siteDetails.addressesGroup.addresses
+    },
+  },
   head() {
     const seoData = getSeoMetaData(this.page, this.$nuxt.$route)
 

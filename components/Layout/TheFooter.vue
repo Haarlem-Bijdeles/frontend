@@ -5,9 +5,9 @@
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
-            <ul v-if="menu && menu.edges.length" class="menu">
+            <ul v-if="menu.footer && menu.footer.edges.length" class="menu">
               <li
-                v-for="item in menu.edges[0].node.menuItems.edges"
+                v-for="item in menu.footer.edges[0].node.menuItems.edges"
                 :key="item.node.label"
                 class="menu-item"
               >
@@ -74,12 +74,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '~/components/SocialMediaLinks.vue'
 import IconLogo from '~/icons/logo.svg'
 import MenuItem from '~/components/MenuItem.vue'
-import MenuQuery from '~/graphql/Menu.gql'
-import SiteDetailsQuery from '~/graphql/SiteDetails.gql'
 
 export default {
   components: {
@@ -93,7 +92,9 @@ export default {
       address: null,
     }
   },
+
   computed: {
+    ...mapState(['menu', 'siteDetails']),
     socialMedia() {
       if (!this.siteDetails) return
       const socialMedia = {}
@@ -113,18 +114,6 @@ export default {
     },
     offices() {
       return this.siteDetails.addressesGroup.addresses
-    },
-  },
-
-  apollo: {
-    menu: {
-      query: MenuQuery,
-      variables: {
-        location: 'FOOTER_MENU',
-      },
-    },
-    siteDetails: {
-      query: SiteDetailsQuery,
     },
   },
 }

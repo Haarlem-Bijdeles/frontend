@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <the-header />
+    {{ testimonials }}
     <main>
       <nuxt />
     </main>
@@ -11,6 +12,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import TheHeader from '~/components/Layout/TheHeader.vue'
 import TheFooter from '~/components/Layout/TheFooter.vue'
 import TheTestimonials from '~/components/Layout/TheTestimonials.vue'
@@ -22,6 +25,12 @@ export default {
     TheFooter,
     TheTestimonials,
     ErrorHandler,
+  },
+  computed: {
+    ...mapState('testimonials2', ['testimonials']),
+    // testimonials() {
+    //   return this.$store.state.testimonials2.testimonials
+    // },
   },
 }
 </script>

@@ -33,8 +33,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ImageHero from '~/components/Images/ImageHero.vue'
-import FallbackHeroImageQuery from '~/graphql/FallbackHeroImage.gql'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import AppButton from '~/components/Shared/AppButton.vue'
 
@@ -63,21 +63,15 @@ export default {
       generatedImage: null,
     }
   },
+  computed: {
+    ...mapState(['siteDetails']),
+  },
   created() {
     if (this.image) {
       this.generatedImage = this.image.node
     } else {
-      this.getFallbackImage()
+      this.generatedImage = this.siteDetails.heroImageGroup.image
     }
-  },
-  methods: {
-    async getFallbackImage() {
-      this.$apollo.getClient()
-      const { data } = await this.$apollo.query({
-        query: FallbackHeroImageQuery,
-      })
-      this.generatedImage = data.siteDetails.heroImageGroup.image
-    },
   },
 }
 </script>
