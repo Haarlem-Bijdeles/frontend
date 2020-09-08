@@ -5,9 +5,9 @@
     </h2>
 
     <div ref="menu">
-      <ul v-if="menu" class="menu">
+      <ul v-if="headerMenu" class="menu">
         <main-navigation-item
-          v-for="item in menu.header.edges[0].node.menuItems.edges"
+          v-for="item in headerMenu.header.edges[0].node.menuItems.edges"
           :key="item.node.label"
           :item="item.node"
         />
@@ -36,7 +36,9 @@ export default {
       mounted: false,
     }
   },
-  computed: mapState(['menu']),
+  computed: {
+    ...mapState('menu', ['headerMenu']),
+  },
   watch: {
     $route() {
       this.$nextTick(() => {

@@ -14,9 +14,8 @@ export default {
   components: {
     TestimonialsWrapper,
   },
-  computed: mapState([
-    // map this.count to store.state.count
-    'testimonials',
-  ]),
+  computed: {
+    ...mapState('testimonials', ['testimonials']),
+  },
 }
 </script>

@@ -1,35 +1,35 @@
 import MenuQuery from '~/graphql/Menu.gql'
 
 export const state = () => ({
-  header: [],
-  footer: [],
+  headerMenu: null,
+  footerMenu: null,
 })
 
 export const mutations = {
   addHeaderMenu(state, data) {
-    state.menu.header = data.data.menu
+    state.menu.headerMenu = data.data.menu
   },
   addFooterMenu(state, data) {
-    state.menu.footer = data.data.menu
+    state.menu.footerMenu = data.data.menu
   },
 }
 
 export const actions = {
   async add({ commit }, context) {
-    const header = await context.app.apolloProvider.defaultClient.query({
+    const headerMenu = await context.app.apolloProvider.defaultClient.query({
       query: MenuQuery,
       variables: {
         location: 'HEADER_MENU',
       },
     })
-    commit('addHeaderMenu', header)
+    commit('addHeaderMenu', headerMenu)
 
-    const footer = await context.app.apolloProvider.defaultClient.query({
+    const footerMenu = await context.app.apolloProvider.defaultClient.query({
       query: MenuQuery,
       variables: {
         location: 'FOOTER_MENU',
       },
     })
-    commit('addFooterMenu', footer)
+    commit('addFooterMenu', footerMenu)
   },
 }

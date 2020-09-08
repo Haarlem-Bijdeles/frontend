@@ -64,7 +64,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['siteDetails']),
+    ...mapState('siteDetails', ['siteDetails']),
   },
   created() {
     if (this.image) {

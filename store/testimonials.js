@@ -1,7 +1,7 @@
 import TestimonialsQuery from '~/graphql/Testimonials.gql'
 
 export const state = () => ({
-  testimonials: [],
+  testimonials: null,
 })
 
 export const mutations = {

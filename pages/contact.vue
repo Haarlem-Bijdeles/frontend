@@ -44,7 +44,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['siteDetails']),
+    ...mapState('siteDetails', ['siteDetails']),
     offices() {
       return this.siteDetails.addressesGroup.addresses
     },

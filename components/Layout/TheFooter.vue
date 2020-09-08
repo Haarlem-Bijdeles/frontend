@@ -5,9 +5,9 @@
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
-            <ul v-if="menu.footer && menu.footer.edges.length" class="menu">
+            <ul v-if="footerMenu && footerMenu.edges.length" class="menu">
               <li
-                v-for="item in menu.footer.edges[0].node.menuItems.edges"
+                v-for="item in footerMenu.edges[0].node.menuItems.edges"
                 :key="item.node.label"
                 class="menu-item"
               >
@@ -94,7 +94,9 @@ export default {
   },
 
   computed: {
-    ...mapState(['menu', 'siteDetails']),
+    ...mapState('siteDetails', ['siteDetails']),
+    ...mapState('menu', ['footerMenu']),
+
     socialMedia() {
       if (!this.siteDetails) return
       const socialMedia = {}
