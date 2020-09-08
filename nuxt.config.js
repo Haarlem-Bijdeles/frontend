@@ -87,12 +87,6 @@ export default {
   manifest,
   i18n,
   /*
-   ** Axios module configuration
-   */
-  axios: {
-    baseURL: process.env.BASE_URL,
-  },
-  /*
    ** Build configuration
    */ build: {
     /*
