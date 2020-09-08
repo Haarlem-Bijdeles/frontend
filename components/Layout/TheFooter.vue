@@ -3,9 +3,13 @@
     <notch-wrapper>
       <div class="wrapper">
         <div class="quick-links">
-          <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
+          <nav
+            v-if="footerMenu"
+            aria-label="footer-nav-heading"
+            class="footer-menu"
+          >
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
-            <ul v-if="footerMenu && footerMenu.edges.length" class="menu">
+            <ul class="menu">
               <li
                 v-for="item in footerMenu.edges[0].node.menuItems.edges"
                 :key="item.node.label"
@@ -95,7 +99,7 @@ export default {
 
   computed: {
     ...mapState('siteDetails', ['siteDetails']),
-    ...mapState('menu', ['footerMenu']),
+    ...mapState('menus', ['footerMenu']),
 
     socialMedia() {
       if (!this.siteDetails) return

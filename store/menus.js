@@ -7,10 +7,10 @@ export const state = () => ({
 
 export const mutations = {
   addHeaderMenu(state, data) {
-    state.menu.headerMenu = data.data.menu
+    state.headerMenu = data.data.menu
   },
   addFooterMenu(state, data) {
-    state.menu.footerMenu = data.data.menu
+    state.footerMenu = data.data.menu
   },
 }
 

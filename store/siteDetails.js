@@ -15,6 +15,6 @@ export const actions = {
     const siteDetails = await context.app.apolloProvider.defaultClient.query({
       query: SiteDetailsQuery,
     })
-    commit('addSiteDetails', siteDetails)
+    commit('add', siteDetails)
   },
 }
