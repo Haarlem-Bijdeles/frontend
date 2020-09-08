@@ -87,6 +87,10 @@ export default {
   manifest,
   i18n,
   /*
+   ** Axios module configuration
+   */
+  axios: {},
+  /*
    ** Build configuration
    */
   build: {
