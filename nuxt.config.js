@@ -69,7 +69,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios', '~/plugins/google-maps', '~/plugins/vuelidate'],
+  plugins: ['~/plugins/google-maps', '~/plugins/vuelidate'],
   /*
    ** Nuxt.js modules
    */

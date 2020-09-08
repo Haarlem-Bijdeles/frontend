@@ -1,8 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/require-component-is -->
-  <component :is="tag" :to="to" class="read-more">
-    Lees verder
-  </component>
+  <component :is="tag" :to="to" class="read-more">Lees verder</component>
 </template>
 
 <script>

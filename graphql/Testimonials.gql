@@ -3,6 +3,7 @@ query GET_TESTIMONIALS($first: Int) {
     edges {
       node {
         title
+        databaseId
         testimonialsGroup {
           quote
         }

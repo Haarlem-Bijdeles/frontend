@@ -2,7 +2,7 @@
   <ul v-if="testimonials.length" class="list">
     <testimonials-list-item
       v-for="testimonial in testimonials"
-      :key="testimonial.node.title"
+      :key="testimonial.node.databaseId"
       :testimonial="testimonial"
     />
   </ul>
