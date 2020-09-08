@@ -89,11 +89,12 @@ export default {
   /*
    ** Axios module configuration
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL,
+  },
   /*
    ** Build configuration
-   */
-  build: {
+   */ build: {
     /*
      ** You can extend webpack config here
      */
