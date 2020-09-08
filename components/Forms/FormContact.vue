@@ -149,8 +149,8 @@ export default {
           header: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }
         try {
-          await this.$http.$post(
-            '/',
+          await this.$axios.$post(
+            'http://sadasd.com',
             this.encodeFormData({
               'form-name': 'contact',
               ...this.form,
