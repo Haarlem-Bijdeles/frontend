@@ -150,7 +150,7 @@ export default {
         }
         try {
           await this.$axios.$post(
-            'http://sadasd.com',
+            '/',
             this.encodeFormData({
               'form-name': 'contact',
               ...this.form,
