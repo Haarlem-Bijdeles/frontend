@@ -1,7 +1,9 @@
 import EventBusUtil from '~/utils/eventBusUtil'
 
 export default function ({ $axios }, inject) {
-  const http = $axios.create()
+  const http = $axios.create({
+    baseURL: process.env.baseUrl,
+  })
 
   http.interceptors.response.use(
     (response) => response,
