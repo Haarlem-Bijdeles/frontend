@@ -31,7 +31,7 @@
       :image="method.image"
       class="item"
     >
-      <template v-slot:title>
+      <template #title>
         {{ method.title }}
       </template>
 

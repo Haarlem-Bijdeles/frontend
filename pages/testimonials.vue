@@ -14,11 +14,11 @@ import getSeoMetaData from '~/helpers/seo'
 import pages from '~/config/pages'
 
 export default {
-  layout: 'testimonials',
   components: {
     Page,
     TestimonialsWrapper,
   },
+  layout: 'testimonials',
   async asyncData({ app, params }) {
     const testimonials = await app.apolloProvider.defaultClient.query({
       query: TestimonialsQuery,

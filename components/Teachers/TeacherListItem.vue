@@ -2,7 +2,7 @@
   <li class="item">
     {{ teacher.featuredImage }}
     <archive-wrapper :image="teacher.image">
-      <template v-slot:title>
+      <template #title>
         <!-- eslint-disable-next-line -->
         <span v-html="teacher.name" />
       </template>

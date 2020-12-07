@@ -9,8 +9,8 @@ import sitemap from './config/sitemap'
 import { apiUrl, siteUrl } from './config/siteDetails'
 
 export default {
-  mode: 'universal',
   target: 'static',
+  modern: 'client',
   env: {
     baseUrl: siteUrl,
   },

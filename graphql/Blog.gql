@@ -1,11 +1,25 @@
 #import "./Fragments/PageContent.gql"
-#import "./Fragments/Seo.gql"
 
 query GET_BLOG($pageId: ID!) {
   page(id: $pageId, idType: DATABASE_ID) {
     ...pageContent
     seo {
-      ...seo
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphDescription
+      opengraphImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      twitterTitle
     }
   }
 }

@@ -1,5 +1,4 @@
 #import "./Fragments/ImageArchive.gql"
-#import "./Fragments/Seo.gql"
 
 query GET_POST_BY_URI($uri: ID!) {
   post(id: $uri, idType: URI) {
@@ -14,7 +13,22 @@ query GET_POST_BY_URI($uri: ID!) {
     date
     slug
     seo {
-      ...seo
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphDescription
+      opengraphImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      twitterTitle
     }
   }
 }

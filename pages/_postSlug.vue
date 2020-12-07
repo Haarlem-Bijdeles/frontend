@@ -58,6 +58,9 @@ export default {
       post: post.data.post,
     }
   },
+  head() {
+    return getSeoMetaData(this.post, this.$nuxt.$route)
+  },
 
   computed: {
     details() {
@@ -69,9 +72,6 @@ export default {
         return item
       })
     },
-  },
-  head() {
-    return getSeoMetaData(this.post, this.$nuxt.$route)
   },
   nuxtI18n: {
     paths: {

@@ -35,6 +35,9 @@ export default {
       page: page.data.page,
     }
   },
+  head() {
+    return getSeoMetaData(this.page, this.$nuxt.$route)
+  },
   computed: {
     videos() {
       const array = []
@@ -51,9 +54,6 @@ export default {
       }
       return array
     },
-  },
-  head() {
-    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
   nuxtI18n: {
     paths: {

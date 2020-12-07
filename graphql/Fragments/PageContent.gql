@@ -1,5 +1,4 @@
 #import "./ImageHero.gql"
-#import "./Seo.gql"
 
 fragment pageContent on Page {
   title
@@ -10,6 +9,21 @@ fragment pageContent on Page {
     }
   }
   seo {
-    ...seo
+    focuskw
+    metaDesc
+    metaKeywords
+    metaRobotsNofollow
+    metaRobotsNoindex
+    opengraphDescription
+    opengraphImage {
+      archive: sourceUrl(size: ARCHIVE)
+    }
+    opengraphTitle
+    title
+    twitterDescription
+    twitterImage {
+      archive: sourceUrl(size: ARCHIVE)
+    }
+    twitterTitle
   }
 }

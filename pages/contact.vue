@@ -43,12 +43,6 @@ export default {
       page: page.data.page,
     }
   },
-  computed: {
-    ...mapState('siteDetails', ['siteDetails']),
-    offices() {
-      return this.siteDetails.addressesGroup.addresses
-    },
-  },
   head() {
     const seoData = getSeoMetaData(this.page, this.$nuxt.$route)
 
@@ -61,6 +55,12 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState('siteDetails', ['siteDetails']),
+    offices() {
+      return this.siteDetails.addressesGroup.addresses
+    },
   },
   nuxtI18n: {
     paths: {

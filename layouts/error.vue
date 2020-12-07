@@ -29,6 +29,11 @@ export default {
         `,
     }
   },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
   computed: {
     title() {
       if (this.error.statusCode === 404) {
@@ -36,11 +41,6 @@ export default {
       }
       return 'An error occurred'
     },
-  },
-  head() {
-    return {
-      title: this.title,
-    }
   },
 }
 </script>

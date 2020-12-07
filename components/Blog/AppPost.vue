@@ -1,7 +1,7 @@
 <template>
   <clickable-list-item :url="url" class="list-item">
     <archive-wrapper :image="post.featuredImage">
-      <template v-slot:title>
+      <template #title>
         <!-- eslint-disable-next-line -->
         <router-link :to="url" v-html="post.title" class="link" />
       </template>
