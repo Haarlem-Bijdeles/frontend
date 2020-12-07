@@ -5,7 +5,6 @@ import googleAnalytics from './config/googleAnalytics'
 import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
-import sitemap from './config/sitemap'
 import { apiUrl, siteUrl } from './config/siteDetails'
 
 export default {
@@ -77,7 +76,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap',
     '@nuxtjs/apollo',
     'nuxt-svg-loader',
     'nuxt-i18n',
@@ -162,5 +160,4 @@ export default {
   },
 
   apollo,
-  sitemap,
 }
