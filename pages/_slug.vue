@@ -8,6 +8,7 @@ import PageByUriQuery from '~/graphql/PageByUri.gql'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
+  name: 'PagePage',
   components: {
     Page,
   },

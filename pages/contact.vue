@@ -23,6 +23,7 @@ import pages from '~/config/pages'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
+  name: 'PageContact',
   components: {
     Page,
     BlockMap,

@@ -13,6 +13,7 @@ import getSeoMetaData from '~/helpers/seo'
 import pages from '~/config/pages'
 
 export default {
+  name: 'PageBlog',
   components: {
     Posts,
     AppHero,

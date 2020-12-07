@@ -15,6 +15,7 @@ import getSeoMetaData from '~/helpers/seo'
 import HomeUsps from '~/components/Home/HomeUsps.vue'
 
 export default {
+  name: 'PageIndex',
   components: {
     Page,
     ServicesWrapper,

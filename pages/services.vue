@@ -17,6 +17,7 @@ import StudentParent from '~/components/StudentParent.vue'
 import pages from '~/config/pages'
 
 export default {
+  name: 'PageServices',
   components: {
     StudentParent,
     Page,
