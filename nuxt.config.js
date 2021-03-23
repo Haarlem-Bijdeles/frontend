@@ -2,7 +2,7 @@ import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
 import splashscreens from './config/splashscreens'
 import googleAnalytics from './config/googleAnalytics'
-import manifest from './config/manifest'
+import pwa from './config/pwa'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
 import { apiUrl, siteUrl } from './config/siteDetails'
@@ -21,26 +21,11 @@ export default {
    ** Headers of the page
    */
   head: {
-    htmlAttrs: {
-      lang: 'nl',
-    },
     title: pkg.name,
     titleTemplate: '%s',
     meta: [
       { charset: 'utf-8' },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, viewport-fit=cover',
-      },
       { hid: 'description', name: 'description', content: pkg.description },
-      {
-        name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black-translucent',
-      },
-      {
-        name: 'apple-mobile-web-app-capable',
-        content: 'yes',
-      },
       {
         hid: 'og:description',
         name: 'og:description',
@@ -52,6 +37,11 @@ export default {
       {
         rel: 'dns-prefetch',
         href: apiUrl,
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
       },
     ],
   },
@@ -70,8 +60,8 @@ export default {
    */
   plugins: [
     '~/plugins/axios',
+    '~/plugins/vuelidate',
     { src: '~/plugins/google-maps', mode: 'client' },
-    { src: '~/plugins/vuelidate', mode: 'client' },
     { src: '~/plugins/vue-announcer.js', mode: 'client' },
   ],
   /*
@@ -87,7 +77,7 @@ export default {
   ],
   buildModules: ['@nuxtjs/google-analytics'],
   googleAnalytics,
-  manifest,
+  pwa,
   i18n,
   /*
    ** Build configuration
