@@ -23,15 +23,7 @@ export default {
   head: {
     title: pkg.name,
     titleTemplate: '%s',
-    meta: [
-      { charset: 'utf-8' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      {
-        hid: 'og:description',
-        name: 'og:description',
-        content: pkg.description,
-      },
-    ],
+    meta: [{ charset: 'utf-8' }],
     link: [
       ...splashscreens,
       {

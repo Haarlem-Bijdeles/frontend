@@ -1,84 +1,86 @@
-const getMetaTitle = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key]
-  } else if (page.seo.title) {
-    return page.seo.title
+const getMetaTitle = (seo, key) => {
+  if (seo[key]) {
+    return seo[key]
+  } else if (seo.title) {
+    return seo.title
   }
 
-  return page.title
+  return null
 }
 
-const getMetaDescripion = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key]
-  } else if (page.seo.metaDesc) {
-    return page.seo.metaDesc
+const getMetaDescripion = (seo, key) => {
+  if (seo[key]) {
+    return seo[key]
+  } else if (seo.metaDesc) {
+    return seo.metaDesc
   }
   return null
 }
 
-const getMetaImage = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key]
-  } else if (page.featuredImage) {
-    if (page.featuredImage.heroSmall) {
-      return page.featuredImage.heroSmall
-    } else if (page.featuredImage.archive2x) {
-      return page.featuredImage.archive2x
-    }
+const getMetaImage = (seo, key) => {
+  if (seo[key]) {
+    return seo[key].archive
+  } else if (seo.opengraphImage) {
+    return seo.opengraphImage.archive
   }
   return null
 }
 
-export default (page, path) => {
+export default (seo) => {
   return {
-    title: page.seo.title,
+    title: seo.title,
     meta: [
       {
         name: 'description',
         hid: 'description',
-        content: page.seo.metaDesc,
+        content: seo.metaDesc,
       },
       // Open Graph
       {
         hid: 'og:title',
         name: 'og:title',
-        content: page.seo.title,
-      },
-      {
-        hid: 'og:locale',
-        name: 'og:locale',
-        content: 'nl_NL',
+        content: seo.opengraphTitle,
       },
       {
         hid: 'og:description',
         name: 'og:description',
-        content: getMetaDescripion(page, 'opengraphDescription'),
+        content: getMetaDescripion(seo, 'opengraphDescription'),
       },
       {
-        hid: 'og:site_name',
-        name: 'og:site_name',
-        content: 'Haarlem bijdeles',
-      },
-      {
+        hid: 'og:url',
         name: 'og:url',
-        content: `https://www.haarlembijdeles.nl${path}`,
+        content: seo.opengraphUrl,
       },
-      { name: 'og:image', content: getMetaImage(page, 'opengraphImage') },
-      // Twitter Card
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@haarlembijdeles' },
-      { name: 'twitter:creator', content: '@haarlembijdeles' },
       {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'article',
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: getMetaImage(seo, 'opengraphImage'),
+      },
+      {
+        hid: 'twitter:title',
         name: 'twitter:title',
-        content: getMetaTitle(page, 'twitterTitle'),
+        content: getMetaTitle(seo, 'twitterTitle'),
       },
       {
+        hide: 'twitter:description',
         name: 'twitter:description',
-        content: page.seo.metaDesc,
+        content: getMetaDescripion(seo, seo.metaDesc),
       },
-      { name: 'twitter:image', content: getMetaImage(page, 'twitterImage') },
-      { name: 'twitter:image:alt', content: page.seo.title },
+      {
+        hide: 'twitter:image',
+        name: 'twitter:image',
+        content: getMetaImage(seo, 'twitterImage'),
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: seo.title,
+      },
     ],
   }
 }

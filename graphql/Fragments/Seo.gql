@@ -1,14 +1,18 @@
-fragment seo on SEO {
-  focuskw
+fragment seo on PostTypeSEO {
+  canonical
+  cornerstone
   metaDesc
-  metaKeywords
-  metaRobotsNofollow
-  metaRobotsNoindex
+  opengraphAuthor
   opengraphDescription
   opengraphImage {
     archive: sourceUrl(size: ARCHIVE)
   }
+  opengraphModifiedTime
+  opengraphPublishedTime
+  opengraphPublisher
   opengraphTitle
+  opengraphType
+  opengraphUrl
   title
   twitterDescription
   twitterImage {

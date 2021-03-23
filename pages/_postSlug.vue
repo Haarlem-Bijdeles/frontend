@@ -60,7 +60,7 @@ export default {
     }
   },
   head() {
-    return getSeoMetaData(this.post, this.$nuxt.$route)
+    return getSeoMetaData(this.post.seo)
   },
 
   computed: {

@@ -27,7 +27,7 @@ export default {
   },
 
   head() {
-    return getSeoMetaData(this.page, this.$nuxt.$route)
+    return getSeoMetaData(this.page.seo)
   },
 }
 </script>

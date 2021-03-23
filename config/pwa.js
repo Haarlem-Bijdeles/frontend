@@ -1,8 +1,24 @@
-import { siteTitle, themeColor } from './siteDetails'
+import { siteTitle, twitter, themeColor } from './siteDetails'
 
+// PWA module configuration: https://go.nuxtjs.dev/pwa
 export default {
-  name: siteTitle,
-  background_color: themeColor,
-  theme_color: themeColor,
-  short_name: siteTitle,
+  manifest: {
+    background_color: themeColor,
+    theme_color: themeColor,
+    categories: ['education'],
+    lang: 'nl',
+    name: siteTitle,
+    orientation: 'portrait-primary',
+    short_name: siteTitle,
+  },
+  meta: {
+    appleStatusBarStyle: 'black-translucent',
+    mobileApp: true,
+    mobileAppIOS: true,
+    theme_color: themeColor,
+    twitterCard: 'summary_large_image',
+    viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+    twitterCreator: twitter,
+    twitterSite: twitter,
+  },
 }

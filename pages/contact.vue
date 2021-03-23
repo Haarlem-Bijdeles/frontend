@@ -45,7 +45,7 @@ export default {
     }
   },
   head() {
-    const seoData = getSeoMetaData(this.page, this.$nuxt.$route)
+    const seoData = getSeoMetaData(this.page.seo)
 
     return {
       ...seoData,
