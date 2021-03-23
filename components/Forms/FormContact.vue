@@ -29,6 +29,7 @@
           :title="$t('form.name')"
           type="text"
           name="name"
+          autocomplete="name"
         />
         <form-input-text
           id="email"
@@ -37,6 +38,7 @@
           :title="$t('form.email')"
           name="email"
           type="email"
+          autocomplete="email"
         />
         <form-input-text
           id="phone"
@@ -44,6 +46,7 @@
           :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
+          autocomplete="tel"
         />
         <form-textarea
           id="message"

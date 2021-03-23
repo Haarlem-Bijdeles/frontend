@@ -23,19 +23,17 @@ export default {
     Page,
     PricesWrapper,
   },
-  data() {
-    return {
-      page: null,
-    }
-  },
-  async fetch() {
-    const response = await this.$apolloProvider.defaultClient.query({
+
+  async asyncData({ app, params }) {
+    const page = await app.apolloProvider.defaultClient.query({
       query: PageServiceQuery,
       variables: {
         pageId: pages.services,
       },
     })
-    this.page = response.data
+    return {
+      page: page.data.page,
+    }
   },
   head() {
     return getSeoMetaData(this.page, this.$nuxt.$route)
