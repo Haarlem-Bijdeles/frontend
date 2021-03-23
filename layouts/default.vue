@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <vue-announcer />
     <the-header />
     <main>
       <nuxt />
@@ -22,6 +23,9 @@ export default {
     TheFooter,
     TheTestimonials,
     ErrorHandler,
+  },
+  head() {
+    return this.$nuxtI18nHead({ addSeoAttributes: true })
   },
 }
 </script>
