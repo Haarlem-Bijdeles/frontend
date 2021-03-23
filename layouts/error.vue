@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       text: `
-        <p>${this.error.message}</p>
+        <p>De pagina die u zoekt kon niet worden gevonden.</p>
         <p><a href="/">Keer terug naar de homepage</a></p>
         `,
     }
