@@ -16,10 +16,7 @@
           >
             {{ service.title }}
           </a>
-          <nuxt-link
-            v-else-if="service.link.relativeUrl"
-            :to="service.link.relativeUrl"
-          >
+          <nuxt-link v-else-if="service.link.url" :to="service.link.url">
             {{ service.title }}
           </nuxt-link>
         </template>
