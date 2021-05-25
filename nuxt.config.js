@@ -5,13 +5,12 @@ import googleAnalytics from './config/googleAnalytics'
 import pwa from './config/pwa'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
-import { apiUrl, siteUrl } from './config/siteDetails'
 
 export default {
   target: 'static',
   modern: 'client',
   env: {
-    baseUrl: siteUrl,
+    baseUrl: process.env.SITE_URL,
   },
   server: {
     port: 3333,
@@ -28,7 +27,7 @@ export default {
       ...splashscreens,
       {
         rel: 'dns-prefetch',
-        href: apiUrl,
+        href: process.env.API_URL,
       },
       {
         rel: 'icon',
@@ -36,6 +35,12 @@ export default {
         href: '/favicon.ico',
       },
     ],
+  },
+
+  publicRuntimeConfig: {
+    apiUrl: process.env.API_URL,
+    siteUrl: process.env.SITE_URL,
+    siteTitle: process.env.SITE_TITLE,
   },
 
   /*
@@ -122,7 +127,7 @@ export default {
     interval: 2000,
     concurrency: 5,
     async routes() {
-      const uri = `${apiUrl}graphql`
+      const uri = `${process.env.API_URL}graphql`
       const query = `
         query GET_SITEMAP {
           posts(first:100) {

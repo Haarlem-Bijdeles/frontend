@@ -1,5 +1,1 @@
-export const apiUrl = 'https://api.amsterdambijdeles.nl/'
-export const siteUrl = 'https://www.amsterdambijdeles.nl/'
-export const siteTitle = 'Haarlem Bijdeles'
-export const themeColor = '#f85909'
 export const twitter = 'haarlembijdeles'

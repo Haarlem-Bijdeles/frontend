@@ -1,4 +1,6 @@
-import { siteTitle, twitter, themeColor } from './siteDetails'
+import { twitter } from './siteDetails'
+
+const themeColor = '#f85909'
 
 // PWA module configuration: https://go.nuxtjs.dev/pwa
 export default {
@@ -7,9 +9,9 @@ export default {
     theme_color: themeColor,
     categories: ['education'],
     lang: 'nl',
-    name: siteTitle,
+    name: process.env.SITE_TITLE,
     orientation: 'portrait-primary',
-    short_name: siteTitle,
+    short_name: process.env.SITE_TITLE,
   },
   meta: {
     appleStatusBarStyle: 'black-translucent',

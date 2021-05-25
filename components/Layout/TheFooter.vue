@@ -23,7 +23,7 @@
         <div v-if="siteDetails" class="address">
           <h2>Contact</h2>
           <address itemscope itemtype="http://schema.org/Organization">
-            <p itemprop="name">{{ siteTitle }}</p>
+            <p itemprop="name">{{ $config.siteTitle }}</p>
             <p
               v-for="office in offices"
               :key="office.zipcode"
@@ -69,7 +69,7 @@
           <social-media-links
             v-if="socialMedia"
             :social-media="socialMedia"
-            :title="siteTitle"
+            :title="$config.siteTitle"
           />
         </div>
       </div>
@@ -83,7 +83,6 @@ import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '~/components/SocialMediaLinks.vue'
 import IconLogo from '~/icons/logo.svg'
 import MenuItem from '~/components/MenuItem.vue'
-import { siteTitle } from '~/config/siteDetails'
 
 export default {
   components: {
@@ -94,7 +93,6 @@ export default {
   },
   data() {
     return {
-      siteTitle,
       address: null,
     }
   },
