@@ -1,8 +1,8 @@
 query GET_MENU_BY_LOCATION($location: MenuLocationEnum) {
-  menu: menus(where: {location: $location}) {
+  menu: menus(where: { location: $location }) {
     edges {
       node {
-        menuItems(where: {parentId: 0}) {
+        menuItems(where: { parentId: 0 }) {
           edges {
             node {
               ...menuItem
@@ -23,7 +23,7 @@ query GET_MENU_BY_LOCATION($location: MenuLocationEnum) {
 
 fragment menuItem on MenuItem {
   label
-  relativeUrl
+  path
   url
   target
 }

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="item.relativeUrl">{{ item.label }}</nuxt-link>
+  <nuxt-link :to="item.path">{{ item.label }}</nuxt-link>
 </template>
 
 <script>
