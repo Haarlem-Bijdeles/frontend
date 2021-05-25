@@ -4,7 +4,11 @@
     class="services"
     aria-labelledby="services-title"
   >
-    <image-hero :image="servicesGroup.servicesImage" class="image" />
+    <image-hero
+      :image="servicesGroup.servicesImage"
+      class="image"
+      :lazy="true"
+    />
     <notch-wrapper>
       <div class="wrapper">
         <h2 id="services-title" class="title">
