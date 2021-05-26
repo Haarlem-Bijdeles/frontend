@@ -23,7 +23,7 @@
         <div v-if="siteDetails" class="address">
           <h2>Contact</h2>
           <address itemscope itemtype="http://schema.org/Organization">
-            <p itemprop="name">Haarlem bijdeles</p>
+            <p itemprop="name">{{ $config.siteTitle }}</p>
             <p
               v-for="office in offices"
               :key="office.zipcode"
@@ -59,7 +59,7 @@
             </p>
           </address>
         </div>
-        <nuxt-link to="/" title="Haarlem Bijdeles" class="logo">
+        <nuxt-link to="/" class="logo">
           <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
         </nuxt-link>
 
@@ -69,7 +69,7 @@
           <social-media-links
             v-if="socialMedia"
             :social-media="socialMedia"
-            title="Haarlem bijdeles"
+            :title="$config.siteTitle"
           />
         </div>
       </div>

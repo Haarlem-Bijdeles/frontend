@@ -1,6 +1,6 @@
 <template>
   <section v-if="pricesGroup" class="prices" aria-labelledby="prices-title">
-    <image-hero :image="pricesGroup.image" class="image" />
+    <image-hero :image="pricesGroup.image" class="image" :lazy="true" />
     <notch-wrapper>
       <div class="wrapper">
         <h1 id="prices-title" class="title">{{ $t('title') }}:</h1>

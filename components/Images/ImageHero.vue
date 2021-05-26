@@ -1,9 +1,10 @@
 <template>
-  <lazy-loading-image
+  <app-image
     v-if="image"
     class="image"
     :src="image.heroMedium"
     :alt="image.altText"
+    :lazy="lazy"
     :srcset="`
         ${image.heroLarge} 1140w,
         ${image.heroMedium} 800w,
@@ -13,16 +14,20 @@
 </template>
 
 <script>
-import LazyLoadingImage from '~/components/Images/LazyLoadingImage.vue'
+import AppImage from '~/components/Images/AppImage.vue'
 
 export default {
   components: {
-    LazyLoadingImage,
+    AppImage,
   },
   props: {
     image: {
       type: Object,
       default: () => {},
+    },
+    lazy: {
+      type: Boolean,
+      default: false,
     },
   },
 }

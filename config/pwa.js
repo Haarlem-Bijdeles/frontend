@@ -1,4 +1,6 @@
-import { siteTitle, twitter, themeColor } from './siteDetails'
+import { twitter, siteTitle } from './siteDetails'
+
+const themeColor = '#f85909'
 
 // PWA module configuration: https://go.nuxtjs.dev/pwa
 export default {

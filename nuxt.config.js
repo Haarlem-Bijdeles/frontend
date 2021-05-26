@@ -5,7 +5,7 @@ import googleAnalytics from './config/googleAnalytics'
 import pwa from './config/pwa'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
-import { apiUrl, siteUrl } from './config/siteDetails'
+import { apiUrl, siteUrl, siteTitle } from './config/siteDetails'
 
 export default {
   target: 'static',
@@ -36,6 +36,12 @@ export default {
         href: '/favicon.ico',
       },
     ],
+  },
+
+  publicRuntimeConfig: {
+    apiUrl,
+    siteUrl,
+    siteTitle,
   },
 
   /*
