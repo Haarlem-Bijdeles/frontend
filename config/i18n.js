@@ -1,8 +1,10 @@
+import { siteUrl } from './siteDetails'
+
 export default {
   defaultLocale: 'nl',
   lazy: true,
   seo: false,
-  baseUrl: process.env.SITE_URL,
+  baseUrl: siteUrl,
   langDir: 'locales/',
   locales: [
     {

@@ -1,4 +1,4 @@
-import { twitter } from './siteDetails'
+import { twitter, siteTitle } from './siteDetails'
 
 const themeColor = '#f85909'
 
@@ -9,9 +9,9 @@ export default {
     theme_color: themeColor,
     categories: ['education'],
     lang: 'nl',
-    name: process.env.SITE_TITLE,
+    name: siteTitle,
     orientation: 'portrait-primary',
-    short_name: process.env.SITE_TITLE,
+    short_name: siteTitle,
   },
   meta: {
     appleStatusBarStyle: 'black-translucent',
