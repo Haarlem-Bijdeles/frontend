@@ -2,4 +2,8 @@ fragment imageArchive on MediaItem {
   altText
   archive: sourceUrl(size: ARCHIVE)
   archive2x: sourceUrl(size: ARCHIVE_2X)
+  archiveWebP: sourceUrlWebP(size: ARCHIVE)
+  archiveWebP2x: sourceUrlWebP(size: ARCHIVE_2X)
+  archiveAvif: sourceUrlAvif(size: ARCHIVE)
+  archiveAvif2x: sourceUrlAvif(size: ARCHIVE_2X)
 }
