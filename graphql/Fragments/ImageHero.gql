@@ -3,4 +3,10 @@ fragment imageHero on MediaItem {
   heroLarge: sourceUrl(size: HERO_LARGE)
   heroMedium: sourceUrl(size: HERO_MEDIUM)
   heroSmall: sourceUrl(size: HERO_SMALL)
+  heroLargeWebP: sourceUrlWebP(size: HERO_LARGE)
+  heroMediumWebP: sourceUrlWebP(size: HERO_MEDIUM)
+  heroSmallWebP: sourceUrlWebP(size: HERO_SMALL)
+  heroLargeAvif: sourceUrlAvif(size: HERO_LARGE)
+  heroMediumAvif: sourceUrlAvif(size: HERO_MEDIUM)
+  heroSmallAvif: sourceUrlAvif(size: HERO_SMALL)
 }
