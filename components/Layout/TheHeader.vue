@@ -12,7 +12,7 @@
             width="160"
             aria-hidden="true"
           />
-          <span class="sr-only">Haarlm bijdeles</span>
+          <span class="sr-only">{{ $config.siteTitle }}</span>
         </nuxt-link>
 
         <transition

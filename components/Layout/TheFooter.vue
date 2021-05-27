@@ -61,6 +61,7 @@
         </div>
         <nuxt-link to="/" class="logo">
           <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
+          <span class="sr-only">{{ $config.siteTitle }}</span>
         </nuxt-link>
 
         <div>
