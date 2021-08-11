@@ -1,6 +1,10 @@
 <template>
   <div>
-    <image-archive v-if="office.image" :image="office.image" />
+    <image-archive
+      v-if="office.image"
+      :image="office.image"
+      class="image-archive"
+    />
 
     <span class="street">{{ office.street }}</span>
     {{ office.zipcode }}, {{ office.city }}
@@ -32,14 +36,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.image {
-  display: block;
+.image-archive {
   margin-bottom: var(--spacing-xs);
   height: 12em;
-  object-fit: cover;
-  width: 100%;
-  border: 5px solid var(--color-white);
-  box-shadow: 0 0 3px var(--color-gray);
 }
 
 .street {

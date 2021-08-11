@@ -1,5 +1,5 @@
 <template>
-  <picture v-if="imageArchive" class="image">
+  <picture v-if="imageArchive" class="picture">
     <source
       v-if="imageArchive.archiveAvif"
       :srcset="`${imageArchive.archiveAvif} 1x, ${imageArchive.archiveAvif2x} 2x`"
@@ -14,7 +14,11 @@
       :srcset="`${imageArchive.archive} 1x, ${imageArchive.archive2x} 2x`"
       type="image/jpeg"
     />
-    <app-image :src="imageArchive.archive" :alt="imageArchive.altText" />
+    <app-image
+      :src="imageArchive.archive"
+      :alt="imageArchive.altText"
+      class="image"
+    />
   </picture>
 </template>
 
@@ -42,3 +46,18 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+.picture {
+  display: block;
+  border: 5px solid var(--color-white);
+  box-shadow: 0 0 3px var(--color-gray);
+}
+
+.image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+</style>
