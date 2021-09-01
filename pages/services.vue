@@ -40,7 +40,7 @@ export default {
   },
   nuxtI18n: {
     paths: {
-      nl: '/huiswerkbegeleiding-haarlem',
+      nl: '/huiswerkbegeleiding',
     },
   },
 }
