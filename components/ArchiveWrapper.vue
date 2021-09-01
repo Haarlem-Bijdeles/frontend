@@ -3,7 +3,7 @@
     <notch-wrapper>
       <div class="wrapper">
         <div v-if="image" class="image-wrapper">
-          <image-archive :image="image" />
+          <image-archive :image="image" class="image-archive" />
         </div>
 
         <div class="text">
@@ -72,11 +72,7 @@ export default {
   flex: 0 0 66%;
 }
 
-.image {
-  display: block;
-  width: 100%;
-  border: 5px var(--color-white) solid;
-  box-shadow: 0 0 3px #999;
+.image-archive {
   @media (--viewport-sm) {
     margin: 0 auto;
   }

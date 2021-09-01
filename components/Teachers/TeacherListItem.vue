@@ -1,6 +1,5 @@
 <template>
   <li class="item">
-    {{ teacher.featuredImage }}
     <archive-wrapper :image="teacher.image">
       <template #title>
         <!-- eslint-disable-next-line -->
