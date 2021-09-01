@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:nuxt/recommended",
+    "plugin:vue/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "vue/component-name-in-template-casing": ["error", "kebab-case"],
+    "vue/no-v-html": 0
+  }
+}

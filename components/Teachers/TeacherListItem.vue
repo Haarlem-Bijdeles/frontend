@@ -2,11 +2,9 @@
   <li class="item">
     <archive-wrapper :image="teacher.image">
       <template #title>
-        <!-- eslint-disable-next-line -->
         <span v-html="teacher.name" />
       </template>
 
-      <!-- eslint-disable-next-line -->
       <p v-html="teacher.bio" />
 
       <social-media-links

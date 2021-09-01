@@ -6,7 +6,6 @@
       <div class="meta">
         <post-date :date="post.date" />
       </div>
-      <!-- eslint-disable-next-line -->
       <div v-html="post.content" />
     </archive-wrapper>
     <section id="posts-title">

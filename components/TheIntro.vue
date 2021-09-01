@@ -1,6 +1,5 @@
 <template>
   <notch-wrapper v-if="text">
-    <!-- eslint-disable-next-line -->
     <div class="intro" v-html="text" />
   </notch-wrapper>
 </template>

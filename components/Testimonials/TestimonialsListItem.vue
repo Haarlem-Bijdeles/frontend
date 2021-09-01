@@ -2,8 +2,10 @@
   <li>
     <blockquote class="quote">
       <cite class="cite">{{ testimonial.node.title }}</cite>
-      <!-- eslint-disable-next-line -->
-      <span v-if="testimonial.node.testimonialsGroup" v-html="testimonial.node.testimonialsGroup.quote" />
+      <span
+        v-if="testimonial.node.testimonialsGroup"
+        v-html="testimonial.node.testimonialsGroup.quote"
+      />
     </blockquote>
   </li>
 </template>

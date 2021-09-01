@@ -35,7 +35,6 @@
         {{ method.title }}
       </template>
 
-      <!-- eslint-disable-next-line -->
       <div v-html="method.text" />
     </archive-wrapper>
   </div>

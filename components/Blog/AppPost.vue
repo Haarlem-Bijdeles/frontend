@@ -2,13 +2,11 @@
   <clickable-list-item :url="url" class="list-item">
     <archive-wrapper :image="post.featuredImage">
       <template #title>
-        <!-- eslint-disable-next-line -->
-        <router-link :to="url" v-html="post.title" class="link" />
+        <router-link :to="url" class="link" v-html="post.title" />
       </template>
       <div class="meta">
         <post-date :date="post.date" />
       </div>
-      <!-- eslint-disable-next-line -->
       <div v-html="post.excerpt" />
 
       <read-more-link aria-hidden="true" class="read-more" />
