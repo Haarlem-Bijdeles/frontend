@@ -3,12 +3,8 @@
   color: var(--color-white);
 
   & a {
-    color: currentColor;
-    box-shadow: 0 1px 0 0 currentColor;
-
-    &:hover {
-      box-shadow: 0 2px 0 0 currentColor;
-    }
+    text-decoration-color: var(--color-white);
+    text-decoration-thickness: 1px;
 
   }
 

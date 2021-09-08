@@ -59,8 +59,21 @@
             </p>
           </address>
         </div>
-        <nuxt-link to="/" class="logo">
-          <icon-logo aria-hidden="true" width="120" height="120" class="logo" />
+        <nuxt-link to="/" class="logo-wrapper">
+          <icon-logo-amsterdam
+            v-if="$config.siteID === 'amsterdam'"
+            class="logo"
+            aria-hidden="true"
+            width="120"
+            height="120"
+          />
+          <icon-logo
+            v-else
+            class="logo"
+            aria-hidden="true"
+            width="120"
+            height="120"
+          />
           <span class="sr-only">{{ $config.siteTitle }}</span>
         </nuxt-link>
 
@@ -83,6 +96,7 @@ import { mapState } from 'vuex'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '~/components/SocialMediaLinks.vue'
 import IconLogo from '~/icons/logo.svg'
+import IconLogoAmsterdam from '~/icons/logo-amsterdam.svg'
 import MenuItem from '~/components/MenuItem.vue'
 
 export default {
@@ -90,6 +104,7 @@ export default {
     NotchWrapper,
     SocialMediaLinks,
     IconLogo,
+    IconLogoAmsterdam,
     MenuItem,
   },
   data() {
@@ -129,6 +144,10 @@ export default {
 <style lang="postcss" scoped>
 .footer {
   @mixin color-negative;
+
+  & .logo-wrapper {
+    @mixin link-reset;
+  }
 }
 
 .wrapper {
@@ -155,7 +174,7 @@ export default {
   padding-bottom: var(--spacing-xxs);
 }
 
-.logo {
+.logo-wrapper {
   border: 1px solid rgba(255, 255, 255, 0.5);
   display: none;
 
