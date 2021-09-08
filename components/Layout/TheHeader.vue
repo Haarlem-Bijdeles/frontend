@@ -5,7 +5,20 @@
         <skip-links />
         <mobile-navigation @toggleMenu="toggleMenu" />
         <nuxt-link class="logo-wrapper" to="/">
-          <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
+          <icon-logo-amsterdam
+            v-if="$config.siteID === 'amsterdam'"
+            class="logo"
+            aria-hidden="true"
+            width="150"
+            height="150"
+          />
+          <icon-logo
+            v-else
+            class="logo"
+            aria-hidden="true"
+            width="150"
+            height="150"
+          />
           <icon-logo-small
             class="logo-small"
             height="50"
@@ -39,6 +52,7 @@ import SkipLinks from '~/components/Layout/SkipLinks.vue'
 import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
 import MainNavigation from '~/components/Menu/MainNavigation.vue'
 import IconLogo from '~/icons/logo.svg'
+import IconLogoAmsterdam from '~/icons/logo-amsterdam.svg'
 import IconLogoSmall from '~/icons/logo-small.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
@@ -49,6 +63,7 @@ export default {
     SkipLinks,
     MobileNavigation,
     IconLogo,
+    IconLogoAmsterdam,
     IconLogoSmall,
     MainNavigation,
     NotchWrapper,
