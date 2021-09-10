@@ -5,22 +5,7 @@
     :center="center"
     :zoom="15"
     class="map"
-  >
-    <gmap-marker
-      v-for="(office, index) in offices"
-      :key="office.zipcode"
-      :icon="icon"
-      :position="getPosition(office)"
-      :clickable="true"
-      @click="toggleInfoWindow(office, index)"
-    />
-    <gmap-info-window
-      :options="infoOptions"
-      :position="infoWindowPos"
-      :opened="infoWinOpen"
-      @closeclick="infoWinOpen = false"
-    />
-  </gmap-map>
+  />
 </template>
 
 <script>
