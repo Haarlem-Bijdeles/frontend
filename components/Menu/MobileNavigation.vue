@@ -3,14 +3,24 @@
     <notch-wrapper>
       <div class="buttons">
         <nuxt-link class="logo-wrapper" to="/">
+          <icon-logo-small-amsterdam
+            v-if="$config.siteID === 'amsterdam'"
+            class="logo"
+            height="50"
+            width="180"
+            aria-hidden="true"
+          />
           <icon-logo-small
+            v-else
             class="logo"
             height="50"
             width="160"
             aria-hidden="true"
           />
-          <span class="sr-only">Turbo Solutions</span>
+
+          <span class="sr-only">{{ $config.siteTitle }}</span>
         </nuxt-link>
+
         <button
           :aria-expanded="menuIsExpanded"
           class="btn"
@@ -28,6 +38,7 @@
 import IconBars from '~/icons/bars.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import IconLogoSmall from '~/icons/logo-small.svg'
+import IconLogoSmallAmsterdam from '~/icons/logo-small-amsterdam.svg'
 import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
@@ -35,6 +46,7 @@ export default {
     IconBars,
     NotchWrapper,
     IconLogoSmall,
+    IconLogoSmallAmsterdam,
   },
   data() {
     return {

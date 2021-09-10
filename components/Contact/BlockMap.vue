@@ -67,6 +67,9 @@ export default {
       }
     },
     boundMap() {
+      if (this.offices.length < 2) {
+        return
+      }
       // this.$refs.refMap.$mapPromise.then((map) => {
       //   const bounds = new window.google.maps.LatLngBounds()
       //   this.offices.forEach((location) => {
@@ -80,17 +83,16 @@ export default {
       // })
     },
     toggleInfoWindow(marker, ID) {
-      this.infoWindowPos = this.getPosition(marker)
-      this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
-
-      // check if its the same marker that was selected if yes toggle
-      if (this.currentID === ID) {
-        this.infoWinOpen = !this.infoWinOpen
-      } else {
-        // if different marker set infowindow to open and reset current marker index
-        this.infoWinOpen = true
-        this.currentID = ID
-      }
+      // this.infoWindowPos = this.getPosition(marker)
+      // this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
+      // // check if its the same marker that was selected if yes toggle
+      // if (this.currentID === ID) {
+      //   this.infoWinOpen = !this.infoWinOpen
+      // } else {
+      //   // if different marker set infowindow to open and reset current marker index
+      //   this.infoWinOpen = true
+      //   this.currentID = ID
+      // }
     },
   },
 }

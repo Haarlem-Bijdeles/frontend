@@ -19,7 +19,16 @@
             width="150"
             height="150"
           />
+
+          <icon-logo-small-amsterdam
+            v-if="$config.siteID === 'amsterdam'"
+            class="logo-small"
+            height="50"
+            width="180"
+            aria-hidden="true"
+          />
           <icon-logo-small
+            v-else
             class="logo-small"
             height="50"
             width="160"
@@ -55,6 +64,7 @@ import IconLogo from '~/icons/logo.svg'
 import IconLogoAmsterdam from '~/icons/logo-amsterdam.svg'
 import IconLogoSmall from '~/icons/logo-small.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import IconLogoSmallAmsterdam from '~/icons/logo-small-amsterdam.svg'
 
 const bodyScrollLock = require('body-scroll-lock')
 
@@ -65,6 +75,7 @@ export default {
     IconLogo,
     IconLogoAmsterdam,
     IconLogoSmall,
+    IconLogoSmallAmsterdam,
     MainNavigation,
     NotchWrapper,
   },
