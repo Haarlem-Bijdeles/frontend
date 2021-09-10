@@ -7,7 +7,9 @@
         <form-contact />
       </div>
     </notch-wrapper>
-    <block-map v-if="offices && offices.length" :offices="offices" />
+    <client-only>
+      <block-map v-if="offices && offices.length" :offices="offices" />
+    </client-only>
   </div>
 </template>
 
