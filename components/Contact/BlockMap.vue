@@ -1,11 +1,5 @@
 <template>
-  <gmap-map
-    v-if="offices.length"
-    ref="refMap"
-    :center="center"
-    :zoom="15"
-    class="map"
-  >
+  <gmap-map ref="refMap" :center="center" :zoom="15" class="map">
     <gmap-marker
       v-for="(office, index) in offices"
       :key="office.zipcode"
