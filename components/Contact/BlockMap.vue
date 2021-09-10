@@ -5,7 +5,22 @@
     :center="center"
     :zoom="15"
     class="map"
-  />
+  >
+    <gmap-marker
+      v-for="(office, index) in offices"
+      :key="office.zipcode"
+      :icon="icon"
+      :position="getPosition(office)"
+      :clickable="true"
+      @click="toggleInfoWindow(office, index)"
+    />
+    <gmap-info-window
+      :options="infoOptions"
+      :position="infoWindowPos"
+      :opened="infoWinOpen"
+      @closeclick="infoWinOpen = false"
+    />
+  </gmap-map>
 </template>
 
 <script>
@@ -55,29 +70,29 @@ export default {
       if (this.offices.length < 2) {
         return
       }
-      // this.$refs.refMap.$mapPromise.then((map) => {
-      //   const bounds = new window.google.maps.LatLngBounds()
-      //   this.offices.forEach((location) => {
-      //     const position = new window.google.maps.LatLng(
-      //       location.latitude,
-      //       location.longitude,
-      //     )
-      //     bounds.extend(position)
-      //   })
-      //   map.fitBounds(bounds)
-      // })
+      this.$refs.refMap.$mapPromise.then((map) => {
+        const bounds = new window.google.maps.LatLngBounds()
+        this.offices.forEach((location) => {
+          const position = new window.google.maps.LatLng(
+            location.latitude,
+            location.longitude,
+          )
+          bounds.extend(position)
+        })
+        map.fitBounds(bounds)
+      })
     },
     toggleInfoWindow(marker, ID) {
-      // this.infoWindowPos = this.getPosition(marker)
-      // this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
-      // // check if its the same marker that was selected if yes toggle
-      // if (this.currentID === ID) {
-      //   this.infoWinOpen = !this.infoWinOpen
-      // } else {
-      //   // if different marker set infowindow to open and reset current marker index
-      //   this.infoWinOpen = true
-      //   this.currentID = ID
-      // }
+      this.infoWindowPos = this.getPosition(marker)
+      this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
+      // check if its the same marker that was selected if yes toggle
+      if (this.currentID === ID) {
+        this.infoWinOpen = !this.infoWinOpen
+      } else {
+        // if different marker set infowindow to open and reset current marker index
+        this.infoWinOpen = true
+        this.currentID = ID
+      }
     },
   },
 }
