@@ -67,20 +67,18 @@ export default {
       }
     },
     boundMap() {
-      if (this.offices.length > 1) {
-        this.$refs.refMap.$mapPromise.then((map) => {
-          const bounds = new window.google.maps.LatLngBounds()
-          this.offices.forEach((location) => {
-            const position = new window.google.maps.LatLng(
-              location.latitude,
-              location.longitude,
-            )
-            bounds.extend(position)
-          })
-
-          map.fitBounds(bounds)
+      this.$refs.refMap.$mapPromise.then((map) => {
+        const bounds = new window.google.maps.LatLngBounds()
+        this.offices.forEach((location) => {
+          const position = new window.google.maps.LatLng(
+            location.latitude,
+            location.longitude,
+          )
+          bounds.extend(position)
         })
-      }
+
+        map.fitBounds(bounds)
+      })
     },
     toggleInfoWindow(marker, ID) {
       this.infoWindowPos = this.getPosition(marker)
