@@ -1,11 +1,12 @@
 <template>
   <div>
     <page :page="page" />
-    <!-- <notch-wrapper v-if="offices.length">
+    <notch-wrapper v-if="offices.length">
       <div class="wrapper">
         <contact-offices :offices="offices" />
+        <form-contact />
       </div>
-    </notch-wrapper> -->
+    </notch-wrapper>
     <block-map v-if="offices && offices.length" :offices="offices" />
   </div>
 </template>
