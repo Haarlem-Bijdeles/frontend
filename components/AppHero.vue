@@ -19,12 +19,13 @@
             Maak direct een afspraak
           </app-button>
           <app-button
+            v-if="siteDetails.addressesGroup.phonenumber"
             class="btn"
             button-tag="a"
-            href="tel:06%20-%2028%2032%2057%2033"
+            :href="`tel:${siteDetails.addressesGroup.phonenumber}`"
             button-style="ghost"
           >
-            Bel ons: 06 - 28 32 57 33
+            Bel ons: {{ siteDetails.addressesGroup.phonenumber }}
           </app-button>
         </div>
       </notch-wrapper>

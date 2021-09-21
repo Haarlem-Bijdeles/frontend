@@ -14,11 +14,12 @@
       <app-button
         :is-full-width="true"
         button-tag="a"
-        href="tel:06%20-%2028%2032%2057%2033"
+        v-if="siteDetails.addressesGroup.phonenumber"
+        :href="`tel:${siteDetails.addressesGroup.phonenumber}`"
         button-style="ghost"
         class="btn"
       >
-        {{ $t('callUs') }}
+        {{ $t('callUs') }} {{ siteDetails.addressesGroup.phonenumber }}
       </app-button>
     </div>
   </div>
@@ -26,11 +27,15 @@
 
 <script>
 import AppButton from '~/components/Shared/AppButton.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     AppButton,
   },
+  computed: {
+    ...mapState('siteDetails', ['siteDetails']),
+  }
 }
 </script>
 
@@ -61,7 +66,7 @@ export default {
 {
   "nl": {
     "makeAppointment": "Maak direct een afspraak",
-    "callUs": "Bel ons: 06 - 28 32 57 33"
+    "callUs": "Bel ons:"
   }
 }
 </i18n>
